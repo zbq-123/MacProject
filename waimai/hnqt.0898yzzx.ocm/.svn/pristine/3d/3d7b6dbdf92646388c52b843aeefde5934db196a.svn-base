@@ -1,0 +1,536 @@
+---------------------------------------------------------------
+[ 2022-05-25T17:26:11+08:00 ] 127.0.0.1 GET demo.hnqt.com/
+[运行时间：0.081419s] [吞吐率：12.28req/s] [内存消耗：2,111.65kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:26:11+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/login/index.html
+[运行时间：0.051553s] [吞吐率：19.40req/s] [内存消耗：3,021.18kb] [文件加载：116]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:26:11+08:00 ] 127.0.0.1 GET demo.hnqt.com/captcha.html
+[运行时间：0.055965s] [吞吐率：17.87req/s] [内存消耗：1,807.13kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:26:57+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/MonthCart/wxpay_goods.html
+[运行时间：0.055188s] [吞吐率：18.12req/s] [内存消耗：1,801.38kb] [文件加载：104]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'MonthCart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:27:09+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/monthcart/wxpay_goods.html
+[运行时间：0.043202s] [吞吐率：23.15req/s] [内存消耗：1,801.38kb] [文件加载：104]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'monthcart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:28:00+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：0.046126s] [吞吐率：21.68req/s] [内存消耗：2,102.28kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:28:00+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/auth/index.html
+[运行时间：0.047120s] [吞吐率：21.22req/s] [内存消耗：1,999.91kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:28:15+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：0.036265s] [吞吐率：27.57req/s] [内存消耗：1,823.21kb] [文件加载：105]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Cart->wxpay_goods[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:28:34+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：0.052163s] [吞吐率：19.17req/s] [内存消耗：1,823.29kb] [文件加载：105]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Cart->wxpay_goods[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:28:36+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：0.039462s] [吞吐率：25.34req/s] [内存消耗：1,823.29kb] [文件加载：105]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Cart->wxpay_goods[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:28:46+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：0.051856s] [吞吐率：19.28req/s] [内存消耗：1,830.03kb] [文件加载：105]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Cart->wxpay_goods[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: ent_time[D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php:40]
+---------------------------------------------------------------
+[ 2022-05-25T17:28:54+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：0.032358s] [吞吐率：30.90req/s] [内存消耗：1,720.41kb] [文件加载：98]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Cart->wxpay_goods[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T17:53:20+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：0.082617s] [吞吐率：12.10req/s] [内存消耗：2,587.45kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Cart->wxpay_goods[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [0]致命错误: Class 'app\client\controller\WxPay' not found[D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php:101]
+---------------------------------------------------------------
+[ 2022-05-25T17:56:18+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：4.430500s] [吞吐率：0.23req/s] [内存消耗：2,598.25kb] [文件加载：112]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Cart->wxpay_goods[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T18:00:39+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：0.464180s] [吞吐率：2.15req/s] [内存消耗：2,571.45kb] [文件加载：107]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Cart->wxpay_goods[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-25T18:00:55+08:00 ] 127.0.0.1 GET demo.hnqt.com/client/cart/wxpay_goods.html
+[运行时间：0.337345s] [吞吐率：2.96req/s] [内存消耗：2,598.25kb] [文件加载：112]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'cart',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=b8fdjhhrqp97kbbmpvrj9vk5il',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Cart->wxpay_goods[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\client\controller\Cart.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File

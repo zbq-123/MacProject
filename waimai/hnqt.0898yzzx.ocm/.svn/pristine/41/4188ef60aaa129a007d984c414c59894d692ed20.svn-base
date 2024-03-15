@@ -1,0 +1,106 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\client\user\address_list.html";i:1649385562;s:61:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\client\common\meta.html";i:1650443754;s:63:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\client\common\script.html";i:1649385562;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>圈圈食堂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/client/mui/css/clear.css">
+<link rel="stylesheet" href="/static/client/mui/css/mui.min.css">
+<link rel="stylesheet" href="/static/client/mui/css/common.css">
+<link rel="stylesheet" href="/static/client/css/jquery-loadprompt.css">
+<!-- <style type="text/css">
+	#box{
+		position: fixed;
+		top: 0;
+		height: 100vh;
+		line-height: 100vh;
+		width: 100%;
+		background-color: rgba(0,0,0,1);
+		color: white;
+		text-align: center;
+		z-index: 99999;
+	}
+</style>
+<div id="box">外卖系统将于4月20日对外开放</div> -->
+    <link rel="stylesheet" href="/static/client/css/page-user-address-list.css">
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">收货地址</h1>
+    <a class="mui-btn mui-btn-link mui-pull-right" href="<?php echo url('user/address_add'); ?>">新增地址</a>
+</header>
+<div class="mui-content">
+    <?php if(is_array($address) || $address instanceof \think\Collection || $address instanceof \think\Paginator): $i = 0; $__LIST__ = $address;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+    <div class="address-panel" data-address_id="<?php echo $vo['address_id']; ?>">
+        <div class="address-detail-panel">
+            <div class="panel-address-info">
+                <div class="address"><?php if($vo['is_default'] == '1'): ?><span class="address-default">默认地址</span>&nbsp;<?php endif; ?><?php echo $vo['delivery_address']; ?></div>
+                <div class="user-info"><?php echo $vo['delivery_name']; ?>(<?php echo $vo['gender']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vo['delivery_phone']; ?></div>
+            </div>
+            <img class="address-edit" src="/static/client/icon/icon-edit.png" data-address_id="<?php echo $vo['address_id']; ?>">
+        </div>
+    </div>
+    <?php endforeach; endif; else: echo "" ;endif; ?>
+</div>
+</body>
+<script src="/static/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+<script src="/static/client/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/client/js/jquery-loadprompt.js" charset="utf-8"></script>
+<script>
+    mui.init();
+
+    var is_submit = <?php if(\think\Request::instance()->get('is_submit') == '1'): ?>1<?php else: ?>0<?php endif; ?>;
+
+    //进入编辑页面
+    jQuery('.address-edit').click(function () {
+        var address_id = jQuery(this).data('address_id');
+        if(address_id > 0){
+            jQuery(location).attr('href',"<?php echo url('user/address_edit'); ?>?address_id="+address_id);
+        }
+
+        //阻止事件冒泡
+        return false;
+    });
+
+    if(is_submit == 1){
+        //如果是从提交订单页进来那么点击收货地址返回提交订单页
+        jQuery('.address-panel').click(function () {
+            var data = {};
+            data['address_id'] = jQuery(this).data('address_id');
+
+            jQuery.ajax({
+                url:"<?php echo url('address_select'); ?>",
+                data: data,
+                type: "POST",
+                dataType: 'json',
+                beforeSend: function () {
+                    jQuery.showLoading('选择中...',function () {});
+                },
+                success: function(res){
+                    if (res.code == 200) {
+                        jQuery.loadSuccess('选择成功',function () {
+                            history.go(-1);
+                        });
+                    }else{
+                        jQuery.loadError('选择失败',function () {
+                            mui.toast(res.message,{ duration: 3000 });
+                        });
+                    }
+                },
+                error: function (xhr) {
+                    // 只有请求不正常（状态码不为200）才会执行
+                    jQuery.loadError('选择失败',function () {
+                        mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                    });
+                },
+            });
+        })
+    }
+</script>
+</html>

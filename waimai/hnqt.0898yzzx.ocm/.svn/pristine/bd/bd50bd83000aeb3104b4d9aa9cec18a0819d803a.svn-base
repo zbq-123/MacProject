@@ -1,0 +1,410 @@
+{extend name="public/popup" /}
+{block name="content"}
+<a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="{:url('index')}"><i class="layui-icon">&#xe603;</i>返回</a>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>修改商品</legend>
+</fieldset>
+<form class="layui-form layui-form-edit" action="{:url('edit')}" method="post" lay-filter="newsForm">
+
+    <div class="layui-form-item" style="height: 500px;">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">所属商家</label>
+            <div class="layui-input-inline layui-form" lay-filter="supermarketSelect" >
+                <select name="supermarket_id"  id="supermarketid" lay-filter="supermarketid"  >
+
+                    <option value="{$digital.id}">{$digital.name}</option>
+
+                </select>
+            </div>
+            <label class="layui-form-label">所属分类</label>
+            <div class="layui-input-inline layui-form" lay-filter="navigationIdSelect" >
+                <select name="category_id"   id="navigationId"  lay-filter="navigationId" >
+
+                    <option value="{$digital_category.id}">{$digital_category.name}</option>
+
+                </select>
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">商品名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" placeholder="商品名称" lay-verify="name|required" value="{$store.name}" class="layui-input">
+            </div>
+            <label class="layui-form-label">商品价格</label>
+            <div class="layui-input-inline">
+                <input type="text" name="price" placeholder="商品价格" lay-verify="price|required" value="{$store.price}" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">商品单位</label>
+            <div class="layui-input-inline">
+                <input type="text" name="unit" placeholder="商品单位" lay-verify="unit" value="{$store.unit}" class="layui-input">
+            </div>
+            <label class="layui-form-label">商品库存</label>
+            <div class="layui-input-inline">
+                <input type="text" name="stock" placeholder="商品库存" lay-verify="stock|required" value="{$store.stock}" class="layui-input">
+            </div>
+        </div>
+
+
+
+
+        <input type="hidden" name="id" value="{$store.id}">
+        <div class="layui-form-item"></div>
+
+        <div class="layui-form-item">
+            <div class="layui-form-item" id="titlePicture1">
+                <label class="layui-form-label">图片</label>
+                <div class="layui-input-inline">
+                    <div class="layui-upload-drag xu-upload" id="picture1" style="display: none;">
+                        <img src="{$store.image}" alt="" width="138" height="95">
+                    </div>
+                </div>
+                <input type="hidden" name="image" value="{$store.image}">
+            </div>
+
+
+        </div>
+          
+        <div class="layui-form-item"></div>
+        <div class="layui-form-item guige">
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+
+                    <button id="show_tag" type="button" class="layui-btn" {if(!$spec_goods.price)}style="display: block;"{/if}>显示规格</button>
+                    <button id="hide_tag" type="button" class="layui-btn" {if(!$spec_goods.price)}style="display: none;"{/if}>隐藏规格</button>
+                    <button id="add_tag" type="button" class="layui-btn" {if(!$spec_goods.price)}style="display: none;"{/if}>添加规格</button>
+                </div>
+            </div>
+            <div class="layui-form-item" style="padding-left: 110px;">
+                <table id="sepc_table"  class="layui-table" lay-size="sm" style="margin-bottom: 20px;{if(!$spec_goods.price)}display: none;{/if}">
+                    <thead>
+                    <tr>
+                        <th>规格分类1</th>
+                        <th>规格分类2</th>
+                        <th>规格分类3</th>
+                        <th>规格分类4</th>
+                        <th>销售价</th>
+                        <th>库存</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tr data_index="-1">
+                        <td>
+                            <select id="spec_id1" name="add_tag[spec_id1]" class="layui-btn-xs" lay-filter="spec_id1" lay-search>
+                                <option value="">请选择规格名称</option>
+                                {foreach $spec as $v2}
+                                <option value="{$v2.id}-{$v2.name}" {if($v2.id==$spec_goods.spec_id_1)}selected="" {/if}>{$v2.name}</option>
+                                {/foreach}
+                            </select>
+                        </td>
+                        <td>
+                            <select id="spec_id2"  name="add_tag[spec_id2]" class="layui-btn-xs" lay-filter="spec_id2"  lay-search>
+                                <option value="">请选择(可以输入搜索)</option>
+                                {foreach $spec as $v2}
+                                <option value="{$v2.id}-{$v2.name}" {if($v2.id==$spec_goods.spec_id_2)}selected="" {/if}>{$v2.name}</option>
+                                {/foreach}
+
+                            </select>
+                        </td>
+                        <td>
+                            <select id="spec_id3"  name="add_tag[spec_id3]" class="layui-btn-xs" lay-filter="spec_id3"  lay-search>
+                                <option value="">请选择(可以输入搜索)</option>
+                                {foreach $spec as $v2}
+                                <option value="{$v2.id}-{$v2.name}" {if($v2.id==$spec_goods.spec_id_3)}selected="" {/if}>{$v2.name}</option>
+                                {/foreach}
+
+                            </select>
+                        </td>
+                        <td>
+                            <select id="spec_id4"  name="add_tag[spec_id4]" class="layui-btn-xs" lay-filter="spec_id4"  lay-search>
+                                <option value="">请选择(可以输入搜索)</option>
+                                {foreach $spec as $v2}
+                                <option value="{$v2.id}-{$v2.name}" {if($v2.id==$spec_goods.spec_id_4)}selected="" {/if}>{$v2.name}</option>
+                                {/foreach}
+
+                            </select>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {volist name="$spec_goods.price" id="vo"}
+                    <tr data_index="{$key}">
+                        <td>
+                            <input type="text" name="add_tag[goods_spec][{$key}][key1]" placeholder="请输入"
+                                   class="layui-input spec_classify1" value="{$vo.key1}">
+                        </td>
+                        <td>
+                            <input type="text" name="add_tag[goods_spec][{$key}][key2]" placeholder="请输入"
+                                   class="layui-input spec_classify2" value="{$vo.key2}">
+                        </td>
+                        <td>
+                            <input type="text" name="add_tag[goods_spec][{$key}][key3]" placeholder="请输入"
+                                   class="layui-input spec_classify3" value="{$vo.key3}">
+                        </td>
+                        <td>
+                            <input type="text" name="add_tag[goods_spec][{$key}][key4]" placeholder="请输入"
+                                   class="layui-input spec_classify4" value="{$vo.key4}">
+                        </td>
+                        <td>
+                            <input type="text" name="add_tag[goods_spec][{$key}][price]" placeholder="请输入"
+                                   class="layui-input layui-btn-xs" value="{$vo.price}">
+                        </td>
+                        <td>
+                            <input type="text" name="add_tag[goods_spec][{$key}][store_count]" placeholder="请输入"
+                                   class="layui-input spec_storage" value="{$vo.store_count}">
+                        </td>
+                        <td>
+                            <a class="layui-btn layui-btn-sm remove del" href="javascript:;" type="button" title="删除">删除</a>
+                        </td>
+                    </tr>
+                    {/volist}
+                </table>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="save">保存</button>
+                <!--        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="audit">提交审核</button>-->
+                <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+{block name="script"}
+<script type="text/javascript" src="__STATIC__/ueditor/ueditor.config.js?version={$Think.config.web_config.site_version}"></script>
+<script type="text/javascript" src="__STATIC__/ueditor/ueditor.all.js?version={$Think.config.web_config.site_version}"></script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+        //自定义验证规则
+        form.verify({
+            name: function (value) {
+                if (value.length > 100) {
+                    return '限制100个字符且不为空';
+                }
+            }
+        });
+        //输入图片上传按钮序号初始化上传组件
+        xlp.getHttp("{:url('api/get_digital')}", {}, function (res) {
+           // $("#supermarketid").html('<option value="">请选择商家</option>');
+            layui.each(res, function (i) {
+                $("#supermarketid").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                form.render("select", "supermarketSelect");
+            })
+        });
+        form.on('select(supermarketid)', function (data) {
+            xlp.getHttp("{:url('api/digital_category')}", {
+                supermarket_id: data.value,
+            }, function (res) {
+
+                $("#navigationId").html('<option value="">请选择分类</option>');
+                layui.each(res, function (i) {
+                    $("#navigationId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                    form.render("select", "navigationIdSelect");
+                })
+                form.render();
+            })
+        });
+
+        upload.render({
+            elem: '#picture1'
+            , url: "{:url('upload/supermarket')}"
+            , size: 2048
+            , done: function (res, index, upload) {
+                if (res.code == 200) {
+                    $("#titlePicture1").find("input[name='image']").eq(1 - 1).val(res.data);
+                    $("#picture1").html("<img src='" + res.data + "' width='138' height='95'>");
+                    $("#picture1").css({"padding": "0"});
+                }
+
+                //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+                var item = this.item;
+            }
+        });
+        $("#picture1").css({"display": "inline-block"});
+
+
+        form.on("submit(cancel)", function (data) {
+            location.href = "{:url('news_column')}";
+            return false;
+        });
+        function add_tag(){
+            var num=parseInt($("#sepc_table tr").last().attr('data_index'))+1;
+            num=isNaN(num)?0:num;
+
+            var content = '';
+
+            content+='<tr data_index="'+num+'">';
+            content+='<td>';
+            content+='<input type="text" name="add_tag[goods_spec]['+num+'][key1]" placeholder="请输入"  class="layui-input spec_classify1">';
+            content+='</td>';
+            content+='<td>';
+            content+='<input type="text" name="add_tag[goods_spec]['+num+'][key2]" placeholder="请输入" class="layui-input spec_classify2">';
+            content+='</td>';
+            content+='<td>';
+            content+='<input type="text" name="add_tag[goods_spec]['+num+'][key3]" placeholder="请输入" class="layui-input spec_classify3">';
+            content+='</td>';
+            content+='<td>';
+            content+='<input type="text" name="add_tag[goods_spec]['+num+'][key4]" placeholder="请输入" class="layui-input spec_classify4">';
+            content+='</td>';
+            content+='<td>';
+            content+='<input type="text" name="add_tag[goods_spec]['+num+'][price]" placeholder="请输入" class="layui-input layui-btn-xs">';
+            content+='</td>';
+            content+='<td>';
+            content+='<input type="text" name="add_tag[goods_spec]['+num+'][store_count]" placeholder="请输入"  class="layui-input spec_storage">';
+            content+='</td>';
+            content+='<td>';
+            content+='<a class="layui-btn layui-btn-sm layui-btn-danger del" href="javascript:;" type="button" title="删除" >删除</a>';
+            content+='</td>';
+            content+='</tr>';
+
+            num++;
+            $('#sepc_table').append(content);
+            // 删除规格
+            $(".del").on("click",function(){
+                delete_data(this)
+            })
+            // renderForm();
+            $('#content').height += 20
+        }
+
+        $("#add_tag").on("click",function(){
+            add_tag();
+            // console.log(window)
+            xlp.iframeLoaded(parent.document.getElementById("content-iframe"));
+        })
+
+        $("#show_tag").on("click",function(){
+            $(this).hide();
+            $('#hide_tag').show();
+            $('#add_tag').show();
+            $('#sepc_table').show();
+        })
+        $("#hide_tag").on("click",function(){
+            $(this).hide();
+            $('#show_tag').show();
+            $('#add_tag').hide();
+            $('#sepc_table').hide();
+        })
+
+        // 删除规格
+        $(".del").on("click",function(){
+            delete_data(this)
+        })
+
+        function delete_data(obj){
+            $(obj).parent().parent().remove();
+        }
+    })
+
+</script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+        //初始化编辑器
+        var ue = xlp.ueEditor('container', {});
+        ue.ready(function () {
+            xlp.reSetIframeHeight();
+        });
+
+
+        //自定义验证规则
+        form.verify({
+            title: function (value) {
+                if (value.length > 60 | value.length == 0) {
+                    return '标题限制60个字符且不为空';
+                }
+            },
+            keyword: function (value) {
+                if (value.length > 255) {
+                    return '字数限制255个字符';
+                }
+            },
+            writer: function (value) {
+                if (value.length > 20) {
+                    return '字数限制20个字符';
+                }
+            },
+            summary: function (value) {
+                if (value.length > 255) {
+                    return '字数限制255个字符';
+                }
+            },
+            source: function (value) {
+                if (value.length > 60 | value.length == 0) {
+                    return '字数限制60个字符且不为空';
+                }
+            },
+            editor: function (value) {
+                if (value.length > 20) {
+                    return '字数限制20个字符';
+                }
+            },
+
+        });
+
+        /* xlp.getHttp("{:url('api/all_column')}", {}, function (res) {
+             $("#columnTypeId").html('<option value="">请选择(可以输入搜索)</option>');
+             layui.each(res, function (i) {
+                 $("#columnTypeId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                 form.render("select", "columnTypeIdSelect");
+             })
+         });*/
+
+
+        form.on("submit(audit)", function (data) {
+            $("#status").val("1");
+
+        });
+        form.on("submit(cancel)", function (data) {
+            location.href = "{:url('news_subject')}";
+            return false;
+        });
+    })
+
+</script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            , type: 'time',
+
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test2' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test3' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test4' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test5' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test6' //指定元素
+            , type: 'time'
+        });
+    });
+</script>
+{/block}

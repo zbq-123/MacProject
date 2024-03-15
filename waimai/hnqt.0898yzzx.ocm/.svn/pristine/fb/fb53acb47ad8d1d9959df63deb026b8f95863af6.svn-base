@@ -1,0 +1,162 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:67:"/www/wwwroot/wmgl.yzzx0898.com/tpl/admin/carousel/add_carousel.html";i:1623238834;s:64:"/www/wwwroot/wmgl.yzzx0898.com/tpl/admin/public/public_main.html";i:1623238834;s:57:"/www/wwwroot/wmgl.yzzx0898.com/tpl/admin/common/meta.html";i:1623238837;s:59:"/www/wwwroot/wmgl.yzzx0898.com/tpl/admin/common/script.html";i:1623238837;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:"海师食堂外卖"); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/layui/css/layui.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>"  media="all">
+<link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+<link rel="stylesheet" href="/static/css/style.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+    
+</head>
+
+<body class="layui-layout-body">
+<!--内容主题区域-->
+<div id="content"  class="main-body">
+    <div style="padding: 15px;" id="content-wrap">
+        <p>
+                <span class="layui-breadcrumb">
+                <?php if(is_array($breadcrumb) || $breadcrumb instanceof \think\Collection || $breadcrumb instanceof \think\Paginator): $i = 0; $__LIST__ = $breadcrumb;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bread): $mod = ($i % 2 );++$i;?>
+                <a><cite><?php echo $bread; ?></cite></a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </span>
+        </p>
+
+        <div class=" main-content">
+            
+<a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="<?php echo url('carousel'); ?>"><i class="layui-icon">&#xe603;</i>返回</a>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>添加轮播图</legend>
+</fieldset>
+<form class="layui-form" action="<?php echo url('add_carousel'); ?>" method="post" lay-filter="carouselForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">轮播图名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" placeholder="请输入" lay-verify="name|required" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item" id="titlePicture">
+        <label class="layui-form-label">图片</label>
+        <div class="layui-input-block">
+            <div class="layui-upload-drag xu-upload" id="image">
+                <i class="layui-icon">&#xe67c;</i>
+                <p>点击上传</p>
+            </div>
+        </div>
+
+            <input type="hidden" name="picture" id="imageUrl" placeholder="图片地址" class="layui-input" lay-verify="required">
+
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属校区</label>
+        <div class="layui-input-inline layui-form" lay-filter="navigationIdSelect">
+            <select name="campus_id" id="navigationId" lay-verify="required"  lay-filter="navigationId" lay-search>
+                <option value="">请选择(可以输入搜索)</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否显示</label>
+        <div class="layui-input-block">
+            <select name="status" lay-verify="required">
+                <option value="0">不显示</option>
+                <option value="1">显示</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">跳转类型</label>
+        <div class="layui-input-block">
+            <select name="jump_type" lay-verify="required">
+                <option value="1">不跳转</option>
+                <option value="2">跳转到店铺</option>
+                <option value="3">跳转到外部链接</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">跳转地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="jump_url" class="layui-input" placeholder="填写跳转地址，不跳转输入：0">
+        </div>
+    </div>
+
+    <label class="layui-form-label">排序</label>
+    <div class="layui-input-inline" >
+        <input type="text" name="sort" placeholder="请输入"  class="layui-input">
+    </div>
+    <div class="layui-form-item"></div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="save">提交</button>
+        </div>
+    </div>
+</form>
+
+        </div>
+    </div>
+</div>
+<script src="/static/layui/layui.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/common.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/echarts.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/js/' //layui全局设置
+        ,version: '<?php echo \think\Config::get('web_config.site_version'); ?>'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length > 40 ){
+                    return '标题限制40个字符且不为空';
+                }
+            },
+            jump_url: function(value){
+                if(value.length > 255){
+                    return '跳转地址限制255个字符且不为空';
+                }
+            }
+
+        });
+        xlp.getHttp("<?php echo url('api/all_campus'); ?>", {}, function (res) {
+            $("#navigationId").html('<option value="">请选择(可以输入搜索)</option>');
+            layui.each(res, function (i) {
+                $("#navigationId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "navigationIdSelect");
+            })
+        });
+        upload.render({
+            elem: '#image'
+            ,url: "<?php echo url('upload/carouselImage'); ?>"
+            ,size: 1024*5
+            ,done: function(res, index, upload){
+                if(res.code == 200){
+                    $("#imageUrl").val(res.data);
+                    $("#image").html("<img src='"+res.data+"' width='150' height='95'>");
+                    $("#image").css({"padding": "0"});
+                }
+            }
+        });
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+    <link rel="stylesheet" href="__STATIC__/client/css/page-user-index.css">
+</head>
+
+<body>
+<div class="mui-content">
+    <div class="user-header">
+        <img src="{empty name='user.image'}__STATIC__/client/examples/user-head.jpg{else/}{$user.image}{/empty}" class="user-img" />
+        <div class="user-info">
+            <div class="nickname">
+                <span>{$user.nickname}</span>
+                <img src="__STATIC__/client/icon/icon-king.png" />
+            </div>
+            <div class="id">
+                <img src="__STATIC__/client/icon/icon-idbadge.png">
+                <span>{$user.code}</span>
+            </div>
+        </div>
+        <div class="user-more">个人中心</div>
+    </div>
+    <div class="user-number">
+        <div class="card">
+            <span class="card-name">消费</span>
+            <span class="card-number">{$user.total_price/100}</span>
+        </div>
+        <div class="card">
+            <span class="card-name">订单数</span>
+            <span class="card-number">{$user.all_order}</span>
+        </div>
+        <div class="card">
+            <span class="card-name">待处理</span>
+            <span class="card-number">{$user.pending_order}</span>
+        </div>
+    </div>
+    <div class="user-item-p">
+        <div class="user-item" onclick="jumpOrders()">
+            <div class="item-info">
+                <img src="__STATIC__/client/icon/icon_orders.png" class="item-img">
+                <div class="item-name">我的订单</div>
+            </div>
+            <span class="mui-icon mui-icon-forward"></span>
+        </div>
+
+        <div class="user-item" onclick="jumpAddress()">
+            <div class="item-info">
+                <img src="__STATIC__/client/icon/icon_locations.png" class="item-img">
+                <div class="item-name">我的地址</div>
+            </div>
+            <span class="mui-icon mui-icon-forward"></span>
+        </div>
+		
+		<div class="user-item" onclick="jumpYouhui()">
+		    <div class="item-info">
+		        <img src="__STATIC__/client/icon/icon-id.png" class="item-img">
+		        <div class="item-name">我的优惠券</div>
+		    </div>
+		    <span class="mui-icon mui-icon-forward"></span>
+		</div>
+		
+		<div class="user-item" onclick="myCard()">
+		    <div class="item-info">
+		        <img src="__STATIC__/client/icon/icon-id.png" class="item-img">
+		        <div class="item-name">月卡优惠卷</div>
+		    </div>
+		    <span class="mui-icon mui-icon-forward"></span>
+		</div>
+    </div>
+</div>
+</body>
+{include file="common/script" /}
+<script>
+    //跳转到我的地址
+    function jumpAddress() {
+        jQuery(location).attr('href',"{:url('user/address_list')}");
+    }
+	function myCard(){
+		jQuery(location).attr('href',"{:url('user/my_card')}");
+	}
+    function jumpOrders(){
+        parent.location.replace("{:url('index/home')}?active=orders");
+    }
+	function jumpYouhui() {
+	    jQuery(location).attr('href',"{:url('user/youhui_list')}");
+	}
+    jQuery(".user-more").click(function () {
+        mui.toast("此功能在升级完善中，敬请期待",{ duration: 2000 });
+    })
+</script>
+</html>

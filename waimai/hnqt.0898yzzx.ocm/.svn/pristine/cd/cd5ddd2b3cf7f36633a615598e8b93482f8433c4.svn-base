@@ -1,0 +1,40 @@
+.iframe-css{
+    height: calc(100vh - 50px);width: 100%;
+}
+
+.mui-bar-tab .mui-tab-item {
+    color: #333333;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #000000;
+    font-weight: 700;
+}
+
+.mui-tab-item .tab-img{
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+.mui-tab-item .tab-name{
+    font-size: 10px;
+}
+
+.mui-bar {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 0;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px #f6f6f6;
+    box-shadow: 0 0 0px #f6f6f6;
+    border-top: 1px solid #f6f6f6;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+

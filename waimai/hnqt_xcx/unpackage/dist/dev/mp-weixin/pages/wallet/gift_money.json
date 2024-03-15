@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "赠送金",
+  "navigationBarBackgroundColor": "#f7dd93",
+  "usingComponents": {
+    "u--text": "/uni_modules/uview-ui/components/u--text/u--text",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon"
+  }
+}

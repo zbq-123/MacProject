@@ -1,0 +1,40 @@
+
+.popup{
+	padding: 20rpx;
+	overflow-y: scroll;
+	max-height: 90vh;
+}
+.active{
+	border: 1px solid deepskyblue!important;
+	background: #aaffff!important;
+}
+.pay{
+	display: flex;
+	align-items: center;
+	margin: 20rpx 0;
+	justify-content: center;
+}
+.balance{
+	padding: 30rpx;
+}
+.u-text__value{
+	font-family: ui-sans-serif;
+}
+.r_balance{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 30rpx;
+}
+.r_balance text{
+	width: 30%;
+	text-align: center;
+	padding: 50rpx 0;
+	background: #f0f0f0;
+	border-radius: 5px;
+	margin: 0 29rpx 29rpx 0;
+	border: 1px solid transparent;
+}
+.r_balance text:nth-child(3n + 3) {
+  margin-right: 0!important;
+}
+

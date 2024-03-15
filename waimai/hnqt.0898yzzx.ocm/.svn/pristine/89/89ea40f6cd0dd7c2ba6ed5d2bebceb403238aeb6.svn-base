@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {include file="common/meta" /}
+    <title>首页</title>
+
+    <style>
+        *{touch-action: none;}
+        .home-tab-img{
+            background-image: url("__STATIC__/store/icon/tabbar/tab-home-icon.png");
+            background-size: 100%;
+        }
+        .mui-bar-tab .mui-tab-item.mui-active .home-tab-img{
+            background-image: url("__STATIC__/store/icon/tabbar/tab-home-icon-active.png");
+            background-size: 100%;
+        }
+        .order-tab-img{
+            background-image: url("__STATIC__/store/icon/tabbar/tab-order-icon.png");
+            background-size: 100%;
+        }
+        .mui-bar-tab .mui-tab-item.mui-active .order-tab-img{
+            background-image: url("__STATIC__/store/icon/tabbar/tab-order-icon-active.png");
+            background-size: 100%;
+        }
+        .store-tab-img{
+            background-image: url("__STATIC__/store/icon/tabbar/tab-store-icon.png");
+            background-size: 100%;
+        }
+        .mui-bar-tab .mui-tab-item.mui-active .store-tab-img{
+            background-image: url("__STATIC__/store/icon/tabbar/tab-store-icon-active.png");
+            background-size: 100%;
+        }
+        .goods-tab-img{
+            background-image: url("__STATIC__/store/icon/tabbar/tab-goods-icon.png");
+            background-size: 100%;
+        }
+        .mui-bar-tab .mui-tab-item.mui-active .goods-tab-img{
+            background-image: url("__STATIC__/store/icon/tabbar/tab-goods-icon-active.png");
+            background-size: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="mui-bar mui-bar-tab">
+    <a class="mui-tab-item mui-active" id="jump_home" href="#home">
+        <span class="mui-icon home-tab-img"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" id="jump_order" href="#order">
+        <span class="mui-icon order-tab-img"></span>
+        <span class="mui-tab-label">订单</span>
+    </a>
+    <a class="mui-tab-item" id="jump_store" href="#store">
+        <span class="mui-icon store-tab-img"></span>
+        <span class="mui-tab-label">店铺</span>
+    </a>
+    <a class="mui-tab-item" id="jump_goods" href="#goods">
+        <span class="mui-icon goods-tab-img"></span>
+        <span class="mui-tab-label">商品</span>
+    </a>
+</nav>
+<div class="mui-content">
+    <iframe src="/store/home/home.html" id="home" class="iframe-css mui-control-content mui-active"></iframe>
+    <iframe id="order" class="iframe-css mui-control-content "></iframe>
+    <iframe id="store" class="iframe-css mui-control-content "></iframe>
+    <iframe id="goods" class="iframe-css mui-control-content "></iframe>
+</div>
+{include file="common/script" /}
+<script src="__STATIC__/jquery/jquery-1.8.3.min.js"></script>
+</body>
+<script type="text/javascript">
+    document.getElementById("jump_home").addEventListener('tap', function () {
+        document.getElementById('home').src='../home/home';
+    });
+    document.getElementById("jump_order").addEventListener('tap', function () {
+        document.getElementById('order').src='../orders/orders';
+    });
+    document.getElementById("jump_store").addEventListener('tap', function () {
+        document.getElementById('store').src='../store/store';
+    });
+    document.getElementById("jump_goods").addEventListener('tap', function () {
+        document.getElementById('goods').src='../goods/goods';
+    });
+
+</script>
+
+</html>

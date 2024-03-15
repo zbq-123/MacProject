@@ -1,0 +1,86 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:45:"/var/www/king_hsst/tpl/admin/login/index.html";i:1598948526;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海师食堂后台管理系统</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/layui/css/layui.css"  media="all">
+    <style>
+        .content{
+            width: 350px;
+            height: 264px;
+            margin: auto;
+            padding: 40px 65px 40px 20px;
+        }
+    </style>
+</head>
+<body style="background:linear-gradient(45deg, #39b54a, #8dc63f) no-repeat;width: 100%;height: 100%">
+<div style="height: 100vh;width: 100vw;position: relative">
+    <div style="display: flex;justify-content: center;color: #FFFFFF;font-weight: 700;width: 100%;height: 17vh;padding-top: 11vh;">
+        <img src="/static/img/avatar.jpg" height="100" width="103"
+             style="float: left;margin-right: 20px;border-radius: 50%"/>
+        <div style="margin-top: 30px;font-size: 36px">海师食堂后台管理系统</div>
+    </div>
+    <div class="content" style="margin: auto;">
+        <form class="layui-form" style="color: #FFFFFF;" action="" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label" >用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-block">
+                    <input type="password" name="password" id="password" lay-verify="required" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <div>
+                        <img src="<?php echo captcha_src(); ?>" alt="captcha" style="width: 100%" onclick="this.src='<?php echo captcha_src(); ?>?'+Math.random();"/>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">验证码</label>
+                <div class="layui-input-block">
+                    <input type="text" name="captcha" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-bottom: 0px;">
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-normal"  style="width: 100%" lay-submit="" lay-filter="*">登录系统
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div style="height: 8vh;margin-bottom: 4vh;position: fixed;bottom: 0px;width: 100%;">
+        <div style="color: #FFFFFF;font-weight: 700;width: 100%;text-align: center;margin-left: 30px;line-height: 24px">
+            <p>版本号:&nbsp&nbsp&nbsp&nbspV1.0.0,&nbsp&nbsp推荐IE8.0以上版本的浏览器</p>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="/static/layui/layui.js" charset="utf-8"></script>
+<script src="/static/js/md5.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.use(['jquery','form'], function(){
+        var form = layui.form;
+        var $ = layui.$;
+        form.on('submit(*)', function(data){
+            $("#password").val(md5($("#password").val()));
+        });
+    });
+</script>
+
+</body>
+</html>

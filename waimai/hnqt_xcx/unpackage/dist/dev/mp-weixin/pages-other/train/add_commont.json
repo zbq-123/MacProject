@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "添加评论",
+  "navigationBarBackgroundColor": "#f7dd93",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u--textarea": "/uni_modules/uview-ui/components/u--textarea/u--textarea",
+    "u-upload": "/uni_modules/uview-ui/components/u-upload/u-upload",
+    "u-switch": "/uni_modules/uview-ui/components/u-switch/u-switch"
+  }
+}

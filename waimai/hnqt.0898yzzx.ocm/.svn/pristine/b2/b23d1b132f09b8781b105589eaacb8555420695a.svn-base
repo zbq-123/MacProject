@@ -1,0 +1,161 @@
+{extend name="public/popup" /}
+{block name="content"}
+<a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="{:url('category')}"><i class="layui-icon">&#xe603;</i>返回</a>
+<fieldset class="layui-elem-field layui-field-title">
+
+    <legend>添加分类</legend>
+</fieldset>
+<form class="layui-form layui-form-edit" action="{:url('add_category')}" method="post" lay-filter="newsForm">
+
+    <div class="layui-form-item">
+        {if($is_root)}
+        <label class="layui-form-label">所属校区</label>
+        <div class="layui-input-inline layui-form" lay-filter="campusSelect" >
+            <select name="campus_id" id="campusId" lay-filter="campusId" lay-verify="required"  lay-search>
+                <option value="">请选择校区</option>
+            </select>
+        </div>
+        <label class="layui-form-label">所属店铺</label>
+        <div class="layui-input-inline layui-form" lay-filter="storeSelect">
+            <select name="store_id" id="storeId" lay-filter="storeId" lay-verify="required"  lay-search>
+                <option value="">请选择店铺</option>
+            </select>
+        </div>
+        {/if}
+        <label class="layui-form-label">分类名称</label>
+        <div class="layui-input-inline" >
+            <input type="texe" name="name" placeholder="请输入" lay-verify="bank_card|required" class="layui-input">
+        </div>
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="sort" placeholder="请输入"  class="layui-input">
+        </div>
+        <div class="layui-form-item"></div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="save">保存</button>
+                <!--        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="audit">提交审核</button>-->
+                <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+{block name="script"}
+<script type="text/javascript"
+        src="__STATIC__/ueditor/ueditor.config.js?version={$Think.config.web_config.site_version}"></script>
+<script type="text/javascript"
+        src="__STATIC__/ueditor/ueditor.all.js?version={$Think.config.web_config.site_version}"></script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+
+        //自定义验证规则
+        form.verify({
+            name: function(value){
+                if(value.length > 100 ){
+                    return '限制100个字符且不为空';
+                }
+            }
+
+        });
+
+        //输入图片上传按钮序号初始化上传组件
+
+
+        upload.render({
+            elem: '#picture1'
+            , url: "{:url('upload/goods')}"
+            , size: 2048
+            , done: function (res, index, upload) {
+                if (res.code == 200) {
+                    $("#titlePicture1").find("input[name='image']").eq(1 - 1).val(res.data);
+                    $("#picture1" ).html("<img src='" + res.data + "' width='138' height='95'>");
+                    $("#picture1" ).css({"padding": "0"});
+                }
+
+                //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+                var item = this.item;
+            }
+        });
+        $("#picture1" ).css({"display": "inline-block"});
+
+        //获取筛选条件的所有校区
+        xlp.getHttp("{:url('api/get_campus')}", {}, function (res) {
+            $("#campusId").html('<option value="">请选择校区</option>');
+            layui.each(res, function (i) {
+                $("#campusId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                form.render("select", "campusSelect");
+            })
+        });
+
+        //获取筛选条件的所有店铺
+        // xlp.getHttp("{:url('api/get_store')}", {}, function (res) {
+        //     $("#storeId").html('<option value="">请选择店铺</option>');
+        //     layui.each(res, function (i) {
+        //         $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+        //         form.render("select", "storeSelect");
+        //     })
+        // });
+
+        form.on('select(campusId)', function (data) {
+            xlp.getHttp("{:url('api/get_store')}", {
+                campus_id: data.value,
+            }, function (res) {
+
+                $("#storeId").html('<option value="0">所有店铺</option>');
+                layui.each(res, function (i) {
+                    $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                    form.render("select", "storeSelect");
+                })
+                form.render();
+            })
+        });
+
+
+        form.on("submit(cancel)", function (data) {
+            location.href = "{:url('news_column')}";
+            return false;
+        });
+    })
+
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test2' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test3' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test4' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test5' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test6' //指定元素
+            ,type: 'time'
+        });
+    });
+</script>
+{/block}

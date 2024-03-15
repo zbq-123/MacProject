@@ -1,0 +1,4004 @@
+---------------------------------------------------------------
+[ 2022-02-24T09:59:22+08:00 ] 115.56.107.78 GET jpgy.0898yzzx.com/store/index/index
+[运行时间：0.018428s] [吞吐率：54.26req/s] [内存消耗：2,032.76kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:22+08:00 ] 115.56.107.78 GET jpgy.0898yzzx.com/store/login/index.html
+[运行时间：0.024807s] [吞吐率：40.31req/s] [内存消耗：2,907.66kb] [文件加载：115]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:33+08:00 ] 115.56.107.78 POST jpgy.0898yzzx.com/store/login/index.html
+[运行时间：0.031730s] [吞吐率：31.52req/s] [内存消耗：3,142.77kb] [文件加载：120]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/login/index.html',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'content-length' => '58',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'qzlm123',
+  'password' => 'e10adc3949ba59abbe56e057f20f883e',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:34+08:00 ] 115.56.107.78 GET jpgy.0898yzzx.com/store/index/index.html
+[运行时间：0.020758s] [吞吐率：48.17req/s] [内存消耗：1,979.82kb] [文件加载：109]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/login/index.html',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->index[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/index/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:35+08:00 ] 115.56.107.78 GET jpgy.0898yzzx.com/store/home/home.html
+[运行时间：0.169447s] [吞吐率：5.90req/s] [内存消耗：2,830.92kb] [文件加载：115]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/index/index.html',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->home[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/home/home.html [ array (
+  0 => 'refund_max_id',
+  1 => 'store',
+  2 => 'today',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:35+08:00 ] 115.56.107.78 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.105877s] [吞吐率：9.44req/s] [内存消耗：2,769.28kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'content-length' => '9',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:39+08:00 ] 115.56.107.78 GET jpgy.0898yzzx.com/store/store/store
+[运行时间：0.033132s] [吞吐率：30.18req/s] [内存消耗：2,782.88kb] [文件加载：115]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'store',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/index/index.html',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Store->store[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/store/store.html [ array (
+  0 => 'store',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:40+08:00 ] 115.56.107.78 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.104533s] [吞吐率：9.57req/s] [内存消耗：2,769.28kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'content-length' => '9',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:45+08:00 ] 115.56.107.78 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.110089s] [吞吐率：9.08req/s] [内存消耗：2,769.28kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'content-length' => '9',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:45+08:00 ] 115.56.107.78 GET jpgy.0898yzzx.com/store/goods/goods
+[运行时间：0.123198s] [吞吐率：8.12req/s] [内存消耗：3,072.19kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'goods',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/index/index.html',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Goods->goods[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/goods/goods.html [ array (
+  0 => 'keyword',
+  1 => 'category_and_goods',
+  2 => 'category_and_goods_btn',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:50+08:00 ] 115.56.107.78 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.156072s] [吞吐率：6.41req/s] [内存消耗：2,769.28kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'content-length' => '9',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T09:59:55+08:00 ] 115.56.107.78 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.102456s] [吞吐率：9.76req/s] [内存消耗：2,769.28kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'content-length' => '9',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:00:00+08:00 ] 115.56.107.78 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.101149s] [吞吐率：9.89req/s] [内存消耗：2,769.28kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'content-length' => '9',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:00:05+08:00 ] 115.56.107.78 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.105200s] [吞吐率：9.51req/s] [内存消耗：2,769.28kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=s7t13g779q9c0l6eeijd18cpdp',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; EBG-AN00 Build/HUAWEIEBG-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/543 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'content-length' => '9',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:10:58+08:00 ] 163.177.13.2 HEAD jpgy.0898yzzx.com/
+[运行时间：0.016778s] [吞吐率：59.60req/s] [内存消耗：1,754.26kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'jpgy.0898yzzx.com',
+  'accept' => '*/*',
+  'user-agent' => 'libcurl-agent/7.19.0',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:42:50+08:00 ] 111.29.150.229 GET jpgy.0898yzzx.com/store/index/index
+[运行时间：0.019066s] [吞吐率：52.45req/s] [内存消耗：2,031.05kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:42:50+08:00 ] 111.29.150.229 GET jpgy.0898yzzx.com/store/login/index.html
+[运行时间：0.026237s] [吞吐率：38.11req/s] [内存消耗：2,905.45kb] [文件加载：115]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:42:57+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/login/index.html
+[运行时间：0.032268s] [吞吐率：30.99req/s] [内存消耗：3,140.36kb] [文件加载：120]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '58',
+  'referer' => 'http://jpgy.0898yzzx.com/store/login/index.html',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'qzlm123',
+  'password' => 'e10adc3949ba59abbe56e057f20f883e',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:42:58+08:00 ] 111.29.150.229 GET jpgy.0898yzzx.com/store/index/index.html
+[运行时间：0.018110s] [吞吐率：55.22req/s] [内存消耗：1,978.11kb] [文件加载：109]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/login/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->index[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/index/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:42:59+08:00 ] 111.29.150.229 GET jpgy.0898yzzx.com/store/home/home.html
+[运行时间：0.169650s] [吞吐率：5.89req/s] [内存消耗：2,829.21kb] [文件加载：115]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->home[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/home/home.html [ array (
+  0 => 'refund_max_id',
+  1 => 'store',
+  2 => 'today',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:42:59+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.100719s] [吞吐率：9.93req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:42:59+08:00 ] 111.29.150.229 GET jpgy.0898yzzx.com/store/store/store
+[运行时间：0.026483s] [吞吐率：37.76req/s] [内存消耗：2,781.17kb] [文件加载：115]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'store',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Store->store[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/store/store.html [ array (
+  0 => 'store',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:02+08:00 ] 111.29.150.229 GET jpgy.0898yzzx.com/store/goods/goods
+[运行时间：0.030042s] [吞吐率：33.29req/s] [内存消耗：3,070.48kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'goods',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Goods->goods[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/goods/goods.html [ array (
+  0 => 'keyword',
+  1 => 'category_and_goods',
+  2 => 'category_and_goods_btn',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:04+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.104640s] [吞吐率：9.56req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:09+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.102229s] [吞吐率：9.78req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:14+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.101535s] [吞吐率：9.85req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:19+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.101834s] [吞吐率：9.82req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:24+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.101699s] [吞吐率：9.83req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:29+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.095750s] [吞吐率：10.44req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:34+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.102260s] [吞吐率：9.78req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:36+08:00 ] 153.0.3.113 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018378s] [吞吐率：54.41req/s] [内存消耗：2,077.20kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:36+08:00 ] 153.0.3.113 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017331s] [吞吐率：57.70req/s] [内存消耗：1,954.88kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=2u8fdlia5m5paph0hatp2pbh8u',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:39+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.101087s] [吞吐率：9.89req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:40+08:00 ] 153.0.3.113 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018507s] [吞吐率：54.03req/s] [内存消耗：2,077.71kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=2u8fdlia5m5paph0hatp2pbh8u',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:40+08:00 ] 153.0.3.113 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018915s] [吞吐率：52.87req/s] [内存消耗：1,954.88kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=2u8fdlia5m5paph0hatp2pbh8u',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:44+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.101477s] [吞吐率：9.85req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T10:43:49+08:00 ] 111.29.150.229 POST jpgy.0898yzzx.com/store/index/get_refunds_count
+[运行时间：0.105008s] [吞吐率：9.52req/s] [内存消耗：2,768.52kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'get_refunds_count',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=6onu050hvjnoq6b5bqc2cl0d60',
+  'content-length' => '9',
+  'referer' => 'http://jpgy.0898yzzx.com/store/home/home.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'origin' => 'http://jpgy.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'jpgy.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->get_refunds_count[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:18:04+08:00 ] 223.104.23.40 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.019948s] [吞吐率：50.13req/s] [内存消耗：2,079.56kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:18:04+08:00 ] 223.104.23.40 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.019525s] [吞吐率：51.22req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:49:05+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018886s] [吞吐率：52.95req/s] [内存消耗：2,077.20kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:49:05+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018687s] [吞吐率：53.51req/s] [内存消耗：1,954.88kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=92608tdi40gpqor1rgml6ep7ml',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:49:11+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.019529s] [吞吐率：51.21req/s] [内存消耗：2,077.71kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=92608tdi40gpqor1rgml6ep7ml',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:49:11+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018732s] [吞吐率：53.39req/s] [内存消耗：1,954.88kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=92608tdi40gpqor1rgml6ep7ml',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:56:57+08:00 ] 119.41.232.215 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018493s] [吞吐率：54.07req/s] [内存消耗：2,078.91kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 11; 21091116C Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7995 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:56:57+08:00 ] 119.41.232.215 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018639s] [吞吐率：53.65req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=raj9dprv8a6sqv2ntc36plbe2j',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 11; 21091116C Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7995 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:57:02+08:00 ] 119.41.232.215 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018893s] [吞吐率：52.93req/s] [内存消耗：2,079.67kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=raj9dprv8a6sqv2ntc36plbe2j',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 11; 21091116C Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7995 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:57:02+08:00 ] 119.41.232.215 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.024413s] [吞吐率：40.96req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=raj9dprv8a6sqv2ntc36plbe2j',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 11; 21091116C Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7995 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:57:08+08:00 ] 119.41.232.215 GET jpgy.0898yzzx.com/client/orders/index
+[运行时间：0.019663s] [吞吐率：50.86req/s] [内存消耗：2,122.55kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=raj9dprv8a6sqv2ntc36plbe2j',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 11; 21091116C Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7995 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T11:57:08+08:00 ] 119.41.232.215 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018708s] [吞吐率：53.45req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=raj9dprv8a6sqv2ntc36plbe2j',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 11; 21091116C Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7995 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:04:35+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/store/index/index
+[运行时间：0.018970s] [吞吐率：52.71req/s] [内存消耗：2,032.30kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=92608tdi40gpqor1rgml6ep7ml',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:04:35+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/store/login/index.html
+[运行时间：0.026334s] [吞吐率：37.97req/s] [内存消耗：2,906.29kb] [文件加载：115]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=92608tdi40gpqor1rgml6ep7ml',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:04:41+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.022285s] [吞吐率：44.87req/s] [内存消耗：2,077.71kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=92608tdi40gpqor1rgml6ep7ml',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:04:41+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017565s] [吞吐率：56.93req/s] [内存消耗：1,954.88kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=92608tdi40gpqor1rgml6ep7ml',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:04:44+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/client/orders/index
+[运行时间：0.020504s] [吞吐率：48.77req/s] [内存消耗：2,120.59kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=92608tdi40gpqor1rgml6ep7ml',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:04:44+08:00 ] 111.29.252.210 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018366s] [吞吐率：54.45req/s] [内存消耗：1,954.88kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh-Hans;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=92608tdi40gpqor1rgml6ep7ml',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:10:05+08:00 ] 223.104.98.44 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018639s] [吞吐率：53.65req/s] [内存消耗：2,077.15kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:10:05+08:00 ] 223.104.98.44 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.020124s] [吞吐率：49.69req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=677co9l73g976jflij5u8nm7m4',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:10:09+08:00 ] 223.104.98.44 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.020247s] [吞吐率：49.39req/s] [内存消耗：2,077.41kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=677co9l73g976jflij5u8nm7m4',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:10:09+08:00 ] 223.104.98.44 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018312s] [吞吐率：54.61req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=677co9l73g976jflij5u8nm7m4',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:13:06+08:00 ] 223.104.23.29 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.023072s] [吞吐率：43.34req/s] [内存消耗：2,078.91kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; KOZ-AL40 Build/HONORKOZ-AL40; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/5866 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:13:07+08:00 ] 223.104.23.29 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017928s] [吞吐率：55.78req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=rpdk1ltlna2e9e4hkj7fhvj432',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; KOZ-AL40 Build/HONORKOZ-AL40; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/5866 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:51:20+08:00 ] 61.151.178.249 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.022788s] [吞吐率：43.88req/s] [内存消耗：2,073.24kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T12:56:04+08:00 ] 101.91.60.91 GET jpgy.0898yzzx.com/client/orders/detail?order_number=202109091006422583725428
+[运行时间：0.020307s] [吞吐率：49.24req/s] [内存消耗：2,116.50kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'order_number' => '202109091006422583725428',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T13:16:42+08:00 ] 61.151.178.180 GET jpgy.0898yzzx.com/client/orders/detail?order_number=202109121137593167741028
+[运行时间：0.018680s] [吞吐率：53.53req/s] [内存消耗：2,116.50kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'order_number' => '202109121137593167741028',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T14:34:33+08:00 ] 61.151.178.163 GET jpgy.0898yzzx.com/store/index/index
+[运行时间：0.021438s] [吞吐率：46.65req/s] [内存消耗：2,027.85kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.4; HUAWEI ALE-CL00 Build/HuaweiALE-CL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043024 Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T15:58:19+08:00 ] 223.104.23.40 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018791s] [吞吐率：53.22req/s] [内存消耗：2,079.56kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T15:58:19+08:00 ] 223.104.23.40 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018260s] [吞吐率：54.76req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T15:59:20+08:00 ] 223.104.23.40 GET jpgy.0898yzzx.com/store/index/index
+[运行时间：0.020025s] [吞吐率：49.94req/s] [内存消耗：2,034.26kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T15:59:20+08:00 ] 223.104.23.40 GET jpgy.0898yzzx.com/store/login/index.html
+[运行时间：0.024570s] [吞吐率：40.70req/s] [内存消耗：2,908.50kb] [文件加载：115]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /www/wwwroot/jpgy.0898yzzx.com/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/jpgy.0898yzzx.com/tpl/store/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T16:34:41+08:00 ] 202.100.240.241 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.020374s] [吞吐率：49.08req/s] [内存消耗：2,078.91kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; M2006J10C Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3611 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T16:34:41+08:00 ] 202.100.240.241 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017541s] [吞吐率：57.01req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=abt781fg0ljam34mt7tcnli6su',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; M2006J10C Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3611 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T16:34:48+08:00 ] 202.100.240.241 GET jpgy.0898yzzx.com/client/orders/detail?order_number=202109050933115085836227
+[运行时间：0.019579s] [吞吐率：51.07req/s] [内存消耗：2,122.80kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=abt781fg0ljam34mt7tcnli6su',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; M2006J10C Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3611 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'order_number' => '202109050933115085836227',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T16:34:48+08:00 ] 202.100.240.241 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017930s] [吞吐率：55.77req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=abt781fg0ljam34mt7tcnli6su',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; M2006J10C Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3611 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:00:52+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.019366s] [吞吐率：51.64req/s] [内存消耗：2,077.15kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:00:52+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.021276s] [吞吐率：47.00req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=o6ts4fgenst47n4ihctoh6bav8',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:29:43+08:00 ] 116.136.212.6 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.019111s] [吞吐率：52.33req/s] [内存消耗：2,078.91kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; V2001A Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20210601 Mobile Safari/537.36 MMWEBID/2903 MicroMessenger/8.0.11.1980(0x28000B5B) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:29:43+08:00 ] 116.136.212.6 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.019206s] [吞吐率：52.07req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=cit8pjsp5ps12mhjg1q6so83bi',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; V2001A Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20210601 Mobile Safari/537.36 MMWEBID/2903 MicroMessenger/8.0.11.1980(0x28000B5B) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:34:42+08:00 ] 101.89.19.197 GET jpgy.0898yzzx.com/client/orders/detail?order_number=202109050933115085836227
+[运行时间：0.019925s] [吞吐率：50.19req/s] [内存消耗：2,116.81kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 5.1.1; SM801 Build/LMY47V; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043024 Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'order_number' => '202109050933115085836227',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:35:27+08:00 ] 202.100.240.252 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.028138s] [吞吐率：35.54req/s] [内存消耗：2,078.91kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; V2057A Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/2833 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:35:27+08:00 ] 202.100.240.252 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.026575s] [吞吐率：37.63req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=k2t79fj7pf7fipn0fnljjod8sn',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; V2057A Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/2833 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:42:06+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.021368s] [吞吐率：46.80req/s] [内存消耗：2,077.15kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:42:07+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017439s] [吞吐率：57.34req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=790306hbhqbg5j3o175lv82tpe',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:42:12+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/orders/index
+[运行时间：0.022336s] [吞吐率：44.77req/s] [内存消耗：2,120.30kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=790306hbhqbg5j3o175lv82tpe',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:42:13+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018296s] [吞吐率：54.66req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=790306hbhqbg5j3o175lv82tpe',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:42:18+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.023256s] [吞吐率：43.00req/s] [内存消耗：2,077.41kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=790306hbhqbg5j3o175lv82tpe',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:42:18+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017479s] [吞吐率：57.21req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=790306hbhqbg5j3o175lv82tpe',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:42:44+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.020815s] [吞吐率：48.04req/s] [内存消耗：2,077.41kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=790306hbhqbg5j3o175lv82tpe',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T17:42:44+08:00 ] 202.100.240.237 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017135s] [吞吐率：58.36req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/WIFI Language/zh_CN',
+  'cookie' => 'PHPSESSID=790306hbhqbg5j3o175lv82tpe',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:04:22+08:00 ] 36.1.95.14 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.019353s] [吞吐率：51.67req/s] [内存消耗：2,077.41kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=790306hbhqbg5j3o175lv82tpe',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:04:22+08:00 ] 36.1.95.14 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017599s] [吞吐率：56.82req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800122e) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=790306hbhqbg5j3o175lv82tpe',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:19:55+08:00 ] 223.104.98.10 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.019318s] [吞吐率：51.76req/s] [内存消耗：2,079.56kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:19:55+08:00 ] 223.104.98.10 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.019733s] [吞吐率：50.68req/s] [内存消耗：2,079.67kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:19:55+08:00 ] 223.104.98.10 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018681s] [吞吐率：53.53req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:19:55+08:00 ] 223.104.98.10 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017583s] [吞吐率：56.87req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:34:02+08:00 ] 101.91.60.105 GET jpgy.0898yzzx.com/client/orders/detail?order_number=202109081055263154019828
+[运行时间：0.019679s] [吞吐率：50.82req/s] [内存消耗：2,116.81kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.9 TBS/036906 Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'order_number' => '202109081055263154019828',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:38:58+08:00 ] 183.254.33.82 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.020178s] [吞吐率：49.56req/s] [内存消耗：2,078.91kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; Redmi K30 Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/4117 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:38:58+08:00 ] 183.254.33.82 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.019575s] [吞吐率：51.09req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=k7n804ldtj48tkigmj9sp8m0n0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; Redmi K30 Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/4117 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:39:05+08:00 ] 183.254.33.82 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.020907s] [吞吐率：47.83req/s] [内存消耗：2,079.67kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=k7n804ldtj48tkigmj9sp8m0n0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; Redmi K30 Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/4117 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T18:39:06+08:00 ] 183.254.33.82 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.019132s] [吞吐率：52.27req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=k7n804ldtj48tkigmj9sp8m0n0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; Redmi K30 Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/4117 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T19:02:08+08:00 ] 202.100.240.234 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.022670s] [吞吐率：44.11req/s] [内存消耗：2,078.91kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 11; PEGM00 Build/RKQ1.200903.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/2992 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T19:02:08+08:00 ] 202.100.240.234 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017417s] [吞吐率：57.42req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=dh109bfe41vqg2dj7ec77lc1h9',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 11; PEGM00 Build/RKQ1.200903.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/2992 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T19:19:03+08:00 ] 61.151.178.163 GET jpgy.0898yzzx.com/client/orders/detail?order_number=202109081055263154019828
+[运行时间：0.021200s] [吞吐率：47.17req/s] [内存消耗：2,116.50kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'order_number' => '202109081055263154019828',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T20:13:26+08:00 ] 223.104.98.59 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018716s] [吞吐率：53.43req/s] [内存消耗：2,079.67kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T20:13:26+08:00 ] 223.104.98.59 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018925s] [吞吐率：52.84req/s] [内存消耗：2,079.67kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T20:13:26+08:00 ] 223.104.98.59 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017866s] [吞吐率：55.97req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T20:13:26+08:00 ] 223.104.98.59 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017924s] [吞吐率：55.79req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=1is8nmup721n7083g22oqh1935',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; PADM00 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3184 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/3655 MicroMessenger/8.0.19.2080(0x2800133C) Process/toolsmp WeChat/arm32 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T21:19:45+08:00 ] 14.16.10.220 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.019482s] [吞吐率：51.33req/s] [内存消耗：2,077.15kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000931) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T21:19:45+08:00 ] 14.16.10.220 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018314s] [吞吐率：54.60req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000931) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=q1lre4fgkh9kn0l9lgrtn1gdi9',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T21:19:49+08:00 ] 14.16.10.220 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018539s] [吞吐率：53.94req/s] [内存消耗：2,077.41kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000931) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=q1lre4fgkh9kn0l9lgrtn1gdi9',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T21:19:49+08:00 ] 14.16.10.220 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.017733s] [吞吐率：56.39req/s] [内存消耗：1,954.84kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000931) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=q1lre4fgkh9kn0l9lgrtn1gdi9',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T21:20:12+08:00 ] 14.16.20.230 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018984s] [吞吐率：52.68req/s] [内存消耗：2,078.91kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; Redmi K20 Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7524 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T21:20:12+08:00 ] 14.16.20.230 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018538s] [吞吐率：53.94req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=c4jbnpoarrtunuvvfoom7s0g3g',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; Redmi K20 Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7524 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T21:20:30+08:00 ] 14.16.20.230 GET jpgy.0898yzzx.com/client/index/home
+[运行时间：0.018737s] [吞吐率：53.37req/s] [内存消耗：2,079.67kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=c4jbnpoarrtunuvvfoom7s0g3g',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; Redmi K20 Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7524 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T21:20:30+08:00 ] 14.16.20.230 GET jpgy.0898yzzx.com/client/auth/index.html
+[运行时间：0.018048s] [吞吐率：55.41req/s] [内存消耗：1,957.09kb] [文件加载：107]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=c4jbnpoarrtunuvvfoom7s0g3g',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/wxpic,image/tpg,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; Redmi K20 Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3185 MMWEBSDK/20220105 Mobile Safari/537.36 MMWEBID/7524 MicroMessenger/8.0.19.2080(0x2800133D) Process/toolsmp WeChat/arm64 Weixin NetType/4G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/jpgy.0898yzzx.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-02-24T23:03:20+08:00 ] 101.89.239.120 GET jpgy.0898yzzx.com/client/orders/detail?order_number=202109181118123846688713
+[运行时间：0.019286s] [吞吐率：51.85req/s] [内存消耗：2,116.50kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/jpgy.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'detail',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'order_number' => '202109181118123846688713',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File

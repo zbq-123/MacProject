@@ -1,0 +1,1249 @@
+---------------------------------------------------------------
+[ 2022-05-23T14:21:33+08:00 ] 127.0.0.1 GET demo.hnqt.com/
+[运行时间：0.058276s] [吞吐率：17.16req/s] [内存消耗：2,098.27kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:21:33+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/login/index.html
+[运行时间：0.036414s] [吞吐率：27.46req/s] [内存消耗：3,021.38kb] [文件加载：116]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:21:33+08:00 ] 127.0.0.1 GET demo.hnqt.com/captcha.html
+[运行时间：0.034236s] [吞吐率：29.21req/s] [内存消耗：1,807.13kb] [文件加载：99]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:21:39+08:00 ] 127.0.0.1 POST demo.hnqt.com/admin/login/index.html
+[运行时间：0.039536s] [吞吐率：25.29req/s] [内存消耗：3,270.41kb] [文件加载：121]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'origin' => 'http://demo.hnqt.com',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'content-length' => '69',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => 'e10adc3949ba59abbe56e057f20f883e',
+  'captcha' => 'vkdr',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:21:40+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index.html
+[运行时间：0.030446s] [吞吐率：32.85req/s] [内存消耗：2,157.41kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:21:41+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index2.html
+[运行时间：0.026999s] [吞吐率：37.04req/s] [内存消耗：2,109.91kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index2[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index2.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'admin_result',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:21:43+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/order/inspection.html
+[运行时间：0.058897s] [吞吐率：16.98req/s] [内存消耗：3,997.84kb] [文件加载：126]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'inspection',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Order->inspection[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\order\inspection.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'data',
+  3 => 'campus_id',
+  4 => 'store_id',
+  5 => 'select_time',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: rider_price[D:\phpstudy_pro\WWW\demo.hnqt.com\runtime\temp\dd6c33ac581e82b35e0022cab3fa4e6b.php:100]
+---------------------------------------------------------------
+[ 2022-05-23T14:27:18+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index.html
+[运行时间：0.024639s] [吞吐率：40.59req/s] [内存消耗：2,168.82kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:27:18+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index2.html
+[运行时间：0.026980s] [吞吐率：37.06req/s] [内存消耗：2,110.26kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index2[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index2.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'admin_result',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:27:18+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/order/inspection.html
+[运行时间：0.034436s] [吞吐率：29.04req/s] [内存消耗：3,646.83kb] [文件加载：123]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'inspection',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Order->inspection[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: delivery_price[D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\model\Orders.php:783]
+---------------------------------------------------------------
+[ 2022-05-23T14:28:05+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index.html
+[运行时间：0.020324s] [吞吐率：49.20req/s] [内存消耗：2,168.82kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:28:05+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index2.html
+[运行时间：0.020714s] [吞吐率：48.28req/s] [内存消耗：2,110.26kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index2[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index2.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'admin_result',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:28:06+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/order/inspection.html
+[运行时间：0.034614s] [吞吐率：28.89req/s] [内存消耗：3,646.88kb] [文件加载：123]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'inspection',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Order->inspection[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: delivery_price[D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\model\Orders.php:783]
+---------------------------------------------------------------
+[ 2022-05-23T14:28:07+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index.html
+[运行时间：0.020384s] [吞吐率：49.06req/s] [内存消耗：2,168.82kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:28:07+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index2.html
+[运行时间：0.019331s] [吞吐率：51.73req/s] [内存消耗：2,110.26kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index2[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index2.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'admin_result',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:28:07+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/order/inspection.html
+[运行时间：0.045837s] [吞吐率：21.82req/s] [内存消耗：3,646.88kb] [文件加载：123]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'inspection',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Order->inspection[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: delivery_price[D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\model\Orders.php:783]
+---------------------------------------------------------------
+[ 2022-05-23T14:28:08+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index.html
+[运行时间：0.019531s] [吞吐率：51.20req/s] [内存消耗：2,168.82kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:28:08+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index2.html
+[运行时间：0.020578s] [吞吐率：48.60req/s] [内存消耗：2,110.26kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index2[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index2.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'admin_result',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:28:08+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/order/inspection.html
+[运行时间：0.052280s] [吞吐率：19.13req/s] [内存消耗：3,646.88kb] [文件加载：123]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'inspection',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Order->inspection[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: delivery_price[D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\model\Orders.php:783]
+---------------------------------------------------------------
+[ 2022-05-23T14:28:09+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index.html
+[运行时间：0.020379s] [吞吐率：49.07req/s] [内存消耗：2,168.82kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:28:09+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index2.html
+[运行时间：0.019243s] [吞吐率：51.97req/s] [内存消耗：2,110.26kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index2[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index2.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'admin_result',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:28:09+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/order/inspection.html
+[运行时间：0.054354s] [吞吐率：18.40req/s] [内存消耗：3,646.88kb] [文件加载：123]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'inspection',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Order->inspection[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: delivery_price[D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\model\Orders.php:783]
+---------------------------------------------------------------
+[ 2022-05-23T14:29:17+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index.html
+[运行时间：0.019675s] [吞吐率：50.83req/s] [内存消耗：2,168.82kb] [文件加载：111]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:29:17+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/index/index2.html
+[运行时间：0.020189s] [吞吐率：49.53req/s] [内存消耗：2,110.26kb] [文件加载：110]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'refresh_url=/admin/order/inspection.html; Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index2[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\index\index2.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'admin_result',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:29:17+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/order/inspection.html
+[运行时间：0.035220s] [吞吐率：28.39req/s] [内存消耗：3,669.10kb] [文件加载：120]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'inspection',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Order->inspection[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\order\inspection.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'data',
+  3 => 'campus_id',
+  4 => 'store_id',
+  5 => 'select_time',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:29:18+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/api/get_store.html
+[运行时间：0.035257s] [吞吐率：28.36req/s] [内存消耗：3,191.50kb] [文件加载：117]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'api',
+    2 => 'get_store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/order/inspection.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Api->get_store[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Api.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:29:18+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/api/get_campus.html
+[运行时间：0.041798s] [吞吐率：23.92req/s] [内存消耗：3,175.28kb] [文件加载：117]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'api',
+    2 => 'get_campus',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/order/inspection.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Api->get_campus[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Api.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:29:44+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/order/inspection.html?select_time=2022-05-22&campus_id=0&store_id=0
+[运行时间：0.042111s] [吞吐率：23.75req/s] [内存消耗：3,669.63kb] [文件加载：120]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'inspection',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/order/inspection.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'select_time' => '2022-05-22',
+  'campus_id' => '0',
+  'store_id' => '0',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Order->inspection[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Order.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\order\inspection.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'data',
+  3 => 'campus_id',
+  4 => 'store_id',
+  5 => 'select_time',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:29:45+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/api/get_store.html
+[运行时间：0.041773s] [吞吐率：23.94req/s] [内存消耗：3,191.64kb] [文件加载：117]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'api',
+    2 => 'get_store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/order/inspection.html?select_time=2022-05-22&campus_id=0&store_id=0',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Api->get_store[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Api.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-05-23T14:29:45+08:00 ] 127.0.0.1 GET demo.hnqt.com/admin/api/get_campus.html
+[运行时间：0.046503s] [吞吐率：21.50req/s] [内存消耗：3,175.67kb] [文件加载：117]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\demo.hnqt.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'api',
+    2 => 'get_campus',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0db6714a097970697141521e48f0f382=1650443270; PHPSESSID=9nlvadb8rfh94b0l4ursue48dd',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://demo.hnqt.com/admin/order/inspection.html?select_time=2022-05-22&campus_id=0&store_id=0',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => 'demo.hnqt.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Api->get_campus[ D:\phpstudy_pro\WWW\demo.hnqt.com\application\admin\controller\Api.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File

@@ -1,0 +1,191 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>意见反馈</legend>
+</fieldset>
+<!--headToolBar-->
+<div  style="width: 100%">
+    <div class="tip-btn-line">
+        <div class="layui-btn layui-btn-sm xu-ic on-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669;</i>刷新</div>
+        <!--搜索表单-->
+        <!--<div class="layui-form-item"></div>-->
+        <form action="" class="layui-form search-form" style="margin-top: -10px;margin-right:0%;">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    <input type="text" name="field_content" placeholder="反馈内容搜索" autocomplete="off" class="layui-input">
+                    <input type="text" name="field_name" hidden value="detail">
+                </div>
+                <div class="layui-input-inline">
+                    <button class="layui-btn layui-btn-primary" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="layui-tab" lay-filter="typeNews"  >
+    <ul class="layui-tab-title">
+        <li value="0" class="layui-this" id="sheneh0">未处理</li>
+        <li value="1" id="sheneh1"><span style="color: #008200">已处理</span></li>
+    </ul>
+</div>
+<!--table-->
+<table class="layui-table" id="dataTable" lay-filter="dataTable"></table>
+
+{/block}
+
+{block name="script"}
+
+<script type="text/html" id="adminNameTpl">
+    {{#  if(d.admin_id == null | d.admin_id == 0){ }}    <span></span>
+    {{#  } else { }} <span>{{d.admin.login_name}}</span>
+    {{# } }}
+</script>
+
+<!--审核状态-->
+<script type="text/html" id="statusTpl">
+    {{#  if(d.status == 0 || d.status == 1){ }}<span class="status-orange" style="color: #ffaa00">未处理</span>
+    {{#  } else if(d.status == 2) {  }}<span class="status-review">已处理</span>
+    <span></span>
+    {{#  }  }}
+</script>
+
+<!--评论用户-->
+<script type="text/html" id="user_idTpl">
+    {{#  if(d.user == null | d.user == 0){ }}
+    <span style="color: #ff2222">无</span>
+    {{# }else if(d.user.login_name != undefined){ }}
+    <span>{{d.user.login_name}}</span>
+    {{# } }}
+</script>
+
+<!--评论图片1-->
+<script type="text/html" id="pictureTpl">
+    {{#  if(d.picture_1 != null){  }}
+    <img class="xu-title-pic" src="{{d.picture_1}}">
+    {{# }  }}
+</script>
+<!--评论图片2-->
+<script type="text/html" id="pictureTp2">
+    {{#  if(d.picture_2 != null){  }}
+    <img class="xu-title-pic" src="{{d.picture_2}}">
+    {{# }  }}
+</script>
+<!--评论图片3-->
+<script type="text/html" id="pictureTp3">
+    {{#  if(d.picture_3 != null){  }}
+    <img class="xu-title-pic" src="{{d.picture_3}}">
+    {{# }  }}
+</script>
+
+<!--操作-->
+<script type="text/html" id="rightToolBar">
+    {{#  if(d.status == 0 || d.status == 1){ }}
+    <a class="layui-btn layui-btn-sm xu-icon-btn" lay-event="yes">已处理</a>
+    <a class="layui-btn layui-btn-sm xu-icon-btn layui-bg-red" lay-event="remove">删除</a>
+    {{#  } else if(d.status == 2) {  }}
+    <a class="layui-btn layui-btn-sm xu-icon-btn layui-bg-red" lay-event="remove">删除</a>
+    {{# } }}
+</script>
+
+<script>
+    layui.use(['element', 'layer', 'table', 'form', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, table = layui.table, layer = layui.layer, form = layui.form, xlp = layui.xlp;
+        xlp.startLoading();
+
+        //table生成
+        var dataTable = table.render({
+            elem: "#dataTable"
+            ,url: "{:url('setting/feedback')}"
+            ,response: {
+                statusCode: 200
+                ,msgName: 'message'
+            }
+            ,cols: [[
+                {field:'id',width:70, align:'center', title:'ID'},
+                {field:'status',width:80, title:'状态', templet: "#statusTpl"},
+                {field:'detail',  title:'反馈内容'},
+                {field:'user_id',width:100, title:'反馈用户', templet: "#user_idTpl"},
+                {field:'create_time', width:120, title:'反馈时间'},
+                {field:'picture_1', width:100, title:'反馈图片一', templet: "#pictureTpl"},
+                {field:'picture_2', width:100, title:'反馈图片二', templet: "#pictureTp2"},
+                {field:'picture_3', width:100, title:'反馈图片三', templet: "#pictureTp3"},
+                {field:'admin_id',width:80, title:'编辑人',templet: "#adminNameTpl"},
+                {fixed: 'right', align:'center',width:150, toolbar: '#rightToolBar', title:'操作'}
+            ]]
+            ,page: {
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                ,groups: 5
+                ,first: false
+                ,last: false
+            }
+            ,done: function (res, curr, count){
+                xlp.reSetIframeHeight();
+                xlp.closeLoading();
+            }
+        });
+
+        //监听工具条
+        table.on('tool(dataTable)', function(obj){
+            var data = obj.data;
+            var layEvent = obj.event;
+
+            if(layEvent === 'remove'){ //to
+                layer.confirm("是否确定删除？", function(index){
+                    xlp.postHttp("{:url('delete_feedback')}", {id: data.id},
+                        function (res) {
+                            obj.del();
+                            layer.close(index);
+                            layer.msg("删除成功");
+                            location.reload();
+                        }
+                    );
+                });
+            }else if(layEvent == 'yes') {
+                layer.confirm("是否确定已处理？", function(index){
+                    xlp.postHttp("{:url('yes_feedback')}", {id: data.id},
+                        function (res) {
+                            obj.del();
+                            layer.close(index);
+                            layer.msg("等待处理！");
+                            location.reload();
+                        }
+                    );
+                });
+            }
+        });
+
+        //搜索
+        form.on('submit(search)', function (data) {
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    fields: data.field,
+                }
+                ,page: {
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                    , groups: 5
+                    , first: false
+                    , last: false
+                    , curr: 1
+                }
+            });
+            return false;
+        });
+        element.on('tab(typeNews)', function(data){
+
+            /* console.log(this); //当前Tab标题所在的原始DOM元素
+             console.log(data.index); //得到当前Tab的所在下标
+             console.log(data.elem); //得到当前的Tab大容器*/
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    status: data.index
+                }
+            });
+        });
+
+
+    })
+</script>
+
+{/block}

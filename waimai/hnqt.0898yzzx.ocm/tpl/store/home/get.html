@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		{include file="common/meta" /}
+		<title>店铺订单</title>
+		<meta name="format-detection" content="telephone=yes" />
+		<!--标准mui.css-->
+		<link href="__STATIC__/store/store-css/order.css" rel="stylesheet" />
+		<link href="__STATIC__/store/mui/css/mui.picker.css" rel="stylesheet" />
+		<link href="__STATIC__/store/mui/css/mui.poppicker.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="__STATIC__/store/mui/css/mui.picker.min.css" />
+		<!--App自定义的css-->
+		<style>
+			body {
+				/*background: white;*/
+			}
+
+			.success {
+				padding: 5px 10px;
+				border: 1px solid #eee;
+				font-size: 14px;
+				margin-right: 10px;
+				position: absolute;
+				right: 0;
+				top: 6px;
+				border-radius: 5px;
+				background-color: #007aff;
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--顶部标题 start-->
+		<header id="header" class="mui-bar mui-bar-nav">
+<a href="home.html" class="mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon mui-icon-left-nav title-refresh-icon"></span><span >返回</span></a>
+			
+			<h1 class="mui-title">送达通知</h1>
+			<a onclick="javascript:location.reload()" class="mui-pull-right cancel-a" style="padding-top:0"><span
+					class="mui-icon mui-icon-refresh title-refresh-icon"></span></a>
+		</header>
+		<!--顶部标题 end-->
+
+		<div id="up_down_refresh" class="mui-content mui-scroll-wrapper">
+			<div class="after-clear">
+				<!--筛选栏 start-->
+				<div class="sifg-box">
+					<ul class="mui-table-view mui-grid-view mui-grid-9" style="background: #ffffff!important;">
+
+						<li class="mui-table-view-cell mui-media mui-col-xs-4" id="seachwrap"
+							style="padding: 0px 2px!important;border: 0px!important;">
+							<div id="seach_hcj" class="sift-btn-box" style="width:auto;display:inline-block;">
+								<span 
+									style="margin:0;padding:0 20px;width:auto;height:30px;line-height:30px;font-size:13px;border:none;">确认送达</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!--筛选栏 end-->
+
+				<!--订单 start-->
+				<div class="order-body" id="order-body">
+					<div id="order_list">
+
+					</div>
+				</div>
+				<!--订单 end-->
+			</div>
+		</div>
+
+	</body>
+	{include file="common/script" /}
+	<script src="__STATIC__/store/mui/js/mui.picker.js"></script>
+	<script src="__STATIC__/store/mui/js/mui.picker.min.js"></script>
+	<script src="__STATIC__/store/mui/js/mui.poppicker.js"></script>
+	<script src="__STATIC__/jquery/jquery-1.8.3.min.js"></script>
+
+	<!--解决 a 标签不能跳转-->
+	<script>
+		mui('body').on('tap', 'a', function() {
+			document.location.href = this.href;
+		})
+	</script>
+	<!--下拉刷新，上拉加载与下拉选项-->
+	<script>
+		(function($, doc) {
+				$.init();
+				var pagenum; //总共页数
+				var now_page = 1; //当前页码
+				var storename = '{$store.name}';
+				var orders_status = 0;
+				var date = '';
+				var seachValue = '';
+				var newdate = new Date;
+				var kz = true;
+				var all_succKz = true;
+
+				$.ready(function() {
+					// 搜索
+					// var search_Btn = doc.getElementById('search_Btn');
+					// search_Btn.addEventListener('tap', function(event) {
+					//     mui.toast('该功能正在升级完善中！',{ duration:'long' });
+					// }, false);
+					//获取订单列表
+					get_order_list(orders_status, date);
+
+					// 下拉选项
+					var storePicker = new $.PopPicker();
+					storePicker.setData([{
+						value: 'ywj',
+						text: storename
+					}]);
+					// var storePickerButton = doc.getElementById('storePicker');
+					// var storeResult = doc.getElementById('storeResult');
+					// storePickerButton.addEventListener('tap', function(event) {
+					//     mui.toast('该功能正在升级完善中！',{ duration:'long' });
+					//     // storePicker.show(function(items) {
+					//     //     storeResult.value = items[0]['text'];
+					//     //     console.log(storeResult.value);
+					//     //     //返回 false 可以阻止选择框的关闭
+					//     //     //return false;
+					//     // });
+					// }, false);
+
+
+					//查找的input输入事件
+					// $('#seach_value')[0].oninput = function() {
+					// 	seachValue = this.value
+					// }
+					// $('.success')[0].onclick = function() {
+					// 	console.log('点击')
+					// 	if (!all_succKz) {
+					// 		return
+					// 	}
+					// 	all_succKz = false;
+					// 	var btnArray = ['否', '是'];
+					// 	mui.confirm('是否一键完成全部订单？', '一键完成', btnArray, function(e) {
+					// 		if (e.index == 1) {
+					// 			console.log('确定接单');
+					// 			$.ajax({
+					// 				url: 'auto_success_orders', //api
+					// 				type: 'get',
+					// 				dataType: "json",
+					// 				timeout: 10000,
+					// 				data: {},
+					// 				error: function(data) {
+					// 					console.log("error")
+					// 					all_succKz = true;
+					// 				},
+					// 				success: function(res) {
+					// 					if (res.data)
+					// 						mui.toast('确定订单完成成功！', {
+					// 							duration: 'long'
+					// 						});
+					// 					javascript: location.reload()
+					// 				},
+					// 			})
+					// 		} else {
+					// 			all_succKz = true;
+					// 		}
+					// 	})
+
+					// }
+					//开始配送提交按钮
+					document.getElementById('seach_hcj').addEventListener('tap', function () {
+						console.log($(":checked"))
+						if($(":checked").length==0){
+							 mui.toast('至少选择一个订单送达', {duration: 'long'});
+							 return
+						}
+					    var btnArray = ['取消', '确定送达'];
+					    mui.prompt('提示给用户的信息，可不填', '','备注',btnArray, function (e) {
+					        if (e.index == 1) {
+								// now_page = 1;
+								// document.getElementById('order-body').innerHTML = '<div id="order_list"></div>'
+								// get_order_list(orders_status, date)
+								console.log(e.value)
+								let str =''
+								for(let i =0;i<$('input[type=checkbox]').length;i++){
+									if($('input[type=checkbox]')[i].checked){
+										str+=$('input[type=checkbox]')[i].value+','
+									}
+								}
+								str=str.substring(0,str.length-1)
+					            mui.ajax('logistics', {
+					                data: {
+					                	'type':2,
+					                    order_ids:str,
+										remarks:e.value
+					                },
+					                dataType: 'json',//服务器返回json格式数据
+					                type: 'post',//HTTP请求类型
+					                timeout: 5000,//超时时间设置为5秒；
+					                headers: {'Content-Type': 'application/json'},
+					                success: function (data) {
+					                    //服务器返回响应，根据响应结果，分析是否成功；
+					                    if (data.code==200){
+											mui.toast(data.msg, {duration: 'long'});
+											setTimeout(function(){
+												javascript:location.reload()
+											},1500)
+										}
+					                      
+					                },
+					                error: function (xhr, type, errorThrown) {
+					                    //异常处理；
+					                    mui.toast('请求开始配送通知接口异常，请重试！', {duration: 'long'});
+					                    // console.log(type);
+					                }
+					            });
+					        } else {
+					            console.log('取消申请退款');
+					        }
+					    })
+					});
+					// doc.getElementById('seach_hcj').addEventListener('tap', function() {
+						
+					// })
+
+
+					
+				});
+
+				mui.init({
+					pullRefresh: {
+						container: '#up_down_refresh',
+						down: {
+							callback: pulldownRefresh
+						},
+						up: {
+							contentrefresh: '正在加载...',
+							callback: pullupRefresh
+						}
+					},
+					swipeBack: true, //启用右滑关闭功能
+				});
+
+				function pulldownRefresh() {
+					setTimeout(function() {
+						mui('#up_down_refresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+						javascript: location.reload();
+					}, 1500);
+				}
+				/**
+				 * 上拉加载具体业务实现
+				 */
+				function pullupRefresh() {
+					setTimeout(function() {
+						mui('#up_down_refresh').pullRefresh().endPullupToRefresh((++now_page >
+						pagenum)); //参数为true代表没有更多数据了。
+						get_order_list(orders_status, date);
+					}, 1500);
+				}
+				var jilv_Id = '';
+
+				// 获取订单列表
+				function get_order_list(status, shijian) {
+					var result = "";
+					$.ajax({
+							url: '../orders/get_orders?page=' + now_page + '&status=4', //api
+							type: 'get',
+							dataType: "json",
+							timeout: 10000,
+							data: {
+								
+							},
+							error: function(data) {
+								console.log("error")
+							},
+							success: function(res) {
+								console.log(res)
+								pagenum = res.data.pagenum;
+								var data = res.data.data;
+								if (now_page == 1) {
+									if (data.length != 0) {
+										jilv_Id = data[0].id;
+									}
+								}
+
+								// 遍历输入订单
+								$.each(data, function(i, value) {
+									result +=
+										'           <div class="order-box">\n' +
+										'                <!--订单头部 start-->\n' +
+										'                <div class="order-heard-box after-clear" style="position:relative">\n' +
+										'                    <div class="order-heard-left" style="width:100%">\n' +
+										'                        ' + value.store_name + '' +
+										'                        <div>单号: &nbsp;<span>' + value.today_number +
+										'</span></div>\n' +
+										'                        <div>订单号: &nbsp;<span>' + value
+										.order_number + '</span></div>\n' +
+										'                    </div>\n' +
+										'                    <div class="order-heard-right" style="' + value
+										.order_status.style + ';position:absolute;right:5px;top:5px;' +
+										'">配送中</div>\n' +
+										'                </div>\n' +
+										'                <!--订单头部 end-->\n' +
+										'                <!--订单内容 start-->\n' +
+										'                <div class="order-info-box">\n';
+									if (value.gender == 0) {
+										result +=
+											'                    <p>\n' +
+											'                        姓名:  <span>' + value.delivery_name +
+											'（先生）</span>\n' +
+											'                    </p>\n';
+									}
+									if (value.gender == 1) {
+										result +=
+											'                    <p>\n' +
+											'                        姓名:  <span>' + value.delivery_name +
+											'（女士）</span>\n' +
+											'                    </p>\n';
+									}
+									result +=
+										'                    <p>\n' +
+										'                        <span style="color: #8f8f94;font-size: 14px;">电话: <a href="tel:' +
+										value.delivery_phone + '"><span>' + value.delivery_phone +
+										'</span></a></span>\n' +
+										'                    </p>\n' +
+										'                    <p>地址:  <span>' + value.delivery_address +
+										'</span></p>\n' +
+										'                    <p>下单次数:  <span style="color: red">' + value
+										.user_order_count + ' 次</span></p>\n' +
+										'                    <p>应收:<span  style="color: red">￥ ' + value
+										.total_price + '</span><span>  （' + value.count +
+										' 件商品）</span></p>\n' +
+										'                    <p>' + value.create_time +
+										' <span  style="color: red">外送订单</span></p>\n' +
+										'                </div>\n' +
+										'                <!--订单内容 end-->\n' +
+										'                <!--订单详情按钮 start-->\n' +
+										'                <div class="order-details-btn-box after-clear">\n' +
+										'                    <a href="../orders/orders_details?id=' + value.id +
+										'" target="_Self">订单详情&nbsp;<span></span></a>\n' +
+										'                </div>\n' +
+										'                <!--订单详情按钮 end-->\n' +
+										'                <!--订单按钮 start-->\n' +
+										'                <div class="order-btn-box">\n';
+									
+									result +=
+										'                    <div style="margin-top:15px;display:flex;align-items:center;font-size:14px;"><input id="print_order_Btn_' + value.id +
+										'" type="checkbox" value="'+value.id+'" style="transform: scale(1.5);" class="mui-btn mui-btn-primary mui-btn-outlined"><span style="margin-left:10px;">是否送达</span></div>\n';
+									
+									result +=
+										// '                    <button id="del_order_Btn_'+value.id+'" type="button" class="mui-btn mui-btn-danger mui-btn-outlined">删除订单</button>\n' +
+										'                </div>\n' +
+										'                <!--订单按钮 end-->\n' +
+										'            </div>\n';
+								});
+								jQuery(result).insertBefore('.order-body #order_list'); //显示订单
+
+								//遍历加载每个订单按钮
+								$.each(data, function(i, value) {
+										//     if (value.status == 2){
+										//         //接单
+										//         document.getElementById("take_order_Btn_"+value.id).addEventListener('tap', function () {
+										//             var btnArray = ['否', '是'];
+										//             mui.confirm('是否要接受该订单？', '待接单', btnArray, function (e) {
+										//                 if (e.index == 1) {
+										//                     console.log('确定接单');
+										//                     mui.ajax('take_orders',{
+										//                         data:{
+										//                             id: value.id,
+										//                         },
+										//                         dataType:'json',//服务器返回json格式数据
+										//                         type:'post',//HTTP请求类型
+										//                         timeout:5000,//超时时间设置为5秒；
+										//                         headers:{'Content-Type':'application/json'},
+										//                         success:function(data){
+										//                             //服务器返回响应，根据响应结果，分析是否成功；
+										//                             if (data.data)
+										//                                 mui.toast('接单成功！',{ duration:'long' });
+										//                             javascript:location.reload();
+										//                         },
+										//                         error:function(xhr,type,errorThrown){
+										//                             //异常处理；
+										//                             mui.toast('接单异常，请重试！',{ duration:'long' });
+										//                             // console.log(type);
+										//                         }
+										//                     });
+										//                 } else {
+										//                     console.log('取消接单');
+										//                 }
+										//             })
+										//         });
+										// });
+
+									// }
+								});
+						
+						}
+						})
+						}
+					})(mui, document);
+					
+	</script>
+</html>

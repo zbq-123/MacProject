@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "订单提交成功",
+  "navigationStyle": "custom",
+  "navigationBarBackgroundColor": "#f7dd93",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page"
+  }
+}

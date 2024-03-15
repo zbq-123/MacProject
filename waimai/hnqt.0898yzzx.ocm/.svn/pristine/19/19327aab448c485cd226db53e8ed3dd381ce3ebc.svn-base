@@ -1,0 +1,205 @@
+{extend name="public/popup" /}
+{block name="content"}
+<a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="{:url('index')}"><i class="layui-icon">&#xe603;</i>返回</a>
+<fieldset class="layui-elem-field layui-field-title">
+
+    <legend>添加优惠券</legend>
+</fieldset>
+<form class="layui-form layui-form-edit" action="{:url('edit')}" method="post" lay-filter="newsForm">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择校区</label>
+        <div class="layui-input-inline">
+            <div class="layui-input-inline layui-form" lay-filter="campusSelect">
+                <select name="campus_id" id="campusId" lay-filter="campusId"  lay-search>
+                    <option value="0">所有校区</option>
+                </select>
+            </div>
+        </div>
+        <label class="layui-form-label">优惠券名字</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="name" placeholder="请输入" lay-verify="bank_card|required" class="layui-input" value="{$coupon.name}">
+        </div>
+
+
+        <label class="layui-form-label">优惠额度</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="discount_money" placeholder="请输入" lay-verify="bank_info|required" class="layui-input" value="{$coupon.discount_money}">
+        </div>
+
+
+
+
+        <label class="layui-form-label">满多少钱可使用</label>
+        <div class="layui-input-inline" >
+            <input type="text"  name="full_money" placeholder="请输入" lay-verify="ali_card|required" class="layui-input" value="{$coupon.full_money}">
+        </div>
+
+        <div class="layui-form-item"></div>
+
+        <label class="layui-form-label">开始时间</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="start_time" id="stime" placeholder="请输入" lay-verify="ali_name|required" class="layui-input" value="{$coupon.start_time}">
+        </div>
+
+        <label class="layui-form-label">结束时间</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="end_time" id="etime" placeholder="请输入"  class="layui-input" value="{$coupon.end_time}">
+        </div>
+
+        <label class="layui-form-label">状态</label>
+        <div class="layui-input-inline" >
+            <select name="status"  lay-verify="required" lay-filter="schoolTypeId" lay-search>
+                <option value="1" {if($coupon.status == 1)}selected=""{/if}>正常</option>
+                <option value="2" {if($coupon.status == 2)}selected=""{/if}>过期</option>
+            </select>
+        </div>
+        <div class="layui-form-item"></div>
+
+        <label class="layui-form-label">优惠券说明</label>
+        <div class="layui-input-inline" >
+            <textarea name="description" class="layui-textarea" style="width: 600px">{$coupon.description}</textarea>
+        </div>
+        <div class="layui-form-item"></div>
+
+        <input type="hidden" name="id"  value="{$coupon.id}">
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="save">保存</button>
+                <!--        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="audit">提交审核</button>-->
+                <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+{block name="script"}
+<script type="text/javascript"
+        src="__STATIC__/ueditor/ueditor.config.js?version={$Think.config.web_config.site_version}"></script>
+<script type="text/javascript"
+        src="__STATIC__/ueditor/ueditor.all.js?version={$Think.config.web_config.site_version}"></script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+
+        //自定义验证规则
+        form.verify({
+            name: function(value){
+                if(value.length > 100 ){
+                    return '限制100个字符且不为空';
+                }
+            }
+
+        });
+
+        //输入图片上传按钮序号初始化上传组件
+
+        var campus_id = {$coupon.campus_id};
+        upload.render({
+            elem: '#picture1'
+            , url: "{:url('upload/goods')}"
+            , size: 2048
+            , done: function (res, index, upload) {
+                if (res.code == 200) {
+                    $("#titlePicture1").find("input[name='image']").eq(1 - 1).val(res.data);
+                    $("#picture1" ).html("<img src='" + res.data + "' width='138' height='95'>");
+                    $("#picture1" ).css({"padding": "0"});
+                }
+
+                //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+                var item = this.item;
+            }
+        });
+        $("#picture1" ).css({"display": "inline-block"});
+
+
+        // xlp.getHttp("{:url('api/all_category')}", {}, function (res) {
+        //     $("#navigationId").html('<option value="">请选择(可以输入搜索)</option>');
+        //     layui.each(res, function (i) {
+        //         $("#navigationId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+        //         form.render("select", "navigationIdSelect");
+        //     })
+        // });
+        //获取筛选条件的所有校区
+        xlp.getHttp("{:url('api/get_campus')}", {}, function (res) {
+            $("#campusId").html('<option value="0">所有校区</option>');
+            layui.each(res, function (i) {
+                $("#campusId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                form.render("select", "campusSelect");
+            })
+
+            if (campus_id) {
+                $('select[name="campus_id"]').next().find('.layui-select-title input').click();
+                $('select[name="campus_id"]').next().find('.layui-anim').children('dd[lay-value=' + campus_id + ']').click();
+            }
+        });
+
+        form.on("submit(cancel)", function (data) {
+            location.href = "{:url('news_column')}";
+            return false;
+        });
+    })
+
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test2' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test3' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test4' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test5' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test6' //指定元素
+            ,type: 'time'
+        });
+    });
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+//日期时间选择器
+        laydate.render({
+            elem: '#stime'
+            ,type: 'date'
+            ,trigger:'click'
+        });
+    });
+
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+//日期时间选择器
+        laydate.render({
+            elem: '#etime'
+            ,type: 'date'
+            ,trigger:'click'
+        });
+    });
+
+</script>
+{/block}

@@ -1,0 +1,322 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:57:"/var/www/king_hsst/tpl/admin/order/add_history_order.html";i:1599431950;s:46:"/var/www/king_hsst/tpl/admin/public/popup.html";i:1597301618;s:45:"/var/www/king_hsst/tpl/admin/common/meta.html";i:1597301618;s:47:"/var/www/king_hsst/tpl/admin/common/script.html";i:1597301618;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:"海师食堂外卖"); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/layui/css/layui.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>"  media="all">
+<link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+<link rel="stylesheet" href="/static/css/style.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+    
+</head>
+
+<body>
+<!--弹窗iframe基本布局-->
+<!--内容区域-->
+<div id="content"  class="main-body">
+    <div id="content-wrap">
+        <div class=" main-content">
+            
+<a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="<?php echo url('history_order'); ?>"><i class="layui-icon">&#xe603;</i>返回</a>
+<fieldset class="layui-elem-field layui-field-title">
+
+    <legend>添加历史订单</legend>
+</fieldset>
+
+<form class="layui-form layui-form-edit" action="<?php echo url('add_history_order'); ?>" method="post" lay-filter="newsForm">
+
+    <div class="layui-form-item">
+        <div class="layui-form-item">
+            <label class="layui-form-label">订单编号</label>
+            <div class="layui-input-inline" >
+                <input type="number" name="order_number" placeholder="如:202008302247545743933324"  class="layui-input">
+            </div>
+
+
+            <label class="layui-form-label">所属校区</label>
+            <div class="layui-input-inline layui-form" lay-filter="campusSelect">
+                <select name="campus_id" id="campusId" lay-filter="campusId" lay-verify="required"  lay-search>
+                    <option value="">请选择校区</option>
+                </select>
+            </div>
+
+            <label class="layui-form-label">店铺id</label>
+            <div class="layui-input-inline layui-form" lay-filter="storeSelect">
+                <select name="store_id" id="storeId" lay-filter="storeId" lay-verify="required"  lay-search>
+                    <option value="">请选择店铺</option>
+                </select>
+            </div>
+
+            <label class="layui-form-label">订单来源</label>
+            <div class="layui-input-inline layui-form" lay-filter="fixedIdSelect">
+                <select name="order_source"  lay-filter="fixedId" lay-search>
+                    <option value=""   style="width: 15%">请选择(可以输入搜索)</option>
+                    <option value="1">微信公众号</option>
+                    <option value="2">微信小程序</option>
+                    <option value="3">APP</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">订单总价</label>
+            <div class="layui-input-inline" >
+                <input  type="number" step="0.01" name="total_price" placeholder="单位：元"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">店铺实际应得</label>
+            <div class="layui-input-inline" >
+                <input  type="number" step="0.01" name="store_price" placeholder="单位：元"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">购买商品数量</label>
+            <div class="layui-input-inline" >
+                <input type="number" name="count" min="1" step="1" placeholder="请输入购买商品数量"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">餐盒费方案类型</label>
+            <div class="layui-input-inline layui-form" lay-filter="fixedIdSelect">
+                <select name="box_type"  lay-filter="fixedId" lay-search>
+                    <option value=""   style="width: 15%">请选择(可以输入搜索)</option>
+                    <option value="1">按订单收取</option>
+                    <option value="2">商品数量收取</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">餐盒费名称</label>
+            <div class="layui-input-inline" >
+                <input type="text" name="box_name" placeholder="请输入餐盒费名称"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">餐盒费</label>
+            <div class="layui-input-inline" >
+                <input  type="number" step="0.01" name="box_price" placeholder="单位：元"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">跑腿费名称</label>
+            <div class="layui-input-inline" >
+                <input type="text" name="convey_name" placeholder="请输入餐盒费名称"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">跑腿费</label>
+            <div class="layui-input-inline" >
+                <input  type="number" step="0.01" name="convey_price" placeholder="单位：元"  class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付方式</label>
+            <div class="layui-input-inline layui-form" lay-filter="fixedIdSelect">
+                <select name="pay_type"   lay-filter="fixedId" lay-search>
+                    <option value=""   style="width: 15%">请选择(可以输入搜索)</option>
+                    <option value="1">微信支付</option>
+                    <option value="2">支付宝支付</option>
+                </select>
+            </div>
+
+            <label class="layui-form-label">支付平台单号</label>
+            <div class="layui-input-inline" >
+                <input type="text" name="wx_order_code"  placeholder="请输入支付平台单号"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">第三方支付收取的手续费金额</label>
+            <div class="layui-input-inline" >
+                <input type="number" step="0.0001" name="pay_manage_price" placeholder="单位：元"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">第三方支付收取的手续费率</label>
+            <div class="layui-input-inline" >
+                <input type="number" step="0.0001" name="pay_manage_ratio" value="0.006" placeholder="请输入,如：0.006表示0.6%"  class="layui-input">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">收货人姓名</label>
+            <div class="layui-input-inline" >
+                <input type="text" name="delivery_name" placeholder="请输入收货人姓名"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">收货人电话</label>
+            <div class="layui-input-inline" >
+                <input type="tel" name="delivery_phone" placeholder="请输入收货人电话"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">收货地址</label>
+            <div class="layui-input-inline" >
+                <input type="text" name="delivery_address" placeholder="请输入收货地址"  class="layui-input">
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">订单完成时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="status7_time" class="layui-input" id="test5" placeholder="yyyy-MM-dd HH:mm:ss">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">系统运行安全维护费金额</label>
+            <div class="layui-input-inline" >
+                <input type="number" step="0.01" name="manage_price" placeholder="单位：元"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">系统运行安全维护费费率，总金额计算比例</label>
+            <div class="layui-input-inline" >
+                <input type="number" step="0.0001" name="manage_ratio" value="0.02" placeholder="请输入,如：0.02表示2%"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">平台开发费金额</label>
+            <div class="layui-input-inline" >
+                <input  type="number" step="0.01" name="develop_price" placeholder="单位：元"  class="layui-input">
+            </div>
+
+            <label class="layui-form-label">平台开发费费率，总金额计算比例</label>
+            <div class="layui-input-inline" >
+                <input type="number" step="0.0001" name="develop_ratio" value="0.01" placeholder="请输入,如：0.01表示1%"  class="layui-input">
+            </div>
+        </div>
+
+
+    </div>
+
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="save">保存</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+        </div>
+    </div>
+</div>
+<script src="/static/layui/layui.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/common.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/echarts.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/js/' //layui全局设置
+        ,version: '<?php echo \think\Config::get('web_config.site_version'); ?>'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+<script type="text/javascript"
+        src="/static/ueditor/ueditor.config.js?version=<?php echo \think\Config::get('web_config.site_version'); ?>"></script>
+<script type="text/javascript"
+        src="/static/ueditor/ueditor.all.js?version=<?php echo \think\Config::get('web_config.site_version'); ?>"></script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+
+        //自定义验证规则
+        form.verify({
+            name: function(value){
+                if(value.length > 100 ){
+                    return '限制100个字符且不为空';
+                }
+            }
+
+        });
+
+
+        //输入图片上传按钮序号初始化上传组件
+
+
+        upload.render({
+            elem: '#picture1'
+            , url: "<?php echo url('upload/goods'); ?>"
+            , size: 2048
+            , done: function (res, index, upload) {
+                if (res.code == 200) {
+                    $("#titlePicture1").find("input[name='image']").eq(1 - 1).val(res.data);
+                    $("#picture1" ).html("<img src='" + res.data + "' width='138' height='95'>");
+                    $("#picture1" ).css({"padding": "0"});
+                }
+
+                //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+                var item = this.item;
+            }
+        });
+        $("#picture1" ).css({"display": "inline-block"});
+
+
+        //获取筛选条件的所有校区
+        xlp.getHttp("<?php echo url('api/get_campus'); ?>", {}, function (res) {
+            $("#campusId").html('<option value="">请选择校区</option>');
+            layui.each(res, function (i) {
+                $("#campusId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                form.render("select", "campusSelect");
+            })
+        });
+
+        //获取筛选条件的所有店铺
+        xlp.getHttp("<?php echo url('api/get_store'); ?>", {}, function (res) {
+            $("#storeId").html('<option value="">请选择店铺</option>');
+            layui.each(res, function (i) {
+                $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "storeSelect");
+            })
+        });
+
+        form.on('select(campusId)', function (data) {
+            xlp.getHttp("<?php echo url('api/get_store'); ?>", {
+                campus_id: data.value,
+            }, function (res) {
+                $("#storeId").html('<option value="0">所有店铺</option>');
+                layui.each(res, function (i) {
+                    $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                    form.render("select", "storeSelect");
+                })
+            })
+        });
+    })
+
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test2' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test3' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test4' //指定元素
+            ,type: 'time'
+        });
+
+        //日期时间选择器
+        laydate.render({
+            elem: '#test5'
+            ,type: 'datetime'
+        });
+
+    });
+</script>
+
+</body>
+</html>

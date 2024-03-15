@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "评论",
+  "navigationBarBackgroundColor": "#f7dd93",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u--text": "/uni_modules/uview-ui/components/u--text/u--text",
+    "u-rate": "/uni_modules/uview-ui/components/u-rate/u-rate",
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "u-album": "/uni_modules/uview-ui/components/u-album/u-album"
+  }
+}

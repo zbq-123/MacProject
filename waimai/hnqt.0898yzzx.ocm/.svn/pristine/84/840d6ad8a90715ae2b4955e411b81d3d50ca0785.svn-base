@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+    <link rel="stylesheet" href="__STATIC__/client/css/page-orders-detail.css?1">
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav" style="background: #f5f5f5;">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <a class="mui-btn mui-btn-link mui-pull-right" href="tel:{$orders.service_phone}"><img src="__STATIC__/client/icon/icon-service.png"></a>
+</header>
+<div class="mui-content">
+    <div class="orders-top">
+        <div class="orders-status"><span>{$orders.now_status}</span><span class="mui-icon mui-icon-forward"></span></div>
+        <div class="orders-refresh" onclick="javascript:window.location.reload();"><img class="orders-refresh-img" src="__STATIC__/client/icon/icon-refresh.png">刷新</div>
+    </div>
+    <div class="orders-submit-panel">
+        <div class="orders-summary">{eq name='orders.status' value='7'}感谢您对圈圈食堂外卖的信任，期待再次光临。{else/}感谢您对圈圈食堂外卖的信任，{$orders.now_status}。{/eq}</div>
+        <div class="orders-btn-list">
+            {eq name="orders.is_pay" value="1"}
+            <div class="orders-btn-item" onclick="goPay()">
+                <img class="btn-img" src="__STATIC__/client/icon/icon-pay.png">
+                <div class="btn-name hsst-color-main">立即支付</div>
+            </div>
+            {/eq}
+            {eq name="orders.is_cancel" value="1"}
+            <div class="orders-btn-item" onclick="cancelOrders()">
+                <img class="btn-img" src="__STATIC__/client/icon/icon-cancel.png">
+                <div class="btn-name hsst-color-gray">取消订单</div>
+            </div>
+            {/eq}
+            {eq name="orders.is_refund" value="0"}
+                {eq name="orders.is_cancel" value="2"}
+                <div class="orders-btn-item" onclick="refundOrders()">
+                    <img class="btn-img" src="__STATIC__/client/icon/icon-cancel.png">
+                    <div class="btn-name hsst-color-gray">立即退款</div>
+                </div>
+                {/eq}
+                {eq name="orders.is_cancel" value="3"}
+                <div class="orders-btn-item" onclick="applyRefund()">
+                    <img class="btn-img" src="__STATIC__/client/icon/icon-cancel.png">
+                    <div class="btn-name hsst-color-gray">申请退款</div>
+                </div>
+                {/eq}
+            {/eq}
+            <div class="orders-btn-item" onclick="jumpStore({$orders.store_id})">
+                <img class="btn-img" src="__STATIC__/client/icon/icon-create.png">
+                <div class="btn-name hsst-color-main">再来一单</div>
+            </div>
+            <div class="orders-btn-item" onclick="callStore()">
+                <img class="btn-img" src="__STATIC__/client/icon/icon-phone2.png">
+                <div class="btn-name hsst-color-black">致电商家</div>
+            </div>
+        </div>
+    </div>
+    <div class="orders-submit-panel">
+        <div class="store-name" onclick="jumpStore({$orders.store_id})">{$orders.store_name}<span class="mui-icon mui-icon-forward"></span></div>
+        {volist name='orders.all_goods' id='vo'}
+        <div class="goods-item">
+            <img class="goods-img" src="{$vo.image}">
+            <div class="goods-info">
+                <div class="goods-name">{$vo.name}</div>
+                <div class="goods-count">x{$vo.count}</div>
+            </div>
+            <div class="goods-price">¥{$vo.all_price/100}</div>
+        </div>
+        {/volist}
+        <div class="orders-other-price-top"></div>
+        <div class="orders-other-price">
+            <div class="other-name">{$orders.box_name}</div>
+            <div class="other-price">¥{$orders.box_price/100}</div>
+        </div>
+        <div class="orders-other-price">
+            <div class="other-name">{$orders.convey_name}</div>
+            <div class="other-price">¥{$orders.convey_price/100}</div>
+        </div>
+        <div class="orders-count-price">
+            <div class="count-left" onclick="callStore()">
+                <img src="__STATIC__/client/icon/icon-phone.png">
+                <span>致电商家</span>
+            </div>
+            <div class="count-right">
+                <span class="price-name">合计</span><span class="price-number">¥{$orders.total_price/100}</span>
+            </div>
+        </div>
+    </div>
+    <div class="orders-submit-panel">
+        <div class="store-name">配送信息</div>
+        <div class="order-info">
+            <div class="info-title">联系人</div>
+            <div class="info-content">{$orders.delivery_name}({$orders.gender})</div>
+        </div>
+        <div class="order-info">
+            <div class="info-title">电话</div>
+            <div class="info-content">{$orders.delivery_phone}</div>
+        </div>
+        <div class="order-info">
+            <div class="info-title">收货地址</div>
+            <div class="info-content">{$orders.delivery_address}</div>
+        </div>
+    </div>
+    <div class="orders-submit-panel">
+        <div class="store-name">订单信息</div>
+        <div class="order-info">
+            <div class="info-title">订单号</div>
+            <div class="info-content">{$orders.order_number}<span class="copy-btn" onclick="copyOrders()">复制</span></div>
+        </div>
+        <div class="order-info">
+            <div class="info-title">下单时间</div>
+            <div class="info-content">{$orders.add_time}</div>
+        </div>
+        <div class="order-info">
+            <div class="info-title">支付方式</div>
+            <div class="info-content">{$orders.pay_type_text}</div>
+        </div>
+    </div>
+    <div class="in-end">到底了~</div>
+
+    <div class="status-panel mui-hidden">
+        <div class="status-panel-card">
+            <div class="step-list">
+                {volist name='order_time' id='vo'}
+                <div class="step-item">
+                    <div class="step-item-point"></div>
+                    <div class="step-item-info">
+                        <div class="step-item-info-title">{$vo.status_name}</div>
+                        <div class="step-item-info-time">{$vo.status_time|substr=5,11}</div>
+                    </div>
+                </div>
+                {/volist}
+            </div>
+            <div class="status-end-tip">{eq name='orders.status' value='7'}感谢您对圈圈食堂外卖的信任，期待再次光临{else/}感谢您对圈圈食堂外卖的信任，{$orders.now_status}{/eq}</div>
+        </div>
+
+        <img class="select-close" src="__STATIC__/client/icon/icon-closefull.png">
+    </div>
+</div>
+</body>
+{include file="common/script" /}
+<script>
+
+    var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；
+
+    mui(".mui-content").on("tap",".orders-status",function(){
+        mui(".status-panel")[0].classList.remove('mui-hidden');
+        mask.show();
+    })
+
+    mui(".status-panel").on("tap",".select-close",function(){
+        mui(".status-panel")[0].classList.add('mui-hidden');
+        mask.close();
+    })
+
+    function jumpStore(store_id) {
+        jQuery(parent.location).attr('href',"{:url('store/index')}?store_id="+store_id);
+    }
+
+    //去支付
+    function goPay() {
+        var data = {};
+        data['order_number'] = "{$orders.order_number}";
+
+        jQuery.ajax({
+            url:"{:url('pay/wxpay_goods_orders')}",
+            data: data,
+            type: "POST",
+            dataType: 'json',
+            beforeSend: function () {
+                jQuery.showLoading('核对订单中',function () {});
+            },
+            success: function(res){
+                if (res.code == 200) {
+                    jQuery.loadSuccess('核对成功',function () {
+                        console.log('订单提交成功返回信息：'+JSON.stringify(res.data));
+                        var data = res.data;
+                        wakeupPay(res.data);
+                    });
+                }else{
+                    jQuery.loadError('核对失败',function () {
+                        mui.toast(res.message,{ duration: 3000 });
+                    });
+                }
+            },
+            error: function (xhr) {
+                // 只有请求不正常（状态码不为200）才会执行
+                jQuery.loadError('请求失败',function () {
+                    mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                });
+            },
+        });
+    }
+
+    function wakeupPay(data){
+        jQuery.showLoading('支付中',function () {});
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', data,
+            function(res){
+                if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                    // 使用以上方式判断前端返回,微信团队郑重提示：
+                    //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                    jQuery.loadSuccess('支付成功',function () {
+						window.localStorage.youhui=''
+                        window.location.reload();
+                    });
+                }else{
+                    jQuery.loadError('支付失败',function () {
+                        console.log('支付失败：'+JSON.stringify(res));
+                        mui.toast("支付失败："+res.err_msg,{ duration: 3000 });
+                    });
+                }
+            });
+    }
+
+    //取消订单
+    function cancelOrders() {
+        var data = {};
+        data['order_number'] = "{$orders.order_number}";
+
+        jQuery.ajax({
+            url:"{:url('orders/cancel_orders')}",
+            data: data,
+            type: "POST",
+            dataType: 'json',
+            beforeSend: function () {
+                jQuery.showLoading('取消中...',function () {});
+            },
+            success: function(res){
+                if (res.code == 200) {
+                    jQuery.loadSuccess('取消成功',function () {
+						window.localStorage.youhui=''
+                        window.location.reload();
+                    });
+                }else{
+                    jQuery.loadError('取消失败',function () {
+                        mui.toast(res.message,{ duration: 3000 });
+                    });
+                }
+            },
+            error: function (xhr) {
+                // 只有请求不正常（状态码不为200）才会执行
+                jQuery.loadError('请求失败',function () {
+                    mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                });
+            },
+        });
+    }
+
+    //再来一单
+    function againBuy() {
+
+    }
+
+    //致电店家
+    function callStore() {
+        if("{$orders.store_phone}" != ""){
+            jQuery(location).attr('href',"tel:{$orders.store_phone}");
+        }else{
+            mui.toast("该店铺暂无联系方式");
+        }
+    }
+
+    //复制订单号
+    function copyOrders() {
+        var order_number = "{$orders.order_number}";
+        var flag = copyText(order_number);//这个必须在DOM对象的事件线程中执行
+        if(flag){
+            mui.toast("订单号复制成功",{ duration: 3000 });
+        }else{
+            mui.toast("订单号复制失败",{ duration: 3000 });
+        }
+    }
+
+    //复制方法
+    function copyText(text) {
+        var textarea = document.createElement("textarea");
+        var currentFocus = document.activeElement;
+        document.body.appendChild(textarea);
+        textarea.value = text;
+        textarea.focus();
+        if (textarea.setSelectionRange)
+            textarea.setSelectionRange(0, textarea.value.length);
+        else
+            textarea.select();
+        try {
+            var flag = document.execCommand("copy");
+        } catch(eo){
+            var flag = false;
+        }
+        document.body.removeChild(textarea);
+        currentFocus.focus();
+        return flag;
+    }
+
+    //取消订单并且退款
+    function refundOrders() {
+        var data = {};
+        data['order_number'] = "{$orders.order_number}";
+        var btnArray = ['返回', '确认'];
+
+        mui.confirm('取消订单，立即退款？', '', btnArray, function (e) {
+            if (e.index == 1) {
+                jQuery.ajax({
+                    url:"{:url('refund/wxpay_goods')}",
+                    data: data,
+                    type: "POST",
+                    dataType: 'json',
+                    beforeSend: function () {
+                        jQuery.showLoading('提交申请中...',function () {});
+                    },
+                    success: function(res){
+                        if (res.code == 200) {
+							window.localStorage.youhui=''
+                            jQuery.loadSuccess('退款申请成功',function () {
+                                window.location.reload();
+                            });
+                        }else{
+                            jQuery.loadError('退款申请失败',function () {
+                                mui.toast(res.message,{ duration: 3000 });
+                            });
+                        }
+                    },
+                    error: function (xhr) {
+                        // 只有请求不正常（状态码不为200）才会执行
+                        jQuery.loadError('请求失败',function () {
+                            mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                        });
+                    },
+                });
+            }
+        });
+
+    }
+
+    //取消订单申请退款
+    function applyRefund() {
+        var data = {};
+        data['order_number'] = "{$orders.order_number}";
+        var btnArray = ['返回', '确认'];
+
+        mui.confirm('取消订单，申请退款？', '', btnArray, function (e) {
+            if (e.index == 1) {
+                jQuery.ajax({
+                    url:"{:url('orders/apply_refund')}",
+                    data: data,
+                    type: "POST",
+                    dataType: 'json',
+                    beforeSend: function () {
+                        jQuery.showLoading('申请中...',function () {});
+                    },
+                    success: function(res){
+                        if (res.code == 200) {
+							window.localStorage.youhui=''
+                            jQuery.loadSuccess('申请成功',function () {
+                                window.location.reload();
+                            });
+                        }else{
+                            jQuery.loadError('申请失败',function () {
+                                mui.toast(res.message,{ duration: 3000 });
+                            });
+                        }
+                    },
+                    error: function (xhr) {
+                        // 只有请求不正常（状态码不为200）才会执行
+                        jQuery.loadError('请求失败',function () {
+                            mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                        });
+                    },
+                });
+            }
+        });
+
+    }
+</script>
+</html>

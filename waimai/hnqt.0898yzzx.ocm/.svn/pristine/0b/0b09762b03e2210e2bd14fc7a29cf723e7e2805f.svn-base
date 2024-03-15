@@ -1,0 +1,19 @@
+Array
+(
+    [appid] => wx626c4a75d668ba06
+    [bank_type] => OTHERS
+    [cash_fee] => 1150
+    [fee_type] => CNY
+    [is_subscribe] => Y
+    [mch_id] => 1490022892
+    [nonce_str] => af4f0d86712867be0bd87f3660b146f8
+    [openid] => oT975voMdAQ8O7NRmPqBr5eWxOE0
+    [out_trade_no] => 202203141854122472822236
+    [result_code] => SUCCESS
+    [return_code] => SUCCESS
+    [sign] => 6BEC7C0BE2DE884C623F3A8238902F87
+    [time_end] => 20220314185419
+    [total_fee] => 1150
+    [trade_type] => JSAPI
+    [transaction_id] => 4200001313202203142985865030
+)

@@ -1,0 +1,28 @@
+<?php
+namespace app\api\controller;
+use alipay\Wappay;
+use think\Collection;
+use think\Db;
+use util\WxPay;
+
+class Supermarket extends Collection{
+
+    //商超列表
+    public function get_supermarket_list(){
+        $res=Db::name('supermarket')->where('deleted',0)->select();
+        if(!empty($res)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$res]);
+        }else{
+            return json(['code'=>204,'msg'=>'没有数据']);
+        }
+    }
+    //商超下的商品
+    public function get_supermarket_good(){
+        $supermarket_id=input('supermarket_id');
+        if(empty($supermarket_id)){
+            return json(['code'=>201,'msg'=>'参数有误']);
+        }
+        //Db::name('supermarket_sort')->
+    }
+
+}

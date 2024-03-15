@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {include file="common/meta" /}
+    <title>首页</title>
+
+    <!--标准mui.css-->
+    <link href="__STATIC__/store/store-css/home.css" rel="stylesheet" />
+    <!--App自定义的css-->
+    <style>
+
+    </style>
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+    <a onclick="javascript:location.reload()"><span class="mui-icon mui-icon-refresh title-refresh-icon"></span></a>
+    <h1 class="mui-title">首页</h1>
+    <div onclick="javascript:logout()" class="mui-pull-right cancel-a" ><img class="cancel-icon " src="__STATIC__/store/icon/cancel-icon.png" alt=""></div>
+</header>
+<!--顶部标题 end-->
+
+<div class="mui-content">
+    <!--店铺信息栏 start-->
+    <div class="mui-content after-clear">
+        <ul class="mui-table-view mui-table-view-chevron" style="background: #007aff;margin-top: 0px;">
+            <li class="mui-table-view-cell header-inline pd-6-15">
+                <div class="heard-img-box">
+                    <img class="mui-pull-left" src="{$store.logo}">
+                </div>
+                <div class="name-text-box">
+                    <span>{$store.name}</span>
+                </div>
+                <div class="edit-btn-box">
+                    <a href="edit_password.html"><button type="button" class="mui-btn mui-btn-warning edit-btn" >
+                        修改密码
+                    </button></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--店铺信息栏 end-->
+
+    <!--营业信息栏 start-->
+    <div class="" >
+        <ul class="mui-table-view mui-grid-view mui-grid-9" style="background: #33CCCC!important;">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 " style="padding: 2px 10px!important;">
+                <div style="margin: 0;padding: 10px 0px;">
+                    <div class="mui-media-body" style="font-size: 18px">￥{$today.turnover}</div>
+                    <div class="" style="color: white;padding-top:10px;">今日营业额</div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 "  style="padding: 2px 10px!important;">
+                <div style="margin: 0;padding: 10px 0px;">
+                    <div class="mui-media-body" style="font-size: 18px">{$today.order_count}</div>
+                    <div class="" style="color: white;padding-top:10px;">今日成单数</div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 "  style="padding: 2px 10px!important;">
+                <div  style="margin: 0;padding: 10px 0px;">
+                    <div class="mui-media-body" style="font-size: 18px">￥{$today.today_money}</div>
+                    <div class="" style="color: white;padding-top:10px;">今日应得</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--营业信息栏 end-->
+
+    <!--账户余额栏 start-->
+    <div class="mui-table-view balance-box">
+        <img class="balance-img" src="__STATIC__/store/icon/balance-icon.png">
+        <div class="balance-text-box after-clear">
+            <span>账户余额</span>
+            <div class="money-number">￥ {$store.balance}</div>
+        </div>
+        <div class="balance-btn-box after-clear">
+            <a href="cashing.html"><button type="button" class="mui-btn mui-btn-primary" >申请提现</button></a>
+        </div>
+    </div>
+    <!--账户余额栏 end-->
+
+    <!--店铺功能栏 start-->
+    <div class="">
+        <ul class="mui-table-view mui-grid-view mui-grid-9" style="background: white!important;border: 0px!important;">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">
+                <a href="balance_itemized.html" class="store-function-box">
+                    <img class="function-img" src="__STATIC__/store/icon/function/function-count-icon.png">
+                    <div class="mui-media-body" >营收统计</div>
+                </a>
+            </li>
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="__STATIC__/store/icon/function/function-delivery-icon.png">-->
+                    <!--<div class="mui-media-body" >配送员管理</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="__STATIC__/store/icon/function/function-user-icon.png">-->
+                    <!--<div class="mui-media-body" >子账号管理</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">
+                <a href="../orders/order_user_stastistic.html" class="store-function-box">
+                    <img class="function-img" src="__STATIC__/store/icon/function/function- ticket-icon.png">
+                    <div class="mui-media-body" >来客统计</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">
+                <a href="../orders/refunds_orders.html" class="store-function-box">
+                    <img class="function-img" src="__STATIC__/store/icon/function/function-re-order-icon.png">
+                    <div class="mui-media-body" >退款订单</div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">
+                <a href="../orders/orders_refunds_request.html" class="store-function-box">
+                    <img class="function-img" src="__STATIC__/store/icon/function/function-refunds-icon.png">
+                    <div class="mui-media-body" >退款申请</div>
+                </a>
+            </li>
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="__STATIC__/store/icon/function/function-comment-icon.png">-->
+                    <!--<div class="mui-media-body" >店铺评论</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="__STATIC__/store/icon/function/function-dispatch-icon.png">-->
+                    <!--<div class="mui-media-body" >调度中心</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="__STATIC__/store/icon/function/function-hurry-icon.png">-->
+                    <!--<div class="mui-media-body" >催单订单</div>-->
+                <!--</a>-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <!--店铺功能栏 end-->
+</div>
+</body>
+{include file="common/script" /}
+<script>
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+
+    <!--解决 a 标签不能跳转-->
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    });
+    function logout(){
+        var btnArray = ['取消', '确定'];
+        mui.confirm('确定注销登录吗？', '注销登录', btnArray, function(e) {
+            if (e.index == 1) {
+                window.parent.location.href = "../login/logout";
+            } else {
+
+            }
+        })
+    }
+    // // 按钮弹窗
+    // document.getElementById("logoutbtn").addEventListener('tap', function() {
+    //     var btnArray = ['取消', '确定'];
+    //     mui.confirm('确定注销登录吗？', '注销登录', btnArray, function(e) {
+    //         if (e.index == 1) {
+    //             console.log('确定注销');
+    //             var logout = document.getElementById("logout");
+    //             // //取消<a>标签原先的onclick事件,使<a>标签点击后通过href跳转(因为无法用js跳转)
+    //             // logout.setAttribute("onclick",'');
+    //             // //激发标签点击事件OVER
+    //             logout.click();
+    //             console.log('取消');
+    //         } else {
+    //             console.log('取消注销');
+    //         }
+    //     })
+    // });
+</script>
+</html>

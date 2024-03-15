@@ -1,0 +1,114 @@
+
+
+/****************/
+/*商家提现*/
+/***************/
+.cashing-body {
+    width: 92%;
+    margin: auto;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 5px;
+    color: #000000;
+}
+.cashing-object-box{
+    padding: 15px 20px;
+    background: #fafaff;
+    display: flex;
+    align-content: center;
+}
+.cashing-object-box .cashing-object-left{
+    font-size: 13px;
+    width: 50px;
+}
+.cashing-object-box .cashing-object-right{
+    font-size: 14px;
+    color: #007aff;
+    width: 100%;
+    padding-left: 15px;
+}
+.cashing-amount-box{
+    padding: 15px 20px;
+    width: 100%;
+}
+.cashing-amount-box .cashing-amount-title{
+    font-size: 13px;
+}
+.cashing-amount-box .cashing-amount-content{
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px 0px;
+    height: 65px;
+    border-bottom: 1px solid #dfdfdf;
+    margin-bottom: 10px;
+}
+.cashing-amount-content .cashing-input{
+    width: 80%!important;
+    height: 50px!important;
+    border: 0px!important;
+    padding: 0px!important;
+    margin-bottom: 0px!important;
+    font-size: 36px!important;
+}
+.cashing-amount-box .cashing-now-balance{
+    font-size: 12px;
+    color: #999999;
+    margin-bottom: 20px;
+}
+.cashing-amount-box .cashing-now-balance span{
+    color: #007aff;
+}
+.cashing-amount-box .cashing-btn{
+    height: 40px!important;
+    padding: 0px!important;
+    font-size: 16px!important;
+    letter-spacing: 1px;
+    margin-bottom: 0px!important;
+}
+
+
+/****************/
+/*商家提现记录，余额明细记录*/
+/***************/
+.cashing-records-body{
+    width: 100%;
+}
+.cashing-records-body .cashing-records-list{
+    width: 100%;
+    background: #ffffff;
+    border-top: 0.5px solid #007aff;
+    border-bottom: 0.5px solid #007aff;
+    margin-top: 15px;
+}
+.cashing-records-list .list-head{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 10px;
+    display: flex;
+    align-content: center;
+    font-size: 16px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.list-head-left{
+    width: 70%;
+}
+.list-head-right{
+    width: 30%;
+    color: #ff813d;
+    text-align: center;
+}
+.cashing-records-list .list-head span{
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.cashing-records-list .list-body{
+    width: 100%;
+    padding: 10px 10px;
+    line-height: 20px;
+}
+.list-body p{
+    margin-bottom: 5px!important;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+    {block name="head"}{/block}
+</head>
+
+<body>
+<!--弹窗iframe基本布局-->
+<!--内容区域-->
+<div id="content"  class="main-body">
+    <div id="content-wrap">
+        <div class=" main-content">
+            {block name="content"}{/block}
+        </div>
+    </div>
+</div>
+{include file="common/script" /}
+<script>
+    layui.config({
+        base: '__JS__/' //layui全局设置
+        ,version: '{$Think.config.web_config.site_version}'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+{block name="script"}{/block}
+</body>
+</html>

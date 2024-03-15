@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的收益",
+  "navigationBarBackgroundColor": "#f7dd93",
+  "usingComponents": {
+    "u--text": "/uni_modules/uview-ui/components/u--text/u--text",
+    "u-sticky": "/uni_modules/uview-ui/components/u-sticky/u-sticky",
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs"
+  }
+}

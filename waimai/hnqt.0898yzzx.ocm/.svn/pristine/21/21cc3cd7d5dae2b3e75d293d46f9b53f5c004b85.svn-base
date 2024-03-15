@@ -1,0 +1,9 @@
+---------------------------------------------------------------
+[ 2020-09-18T14:05:15+08:00 ] 140.207.54.73 POST wmgl.0898yzzx.com/client/notify/wxpay_goods
+[ error ] [ordersNotifyError]回调请求订单找不到,notify_id=271;order_number=202009181405069511612334
+---------------------------------------------------------------
+[ 2020-09-18T22:21:05+08:00 ] 111.29.248.101 POST wmgl.0898yzzx.com/store/upload/goodsimage.html
+[ error ] [4096]Object of class util\Ret could not be converted to string
+---------------------------------------------------------------
+[ 2020-09-18T22:21:53+08:00 ] 111.29.248.101 POST wmgl.0898yzzx.com/store/upload/goodsimage.html
+[ error ] [0]致命错误: Call to a member function validate() on null

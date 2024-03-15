@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+    <link rel="stylesheet" href="__STATIC__/client/css/page-orders-index.css?v=1.0.1">
+</head>
+<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.as {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 20px;
+		}
+
+		.as li {
+			width: 30%;
+			padding: 10px;
+			background: orangered;
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			border-radius: 5px;
+			color: white;
+			margin: 5px;
+			box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, .5);
+		}
+
+		.as li img {
+			width: 100%;
+		}
+
+		.box {
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 100vh;
+			background: gold;
+		}
+	</style>
+<body>
+<div class="mui-content">
+	<div class="box">
+		<h3 style="text-align: center;padding-top: 18px;">每月享6个会员红包</h3>
+		<p style="text-align: center;font-size: 13px;color: gray;">无门槛、不限任何门店</p>
+		<ul class="as">
+			<li><span>￥5</span><span>无门槛</span></li>
+			<li><span>￥5</span><span>无门槛</span></li>
+			<li><span>￥5</span><span>无门槛</span></li>
+			<li><span>￥5</span><span>无门槛</span></li>
+			<li><span>￥5</span><span>无门槛</span></li>
+			<li><span>￥5</span><span>无门槛</span></li>
+		</ul>
+		<h3 style="text-align: center;color: gray;margin-top: 50px;">放心开通,不自动续费</h3>
+		<div
+			style="width: 95%;padding: 20px;border-radius: 5px;margin: 20px auto;background: linear-gradient(to right,orangered,gold);display: flex;align-items: center;justify-content: space-between;box-shadow: 0px 5px 10px 0px rgba(0,0,0,.5);position: absolute;bottom: 0;left: 50%;transform: translate(-50%);">
+			<div>
+				<p style="color: white;font-size: 20px;"><span style="color: gold;">15元</span>开通月卡</p>
+				<p style="color: white;margin: 15px 0;">领取<span
+						style="font-size: 20px;color: gold;">5元X6张</span>通用优惠劵</p>
+				<button onclick="buyCard()"
+					style="font-size: 16px;background: gold;color: red;height: 50px;width: 200px;border: 0;">点击开通</button>
+			</div>
+			<img src="__STATIC__/img/card.png" alt="" width="25%">
+		</div>
+	</div>
+</div>
+</body>
+{include file="common/script" /}
+<script>
+    mui.init();
+	if ({
+			$is_card
+		} == 1) {
+		mui.toast("您已购买了本月月卡,无需再次购买", {
+			duration: 3000
+		});
+	
+		function go() {
+			window.history.go(-1);
+		}
+		setTimeout(() => go(), 3000);
+	}
+	function buyCard() {
+		var data = {};
+		jQuery.ajax({
+			url: "{:url('card/wxpay_card')}",
+			data: data,
+			type: "POST",
+			dataType: 'json',
+			beforeSend: function() {
+				jQuery.showLoading('提交订单中', function() {});
+			},
+			success: function(res) {
+				console.log(res)
+				if (res.code == 200) {
+					jQuery.loadSuccess('订单提交成功', function() {
+						console.log('订单提交成功返回信息：' + JSON.stringify(res.data));
+						var data = res.data;
+						wakeupPay(res.data);
+					});
+				} else {
+					jQuery.loadError('订单提交失败', function() {
+						mui.toast(res.message, {
+							duration: 3000
+						});
+					});
+				}
+			},
+			error: function(xhr) {
+				// 只有请求不正常（状态码不为200）才会执行
+				jQuery.loadError('订单提交失败', function() {
+					mui.toast("错误码：" + xhr.status, {
+						duration: 3000
+					});
+				});
+			},
+		});
+	}
+	
+	function wakeupPay(data) {
+		jQuery.showLoading('支付中', function() {});
+		parent.WeixinJSBridge.invoke(
+			'getBrandWCPayRequest', data,
+			function(res) {
+				if (res.err_msg == "get_brand_wcpay_request:ok") {
+					// 使用以上方式判断前端返回,微信团队郑重提示：
+					//res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+					jQuery.loadSuccess('支付成功', function() {
+						console.log('支付成功：' + JSON.stringify(res));
+					});
+				} else {
+					jQuery.loadError('支付失败', function() {
+						console.log('支付失败：' + JSON.stringify(res));
+						mui.toast("支付失败：" + res.err_msg, {
+							duration: 3000
+						});
+					});
+				}
+				setTimeout(function() {
+					jumpOrdersDetail();
+				}, 3000);
+			});
+	}
+	if (typeof WeixinJSBridge == "undefined"){
+	    if( document.addEventListener ){
+	        document.addEventListener('WeixinJSBridgeReady', wakeupPay, false);
+	    }else if (document.attachEvent){
+	        document.attachEvent('WeixinJSBridgeReady', wakeupPay); 
+	        document.attachEvent('onWeixinJSBridgeReady', wakeupPay);
+	    }
+	}else{
+	    wakeupPay();
+	}
+	function jumpOrdersDetail() {
+		location.replace("{:url('user/my_card')}");
+	}
+
+</script>
+</html>

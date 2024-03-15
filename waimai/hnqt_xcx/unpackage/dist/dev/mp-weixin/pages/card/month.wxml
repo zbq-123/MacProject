@@ -1,0 +1,1 @@
+<view class="card"><u-navbar vue-id="7b8aae68-1" title="月卡" autoBack="{{true}}" bgColor="transparent" leftIcon="arrow-left" fixed="{{true}}" placeholder="{{true}}" titleStyle="{{$root.a0}}" bind:__l="__l"></u-navbar><image src="../../static/card.png" alt mode="widthFix" data-event-opts="{{[['tap',[['buyCard',['$event']]]]]}}" bindtap="__e"></image></view>

@@ -1,0 +1,303 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:57:"/www/wwwroot/wmgl.0898yzzx.com/tpl/store/store/store.html";i:1623238841;s:57:"/www/wwwroot/wmgl.0898yzzx.com/tpl/store/common/meta.html";i:1623238839;s:59:"/www/wwwroot/wmgl.0898yzzx.com/tpl/store/common/script.html";i:1623238839;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>店铺列表</title>
+
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/store.css" rel="stylesheet" />
+    <link href="/static/store/mui/css/mui.poppicker.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/store/mui/css/mui.picker.min.css" />
+    <!--App自定义的css-->
+    <style>
+        body{
+            /*background: #f1f1f1;*/
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <a onclick="javascript:location.reload()"><span class="mui-icon mui-icon-refresh title-refresh-icon"></span></a>
+    <h1 class="mui-title">店铺列表</h1>
+    <!--<a class="mui-pull-right cancel-a"><img class="cancel-icon " src="/static/store/icon/cancel-icon.png" alt=""></a>-->
+</header>
+<!--顶部标题 end-->
+
+<div class="mui-content mui-scroll-wrapper">
+    <div class="after-clear">
+        <!--搜索框 start-->
+        <div class="mui-input-row search-box" style="background: white;">
+            <input type="search" class="mui-input-clear" placeholder="输入店铺名称/编号" style="margin-bottom: 0px;">
+            <button id="search_Btn" type="button" class="mui-btn mui-btn-primary mui-icon mui-icon-search" > 查询</button>
+        </div>
+        <!--搜索框 end-->
+
+        <!--筛选栏 start-->
+        <div class="sifg-box" style="background: white;">
+            <ul class="mui-table-view mui-grid-view mui-grid-9" style="background: #ffffff!important;">
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 "  style="padding: 0px 2px!important;border: 0px!important;">
+                    <div  id='statusPicker'  class="sift-btn-box">
+                        <input type="text" name=""  placeholder="店铺状态" id="statusResult">
+                        <span></span>
+                    </div>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 "  style="padding: 0px 2px!important;border: 0px!important;">
+                    <div  id='schoolPicker'  class="sift-btn-box">
+                        <input type="text" name=""  placeholder="所属分区" id="schoolResult">
+                        <span></span>
+                    </div>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 "  style="padding: 0px 2px!important;border: 0px!important;">
+                    <div  id='categoryPicker'  class="sift-btn-box">
+                        <input type="text"  name=""  placeholder="店铺分类" id="categoryResult">
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--筛选栏 end-->
+
+        <!--店铺列表 start-->
+        <div class="store-list-body">
+            <div class="store-list-box">
+                <div >
+                    <div class="store-heads-box after-clear">
+                        <img class="header-img" src="<?php echo $store['logo']; ?>">
+                        <div class="store-heads-text">
+                            <span><?php echo $store['store_name']; ?></span>
+                            <p><?php echo $store['campus_name']; ?></p>
+                        </div>
+                    </div>
+                    <div class="edit-btn-box">
+                        <a href="edit_store.html">
+                            <button type="button" class="mui-btn mui-btn-warning edit-btn" >修改</button>
+                        </a>
+                        <!--<div id="storeSwitch" class="mui-switch mui-switch-blue mui-active " style="width: 70px;margin-top: 5px;">-->
+                            <!--<div class="mui-switch-handle"></div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="store-info-box after-clear">
+                    <div class="store-info-list-box after-clear">
+                        <div class="store-info-title">店铺编号: </div>
+                        <div class="store-info-details w-200">
+                            <span><?php echo $store['number']; ?></span>&nbsp;
+                        </div>
+                    </div>
+                    <div class="store-info-list-box after-clear">
+                        <div class="store-info-title">营业时间: </div>
+                        <div class="store-info-details w-200">
+                            <span><?php echo $store['start_time1']; ?>-<?php echo $store['end_time1']; ?></span>&nbsp;
+                            <span><?php echo $store['start_time2']; ?>-<?php echo $store['end_time2']; ?></span>&nbsp;
+                            <span><?php echo $store['start_time3']; ?>-<?php echo $store['end_time3']; ?></span>
+                        </div>
+                    </div>
+                    <!--预留部分 start-->
+                    <!--<div class="store-info-list-box after-clear">-->
+                        <!--<div class="store-info-title">店铺类别:</div>-->
+                        <!--<div class="store-info-details">-->
+                            <!--<span>演示分类</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--预留部分 end-->
+                    <div class="store-info-list-box after-clear">
+                        <div class="store-info-title">店铺地址:</div>
+                        <div class="store-info-details">
+                            <span><?php echo $store['address']; ?></span>
+                        </div>
+                    </div>
+                    <div class="switch-btn-box">
+                        <?php if($store['status'] == '1'): ?>
+                        <button id="switch_on_Btn" type="button" class="mui-btn mui-btn-danger mui-btn-block" >关闭店铺</button>
+                        <button id="switch_off_Btn" style="display: none" type="button" class="mui-btn mui-btn-primary mui-btn-block">开启店铺</button>
+                        <?php else: ?>
+                        <button id="switch_on_Btn" style="display: none" type="button" class="mui-btn mui-btn-danger mui-btn-block" >关闭店铺</button>
+                        <button id="switch_off_Btn" type="button" class="mui-btn mui-btn-primary mui-btn-block">开启店铺</button>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--店铺列表 end-->
+
+    </div>
+</div>
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/store/mui/js/mui.picker.min.js"></script>
+<script src="/static/store/mui/js/mui.poppicker.js"></script>
+
+<!--解决 a 标签不能跳转-->
+<script>
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    })
+</script>
+<!--下拉选项-->
+<script>
+    (function($, doc) {
+        $.init();
+        // 下拉选项
+        $.ready(function() {
+            // 搜索
+            var search_Btn = doc.getElementById('search_Btn');
+            search_Btn.addEventListener('tap', function(event) {
+                mui.toast('该功能正在升级完善中！',{ duration:'long' });
+            }, false);
+
+            //普通示例
+            var statusPicker = new $.PopPicker();
+            statusPicker.setData([{
+                value: '1',
+                text: '营业中'
+            }, {
+                value: '2',
+                text: '休息中'
+            }
+            ]);
+            var statusPickerButton = doc.getElementById('statusPicker');
+            var statusResult = doc.getElementById('statusResult');
+            statusPickerButton.addEventListener('tap', function(event) {
+                mui.toast('该功能正在升级完善中！',{ duration:'long' });
+                // statusPicker.show(function(items) {
+                //     statusResult.value = items[0]['text'];
+                //     console.log(statusResult.value);
+                //     //返回 false 可以阻止选择框的关闭
+                //     //return false;
+                // });
+            }, false);
+
+            var schoolPicker = new $.PopPicker();
+            schoolPicker.setData([{
+                value: 'ywj',
+                text: '南校区'
+            }, {
+                value: 'aaa',
+                text: '桂林洋校区'
+            }
+            ]);
+            var schoolPickerButton = doc.getElementById('schoolPicker');
+            var schoolResult = doc.getElementById('schoolResult');
+            schoolPickerButton.addEventListener('tap', function(event) {
+                mui.toast('该功能正在升级完善中！',{ duration:'long' });
+                // schoolPicker.show(function(items) {
+                //     schoolResult.value = items[0]['text'];
+                //     console.log(schoolResult.value);
+                //     //返回 false 可以阻止选择框的关闭
+                //     //return false;
+                // });
+            }, false);
+
+            var categoryPicker = new $.PopPicker();
+            categoryPicker.setData([{
+                value: 'ywj',
+                text: '美食'
+            }, {
+                value: 'aaa',
+                text: '超市'
+            }, {
+                value: 'lj',
+                text: '水果'
+            }]);
+            var categoryPickerButton = doc.getElementById('categoryPicker');
+            var categoryResult = doc.getElementById('categoryResult');
+            categoryPickerButton.addEventListener('tap', function(event) {
+                mui.toast('该功能正在升级完善中！',{ duration:'long' });
+                // categoryPicker.show(function(items) {
+                //     categoryResult.value = items[0]['text'];
+                //     console.log(categoryResult.value);
+                //     //返回 false 可以阻止选择框的关闭
+                //     //return false;
+                // });
+            }, false);
+        });
+
+    })(mui, document);
+</script>
+<!--按钮弹窗-->
+<script>
+    // 按钮弹窗
+    document.getElementById("switch_on_Btn").addEventListener('tap', function() {
+        var btnArray = ['取消', '确定'];
+        mui.confirm('关闭店铺后，不会接受新订单，之前接受的订单依然会正常处理。', '关闭店铺', btnArray, function(e) {
+            if (e.index == 1) {
+                mui.ajax('store',{
+                    data:{
+                        status:'2',
+                    },
+                    dataType:'json',//服务器返回json格式数据
+                    type:'post',//HTTP请求类型
+                    timeout:10000,//超时时间设置为10秒；
+                    headers:{'Content-Type':'application/json'},
+                    success:function(data){
+                        //服务器返回响应，根据响应结果，分析是否成功；
+                        if (data.data)
+                            mui.toast('店铺关闭成功！已暂停营业...',{ duration:'long' });
+                        javascript:location.reload()
+                    },
+                    error:function(xhr,type,errorThrown){
+                        //异常处理；
+                        mui.toast('关闭异常，请刷新重试！',{ duration:'long' });
+                        // console.log(type);
+                    }
+                });
+            } else {
+
+            }
+        })
+    });
+    document.getElementById("switch_off_Btn").addEventListener('tap', function() {
+        var btnArray = ['取消', '确定'];
+        mui.confirm('恢复营业后，店铺会在设置的营业时间内正常接收订单。', '恢复营业', btnArray, function(e) {
+            if (e.index == 1) {
+                mui.ajax('store',{
+                    data:{
+                        status:'1',
+                    },
+                    dataType:'json',//服务器返回json格式数据
+                    type:'post',//HTTP请求类型
+                    timeout:10000,//超时时间设置为10秒；
+                    headers:{'Content-Type':'application/json'},
+                    success:function(data){
+                        //服务器返回响应，根据响应结果，分析是否成功；
+                        if (data.data)
+                            mui.toast('店铺开启成功！开始营业...',{ duration:'long' });
+                        javascript:location.reload()
+                    },
+                    error:function(xhr,type,errorThrown){
+                        //异常处理；
+                        mui.toast('开启异常，请刷新重试！',{ duration:'long' });
+                        // console.log(type);
+                    }
+                });
+            } else {
+
+            }
+        })
+    });
+</script>
+<!--<script>-->
+    <!--mui('#storeSwitch').each(function() { //循环所有toggle-->
+        <!--//toggle.classList.contains('mui-active') 可识别该toggle的开关状态-->
+        <!--/**-->
+         <!--* toggle 事件监听-->
+         <!--*/-->
+        <!--this.addEventListener('toggle', function(event) {-->
+            <!--//event.detail.isActive 可直接获取当前状态-->
+            <!--var switch_status=(this.classList.contains('mui-active') ? 'true' : 'false');-->
+            <!--console.log(switch_status);-->
+            <!--// this.parentNode.querySelector('span').innerText = '状态：' + (event.detail.isActive ? 'true' : 'false');-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+</html>

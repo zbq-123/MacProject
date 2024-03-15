@@ -1,0 +1,217 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:64:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\rule\admin_list.html";i:1649385562;s:67:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\public\public_main.html";i:1649816730;s:60:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\common\meta.html";i:1649386124;s:62:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\common\script.html";i:1649385561;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:"圈圈食堂"); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/layui/css/layui.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>"  media="all">
+<link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+<link rel="stylesheet" href="/static/css/style.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+    
+</head>
+
+<body class="layui-layout-body">
+<!--内容主题区域-->
+<div id="content"  class="main-body">
+    <div style="padding: 15px;" id="content-wrap">
+        <!-- <p>
+                <span class="layui-breadcrumb">
+                <?php if(is_array($breadcrumb) || $breadcrumb instanceof \think\Collection || $breadcrumb instanceof \think\Paginator): $i = 0; $__LIST__ = $breadcrumb;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bread): $mod = ($i % 2 );++$i;?>
+                <a><cite><?php echo $bread; ?></cite></a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </span>
+        </p> -->
+
+        <div class=" main-content">
+            
+<div class="tip-btn-line">
+    <div class="layui-btn layui-btn-sm xu-icon-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669;</i></div>
+    <a class="layui-btn layui-btn-sm" id="addBtn"><i class="layui-icon">&#xe654;</i>添加</a>
+</div>
+<table class="layui-table" id="adminTable" lay-filter="adminTable"></table>
+<!--编辑和新建管理员表单-->
+<form class="layui-form" action="<?php echo url('edit_admin'); ?>" id="editForm" lay-filter="*"  method="post" hidden>
+    <div class="layui-form-item">
+        <label class="layui-form-label">登录名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="login_name" placeholder="" autocomplete="off" lay-verify="required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-inline">
+            <input type="password" name="password" id="pwd" lay-verify="required|pass" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">昵称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="real_name" placeholder="请输入" autocomplete="off" lay-verify="required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属组别</label>
+        <div class="layui-input-inline">
+            <select name="group_id" lay-verify="">
+                <?php if(is_array($group_list) || $group_list instanceof \think\Collection || $group_list instanceof \think\Paginator): if( count($group_list)==0 ) : echo "" ;else: foreach($group_list as $key=>$g): ?>
+                <option value="<?php echo $g['id']; ?>"><?php echo $g['title']; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属店铺</label>
+        <div class="layui-input-inline">
+            <select name="store_id" lay-verify="">
+                <?php if(is_array($store) || $store instanceof \think\Collection || $store instanceof \think\Paginator): if( count($store)==0 ) : echo "" ;else: foreach($store as $key=>$g): ?>
+                <option value="<?php echo $g['id']; ?>"><?php echo $g['name']; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">超级管理员</label>
+        <div class="layui-input-inline">
+            <input type="radio" name="is_root" value="0" title="否">
+            <input type="radio" name="is_root" value="1" title="是">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">状态</label>
+        <div class="layui-input-inline">
+            <input type="radio" name="disabled" value="0" title="正常" checked>
+            <input type="radio" name="disabled" value="1" title="禁用">
+        </div>
+    </div>
+    <input type="text" name="id" id="idInput" hidden>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="edit">立即提交</button>
+        </div>
+    </div>
+</form>
+
+        </div>
+    </div>
+</div>
+<script src="/static/layui/layui.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/common.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/echarts.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/js/' //layui全局设置
+        ,version: '<?php echo \think\Config::get('web_config.site_version'); ?>'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+<script type="text/html" id="rightToolBar">
+    <a class="layui-btn layui-btn-sm xu-icon-btn" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
+    <a class="layui-btn layui-btn-danger layui-btn-sm xu-icon-btn" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
+</script>
+<script type="text/html" id="statusTpl">
+    {{#  if(d.disabled == 0){ }}
+    <span class="status-normal"><i class="layui-icon">&#xe617;</i>正常</span>
+    {{#  } else { }}
+    <span class="status-disable"><i class="layui-icon">&#xe617;</i>禁用</span>
+    {{# } }}
+</script>
+<script type="text/html" id="groupTpl">
+    {{#  layui.each(d.group, function(index, item){  }}
+        <span>{{item.title}}</span>
+    {{#     });     }}
+</script>
+
+
+<script type="text/html" id="rootTpl">
+    {{#  if(d.is_root == 1){  }}
+    <span>是</span>
+    {{#     } else {     }}
+    <span>否</span>
+    {{# } }}
+</script>
+<script src="/static/js/md5.js"></script>
+<script>
+    layui.use(['element', 'layer', 'table', 'http', 'form'], function () {
+        var $ = layui.$, element = layui.element, table = layui.table, layer = layui.layer, form = layui.form, http = layui.http;
+        table.render({
+            elem: "#adminTable"
+            ,url: "<?php echo url('admin_list'); ?>"  //赋值数据
+            ,response: {
+                statusCode: 200
+                ,msgName: 'message'
+            }
+            ,cols: [[
+                {field:'id', width:'10%', title:'ID'},
+                {field:'login_name',  width:'15%', title:'登录名'},
+                {field:'real_name',  width:'15%', title:'昵称'},
+                {field:'group_title',  width:'15%', title:'所属组别', templet: "#groupTpl"},
+                {field:'is_root',  width:'15%', title:'超级管理员', templet: "#rootTpl"},
+                {field:'status',  width:'15%', align:"center", templet: "#statusTpl", title:'状态'},
+                {fixed: 'right', align:'center', toolbar: '#rightToolBar', title:'操作'}
+            ]]
+            ,done: function (res, curr, count){
+                reSetIframeHeight();
+            }
+        });
+        $('#addBtn').on('click', function(){
+            //$("#editForm").find(":input").val('');
+            form.render();
+            layer.open({
+                type: 1
+                //,area: ['400px', '300px']
+                ,area: '400px'
+                ,title: '添加管理员'
+                ,content: $('#editForm')
+            });
+        });
+        //监听工具条
+        table.on('tool(adminTable)', function(obj){
+            var data = obj.data;
+            var layEvent = obj.event;
+            var tr = obj.tr;
+
+            if(layEvent === 'del'){
+                layer.confirm("确定删除吗?", function(index){
+                    http.post("<?php echo url('delete_admin'); ?>", {id: data.id},
+                        function (res) {
+                            obj.del();  //删除对应行（tr）的DOM结构，并更新缓存
+                            layer.close(index);
+                        });
+                });
+            } else if(layEvent === 'edit'){
+                //$("#editForm").find(":input").val('');
+                $("#editForm").find("input[name='id']").eq(0).val(data.id);
+                $("#editForm").find("input[name='login_name']").eq(0).val(data.login_name);
+                $("#editForm").find("input[name='real_name']").eq(0).val(data.real_name);
+                $("#editForm").find("input[name='disabled'][value='"+data.disabled+"']").prop('checked', "checked");
+                $("#editForm").find("input[name='is_root'][value='"+data.is_root+"']").prop('checked', "checked");
+                $("#editForm").find("select[name='group_id']").val(data.group[0].id);
+                form.render();
+                layer.open({
+                    type: 1
+                    ,area: '400px'
+                    ,title: '修改管理员'
+                    ,content: $('#editForm')
+                });
+            }
+        });
+        form.verify({
+            pass: [
+                /^[\S]{6,12}$/
+                ,'密码必须6到12位，且不能出现空格'
+            ]
+        });
+        form.on("submit(*)", function (data) {
+            $("#pwd").val(md5($("#pwd").val()));
+        })
+    })
+</script>
+
+</body>
+</html>

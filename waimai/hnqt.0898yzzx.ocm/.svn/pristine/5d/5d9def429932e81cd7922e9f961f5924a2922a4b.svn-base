@@ -1,0 +1,117 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/www/wwwroot/jpgy.0898yzzx.com/tpl/admin/rule/rule_group.html";i:1623240193;s:64:"/www/wwwroot/jpgy.0898yzzx.com/tpl/admin/public/public_main.html";i:1623240195;s:57:"/www/wwwroot/jpgy.0898yzzx.com/tpl/admin/common/meta.html";i:1646642551;s:59:"/www/wwwroot/jpgy.0898yzzx.com/tpl/admin/common/script.html";i:1623240197;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:"圈圈海软食堂"); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/layui/css/layui.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>"  media="all">
+<link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+<link rel="stylesheet" href="/static/css/style.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+    
+</head>
+
+<body class="layui-layout-body">
+<!--内容主题区域-->
+<div id="content"  class="main-body">
+    <div style="padding: 15px;" id="content-wrap">
+        <p>
+                <span class="layui-breadcrumb">
+                <?php if(is_array($breadcrumb) || $breadcrumb instanceof \think\Collection || $breadcrumb instanceof \think\Paginator): $i = 0; $__LIST__ = $breadcrumb;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bread): $mod = ($i % 2 );++$i;?>
+                <a><cite><?php echo $bread; ?></cite></a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </span>
+        </p>
+
+        <div class=" main-content">
+            
+<form class="layui-form" action="" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">权限组名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" placeholder="请输入" value="<?php echo $group['title']; ?>" autocomplete="off" lay-verify="required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">权限</label>
+        <ul class="layui-input-block" style="display: table;">
+            <?php if(is_array($rule_data) || $rule_data instanceof \think\Collection || $rule_data instanceof \think\Paginator): $i = 0; $__LIST__ = $rule_data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$rule): $mod = ($i % 2 );++$i;?>
+            <li style="display: table-row;">
+            <input type="checkbox" name="rules[]" title="<?php echo $rule['title']; ?>" lay-filter="parent" lay-skin="primary" value="<?php echo $rule['id']; ?>" <?php if(in_array($rule['id'],$group['rules'])): ?>checked<?php endif; ?>>
+                <ul class="" style="display: table;">
+                    <?php if(is_array($rule['_data']) || $rule['_data'] instanceof \think\Collection || $rule['_data'] instanceof \think\Paginator): $i = 0; $__LIST__ = $rule['_data'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?>
+                    <li style="display: table-row"><?php if(!(empty($rule['_data']) || (($rule['_data'] instanceof \think\Collection || $rule['_data'] instanceof \think\Paginator ) && $rule['_data']->isEmpty()))): ?><span>&nbsp;&nbsp;&brvbar;--&nbsp;</span><?php endif; ?>
+                    <input type="checkbox" name="rules[]" title="<?php echo $r['title']; ?>" lay-skin="primary" lay-filter="child" value="<?php echo $r['id']; ?>" <?php if(in_array($r['id'],$group['rules'])): ?>checked<?php endif; ?>>
+                        <ul class="" style="display: table;">
+                            <?php if(!(empty($r['_data']) || (($r['_data'] instanceof \think\Collection || $r['_data'] instanceof \think\Paginator ) && $r['_data']->isEmpty()))): ?><span>&nbsp;&nbsp;&brvbar;----|&nbsp;</span><?php endif; if(is_array($r['_data']) || $r['_data'] instanceof \think\Collection || $r['_data'] instanceof \think\Paginator): $i = 0; $__LIST__ = $r['_data'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$i): $mod = ($i % 2 );++$i;?>
+                            <li style="display: table-cell">
+                                <input type="checkbox" name="rules[]" title="<?php echo $i['title']; ?>" lay-skin="primary" value="<?php echo $i['id']; ?>" <?php if(in_array($i['id'],$group['rules'])): ?>checked<?php endif; ?>>
+                            </li>
+                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                        </ul>
+                    </li>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul>
+            </li>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </ul>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">状态</label>
+        <div class="layui-input-block">
+            <input type="radio" name="status" value="1" title="正常" <?php if($group['status'] == '1'): ?>checked<?php endif; ?>>
+            <input type="radio" name="status" value="0" title="禁用" <?php if($group['status'] == '0'): ?>checked<?php endif; ?>>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+        </div>
+    </div>
+</div>
+<script src="/static/layui/layui.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/common.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/echarts.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/js/' //layui全局设置
+        ,version: '<?php echo \think\Config::get('web_config.site_version'); ?>'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+<script>
+    layui.use(['element', 'form'], function () {
+        var $ = layui.$, element = layui.element, form = layui.form;
+
+        form.on('checkbox(parent)', function(data){
+            $(data.elem).parent().eq(0).find("input[type='checkbox']").prop("checked", data.elem.checked);
+            if (data.elem.checked) {
+                $(data.elem).parent().eq(0).find('.layui-form-checkbox').addClass("layui-form-checked");
+            }else {
+                $(data.elem).parent().eq(0).find('.layui-form-checkbox').removeClass("layui-form-checked");
+            }
+        });
+        form.on('checkbox(child)', function(data){
+            $(data.elem).parent().eq(0).find("input[type='checkbox']").prop("checked", data.elem.checked);
+            if (data.elem.checked) {
+                $(data.elem).parent().eq(0).find('.layui-form-checkbox').addClass("layui-form-checked");
+            }else {
+                $(data.elem).parent().eq(0).find('.layui-form-checkbox').removeClass("layui-form-checked");
+            }
+        });
+        reSetIframeHeight();
+    })
+</script>
+
+</body>
+</html>

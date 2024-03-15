@@ -1,0 +1,61 @@
+<?php
+namespace app\api\controller;
+use think\Collection;
+use think\Db;
+use app\admin\model\Comment;
+
+class Train extends Collection{
+
+    //获取驾校下的信息
+    public function getTrain(){
+        //获取驾校
+        $train_data = Db::name('train')->where('deleted',0)->select();
+        if(!empty($train_data)){
+            foreach($train_data as $k=>$v){
+                //驾校下的体验券
+                $train_data[$k]['experience']=Db::name('experience')->where('train_id',$v['id'])->where('deleted',0)->select();
+            }
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$train_data]);
+        }
+        else{
+            return json(['code'=>204,'msg'=>'没有数据']);
+        }
+    }
+    //新增评论信息
+    public function add_comment(){
+        $data['train_id']=input('train_id');
+        $data['train_name']=input('train_name');
+        $data['experience_id']=input('experience_id');
+        $data['experience_name']=input('experience_name');
+        $data['user_id']=input('user_id');
+        $data['user_name']=input('user_name');
+        $data['content']=input('content');
+        $data['grade']=input('grade');
+        $comment = new Comment();
+        $result = $comment->editTrain($data);
+        if(!empty($result)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$result]);
+        }else{
+            return json(['code'=>204,'msg'=>'添加失败']);
+        }
+    }
+    //体验券下的评论
+    public function experience_content(){
+        $experience_id=input('experience_id');
+        if(empty($experience_id)){
+            return json(['code'=>201,'msg'=>'参数有误!']);
+        }
+        $comment_data=Db::name('comment')
+            ->where('experience_id',$experience_id)
+            ->where('deleted',0)
+            ->select();
+        if(!empty($comment_data)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$comment_data]);
+        }else{
+            return json(['code'=>204,'msg'=>'没有数据']);
+        }
+        
+    }
+
+
+}

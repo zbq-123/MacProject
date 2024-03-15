@@ -1,0 +1,4144 @@
+---------------------------------------------------------------
+[ 2020-09-12T10:55:59+08:00 ] 36.101.213.86 GET wmgl.0898yzzx.com/client/auth/callback?code=051kw80w3Q5kWU2UII2w3eDW1B4kw80a&state=1
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25
+---------------------------------------------------------------
+[ 2020-09-12T14:16:47+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/admin/store/add_store.html
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'detail' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-09-12T14:20:02+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/admin/store/add_store.html
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'detail' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-09-12T14:20:20+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=021NqZFa1gN7Cz0SLuGa1GpjhB2NqZFQ&state=1
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25
+---------------------------------------------------------------
+[ 2020-09-12T14:32:21+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=071hIl0w3sMHWU2AKE0w3mNxUp2hIl0x&state=1
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25
+---------------------------------------------------------------
+[ 2020-09-12T14:32:35+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=081ekPGa1mXYAz0utbJa1pLTic2ekPGE&state=1
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25
+---------------------------------------------------------------
+[ 2020-09-12T14:36:29+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=031n7H000gGFhK1H2R000USz373n7H0r&state=1
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25
+---------------------------------------------------------------
+[ 2020-09-12T14:36:39+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=051WCLkl2EeKB54jYenl2p3TK21WCLkq&state=1
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25
+---------------------------------------------------------------
+[ 2020-09-12T14:36:53+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=081puhGa1LrDCz0wccIa1udEsf4puhGu&state=1
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25
+---------------------------------------------------------------
+[ 2020-09-12T14:37:18+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=02104D0w3dyYWU24On3w3TvkhB204D0s&state=1
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25
+---------------------------------------------------------------
+[ 2020-09-12T14:37:40+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=011QJ2ll2YL0C54dk0ll2zOO5D1QJ2lO&state=1
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25
+---------------------------------------------------------------
+[ 2020-09-12T14:41:20+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/admin/upload/store.html
+[运行时间：0.016164s] [吞吐率：61.87req/s] [内存消耗：314.91kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'upload',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'cache-control' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'content-length' => '37259',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'content-type' => 'multipart/form-data; boundary=---------------------------7e41f7121c04cc',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/add_store.html',
+  'origin' => 'http://wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Upload->store[ /var/www/king_hsst/application/admin/controller/Upload.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:41:30+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/admin/store/add_store.html
+[运行时间：0.009480s] [吞吐率：105.49req/s] [内存消耗：549.18kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'add_store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'content-length' => '648',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'cache-control' => 'max-age=0',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/add_store.html',
+)
+[ info ] [ PARAM ] array (
+  'number' => '01',
+  'name' => '海师第一食堂',
+  'phone' => '15501890101',
+  'address' => '海师大',
+  'campus_id' => '1',
+  'min_price' => '0',
+  'delivery_name' => '配送费',
+  'delivery_price' => '0',
+  'box_type' => '1',
+  'box_name' => '打包费',
+  'box_price' => '0',
+  'order_cancel_time' => '60',
+  'start_time1' => '',
+  'end_time1' => '',
+  'start_time2' => '',
+  'end_time2' => '',
+  'start_time3' => '',
+  'end_time3' => '',
+  'bank_card' => '77888787',
+  'bank_card_name' => '建行',
+  'bank_info' => '海口',
+  'ali_card' => '87878',
+  'ali_name' => '张三',
+  'sort' => '1',
+  'manage_ratio' => '0.02',
+  'develop_ratio' => '0.01',
+  'file' => '',
+  'logo' => 'http://wmgl.0898yzzx.com/uploads/store/20200912/5ce96e4d7c7f8db0c1a73a796b5f77ec.jpg',
+  'notice' => '88',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Store->add_store[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'data',
+  5 => 'url',
+  6 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:41:32+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/store.html
+[运行时间：0.004119s] [吞吐率：242.78req/s] [内存消耗：303.82kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/add_store.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Store->store[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/store.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'is_root',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:41:32+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/store.html?page=1&limit=10
+[运行时间：0.010128s] [吞吐率：98.74req/s] [内存消耗：600.91kb] [文件加载：123]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/store.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Store->store[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:07+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html
+[运行时间：0.003954s] [吞吐率：252.90req/s] [内存消耗：422.66kb] [文件加载：117]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:08+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html?page=1&limit=10
+[运行时间：0.010975s] [吞吐率：91.12req/s] [内存消耗：622.93kb] [文件加载：124]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:19+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/edit_goods.html?id=57
+[运行时间：0.022119s] [吞吐率：45.21req/s] [内存消耗：569.70kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'edit_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => '57',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Store->edit_goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/edit_goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+  3 => 'goods',
+  4 => 'category',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:20+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/api/all_category.html?store_id=25
+[运行时间：0.006496s] [吞吐率：153.94req/s] [内存消耗：475.73kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'api',
+    2 => 'all_category',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/edit_goods.html?id=57',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '25',
+)
+[ info ] [ RUN ] app\admin\controller\Api->all_category[ /var/www/king_hsst/application/admin/controller/Api.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:26+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html
+[运行时间：0.003823s] [吞吐率：261.57req/s] [内存消耗：422.66kb] [文件加载：117]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:27+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html?page=1&limit=10
+[运行时间：0.010913s] [吞吐率：91.63req/s] [内存消耗：622.93kb] [文件加载：124]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:37+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/edit_goods.html?id=57
+[运行时间：0.007275s] [吞吐率：137.46req/s] [内存消耗：569.70kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'edit_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => '57',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Store->edit_goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/edit_goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+  3 => 'goods',
+  4 => 'category',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:37+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/api/all_category.html?store_id=25
+[运行时间：0.006520s] [吞吐率：153.37req/s] [内存消耗：475.73kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'api',
+    2 => 'all_category',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/edit_goods.html?id=57',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '25',
+)
+[ info ] [ RUN ] app\admin\controller\Api->all_category[ /var/www/king_hsst/application/admin/controller/Api.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:44+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/rule/admin_list.html
+[运行时间：0.007770s] [吞吐率：128.70req/s] [内存消耗：602.59kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'rule',
+    2 => 'admin_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Rule->admin_list[ /var/www/king_hsst/application/admin/controller/Rule.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/rule/admin_list.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'group_list',
+  3 => 'store',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:42:45+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/rule/admin_list.html?page=1&limit=10
+[运行时间：0.008931s] [吞吐率：111.97req/s] [内存消耗：591.35kb] [文件加载：121]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'rule',
+    2 => 'admin_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/rule/admin_list.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Rule->admin_list[ /var/www/king_hsst/application/admin/controller/Rule.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:43:38+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/admin/rule/edit_admin.html
+[运行时间：0.014828s] [吞吐率：67.44req/s] [内存消耗：545.43kb] [文件加载：121]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'rule',
+    2 => 'edit_admin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'content-length' => '120',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'cache-control' => 'max-age=0',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/rule/admin_list.html',
+)
+[ info ] [ PARAM ] array (
+  'login_name' => 'dyst',
+  'password' => 'e10adc3949ba59abbe56e057f20f883e',
+  'real_name' => 'dyst',
+  'group_id' => '2',
+  'store_id' => '31',
+  'is_root' => '0',
+  'disabled' => '0',
+  'id' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Rule->edit_admin[ /var/www/king_hsst/application/admin/controller/Rule.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'data',
+  5 => 'url',
+  6 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:43:39+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/rule/admin_list.html
+[运行时间：0.007910s] [吞吐率：126.43req/s] [内存消耗：602.59kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'rule',
+    2 => 'admin_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/rule/edit_admin.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Rule->admin_list[ /var/www/king_hsst/application/admin/controller/Rule.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/rule/admin_list.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'group_list',
+  3 => 'store',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:43:39+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/rule/admin_list.html?page=1&limit=10
+[运行时间：0.008011s] [吞吐率：124.83req/s] [内存消耗：591.81kb] [文件加载：121]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'rule',
+    2 => 'admin_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/rule/admin_list.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Rule->admin_list[ /var/www/king_hsst/application/admin/controller/Rule.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:43:50+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/index/index.html
+[运行时间：0.003693s] [吞吐率：270.77req/s] [内存消耗：281.36kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:43:50+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/login/index.html
+[运行时间：0.003715s] [吞吐率：269.18req/s] [内存消耗：394.60kb] [文件加载：113]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /var/www/king_hsst/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:44:00+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/store/login/index.html
+[运行时间：0.009612s] [吞吐率：104.04req/s] [内存消耗：492.95kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'content-length' => '55',
+  'referer' => 'http://wmgl.0898yzzx.com/store/login/index.html',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'origin' => 'http://wmgl.0898yzzx.com',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'dyst',
+  'password' => 'e10adc3949ba59abbe56e057f20f883e',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /var/www/king_hsst/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /var/www/king_hsst/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:44:01+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/index/index.html
+[运行时间：0.015036s] [吞吐率：66.51req/s] [内存消耗：282.04kb] [文件加载：108]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/store/login/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->index[ /var/www/king_hsst/application/store/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/index/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:44:02+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/home/home.html
+[运行时间：0.026289s] [吞吐率：38.04req/s] [内存消耗：492.19kb] [文件加载：113]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/store/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->home[ /var/www/king_hsst/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/home/home.html [ array (
+  0 => 'store',
+  1 => 'today',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:44:07+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/goods/goods
+[运行时间：0.035354s] [吞吐率：28.29req/s] [内存消耗：449.90kb] [文件加载：113]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'goods',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/store/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Goods->goods[ /var/www/king_hsst/application/store/controller/Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/goods/goods.html [ array (
+  0 => 'category_and_goods',
+  1 => 'category_and_goods_btn',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:44:09+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/goods/add_goods.html
+[运行时间：0.019463s] [吞吐率：51.38req/s] [内存消耗：439.65kb] [文件加载：114]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'goods',
+    2 => 'add_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/store/goods/goods',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Goods->add_goods[ /var/www/king_hsst/application/store/controller/Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/goods/add_goods.html [ array (
+  0 => 'goods_category',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:45:19+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/index/index.html
+[运行时间：0.004102s] [吞吐率：243.77req/s] [内存消耗：281.76kb] [文件加载：108]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Index->index[ /var/www/king_hsst/application/store/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/index/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:45:19+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/home/home.html
+[运行时间：0.007694s] [吞吐率：129.97req/s] [内存消耗：492.19kb] [文件加载：113]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/store/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->home[ /var/www/king_hsst/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/home/home.html [ array (
+  0 => 'store',
+  1 => 'today',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:45:27+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/orders/orders
+[运行时间：0.032465s] [吞吐率：30.80req/s] [内存消耗：472.04kb] [文件加载：113]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'orders',
+    2 => 'orders',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/store/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Orders->orders[ /var/www/king_hsst/application/store/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/orders/orders.html [ array (
+  0 => 'store',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:45:27+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/orders/get_orders?page=1&status=0
+[运行时间：0.007472s] [吞吐率：133.84req/s] [内存消耗：476.09kb] [文件加载：114]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'orders',
+    2 => 'get_orders',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/store/orders/orders',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'application/json',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'status' => '0',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Orders->get_orders[ /var/www/king_hsst/application/store/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:45:28+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/store/store
+[运行时间：0.056610s] [吞吐率：17.66req/s] [内存消耗：447.77kb] [文件加载：113]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'store',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/store/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Store->store[ /var/www/king_hsst/application/store/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/store/store.html [ array (
+  0 => 'store',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:45:33+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/store/store/store
+[运行时间：0.010308s] [吞吐率：97.01req/s] [内存消耗：415.80kb] [文件加载：117]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'store',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'content-length' => '14',
+  'referer' => 'http://wmgl.0898yzzx.com/store/store/store',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'origin' => 'http://wmgl.0898yzzx.com',
+  'content-type' => 'application/json',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'status' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Store->store[ /var/www/king_hsst/application/store/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:45:33+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/store/store/store
+[运行时间：0.006096s] [吞吐率：164.05req/s] [内存消耗：447.81kb] [文件加载：113]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'store',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-cn',
+  'cache-control' => 'max-age=0',
+  'referer' => 'http://wmgl.0898yzzx.com/store/store/store',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'accept-encoding' => 'gzip, deflate',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Store->store[ /var/www/king_hsst/application/store/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/store/store.html [ array (
+  0 => 'store',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:48:52+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/home
+[运行时间：0.003837s] [吞吐率：260.63req/s] [内存消耗：280.59kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:48:52+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/index.html
+[运行时间：0.003688s] [吞吐率：271.14req/s] [内存消耗：273.84kb] [文件加载：105]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /var/www/king_hsst/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:48:52+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=031F4tFa15wPBz0q29Ha14KkI50F4tFu&state=1
+[运行时间：0.319669s] [吞吐率：3.13req/s] [内存消耗：403.89kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'callback',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'code' => '031F4tFa15wPBz0q29Ha14KkI50F4tFu',
+  'state' => '1',
+)
+[ info ] [ RUN ] app\client\controller\Auth->callBack[ /var/www/king_hsst/application/client/controller/Auth.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [10501]SQLSTATE[HY000]: General error: 1366 Incorrect string value: '\xF0\x9F\x92\xB2\xE9\x9F...' for column 'nickname' at row 25[/var/www/king_hsst/thinkphp/library/think/db/Connection.php:453]
+---------------------------------------------------------------
+[ 2020-09-12T14:49:47+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/login/logout.html
+[运行时间：0.003188s] [吞吐率：313.66req/s] [内存消耗：280.61kb] [文件加载：107]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'logout',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->logout[ /var/www/king_hsst/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:49:47+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/login/index.html
+[运行时间：0.003773s] [吞吐率：265.04req/s] [内存消耗：394.44kb] [文件加载：114]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/king_hsst/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:49:47+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/captcha.html
+[运行时间：0.004584s] [吞吐率：218.16req/s] [内存消耗：262.66kb] [文件加载：97]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'accept' => 'image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/login/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /var/www/king_hsst/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:04+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/admin/login/index.html
+[运行时间：0.004408s] [吞吐率：226.87req/s] [内存消耗：397.48kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'content-length' => '68',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'cache-control' => 'max-age=0',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/login/index.html',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'dyst',
+  'password' => 'e10adc3949ba59abbe56e057f20f883e',
+  'captcha' => 'KUV2',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/king_hsst/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/king_hsst/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:07+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/login/index.html
+[运行时间：0.003702s] [吞吐率：270.11req/s] [内存消耗：395.16kb] [文件加载：114]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/king_hsst/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:07+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/captcha.html
+[运行时间：0.005622s] [吞吐率：177.88req/s] [内存消耗：262.80kb] [文件加载：97]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'accept' => 'image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/login/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /var/www/king_hsst/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:26+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/captcha.html?0.8946673068056117
+[运行时间：0.004284s] [吞吐率：233.43req/s] [内存消耗：262.87kb] [文件加载：97]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'accept' => 'image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/login/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  '0_8946673068056117' => '',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /var/www/king_hsst/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:34+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/admin/login/index.html
+[运行时间：0.009886s] [吞吐率：101.15req/s] [内存消耗：493.34kb] [文件加载：119]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'content-length' => '68',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'cache-control' => 'max-age=0',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/login/index.html',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'dyst',
+  'password' => 'e10adc3949ba59abbe56e057f20f883e',
+  'captcha' => '4NHL',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/king_hsst/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /var/www/king_hsst/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:36+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/index/index.html
+[运行时间：0.009378s] [吞吐率：106.63req/s] [内存消耗：493.07kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/login/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index[ /var/www/king_hsst/application/admin/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/index/index.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:36+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/index/index2.html
+[运行时间：0.007549s] [吞吐率：132.47req/s] [内存消耗：495.48kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index2[ /var/www/king_hsst/application/admin/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/index/index2.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'admin_result',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:39+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html
+[运行时间：0.007943s] [吞吐率：125.90req/s] [内存消耗：585.23kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:40+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html?page=1&limit=10
+[运行时间：0.011405s] [吞吐率：87.68req/s] [内存消耗：623.13kb] [文件加载：124]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:40+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/store.html
+[运行时间：0.006721s] [吞吐率：148.79req/s] [内存消耗：496.39kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->store[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/store.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'is_root',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:41+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/store.html?page=1&limit=10
+[运行时间：0.011971s] [吞吐率：83.54req/s] [内存消耗：604.59kb] [文件加载：123]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/store.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->store[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:45+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html
+[运行时间：0.008252s] [吞吐率：121.18req/s] [内存消耗：585.23kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:46+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html?page=1&limit=10
+[运行时间：0.011287s] [吞吐率：88.60req/s] [内存消耗：623.13kb] [文件加载：124]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:48+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/add_goods.html?store_id=31
+[运行时间：0.008254s] [吞吐率：121.15req/s] [内存消耗：496.88kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'add_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '31',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->add_goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/add_goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:49+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/api/all_category.html?store_id=11
+[运行时间：0.006332s] [吞吐率：157.93req/s] [内存消耗：466.58kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'api',
+    2 => 'all_category',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/add_goods.html?store_id=31',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '11',
+)
+[ info ] [ RUN ] app\admin\controller\Api->all_category[ /var/www/king_hsst/application/admin/controller/Api.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:56+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/category.html
+[运行时间：0.008050s] [吞吐率：124.22req/s] [内存消耗：496.48kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'category',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->category[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/category.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:56+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/category.html?page=1&limit=10
+[运行时间：0.011410s] [吞吐率：87.64req/s] [内存消耗：601.14kb] [文件加载：123]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'category',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/category.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->category[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:58+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html
+[运行时间：0.008032s] [吞吐率：124.50req/s] [内存消耗：585.23kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:59+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html
+[运行时间：0.008079s] [吞吐率：123.78req/s] [内存消耗：585.23kb] [文件加载：118]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:59+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html?page=1&limit=10
+[运行时间：0.011414s] [吞吐率：87.61req/s] [内存消耗：623.13kb] [文件加载：124]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:50:59+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/goods.html?page=1&limit=10
+[运行时间：0.010594s] [吞吐率：94.39req/s] [内存消耗：623.13kb] [文件加载：124]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:51:03+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/add_goods.html?store_id=31
+[运行时间：0.007758s] [吞吐率：128.90req/s] [内存消耗：496.88kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'add_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/goods.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '31',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->add_goods[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/add_goods.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+  2 => 'store_id',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:51:03+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/api/all_category.html?store_id=11
+[运行时间：0.006078s] [吞吐率：164.53req/s] [内存消耗：466.58kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'api',
+    2 => 'all_category',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/add_goods.html?store_id=31',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '11',
+)
+[ info ] [ RUN ] app\admin\controller\Api->all_category[ /var/www/king_hsst/application/admin/controller/Api.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:51:08+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/category.html
+[运行时间：0.008119s] [吞吐率：123.17req/s] [内存消耗：496.48kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'category',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->category[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/store/category.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:51:09+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/store/category.html?page=1&limit=10
+[运行时间：0.010865s] [吞吐率：92.04req/s] [内存消耗：601.14kb] [文件加载：123]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'store',
+    2 => 'category',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/store/category.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Store->category[ /var/www/king_hsst/application/admin/controller/Store.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:51:17+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/prints/prints.html
+[运行时间：0.007906s] [吞吐率：126.49req/s] [内存消耗：496.45kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'prints',
+    2 => 'prints',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/index/index.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Prints->prints[ /var/www/king_hsst/application/admin/controller/Prints.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/prints/prints.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:51:17+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/prints/prints.html?page=1&limit=10
+[运行时间：0.011964s] [吞吐率：83.58req/s] [内存消耗：602.52kb] [文件加载：123]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'prints',
+    2 => 'prints',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'accept-encoding' => 'gzip, deflate',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept-language' => 'zh-CN',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/prints/prints.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Prints->prints[ /var/www/king_hsst/application/admin/controller/Prints.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:51:19+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/admin/prints/add_prints.html
+[运行时间：0.008071s] [吞吐率：123.90req/s] [内存消耗：496.48kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'prints',
+    2 => 'add_prints',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=mtld0b7urv652kho1ni9e1vf55',
+  'connection' => 'Keep-Alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
+  'upgrade-insecure-requests' => '1',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'referer' => 'http://wmgl.0898yzzx.com/admin/prints/prints.html',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Prints->add_prints[ /var/www/king_hsst/application/admin/controller/Prints.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/admin/prints/add_prints.html [ array (
+  0 => 'menus',
+  1 => 'breadcrumb',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:51:56+08:00 ] 101.89.19.197 GET wmgl.0898yzzx.com/store/login/index.html
+[运行时间：0.004430s] [吞吐率：225.73req/s] [内存消耗：391.24kb] [文件加载：113]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.4.4; Coolpad Y82-520 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/33.0.0.0 Mobile Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /var/www/king_hsst/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:57:42+08:00 ] 61.151.178.175 GET wmgl.0898yzzx.com/store/index/index.html
+[运行时间：0.003811s] [吞吐率：262.39req/s] [内存消耗：277.75kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:57:49+08:00 ] 61.151.178.175 GET wmgl.0898yzzx.com/store/login/index.html
+[运行时间：0.004087s] [吞吐率：244.68req/s] [内存消耗：393.01kb] [文件加载：113]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'cookie' => 'PHPSESSID=r120uu3v1cees2oavqkkdrikk3',
+  'referer' => 'http://wmgl.0898yzzx.com/store/index/index.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 MicroMessenger/6.5.5 NetType/WIFI Language/zh_CN',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /var/www/king_hsst/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/store/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:59:06+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/client/index/home
+[运行时间：0.004589s] [吞吐率：217.92req/s] [内存消耗：284.20kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->home[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/home.html [ array (
+  0 => 'signPackage',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:59:06+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/client/index/index.html
+[运行时间：0.120840s] [吞吐率：8.28req/s] [内存消耗：511.44kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->index[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/index.html [ array (
+  0 => 'campus',
+  1 => 'carousel',
+  2 => 'category',
+  3 => 'store',
+  4 => 'weather',
+  5 => 'campus_name',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:59:06+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.122568s] [吞吐率：8.16req/s] [内存消耗：282.73kb] [文件加载：108]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/orders/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:59:06+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/client/user/index.html
+[运行时间：0.087233s] [吞吐率：11.46req/s] [内存消耗：454.59kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\User->index[ /var/www/king_hsst/application/client/controller/User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/user/index.html [ array (
+  0 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:59:06+08:00 ] 153.0.7.17 POST wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.006362s] [吞吐率：157.18req/s] [内存消耗：445.98kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'content-length' => '6',
+  'referer' => 'http://wmgl.0898yzzx.com/client/orders/index.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'origin' => 'http://wmgl.0898yzzx.com',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T14:59:11+08:00 ] 153.0.7.17 GET wmgl.0898yzzx.com/client/store/index.html?store_id=31
+[运行时间：0.011902s] [吞吐率：84.02req/s] [内存消耗：453.01kb] [文件加载：114]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'store',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=9d7fuo7vp8732tseefvqbr8tu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '31',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Store->index[ /var/www/king_hsst/application/client/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/store/index.html [ array (
+  0 => 'store',
+  1 => 'goods_list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:01:18+08:00 ] 101.91.62.89 GET wmgl.0898yzzx.com/client/index/home
+[运行时间：0.004001s] [吞吐率：249.93req/s] [内存消耗：278.50kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'accept-language' => 'zh-CN,zh;q=0.8,en-US;q=0.6,en;q=0.4',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 MicroMessenger/6.5.2.501 NetType/WIFI WindowsWechat QBCore/3.43.27.400 QQBrowser/9.0.2524.400',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:24+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/home
+[运行时间：0.003767s] [吞吐率：265.46req/s] [内存消耗：280.59kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:24+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/index.html
+[运行时间：0.005790s] [吞吐率：172.71req/s] [内存消耗：274.93kb] [文件加载：105]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /var/www/king_hsst/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:24+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/auth/callback?code=091E670w3sUpWU2tqO0w3TjPUa4E670k&state=1
+[运行时间：0.335099s] [吞吐率：2.98req/s] [内存消耗：400.67kb] [文件加载：112]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'callback',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'code' => '091E670w3sUpWU2tqO0w3TjPUa4E670k',
+  'state' => '1',
+)
+[ info ] [ RUN ] app\client\controller\Auth->callBack[ /var/www/king_hsst/application/client/controller/Auth.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:24+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/home
+[运行时间：0.004091s] [吞吐率：244.44req/s] [内存消耗：282.72kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->home[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/home.html [ array (
+  0 => 'signPackage',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:25+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/index.html
+[运行时间：0.111780s] [吞吐率：8.95req/s] [内存消耗：509.96kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->index[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/index.html [ array (
+  0 => 'campus',
+  1 => 'carousel',
+  2 => 'category',
+  3 => 'store',
+  4 => 'weather',
+  5 => 'campus_name',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:25+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/user/index.html
+[运行时间：0.080796s] [吞吐率：12.38req/s] [内存消耗：453.13kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\User->index[ /var/www/king_hsst/application/client/controller/User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/user/index.html [ array (
+  0 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:25+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.114041s] [吞吐率：8.77req/s] [内存消耗：281.26kb] [文件加载：108]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/orders/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:25+08:00 ] 36.101.55.213 POST wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.006606s] [吞吐率：151.38req/s] [内存消耗：444.50kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'content-length' => '6',
+  'referer' => 'http://wmgl.0898yzzx.com/client/orders/index.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'origin' => 'http://wmgl.0898yzzx.com',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:33+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/store/index.html?store_id=31
+[运行时间：0.008933s] [吞吐率：111.94req/s] [内存消耗：451.53kb] [文件加载：114]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'store',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '31',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Store->index[ /var/www/king_hsst/application/client/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/store/index.html [ array (
+  0 => 'store',
+  1 => 'goods_list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:39+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/home
+[运行时间：0.004053s] [吞吐率：246.72req/s] [内存消耗：282.72kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->home[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/home.html [ array (
+  0 => 'signPackage',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:39+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/index.html
+[运行时间：0.075275s] [吞吐率：13.28req/s] [内存消耗：509.96kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->index[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/index.html [ array (
+  0 => 'campus',
+  1 => 'carousel',
+  2 => 'category',
+  3 => 'store',
+  4 => 'weather',
+  5 => 'campus_name',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:39+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.076771s] [吞吐率：13.03req/s] [内存消耗：281.26kb] [文件加载：108]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/orders/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:39+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/user/index.html
+[运行时间：0.008302s] [吞吐率：120.45req/s] [内存消耗：453.13kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\User->index[ /var/www/king_hsst/application/client/controller/User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/user/index.html [ array (
+  0 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:39+08:00 ] 36.101.55.213 POST wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.007047s] [吞吐率：141.91req/s] [内存消耗：444.50kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'content-length' => '6',
+  'referer' => 'http://wmgl.0898yzzx.com/client/orders/index.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'origin' => 'http://wmgl.0898yzzx.com',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:48+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/home
+[运行时间：0.003821s] [吞吐率：261.72req/s] [内存消耗：282.72kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->home[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/home.html [ array (
+  0 => 'signPackage',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:49+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/index.html
+[运行时间：0.073175s] [吞吐率：13.67req/s] [内存消耗：509.96kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->index[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/index.html [ array (
+  0 => 'campus',
+  1 => 'carousel',
+  2 => 'category',
+  3 => 'store',
+  4 => 'weather',
+  5 => 'campus_name',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:49+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.067606s] [吞吐率：14.79req/s] [内存消耗：281.26kb] [文件加载：108]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/orders/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:49+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/user/index.html
+[运行时间：0.034784s] [吞吐率：28.75req/s] [内存消耗：453.13kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\User->index[ /var/www/king_hsst/application/client/controller/User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/user/index.html [ array (
+  0 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:49+08:00 ] 36.101.55.213 POST wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.006773s] [吞吐率：147.65req/s] [内存消耗：444.50kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'content-length' => '6',
+  'referer' => 'http://wmgl.0898yzzx.com/client/orders/index.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'origin' => 'http://wmgl.0898yzzx.com',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:12:59+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/store/index.html?store_id=31
+[运行时间：0.007724s] [吞吐率：129.47req/s] [内存消耗：451.53kb] [文件加载：114]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'store',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '31',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Store->index[ /var/www/king_hsst/application/client/controller/Store.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/store/index.html [ array (
+  0 => 'store',
+  1 => 'goods_list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:13:07+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/home
+[运行时间：0.004039s] [吞吐率：247.58req/s] [内存消耗：282.72kb] [文件加载：109]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->home[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/home.html [ array (
+  0 => 'signPackage',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:13:07+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/index/index.html
+[运行时间：0.071360s] [吞吐率：14.01req/s] [内存消耗：509.96kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->index[ /var/www/king_hsst/application/client/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/index/index.html [ array (
+  0 => 'campus',
+  1 => 'carousel',
+  2 => 'category',
+  3 => 'store',
+  4 => 'weather',
+  5 => 'campus_name',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:13:07+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/user/index.html
+[运行时间：0.025073s] [吞吐率：39.88req/s] [内存消耗：453.13kb] [文件加载：115]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\User->index[ /var/www/king_hsst/application/client/controller/User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/user/index.html [ array (
+  0 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:13:07+08:00 ] 36.101.55.213 GET wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.073795s] [吞吐率：13.55req/s] [内存消耗：281.26kb] [文件加载：108]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://wmgl.0898yzzx.com/client/index/home',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ VIEW ] /var/www/king_hsst/tpl/client/orders/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-09-12T15:13:07+08:00 ] 36.101.55.213 POST wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.007242s] [吞吐率：138.08req/s] [内存消耗：444.50kb] [文件加载：116]
+[ info ] [ LANG ] /var/www/king_hsst/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bmugf1abb348m59ud4o3atrnu2',
+  'content-length' => '6',
+  'referer' => 'http://wmgl.0898yzzx.com/client/orders/index.html',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.15(0x17000f2c) NetType/4G Language/zh_CN',
+  'origin' => 'http://wmgl.0898yzzx.com',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /var/www/king_hsst/application/client/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File

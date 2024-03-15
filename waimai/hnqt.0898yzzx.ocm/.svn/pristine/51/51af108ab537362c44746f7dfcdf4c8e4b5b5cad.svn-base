@@ -1,0 +1,57 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:51:"/var/www/king_hsst/tpl/client/user/youhui_list.html";i:1605315668;s:46:"/var/www/king_hsst/tpl/client/common/meta.html";i:1605262514;s:48:"/var/www/king_hsst/tpl/client/common/script.html";i:1605262514;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>海师食堂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/client/mui/css/clear.css">
+<link rel="stylesheet" href="/static/client/mui/css/mui.min.css">
+<link rel="stylesheet" href="/static/client/mui/css/common.css">
+<link rel="stylesheet" href="/static/client/css/jquery-loadprompt.css">
+    <link rel="stylesheet" href="/static/client/css/page-user-address-list.css">
+</head>
+<style type="text/css">
+	.userBtn{
+		font-size:13px;display:inline-block;padding:2px 10px;border-radius:20px;background-color:#fff;color: rgb(255,85,117);
+	}
+</style>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">我的优惠券</h1>
+    <a class="mui-btn mui-btn-link mui-pull-right" ></a>
+</header>
+<div class="mui-content">
+
+	<?php if(is_array($coupons) || $coupons instanceof \think\Collection || $coupons instanceof \think\Paginator): $i = 0; $__LIST__ = $coupons;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+	<div class="address-panel" style="background-color:rgba(255,85,117,0.9);">
+	    <div class="address-detail-panel" onclick="navTo(<?php echo $vo['seller_id']; ?>)">
+	        <div class="panel-address-info">
+	            <div class="address" style="color:#fff;">满<?php echo $vo['full_money']; ?>使用立减 <?php echo $vo['discount_money']; ?> 元</div>
+	            <div class="user-info" style="color:#fff;">使用期限：<?php echo $vo['start_time']; ?> - <?php echo $vo['end_time']; ?></div>
+	        </div>
+	        <span class="userBtn">去使用</span>
+	    </div>
+	</div>
+	<?php endforeach; endif; else: echo "" ;endif; ?>
+	
+</div>
+</body>
+<script src="/static/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+<script src="/static/client/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/client/js/jquery-loadprompt.js" charset="utf-8"></script>
+<script>
+	function navTo(id){
+		//这里是传店铺id跳转到商家页，相当于首页点击了商家
+		if(id == 0){
+		 jQuery(parent.location).attr('href',"<?php echo url('/client/index'); ?>");
+		}else{
+		 jQuery(parent.location).attr('href',"<?php echo url('store/index'); ?>?store_id="+id);
+		}
+	}
+</script>
+</html>

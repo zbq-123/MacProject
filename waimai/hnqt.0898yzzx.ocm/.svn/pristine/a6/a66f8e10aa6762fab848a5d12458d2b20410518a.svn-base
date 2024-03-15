@@ -1,0 +1,409 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:59:"/www/wwwroot/wmgl.yzzx0898.com/tpl/client/orders/index.html";i:1623238831;s:58:"/www/wwwroot/wmgl.yzzx0898.com/tpl/client/common/meta.html";i:1623238831;s:60:"/www/wwwroot/wmgl.yzzx0898.com/tpl/client/common/script.html";i:1623238831;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>海师食堂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/client/mui/css/clear.css">
+<link rel="stylesheet" href="/static/client/mui/css/mui.min.css">
+<link rel="stylesheet" href="/static/client/mui/css/common.css">
+<link rel="stylesheet" href="/static/client/css/jquery-loadprompt.css">
+    <link rel="stylesheet" href="/static/client/css/page-orders-index.css?v=1.0.1">
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav">
+    <h1 class="mui-title">我的订单</h1>
+    <a class="mui-btn mui-btn-link mui-pull-right" onclick="javascript:window.location.reload();"><img src="/static/client/icon/icon-refresh-black.png"></a>
+</header>
+<div class="mui-content">
+    <ul id="OA_task_1" class="mui-table-view">
+        <!--<li class="mui-table-view-cell">
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <div class="mui-slider-handle">
+                <div class="order-panel">
+                    <div class="top-info">
+                        <div class="store-name">窑鸡王<span class="mui-icon mui-icon-forward"></span></div>
+                        <div class="order-status hsst-color-main">配送中</div>
+                    </div>
+                    <div class="center-info">
+                        <img class="goods-img" src="/static/client/examples/orders2.jpg">
+                        <div class="goods">
+                            <div>
+                                <div class="goods-name">香辣萝卜干等2件商品</div>
+                                <div class="goods-time">2020-07-11 08:02:30</div>
+                            </div>
+                            <div class="order-count">
+                                <span class="count-all">共计2件商品</span>
+                                <span class="count-tip"> 合计:</span>
+                                <span class="count-price">¥10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-btn">
+                        <a class="order-btn-normal">再来一单</a>
+                        <a class="order-btn-normal">取消订单</a>
+                        <a class="order-btn-normal">立即支付</a>
+                    </div>
+                </div>
+            </div>
+        </li>-->
+    </ul>
+    <div class="add-more-div" onclick="loadOrdersList()">轻按查看更多历史订单</div>
+</div>
+</body>
+<script src="/static/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+<script src="/static/client/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/client/js/jquery-loadprompt.js" charset="utf-8"></script>
+<script>
+    mui.init();
+
+    var page = 1;
+    var no_more = false;
+    loadOrdersList();
+
+    //取消订单
+    (function ($) {
+        var btnArray = ['取消', '删除'];
+        $('#OA_task_1').on('tap', '.mui-btn', function (event) {
+            var elem = this;
+            var li = elem.parentNode.parentNode;
+            var data = {};
+            data['order_number'] = jQuery(this).data('order_number');
+            console.log('deleted order_number='+data['order_number']);
+            mui.confirm('删除该订单？', '', btnArray, function (e) {
+                if (e.index == 1) {
+                    jQuery.ajax({
+                        url:"<?php echo url('orders/deleted_orders'); ?>",
+                        data: data,
+                        type: "POST",
+                        dataType: 'json',
+                        beforeSend: function () {
+                            jQuery.showLoading('删除中...',function () {});
+                        },
+                        success: function(res){
+                            if (res.code == 200) {
+                                jQuery.loadSuccess('删除成功',function () {
+                                    li.parentNode.removeChild(li);
+                                });
+
+                            }else{
+                                jQuery.loadError('删除失败',function () {
+                                    mui.toast(res.message,{ duration: 3000 });
+                                    $.swipeoutClose(li);
+                                });
+                            }
+                        },
+                        error: function (xhr) {
+                            // 只有请求不正常（状态码不为200）才会执行
+                            jQuery.loadError('请求失败',function () {
+                                mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                                $.swipeoutClose(li);
+                            });
+                        },
+                    });
+                } else {
+                    $.swipeoutClose(li);
+                }
+            });
+        });
+    })(mui);
+
+    function loadOrdersList() {
+        var data = {};
+        data['page'] = page;
+
+        if(no_more){
+            mui.toast('没有更多订单了',{ duration: 3000 });
+            return ;
+        }
+
+        jQuery.ajax({
+            url:"<?php echo url('orders/index'); ?>",
+            data: data,
+            type: "POST",
+            dataType: 'json',
+            beforeSend: function () {
+                jQuery.showLoading('正在获取中',function () {});
+            },
+            success: function(res){
+                if (res.code == 200) {
+                    jQuery.loadSuccess('获取成功',function () {
+                        var data = res.data;
+                        addOrdersList(res.data.list);
+
+                        //是否有更多
+                        if(page * 10 >= res.data.count){
+                            no_more = true;
+                            jQuery(".add-more-div").html('已加载完所有订单');
+                        }
+
+                        page++;
+                    });
+                }else{
+                    jQuery.loadError('获取失败',function () {
+                        mui.toast(res.message,{ duration: 3000 });
+                    });
+                }
+            },
+            error: function (xhr) {
+                // 只有请求不正常（状态码不为200）才会执行
+                jQuery.loadError('请求异常',function () {
+                    mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                });
+            },
+        });
+    }
+
+    function addOrdersList(data_orders) {
+        jQuery.each(data_orders, function( key, val ) {
+            var html_cancel = "";
+            if(val.is_cancel == 1){
+                html_cancel = '<a class="order-btn-normal" onclick="cancelOrders(jQuery(this))" data-order_number="'+val.order_number+'">取消订单</a>';
+            }else if(val.is_cancel == 2 && val.is_refund == 0){
+                html_cancel = '<a class="order-btn-normal" onclick="refundOrders(jQuery(this))" data-order_number="'+val.order_number+'">立即退款</a>';
+            }else if(val.is_cancel == 3 && val.is_refund == 0){
+                html_cancel = '<a class="order-btn-normal" onclick="applyRefund(jQuery(this))" data-order_number="'+val.order_number+'">申请退款</a>';
+            }else{
+                html_cancel = '';
+            }
+
+            var html_pay = val.is_pay == 1 ? '<a class="order-btn-normal" onclick="goPay(jQuery(this))" data-order_number="'+val.order_number+'">立即支付</a>':'';
+
+            var html_orders =
+                `
+                <li class="mui-table-view-cell">
+                    <div class="mui-slider-right mui-disabled">
+                        <a class="mui-btn mui-btn-red" data-order_number="${val.order_number}">删除</a>
+                    </div>
+                    <div class="mui-slider-handle">
+                        <div class="order-panel">
+                            <div class="top-info">
+                                <div class="store-name" onclick="againBuy(jQuery(this))" data-store_id="${val.store_id}">${val.store_name}<span class="mui-icon mui-icon-forward"></span></div>
+                               <div class="order-status ${val.status_class}" onclick="ordersDetail(jQuery(this))" data-order_number="${val.order_number}">${val.status_name}</div>
+                            </div>
+                            <div class="center-info" onclick="ordersDetail(jQuery(this))" data-order_number="${val.order_number}">
+                                <img class="goods-img" src="${val.goods_image}">
+                                <div class="goods">
+                                    <div>
+                                        <div class="goods-name">${val.goods_name}</div>
+                                        <div class="goods-time">${val.create_time}</div>
+                                    </div>
+                                    <div class="order-count">
+                                        <span class="count-all">共计${val.count}件商品</span>
+                                        <span class="count-tip"> 合计:</span>
+                                        <span class="count-price">¥${val.total_price/100}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-btn">
+                                <a class="order-btn-normal" onclick="againBuy(jQuery(this))" data-store_id="${val.store_id}">再来一单</a>
+                                ${html_cancel}
+                                ${html_pay}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                `;
+            jQuery('#OA_task_1').append(html_orders);
+        });
+    }
+
+    //去支付
+    function goPay(o) {
+        var data = {};
+        data['order_number'] = jQuery(o).data('order_number');
+
+        jQuery.ajax({
+            url:"<?php echo url('pay/wxpay_goods_orders'); ?>",
+            data: data,
+            type: "POST",
+            dataType: 'json',
+            beforeSend: function () {
+                jQuery.showLoading('核对订单中',function () {});
+            },
+            success: function(res){
+                if (res.code == 200) {
+                    jQuery.loadSuccess('核对成功',function () {
+                        console.log('订单提交成功返回信息：'+JSON.stringify(res.data));
+                        var data = res.data;
+                        wakeupPay(res.data);
+                    });
+                }else{
+                    jQuery.loadError('核对失败',function () {
+                        mui.toast(res.message,{ duration: 3000 });
+                    });
+                }
+            },
+            error: function (xhr) {
+                // 只有请求不正常（状态码不为200）才会执行
+                jQuery.loadError('请求失败',function () {
+                    mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                });
+            },
+        });
+
+        return false;
+    }
+
+    function wakeupPay(data){
+        jQuery.showLoading('支付中',function () {});
+        parent.WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', data,
+            function(res){
+                if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                    // 使用以上方式判断前端返回,微信团队郑重提示：
+                    //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                    jQuery.loadSuccess('支付成功',function () {
+                        jumpOrdersDetail(data['order_number']);
+                    });
+                }else{
+                    jQuery.loadError('支付失败',function () {
+                        console.log('支付失败：'+JSON.stringify(res));
+                        mui.toast("支付失败："+res.err_msg,{ duration: 3000 });
+                    });
+                }
+            });
+    }
+
+    //取消订单
+    function cancelOrders(o) {
+        var data = {};
+        data['order_number'] = jQuery(o).data('order_number');
+        var btnArray = ['返回', '确认'];
+
+        mui.confirm('取消该订单？', '', btnArray, function (e) {
+            if (e.index == 1) {
+                jQuery.ajax({
+                    url:"<?php echo url('orders/cancel_orders'); ?>",
+                    data: data,
+                    type: "POST",
+                    dataType: 'json',
+                    beforeSend: function () {
+                        jQuery.showLoading('取消中...',function () {});
+                    },
+                    success: function(res){
+                        if (res.code == 200) {
+                            jQuery.loadSuccess('取消成功',function () {
+                                window.location.reload();
+                            });
+                        }else{
+                            jQuery.loadError('取消失败',function () {
+                                mui.toast(res.message,{ duration: 3000 });
+                            });
+                        }
+                    },
+                    error: function (xhr) {
+                        // 只有请求不正常（状态码不为200）才会执行
+                        jQuery.loadError('请求失败',function () {
+                            mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                        });
+                    },
+                });
+            }
+        });
+    }
+
+    //取消订单并且退款
+    function refundOrders(o) {
+        var data = {};
+        data['order_number'] = jQuery(o).data('order_number');
+        var btnArray = ['返回', '确认'];
+
+        mui.confirm('取消订单，立即退款？', '', btnArray, function (e) {
+            if (e.index == 1) {
+                jQuery.ajax({
+                    url:"<?php echo url('refund/wxpay_goods'); ?>",
+                    data: data,
+                    type: "POST",
+                    dataType: 'json',
+                    beforeSend: function () {
+                        jQuery.showLoading('提交申请中...',function () {});
+                    },
+                    success: function(res){
+                        if (res.code == 200) {
+                            jQuery.loadSuccess('退款申请成功',function () {
+                                window.location.reload();
+                            });
+                        }else{
+                            jQuery.loadError('退款申请失败',function () {
+                                mui.toast(res.message,{ duration: 3000 });
+                            });
+                        }
+                    },
+                    error: function (xhr) {
+                        // 只有请求不正常（状态码不为200）才会执行
+                        jQuery.loadError('请求失败',function () {
+                            mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                        });
+                    },
+                });
+            }
+        });
+
+    }
+
+    //取消订单申请退款
+    function applyRefund(o) {
+        var data = {};
+        data['order_number'] = jQuery(o).data('order_number');
+        var btnArray = ['返回', '确认'];
+
+        mui.confirm('取消订单，申请退款？', '', btnArray, function (e) {
+            if (e.index == 1) {
+                jQuery.ajax({
+                    url:"<?php echo url('orders/apply_refund'); ?>",
+                    data: data,
+                    type: "POST",
+                    dataType: 'json',
+                    beforeSend: function () {
+                        jQuery.showLoading('申请中...',function () {});
+                    },
+                    success: function(res){
+                        if (res.code == 200) {
+                            jQuery.loadSuccess('申请成功',function () {
+                                window.location.reload();
+                            });
+                        }else{
+                            jQuery.loadError('申请失败',function () {
+                                mui.toast(res.message,{ duration: 3000 });
+                            });
+                        }
+                    },
+                    error: function (xhr) {
+                        // 只有请求不正常（状态码不为200）才会执行
+                        jQuery.loadError('请求失败',function () {
+                            mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                        });
+                    },
+                });
+            }
+        });
+
+    }
+
+    //再来一单
+    function againBuy(o) {
+        var store_id = jQuery(o).data('store_id');
+        jQuery(parent.location).attr('href',"<?php echo url('store/index'); ?>?store_id="+store_id);
+
+        return false;
+    }
+
+    //跳转到订单详情
+    function jumpOrdersDetail(order_number){
+        jQuery(parent.location).attr('href',"<?php echo url('orders/detail'); ?>?order_number="+order_number);
+    }
+
+    function ordersDetail(o){
+        var order_number = jQuery(o).data('order_number');
+        jumpOrdersDetail(order_number);
+    }
+</script>
+</html>

@@ -1,0 +1,361 @@
+{
+	"easycom": {
+		// npm安装的方式不需要前面的"@/"，下载安装的方式需要"@/"
+		// npm安装方式
+		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
+		// 下载安装方式
+		// "^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [
+		// {
+		// 	"path": "pages/empty",
+		// 	"style": {
+		// 		"navigationBarTitleText": "",
+		// 		"enablePullDownRefresh": false,
+		// 		"navigationStyle": "custom",
+		// 		"app-plus": {
+		// 			"popGesture": "none"
+		// 		}
+		// 	}
+		// },
+		{
+			"path": "pages/index",
+			"style": {
+				// "backgroundColorTop":"#f7dd93",
+				"navigationBarTitleText": "圈圈食堂",
+				// "navigationBarBackgroundColor": "#f7dd93",
+				"onReachBottomDistance": 50,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"popGesture": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/dingdan",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/wode",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false //禁止下拉刷新
+				// "disableScroll": true
+			}
+		},
+		{
+			"path": "pages/search",
+			"style": {
+				"navigationBarTitleText": "搜索结果",
+				"navigationBarBackgroundColor": "#f7dd93",
+				"onReachBottomDistance": 50,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/address/xinzengdizhi",
+			"style": {
+				"navigationBarTitleText": "新增地址",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/address/wodedizhi",
+			"style": {
+				"navigationBarTitleText": "收货地址",
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/address/xiugaidizhi",
+			"style": {
+				"navigationBarTitleText": "修改地址",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/food/jinpengshitang",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/food/tijiaodingdan",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#f7dd93"
+			}
+
+		},
+		{
+			"path": "pages/food/dingdantijiao",
+			"style": {
+				"navigationBarTitleText": "订单提交成功",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#f7dd93"
+			}
+		},
+		{
+			"path": "pages/food/dindanDetail",
+			"style": {
+				"navigationBarTitleText": "订单详情",
+				// "navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/wallet/index",
+			"style": {
+				"navigationBarTitleText": "我的钱包",
+				"navigationBarBackgroundColor": "#f7dd93",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/wallet/balance",
+			"style": {
+				"navigationBarTitleText": "账户余额",
+				"navigationBarBackgroundColor": "#f7dd93"
+			}
+		},
+		{
+			"path": "pages/makemoney/index",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "扫一扫去赚钱",
+				"navigationBarBackgroundColor": "#55aaff"
+			}
+		},
+		{
+			"path": "pages/makemoney/details",
+			"style": {
+				"navigationBarTitleText": "我的收益",
+				"navigationBarBackgroundColor": "#f7dd93"
+			}
+		},
+		{
+			"path": "pages/wallet/gift_money",
+			"style": {
+				"navigationBarTitleText": "赠送金",
+				"navigationBarBackgroundColor": "#f7dd93"
+			}
+		},
+		{
+			"path": "pages/personal/index",
+			"style": {
+				"navigationBarTitleText": "个人信息",
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/card/index",
+			"style": {
+				"navigationBarTitleText": "月卡、优惠卷",
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/card/month",
+			"style": {
+				"navigationBarTitleText": "月卡",
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/coupon/index",
+			"style": {
+				"navigationBarTitleText": "优惠卷",
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/customer_service/index",
+			"style": {
+				"navigationBarTitleText": "客服中心",
+				"navigationBarBackgroundColor": "#f7dd93",
+				"navigationStyle": "custom"
+			}
+		}
+	],
+	"subPackages": [{
+		"root": "pages-other",
+		"pages": [{
+				"path": "card/index",
+				"style": {
+					"navigationBarTitleText": "会员储值",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "idle/index",
+				"style": {
+					"navigationBarTitleText": "闲置物品",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom",
+					"app-plus": {
+						"softinputMode": "adjustResize"
+					}
+				}
+			},
+			{
+				"path": "idle/add",
+				"style": {
+					"navigationBarTitleText": "发布闲置物品",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "idle/spot",
+				"style": {
+					"navigationBarTitleText": "闲置物品",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "train/index",
+				"style": {
+					"navigationBarTitleText": "兼职培训",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "train/model_jiaxiao",
+				"style": {
+					"navigationBarTitleText": "驾校",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "train/commont",
+				"style": {
+					"navigationBarTitleText": "评论",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "train/add_commont",
+				"style": {
+					"navigationBarTitleText": "添加评论",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "supermarket/index",
+				"style": {
+					"navigationBarTitleText": "商超服务",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "supermarket/dateil",
+				"style": {
+					"navigationBarTitleText": "商品详情",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "electronics/index",
+				"style": {
+					"navigationBarTitleText": "数码产品",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "electronics/dateil",
+				"style": {
+					"navigationBarTitleText": "商品详情",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "electronics/tijiaodingdan",
+				"style": {
+					"navigationBarTitleText": "数码订单提交",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			},
+			{
+				"path": "electronics/dingdantijiao",
+				"style": {
+					"navigationBarTitleText": "数码订单提交",
+					"navigationBarBackgroundColor": "#f7dd93",
+					"navigationStyle": "custom"
+				}
+			}
+		]
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+	"tabBar": {
+		"custom": true,
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index",
+			"iconPath": "static/tarbar/home.png",
+			"selectedIconPath": "static/tarbar/home_on.png",
+			"text": "圈圈食堂"
+		}, {
+			"pagePath": "pages/dingdan",
+			"iconPath": "static/tarbar/order.png",
+			"selectedIconPath": "static/tarbar/order_on.png",
+			"text": "订单"
+		}, {
+			"pagePath": "pages/wode",
+			"iconPath": "static/tarbar/my.png",
+			"selectedIconPath": "static/tarbar/my_on.png",
+			"text": "我的"
+		}]
+	}
+}

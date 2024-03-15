@@ -1,0 +1,78 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:41:"/var/www/jpgy/tpl/store/home/cashing.html";i:1618455187;s:40:"/var/www/jpgy/tpl/store/common/meta.html";i:1618455187;s:42:"/var/www/jpgy/tpl/store/common/script.html";i:1618455187;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>商家提现</title>
+
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/home_function.css" rel="stylesheet" />
+
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <a href="home.html" class="mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon mui-icon-left-nav title-refresh-icon"></span><span >返回</span></a>
+    <h1 class="mui-title">商家提现</h1>
+    <a href="cashing_records.html" class="mui-pull-right cancel-a" style="font-size: 12px;padding-top: 15px">提现记录</a>
+</header>
+<!--顶部标题 end-->
+
+<div class="mui-content">
+    <div class="cashing-body">
+        <form action="" method="post">
+            <div class="cashing-object-box after-clear">
+                <div class="cashing-object-left">
+                    转账到
+                </div>
+                <div class="cashing-object-right">
+                    商家
+                </div>
+            </div>
+            <div class="cashing-amount-box">
+                <div class="cashing-amount-title">提现金额</div>
+                <div class="cashing-amount-content">
+                    <span>￥ <input id="cashing_amount" name="cashing_amount" type="number" step="0.01" class="cashing-input" min="1" onkeyup="this.value= this.value.match(/\d+(\.\d{0,2})?/) ? this.value.match(/\d+(\.\d{0,2})?/)[0] : ''"></span>
+                </div>
+                <div class="cashing-now-balance">当前账户余额 <?php echo $store_balance; ?> 元， <span id="all_cashing_btn">全部提现</span></div>
+                <button id="submit_btn" type="submit" class="mui-btn mui-btn-primary mui-btn-block cashing-btn">提现</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+
+<!--解决 a 标签不能跳转-->
+<script>
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    });
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+</script>
+
+<script>
+    (function($, doc) {
+        $.init();
+        // 自动聚焦输入框
+        doc.getElementById('cashing_amount').focus();
+        var Cashing_amount = doc.getElementById('cashing_amount');
+        // 全部提现
+        doc.getElementById('all_cashing_btn').addEventListener('click', function() {
+            Cashing_amount.value = <?php echo $store_balance; ?>;
+        });
+
+    })(mui, document);
+</script>
+</html>

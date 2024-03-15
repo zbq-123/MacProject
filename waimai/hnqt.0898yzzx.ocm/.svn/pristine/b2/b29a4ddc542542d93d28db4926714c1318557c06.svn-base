@@ -1,0 +1,69 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"/www/wwwroot/jpgy.0898yzzx.com/tpl/store/goods/add_category.html";i:1623240199;s:57:"/www/wwwroot/jpgy.0898yzzx.com/tpl/store/common/meta.html";i:1623240199;s:59:"/www/wwwroot/jpgy.0898yzzx.com/tpl/store/common/script.html";i:1623240199;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>添加分类</title>
+
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/goods.css" rel="stylesheet" />
+
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <a href="goods.html" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon mui-icon-left-nav title-refresh-icon"></span><span >返回</span></a>
+    <h1 class="mui-title">添加分类</h1>
+    <div id="add_category_btn" class="mui-pull-right cancel-a" style="padding-top: 13px;color: #007aff">保存</div>
+</header>
+<!--顶部标题 end-->
+
+<div class="mui-content">
+    <div class="edit-goods-box">
+        <form id="add_category_form" action="" method="post">
+            <div class="edit-list">
+                <div class="edit-list-name">分类名称</div>
+                <div class="mui-input-row">
+                    <input name="name" id="category_name" value="" type="text" class="edit-goods-input" placeholder="请输入商品名称">
+                </div>
+            </div>
+            <div class="edit-list">
+                <div class="edit-list-name">分类排序排序</div>
+                <div class="mui-input-row">
+                    <input name="sort" value="" type="number" class="edit-goods-input" placeholder="请输入分类排序，如：99.数值越大越靠前">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+
+<script>
+    // <!--解决 a 标签不能跳转-->
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    });
+    // 点击保存按钮提交表单
+    document.getElementById('add_category_btn').addEventListener('click', function() {
+        var category_name = document.getElementById("category_name");
+        if (category_name.value == ''){
+            mui.toast('分类名称不能为空！',{ duration:'long' });
+            category_name.focus();
+        } else {
+            document.getElementById("add_category_form").submit();//js原生方式表单提交
+        }
+    });
+</script>
+
+</html>

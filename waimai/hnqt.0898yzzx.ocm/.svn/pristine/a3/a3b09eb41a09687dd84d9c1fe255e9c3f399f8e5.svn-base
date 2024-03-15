@@ -1,0 +1,192 @@
+[ 2020-10-25T00:59:02+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T00:59:02+08:00 ][ log ] 2020-10-25 00:59:02自动收货开始执行
+
+[ 2020-10-25T00:59:02+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T01:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T01:59:01+08:00 ][ log ] 2020-10-25 01:59:01自动收货开始执行
+
+[ 2020-10-25T01:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T02:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T02:59:01+08:00 ][ log ] 2020-10-25 02:59:01自动收货开始执行
+
+[ 2020-10-25T02:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T03:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T03:59:01+08:00 ][ log ] 2020-10-25 03:59:01自动收货开始执行
+
+[ 2020-10-25T03:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T04:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T04:59:01+08:00 ][ log ] 2020-10-25 04:59:01自动收货开始执行
+
+[ 2020-10-25T04:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T05:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T05:59:01+08:00 ][ log ] 2020-10-25 05:59:01自动收货开始执行
+
+[ 2020-10-25T05:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T06:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T06:59:01+08:00 ][ log ] 2020-10-25 06:59:01自动收货开始执行
+
+[ 2020-10-25T06:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T07:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T07:59:01+08:00 ][ log ] 2020-10-25 07:59:01自动收货开始执行
+
+[ 2020-10-25T07:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T08:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T08:59:01+08:00 ][ log ] 2020-10-25 08:59:01自动收货开始执行
+
+[ 2020-10-25T08:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T08:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T08:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T09:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T09:59:01+08:00 ][ log ] 2020-10-25 09:59:01自动收货开始执行
+
+[ 2020-10-25T09:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T09:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T09:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T10:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T10:59:01+08:00 ][ log ] 2020-10-25 10:59:01自动收货开始执行
+
+[ 2020-10-25T10:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T10:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T10:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T11:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T11:59:01+08:00 ][ log ] 2020-10-25 11:59:01自动收货开始执行
+
+[ 2020-10-25T11:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T11:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T11:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T12:59:02+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T12:59:02+08:00 ][ log ] 2020-10-25 12:59:02自动收货开始执行
+
+[ 2020-10-25T12:59:02+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T12:59:02+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T12:59:02+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T13:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T13:59:01+08:00 ][ log ] 2020-10-25 13:59:01自动收货开始执行
+
+[ 2020-10-25T13:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T13:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T13:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T14:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T14:59:01+08:00 ][ log ] 2020-10-25 14:59:01自动收货开始执行
+
+[ 2020-10-25T14:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T15:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T15:59:01+08:00 ][ log ] 2020-10-25 15:59:01自动收货开始执行
+
+[ 2020-10-25T15:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T15:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T15:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T16:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T16:59:01+08:00 ][ log ] 2020-10-25 16:59:01自动收货开始执行
+
+[ 2020-10-25T16:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T16:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T16:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T17:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T17:59:01+08:00 ][ log ] 2020-10-25 17:59:01自动收货开始执行
+
+[ 2020-10-25T17:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T17:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T17:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T18:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T18:59:01+08:00 ][ log ] 2020-10-25 18:59:01自动收货开始执行
+
+[ 2020-10-25T18:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T18:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T18:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T19:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T19:59:01+08:00 ][ log ] 2020-10-25 19:59:01自动收货开始执行
+
+[ 2020-10-25T19:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T19:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T19:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T20:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T20:59:01+08:00 ][ log ] 2020-10-25 20:59:01自动收货开始执行
+
+[ 2020-10-25T20:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T20:59:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-25T20:59:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-10-25T21:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T21:59:01+08:00 ][ log ] 2020-10-25 21:59:01自动收货开始执行
+
+[ 2020-10-25T21:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T22:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T22:59:01+08:00 ][ log ] 2020-10-25 22:59:01自动收货开始执行
+
+[ 2020-10-25T22:59:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-25T23:59:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-10-25T23:59:01+08:00 ][ log ] 2020-10-25 23:59:01自动收货开始执行
+
+[ 2020-10-25T23:59:01+08:00 ][ info ] [ DB ] INIT mysql

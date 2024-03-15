@@ -1,0 +1,73 @@
+body{
+    background: white;
+}
+.heard-img-box{
+    height: 36px;
+    width: 36px;
+    background: white;
+    padding: 2px;
+}
+.heard-img-box img{
+    height: 32px;
+    width: 32px;
+}
+.header-inline{
+    display: flex;
+    align-content: center;
+}
+.pd-6-15{
+    padding: 6px 15px!important;
+}
+.name-text-box{
+    line-height: 36px;
+    padding-left: 10px;
+    color: white;
+    font-size: 16px;
+}
+.edit-btn-box{
+    margin-top: 8px;
+    position: absolute;
+    right: 15px;
+}
+.edit-btn{
+    font-size: 12px;
+    padding: 1px 3px;
+}
+.balance-box{
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #007aff;
+    padding-top: 3px;
+    position: relative;
+}
+.balance-img{
+    height: 60px;
+    width: 60px;
+}
+.balance-text-box{
+    display: inline-block;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+.balance-text-box .money-number{
+    font-size: 16px;
+    margin-top: 6px;
+}
+.balance-btn-box{
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    margin-top: 15px;
+}
+.store-function-box{
+    width: 90px;
+    height: 80px;
+    /*border: 1px solid#6bbcfe;*/
+    border-radius: 7px;
+}
+.store-function-box .function-img{
+    height: 40px;
+    width: 40px;
+}

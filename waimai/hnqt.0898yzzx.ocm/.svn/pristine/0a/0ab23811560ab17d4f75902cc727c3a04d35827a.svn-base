@@ -1,0 +1,641 @@
+<?php
+namespace app\api\controller;
+use alipay\Wappay;
+use app\admin\model\User;
+use think\Collection;
+use app\admin\model\HomeCarousel;
+use app\admin\model\Store;
+use think\Db;
+use app\admin\model\Campus;
+use app\admin\model\GoodsPromotion;
+use app\admin\model\Orders;
+use app\admin\model\Coupon;
+use think\Log;
+use think\Model;
+use think\Validate;
+use util\Ret;
+use util\WxPay;
+
+
+class Home extends Collection{
+    //获取轮播图
+    public function getcarousel(){
+        $campus_id = input('campus_id');
+        
+
+        if(!empty($campus_id)){
+            $maps = [
+                'deleted'=>0,
+                'status'=>1,
+                'campus_id'=>$campus_id,
+            ];
+        }
+        else{
+            $maps = [
+                'deleted'=>0,
+                'status'=>1,
+                'campus_id'=>'',
+
+            ];
+        }
+        $carousel = new HomeCarousel();
+        $data   = $carousel
+            ->where($maps)
+            ->field('id carousel_id,jump_type,jump_url,picture')
+            ->order('sort desc,id asc')
+            ->select();
+
+        if(empty($data)){
+            return json(['code'=>204,'msg'=>'没有数据']);
+        }
+        else{
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+        }
+    }
+    //推荐商家列表
+    public function getstore()
+    {
+
+
+        $campus_id = input('campus_id');
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $limit = 10;
+        $store = new Store();
+        $order = new Orders();
+        $page = input('page')?input('page'):1;
+        $name =  input('name');
+       
+        if(!empty($name)){
+            $storedata = Db::name('store') ->alias('s')
+                ->join('goods g' ,'s.id = g.store_id','left')
+                ->field('s.id,s.logo,s.name,s.campus_id,s.min_price,s.delivery_price,s.delivery_name,s.status')
+                ->where( 's.name|g.name','like', '%' . $name . '%' )
+                ->where('s.campus_id', $campus_id)
+                ->where('s.deleted', 0)
+                ->where('g.deleted', 0)
+                ->order('s.status asc')
+                ->group('s.id')
+                ->limit($limit)
+                ->page($page)
+                ->select();
+            $storecount = Db::name('store') ->alias('s')
+                ->join('goods g' ,'s.id = g.store_id','left')
+                ->field('s.id,s.logo,s.name,s.campus_id,s.min_price,s.delivery_price,s.delivery_name,s.status')
+                ->where( 's.name|g.name','like', '%' . $name . '%' )
+                ->where('s.campus_id', $campus_id)
+                ->where('s.deleted', 0)
+                ->where('g.deleted', 0)
+                ->group('s.id')
+                ->count();
+            
+        }else{
+            $storedata = $store
+                ->where('campus_id', $campus_id)
+                ->where('deleted', 0)
+                ->field("id,logo,name,campus_id,min_price,delivery_price,delivery_name,status")
+                ->order('status asc')
+                ->limit($limit)
+                ->page($page)
+                ->select();
+            $storecount = $store
+                ->where('campus_id', $campus_id)
+                ->where('deleted', 0)
+                ->field("id,logo,name,min_price,delivery_price,delivery_name,status")
+                ->order('id asc')
+                ->count();
+        }
+        $now_time = date('H:i:s', time());
+        if (!empty($storedata)) {
+            foreach ($storedata as &$store_item) {
+                //是否营业
+                if ($store_item['status'] == 1&&!empty($store_item['start_time1'])) {
+
+                    if ($store_item['start_time1'] < $now_time && $store_item['end_time1'] > $now_time || $store_item['start_time2'] < $now_time && $store_item['end_time2'] > $now_time || $store_item['start_time3'] < $now_time && $store_item['end_time3'] > $now_time) {
+                        $store_item['status'] = 1;
+                    } else {
+                        $store_item['status'] = 2;
+                    }
+                }
+
+                $store_item['min_price'] = $store_item['min_price'] / 100;
+                $store_item['delivery_price'] = $store_item['delivery_price'] / 100;
+                //计算订单量
+                $store_item['sale'] = $order
+                    ->where('store_id', $store_item['id'])
+                    ->where('deleted', 0)
+                    ->where('status', 7)
+                    ->count();
+            }
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$storedata,'count'=>$storecount]);
+         }
+         else {
+            return json(['code' => 204, 'msg' => '没有数据']);
+        }
+
+    }
+
+
+    //获取所有校区
+    public function getcampus(){
+        $campus =   new Campus();
+        $campusdata =   $campus
+            ->where('deleted',0)
+            ->field('id campus_id,name,address,lat,lon')
+            ->order('sort desc,id asc')
+            ->select();
+        if(!empty($campusdata)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$campusdata]);
+        }
+        else{
+            return json(['code'=>204,'msg'=>'操作失败']);
+        }
+    }
+    //通过用户id获取选中的校区id
+    public function getcampuid(){
+        $user_id    =   input('user_id');
+        if(empty($user_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $user   =   new User();
+        $campusid =   $user
+            ->where('id',$user_id)
+            ->where('disabled',0)
+            ->where('deleted',0)
+            ->field('campus_id')
+            ->find();
+
+        if(!empty($campusid)){
+            $res=Db::name('campus')->where('id',$campusid['campus_id'])->field('id,name')->find();
+            $data['campus_id']=$res['id'];
+            $data['campus_name']=$res['name'];
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+        }
+        else{
+            return json(['code'=>204,'msg'=>'操作失败']);
+        }
+    }
+    //通过用户id跟校区id更新用户原来的校区id
+    public function updateusercampus(){
+        $user_id   = input('user_id');
+        if(empty($user_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $campus_id = input('campus_id');
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $user   =   new User();
+        if(!empty($user_id)){
+            $userid =   $user
+                ->where('id',$user_id)
+                ->where('disabled',0)
+                ->where('deleted',0)
+                ->field('id')
+                ->find();
+            if(!empty($userid)){
+                if(!empty($campus_id)){
+                    $updatacampusid =   $user
+                        ->where('id',$user_id)
+                        ->update(['campus_id'=>$campus_id,'create_time'=>date('Y-m-d H:i:s', time())]);
+                    if(!empty($updatacampusid)){
+
+                        return json(['code'=>200,'msg'=>'更新成功','data'=>$updatacampusid]);
+                    }
+                    else{
+                        return json(['code'=>204,'msg'=>'更新失败']);
+                    }
+                }
+            }else{
+                return json(['code'=>204,'msg'=>'用户不存在']);
+            }
+        }else{
+            return json(['code'=>204,'msg'=>'用户id为空']);
+        }
+    }
+
+
+
+    //通过code获取openid
+    public function getuseropenid()
+    {
+        //获取到的code
+        $code = input('code');
+        $user_name   = input('nickname');
+        $image      = input('image');
+
+        if(empty($code)||empty($user_name)||empty($image)){
+            return json(['code'=>201,'msg'=>'参数有误']);
+        }
+        //$code='093lw7ll2soUq94nXfnl2ijgzc0lw7ld';
+        //获取access_token
+        $appid  = 'wx97228d4a1cc79b44';
+        $appSecret  ='7b812ddf8aaac046d5ada592257235cb';
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, 'https://api.weixin.qq.com/sns/jscode2session?appid=' . $appid . '&secret=' .  $appSecret  . '&js_code=' . $code . '&grant_type=authorization_code');
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);//阻止对证书的检查
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
+        //获取access_token和openid,转换为数组
+        $data = json_decode(curl_exec($curl), true);
+        curl_close($curl);
+        if(!empty($data['openid'])){
+            $openid = $data['openid'];
+            $user_info =  Db::name('user')
+                ->where('gz_openid',$openid)
+                ->where('disabled',0)
+                ->where('deleted',0)
+                ->field('id,nickname,image')
+                ->find();
+            if(!empty($user_info)){
+                if($user_name!=$user_info['nickname']){
+                    Db::name('user')->where('id',$user_info['id'])->update(['nickname'=>$user_name]);
+                }
+                if($image!=$user_info['image']){
+                    Db::name('user')->where('id',$user_info['id'])->update(['image'=>$image]);
+                }
+                $user_data['user_id']=$user_info['id'];
+                return json(['code'=>200,'msg'=>'操作成功','data'=>$user_data]);
+            }
+            else{
+                $user_data['gz_openid']  = $openid;
+                $user_data['nickname']   = $user_name;
+                $user_data['image']      = $image;
+                $user_data['create_time']      = date("Y-m-d H:i:s",time());
+
+                $result = Db::name('user')->insertGetId($user_data);
+                $res['user_id']=$result;
+                if(!empty($result)){
+                    return json(['code'=>200,'msg'=>'操作成功','data'=>$res]);
+                }else{
+                    return json(['code'=>203,'msg'=>'操作失败']);
+                }
+            }
+        }else{
+            return json(['code'=>204,'msg'=>'获取失败']);
+        }
+    }
+    //通过openid获取用户id
+   
+
+    //获取特价商品
+    public function getgoodsp(){
+        $campus_id = input('campus_id');
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $goodsp = new GoodsPromotion();
+        $now_time = date('Y-m-d H:i:s', time());
+        $data   = Db::name('goods_promotion')->alias('g')
+            ->join('store s','g.store_id=s.id','left')
+            ->where('g.campus_id',$campus_id)
+            ->where('g.deleted',0)
+            ->where('s.status',1)
+            ->where('g.start_time','<=',$now_time)
+            ->where('g.end_time','>=',$now_time)
+            ->field('g.good_id,g.goodsimage,g.salesprice,g.goodprice,g.goodsname,g.storename,g.start_time,g.end_time,g.store_id')
+            ->order('g.sort desc,g.id asc')
+            ->limit(6)
+            ->select();
+
+        if(!empty($data)) {
+            foreach ($data as $key => $val) {
+                $data[$key]['salesprice'] = $val['salesprice'] / 100;
+                $data[$key]['goodprice'] = $val['goodprice'] / 100;
+
+            }
+
+        }
+        if(!empty($data)){
+           return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+        }else{
+            return json(['code'=>204,'msg'=>'没有数据','data'=>$data]);
+        }
+
+    }
+    //获取平台优惠券
+    public function getcoupon(){
+
+        $campus_id = input('campus_id');
+        $user_id   = input('user_id');
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $Coupon = new Coupon();
+        $maps = [];
+        $maps['start_time'] = ['<',date("Y-m-d H:i:s",time())];
+        $maps['end_time'] = ['>',date("Y-m-d H:i:s",time())];
+        $maps['status'] = 1;
+        $maps['campus_id'] = $campus_id;
+
+
+        $coupons = $Coupon->where($maps)->field('id,name,discount_money,full_money,start_time,end_time')->select();
+        if(!empty($coupons)){
+            foreach($coupons as $k =>$v){
+                $usercoupon = Db::name('coupon_user')->where('user_id',$user_id)->where('coupon_id',$v['id'])->find();
+                if(!empty($usercoupon)){
+                    unset($coupons[$k]);
+                }
+            }
+        }
+
+        if(!empty($coupons)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$coupons]);
+        }
+        else{
+            return json(['code'=>204,'msg'=>'没有数据']);
+        }
+
+    }
+    // 用户领取优惠券
+    public function addcoupon()
+    {
+        $coupon_id = input('coupon_id');
+        $campus_id = input('campus_id');
+        if(empty($coupon_id)){
+            return json(['code'=>204,'msg'=>'优惠券id参数有误']);
+        }
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'校区id参数有误']);
+        }
+        $in_data = [];
+        $in_data['user_id'] = input('user_id');
+        if(empty($in_data['user_id'])){
+            return json(['code'=>204,'msg'=>'参数有误']);
+
+
+
+        }
+        $in_data['coupon_id'] = $coupon_id;
+        $in_data['campus_id'] = $campus_id;
+        $in_data['redeem_time'] = date('Y-m-d H:i:s',time());
+
+        $maps = [];
+        $maps['user_id'] = $in_data['user_id'];
+        $maps['campus_id'] = $in_data['campus_id'];
+        $maps['coupon_id'] = $in_data['coupon_id'];
+        $maps['is_used'] = 0;
+        $coupon = Db::name('coupon_user')->where($maps)->find();
+        if($coupon){
+            return json(['code'=>204,'msg'=>'已领取，不能重复领取']);
+        }
+
+        $res  = Db::name('coupon_user')->insert($in_data);
+
+        if(!empty($res)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$res]);
+        }else{
+            return json(['code'=>204,'msg'=>'领取失败']);
+        }
+    }
+    public function tijiao_goods()
+    {
+//        if(!request()->isPost()){
+//            abort(10003,'下单失败');
+//        }
+
+        $store_id = input('post.store_id/d')?:39;
+        $buy_goods = input('post.buy_goods/s')?:'1605,1606';
+        $buy_number = input('post.buy_number/s')?:'1,1';
+        $address_id = input('post.address_id/d')?:251;
+        $remake = input('post.remake')?:'';
+        $use_coupon = input('post.use_coupon')?:6; //rice 优惠券
+        $use_month_card = input('post.use_month_card')?:''; //rice 月卡
+
+        $validate = new Validate([
+            'store_id' => 'require|number|>:0',
+            'buy_goods' => 'require',
+            'buy_number' => 'require',
+            'address_id' => 'require|number|>:0',
+        ]);
+
+//        if (!$validate->check(input('post.'))) {
+//            abort(10003,'参数错误，请重试');
+//        }
+
+        $goods_ids = $buy_goods;
+
+        $buy_goods = explode(",",$buy_goods);
+        $buy_number = explode(",",$buy_number);
+
+        if(count($buy_goods) != count($buy_number)){
+            abort(10003,'数据异常，请重试');
+        }
+
+        // 获取优惠券并验证 rice add 2020-10-30
+        $coupon_info = [];
+        if($use_coupon){
+            $coupon_mod = new Coupon();
+            $coupon_info = $coupon_mod->get_coupon($use_coupon);
+            if($coupon_info){
+                $date = date('Y-m-d H:i:s',time());
+                if($date>$coupon_info['end_time']){
+                    abort(10003,'优惠券有效期已过');
+                }
+            }
+        }
+
+        // 获取月卡并验证 rice add 2022-5-26
+        $card_info = [];
+        if($use_month_card){
+            $card_mod = new MonthCard();
+            $card_maps = [
+                'id'=> $use_month_card,
+            ];
+            $card_info = $card_mod->getMonthCard($card_maps);
+            // Db::name('pay_test')->insert(['msg'=>$card_mod->getLastsql()]);
+            if(empty($card_info)){
+                abort(10003,'月卡有效期已过');
+            }
+        }
+
+        //1 获取用户收货地址信息，如果用户没有选择就去查找设置为默认的收货地址，如果都没有就创建一个空的
+        $address = Db::name('user_address')
+            ->where('user_id',session('user.id'))
+            ->where('deleted',0)
+            ->where('id',$address_id)
+            ->field('id address_id,gender,delivery_name,delivery_phone,delivery_address')
+            ->find();
+
+        if(empty($address)){
+            abort(10003,'地址不可用');
+        }
+        var_dump($address);
+        exit;
+        //2 获取下单商品信息
+        $store = Db::name('store')
+            ->where('id',$store_id)
+            ->where('deleted',0)
+            ->field("id store_id,name,phone,address,detail,campus_id,min_price,start_time1,end_time1,start_time2,end_time2,start_time3,end_time3,logo,delivery_price,delivery_name,box_type,box_price,box_name,status,manage_ratio,develop_ratio,pay_ratio,order_cancel_time,user_open_id")
+            ->find();
+        if(empty($store)){
+            abort(10003,'店铺不存在');
+        }
+
+        $campus = Db::name('campus')
+            ->where('id',$store['campus_id'])
+            ->where('deleted',0)
+            ->field('name')
+            ->find();
+
+        if(empty($campus)){
+            abort(10003,'该校区暂不支持下单');
+        }
+
+        //所属校区
+        $store['campus_name'] = $campus['name'];
+
+        //计算营业状态
+        $now_time = date('H:i:s', time());
+        if($store['status'] == 1 && ($store['start_time1'] < $now_time && $store['end_time1'] > $now_time)){
+            $store['open'] = 1;
+        }else if($store['status'] == 1 && ($store['start_time2'] < $now_time && $store['end_time2'] > $now_time)){
+            $store['open'] = 1;
+        }else if($store['status'] == 1 && ($store['start_time3'] < $now_time && $store['end_time3'] > $now_time)){
+            $store['open'] = 1;
+        }else{
+            $store['open'] = 0;
+        }
+
+        if($store['open'] != 1){
+            abort(10003,'该店铺休息中');
+        }
+
+        //3 获取购买商品信息 计算金额
+        $buy_info = [];
+        $box_price = 0; //餐盒费价格
+        $all_price = 0; //购买总价格=商品+配送费+餐盒费
+        $goods_count = 0; //购买总数量
+        $discount_money = 0; //优惠金额 RICE
+
+        $goods_detail = ""; //获取订单表中的商品信息内容
+        foreach ($buy_goods as $key=>$goods){
+            if($buy_number[$key] <= 0){
+                abort(10003,'商品异常，请重试');
+            }
+            $buy_info[$key] = Db::name('goods')
+                ->where('id',$goods)
+                ->where('status',1)
+                ->where('deleted',0)
+                ->field('id goods_id,number,image,name,price,unit')
+                ->find();
+
+            if(empty($buy_info[$key])){
+                abort(10003,'部分商品已下架');
+            }
+
+            $buy_info[$key]['count'] = $buy_number[$key];
+            $buy_info[$key]['price_count'] = $buy_info[$key]['price'] * $buy_number[$key];
+
+            if($store['box_type'] == 1){
+                $box_price = $store['box_price'];
+            }else{
+                $box_price += $store['box_price']*$buy_info[$key]['count'];
+            }
+
+            $all_price += $buy_info[$key]['price_count'];
+            $goods_count += $buy_number[$key];
+
+            $goods_detail .= '--onelist--'.$buy_info[$key]['goods_id'];     //1 商品id
+            $goods_detail .= '--twolist--'.$buy_info[$key]['number'];       //2 商品编号
+            $goods_detail .= '--twolist--'.$buy_info[$key]['name'];         //3 商品名称
+            $goods_detail .= '--twolist--'.$buy_number[$key];               //4 购买数量
+            $goods_detail .= '--twolist--'.$buy_info[$key]['price'];        //5 单价
+            $goods_detail .= '--twolist--'.$buy_info[$key]['unit'];         //6 单位
+        }
+        // 判断优惠券是否满足条件
+        if($coupon_info){
+            if($all_price < $coupon_info['full_money']){
+                abort(10003,'优惠券未满足条件');
+            }
+
+            $discount_money += $coupon_info['discount_money'];
+        }
+        //判断月卡是否满足条件
+        if($card_info){
+            if($all_price < $card_info['coupon']['full_money']){
+                abort(10003,'月卡未满足条件');
+            }
+
+            $discount_money += $card_info['coupon']['discount_money'];
+        }
+        // $all_price = $all_price + $box_price + $store['delivery_price'];
+
+        // 计算订单总金额 增加优惠金额 RICE
+        $all_price = $all_price + $box_price + $store['delivery_price'] - ($discount_money*100) ;
+        // $all_price = $all_price + $box_price - ($discount_money*100) ;
+        if($all_price < 0){
+            abort(10003,'优惠券优惠金额未满足条件');
+        }
+
+        $sys_setting = Db::name('sys_setting')
+            ->where('deleted',0)
+            ->field('wx_ratio')
+            ->find();
+
+        $create_time = date("Y-m-d H:i:s");
+
+        //订单数据生成
+        $orders_data = [];
+
+        $orders_data['order_number'] = build_order_no();
+        $orders_data['store_id'] = $store['store_id'];
+        $orders_data['goods_ids'] = $goods_ids;
+        $orders_data['user_id'] = session('user.id');
+        $orders_data['store_name'] = $store['name'];
+        $orders_data['address_id'] = $address['address_id'];
+        $orders_data['count'] = $goods_count;
+        $orders_data['box_type'] = $store['box_type'];
+        $orders_data['box_price'] = $box_price;
+        $orders_data['box_name'] = $store['box_name'];
+        $orders_data['manage_ratio'] = $store['manage_ratio'];
+        $orders_data['manage_price'] = round(($all_price-$store['delivery_price'])*$orders_data['manage_ratio']);
+        $orders_data['develop_ratio'] = $store['develop_ratio'];
+        $orders_data['develop_price'] = round(($all_price-$store['delivery_price'])*$orders_data['develop_ratio']);
+        $orders_data['pay_manage_ratio'] = $store['pay_ratio'];//$sys_setting['wx_ratio'];
+        $orders_data['pay_manage_price'] = round(($all_price-$store['delivery_price'])*$orders_data['pay_manage_ratio']);
+        // $orders_data['store_price'] = $all_price - $orders_data['manage_price'] - $orders_data['develop_price'] - $orders_data['pay_manage_price'];
+
+        // 计算订单店铺获得金额
+        $store_price = $all_price - $orders_data['manage_price'] - $orders_data['develop_price'] - $orders_data['pay_manage_price'] - $store['delivery_price'];
+        if($coupon_info){
+            //使用卖家的优惠券
+            if($coupon_info['seller_id'] == $store_id){
+                $store_price = $store_price - $discount_money;
+            }
+        }
+
+        $orders_data['store_price'] = $store_price;
+        $orders_data['convey_price'] = $store['delivery_price'];
+        $orders_data['convey_name'] = $store['delivery_name'];
+        $orders_data['total_price'] = $all_price;
+        $orders_data['campus_id'] = $store['campus_id'];
+        $orders_data['campus_name'] = $store['campus_name'];
+        $orders_data['delivery_name'] = $address['delivery_name'];
+        $orders_data['delivery_phone'] = $address['delivery_phone'];
+        $orders_data['delivery_address'] = $address['delivery_address'];
+        $orders_data['gender'] = $address['gender'];
+        $orders_data['pay_status'] = 1;
+        $orders_data['status'] = 1;
+        $orders_data['goods_detail'] = $goods_detail;
+        $orders_data['order_source'] = 1;
+        $orders_data['order_name'] = '海师外卖-'.$store['name'];
+        $orders_data['order_describe'] = $buy_info[0]['name'].'等，共'.$orders_data['count'].'件商品';
+        $orders_data['create_time'] = $create_time;
+        $orders_data['use_month_card'] = $use_month_card;
+        $orders_data['use_coupon'] = $use_coupon;
+        $orders_data['discount_money'] = $discount_money;
+        $orders_data['remake'] = $remake;
+        // Db::name('pay_test')->insert(['msg'=>'订单生成数据：'. $orders_data['discount_money']]);
+        /*订单数据生成完成，准备插入数据*/
+        // 启动事务
+       
+
+
+
+
+    }
+}

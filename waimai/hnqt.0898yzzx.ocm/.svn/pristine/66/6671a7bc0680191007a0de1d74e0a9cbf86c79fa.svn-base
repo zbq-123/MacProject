@@ -1,0 +1,257 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:62:"/www/wwwroot/hnqt.0898yzzx.com/tpl/store/goods/edit_goods.html";i:1649383380;s:57:"/www/wwwroot/hnqt.0898yzzx.com/tpl/store/common/meta.html";i:1649383380;s:59:"/www/wwwroot/hnqt.0898yzzx.com/tpl/store/common/script.html";i:1649383380;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>修改商品</title>
+
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/goods.css" rel="stylesheet" />
+    <link href="/static/store/mui/css/mui.poppicker.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/store/mui/css/mui.picker.min.css" />
+    <!--App自定义的css-->
+    <style>
+        body{
+            /*background: #f1f1f1;*/
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <a href="goods.html" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon mui-icon-left-nav title-refresh-icon"></span><span >返回</span></a>
+    <h1 class="mui-title">修改商品</h1>
+    <div id="edit_goods_btn" class="mui-pull-right cancel-a" style="padding-top: 13px;color: #007aff">保存</div>
+</header>
+<!--顶部标题 end-->
+
+<div class="mui-content">
+    <div class="edit-goods-box">
+        <form id="edit_goods_form" action="" method="post">
+            <div class="edit-list">
+                <div class="edit-list-name">商品编号</div>
+                <div class="mui-input-row">
+                    <input name="number" value="<?php echo $goods['number']; ?>" type="text"  class="edit-goods-input" placeholder="请输入商品编号">
+                </div>
+            </div>
+            <div class="edit-list">
+                <div class="edit-list-name">商品名称</div>
+                <div class="mui-input-row">
+                    <input name="name" value="<?php echo $goods['name']; ?>" id="goods_name" type="text" required class="edit-goods-input" placeholder="请输入商品名称">
+                </div>
+            </div>
+            <div class="edit-list">
+                <div class="edit-list-name">商品价格（单位：元【两位小数】）</div>
+                <div class="mui-input-row">
+                    <input name="price" value="<?php echo $goods['price']; ?>" id="goods_price" type="number" step="0.01" class="edit-goods-input" placeholder="请输入商品价格">
+                </div>
+            </div>
+            <div class="edit-list">
+                <div class="edit-list-name">商品单位</div>
+                <div class="mui-input-row">
+                    <input name="unit" value="<?php echo $goods['unit']; ?>" id="goods_unit" type="text" required class="edit-goods-input" placeholder="请输入商品单位，如：份、条、块">
+                </div>
+            </div>
+            <div class="edit-list">
+                <div class="edit-list-name">商品标签</div>
+                <div class="mui-input-row">
+                    <input name="tag" value="<?php echo $goods['tag']; ?>" type="text" class="edit-goods-input" placeholder="请输入商品标签，如：火爆、热卖">
+                </div>
+            </div>
+            <div class="edit-list">
+                <div class="edit-list-name">商品排序</div>
+                <div class="mui-input-row">
+                    <input name="sort" value="<?php echo $goods['sort']; ?>" type="number" class="edit-goods-input" placeholder="请输入商品排序，如：99.数值越大越靠前">
+                </div>
+            </div>
+            <div class="edit-list">
+                <div class="edit-list-name">商品库存</div>
+                <div class="mui-input-row">
+                    <input name="stock" value="<?php echo $goods['stock']; ?>" type="number" class="edit-goods-input" placeholder="请输入商品库存">
+                </div>
+            </div>
+            <!--预留-->
+            <!--<div class="edit-list">-->
+            <!--<div class="edit-list-name">商品描述</div>-->
+            <!--<div class="mui-input-row">-->
+            <!--<textarea id="textarea" class="edit-goods-textarea" rows="5" placeholder="请输入商品描述"></textarea>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="edit-list">
+                <ul class="mui-table-view mui-grid-view mui-grid-9">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6 " style="padding: 0px 2px!important;border: 0px!important;">
+                        <div class="double-columns-box">商品所属分类</div>
+                        <div id='goods_categoryPicker' class="edit-goods-sift-btn">
+                            <input type="text" name="" placeholder="商品所属分类" id="goods_categoryResult">
+                            <input id="goods_category_id" name="goods_category_id" hidden type="text">
+                            <span></span>
+                        </div>
+                    </li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6 " style="padding: 0px 2px!important;border: 0px!important;">
+                        <div class="double-columns-box">是否上架</div>
+                        <div id='goods_sellPicker' class="edit-goods-sift-btn">
+                            <input type="text" name="" placeholder="默认下架" id="goods_sellResult">
+                            <input type="text" name="status" id="goods_status" hidden>
+                            <span></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="edit-list">
+                <div class="edit-list-name" >商品图片</div>
+                <div id="goods_img_click" class="mui-input-row " >
+                    <div class="edit-goods-logo"><img id="goods_img_show" <?php if(empty($goods['image']) || (($goods['image'] instanceof \think\Collection || $goods['image'] instanceof \think\Paginator ) && $goods['image']->isEmpty())): ?> src="/static/store/icon/upload-img.png" <?php else: ?> src="<?php echo $goods['image']; ?>"<?php endif; ?> alt=""></div>
+                    <input type="file" id="goods_choose" name="file" style="display:none" onchange ="uploadFile()">
+                    <input id="goods_image" name="image" type="text" value="<?php echo $goods['image']; ?>" hidden>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/jquery/jquery-1.8.3.min.js"></script>
+<script src="/static/store/mui/js/mui.picker.min.js"></script>
+<script src="/static/store/mui/js/mui.poppicker.js"></script>
+
+<script>
+    // <!--解决 a 标签不能跳转-->
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    });
+    // 点击保存按钮提交表单
+    document.getElementById('edit_goods_btn').addEventListener('click', function() {
+        var goods_name = document.getElementById("goods_name");
+        var goods_price = document.getElementById("goods_price");
+        var goods_unit = document.getElementById("goods_unit");
+        var goods_category_id = document.getElementById("goods_category_id");
+        if (goods_name.value == ''){
+            mui.toast('商品名称不能为空！',{ duration:'long' });
+            goods_name.focus();
+        } else if (goods_price.value == ''){
+            mui.toast('商品价格不能为空！',{ duration:'long' });
+            goods_price.focus();
+        } else if (goods_unit.value == ''){
+            mui.toast('商品单位不能为空！',{ duration:'long' });
+            goods_unit.focus();
+        }else if (goods_category_id.value == '') {
+            mui.toast('商品所属分类不能为空！',{ duration:'long' });
+            document.getElementById("goods_categoryResult").focus();
+        } else {
+            document.getElementById("edit_goods_form").submit();//js原生方式表单提交
+        }
+    });
+</script>
+<!--下拉选项-->
+<script>
+    (function($, doc) {
+        $.init();
+        // 下拉选项
+        $.ready(function() {
+            /**
+             * 获取对象属性的值
+             * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+             * @param {Object} obj 对象
+             * @param {String} param 属性名
+             */
+                //普通示例
+                // 商品所属分类
+
+            var goods_category =<?php echo $goods_category; ?>;
+            var category = [];
+            var this_goods_category = '';
+            goods_category.forEach(function(categoryvalue,categoryindex,categoryarray){
+                category[categoryindex] = [];
+                category[categoryindex]['id'] = categoryvalue['id'];
+                category[categoryindex]['text'] = categoryvalue['name'];
+
+                if (categoryvalue['id'] == <?php echo $goods['goods_category_id']; ?>){
+                    this_goods_category = categoryvalue['name'];
+                }
+            });
+            var goods_categoryPicker = new $.PopPicker();
+            goods_categoryPicker.setData(category);//商品分类选择器写入分类数据
+
+            //商品分类选择器
+            var goods_categoryPickerButton = doc.getElementById('goods_categoryPicker');
+            var goods_categoryResult = doc.getElementById('goods_categoryResult');
+            goods_categoryResult.value = this_goods_category;// 写入当前商品所属分类名称
+            doc.getElementById('goods_category_id').value = <?php echo $goods['goods_category_id']; ?>;//写入当前商品所属分类ID
+            goods_categoryPickerButton.addEventListener('tap', function(event) {
+                goods_categoryPicker.show(function(items) {
+                    goods_categoryResult.value = items[0]['text'];
+                    doc.getElementById('goods_category_id').value = items[0]['id'];
+                    console.log(goods_categoryResult.value);
+                    //返回 false 可以阻止选择框的关闭
+                    //return false;
+                });
+            }, false);
+        });
+
+        // 商品所属分类
+        var goods_sellPicker = new $.PopPicker();
+        goods_sellPicker.setData([{
+            status: '1',
+            text: '上架'
+        }, {
+            status: '2',
+            text: '下架'
+        }]);
+        var goods_sellPickerButton = doc.getElementById('goods_sellPicker');
+        var goods_sellResult = doc.getElementById('goods_sellResult');
+        if (<?php echo $goods['status']; ?> == 1){
+            goods_sellResult.value = '上架';
+            doc.getElementById('goods_status').value = 1;
+        } else {
+            goods_sellResult.value = '下架';
+            doc.getElementById('goods_status').value = 2;
+        }
+        goods_sellPickerButton.addEventListener('tap', function(event) {
+            goods_sellPicker.show(function(items) {
+                goods_sellResult.value = items[0]['text'];
+                doc.getElementById('goods_status').value = items[0]['status'];
+                console.log(goods_sellResult.value);
+                //返回 false 可以阻止选择框的关闭
+                //return false;
+            });
+        }, false);
+
+
+    })(mui, document);
+</script>
+<!--上传图片-->
+<script type="text/javascript">
+    $('#goods_img_click').click(function(){
+        document.getElementById("goods_choose").click();
+    });
+    function uploadFile() {
+        var myform = new FormData();
+        myform.append('file',$('#goods_choose')[0].files[0]);
+        $.ajax({
+            url: "<?php echo url('upload/goodsImage'); ?>",
+            type: "POST",
+            data: myform,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                mui.toast('上传成功！',{ duration:'long' });
+                $("#goods_img_show").attr('src',data.data);  /*预览图片*/
+                $("#goods_image").val(data.data);  /*将服务端的图片url赋值给form表单的隐藏input标签*/
+            },
+            error:function(data){
+                mui.toast('上传失败！',{ duration:'long' });
+            }
+        });
+    }
+
+</script>
+</html>

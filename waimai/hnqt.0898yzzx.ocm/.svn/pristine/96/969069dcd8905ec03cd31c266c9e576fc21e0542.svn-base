@@ -1,0 +1,25 @@
+<div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+        <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+        <ul class="layui-nav layui-nav-tree"  lay-filter="menu" id="menu">
+            {volist name="menus" id="m"}
+                {eq name="key" value="0"}
+                <li class="layui-nav-item layui-nav-itemed">
+                {else /}
+                <li class="layui-nav-item layui-nav-itemed">
+                {/eq}
+                {empty name="$m.item"}
+                <a class="" href="javascript:;" data-url="{$m.path}" lay-id="{$m.path}"><i class="fa {$m.icon} fa-fw"></i>&nbsp; {$m.name}</a>
+                {else /}
+                <a class="" href="javascript:;"><i class="fa {$m.icon} fa-fw"></i>&nbsp; {$m.name}</a>
+                <dl class="layui-nav-child">
+                    {volist name="m.item" id = "i"}
+                    <dd><a href="javascript:;" data-url="{$i.path}" lay-id="{$m.path}">{$i.name}</a></dd>
+                    {/volist}
+                </dl>
+                {/empty}
+                </li>
+            {/volist}
+        </ul>
+    </div>
+</div>

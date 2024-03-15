@@ -1,0 +1,188 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>轮播图管理</legend>
+</fieldset>
+<!--headToolBar-->
+<div class="tip-btn-line">
+    <div class="layui-btn layui-btn-sm xu-icon-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669; </i>刷新</div>
+    <a class="layui-btn layui-btn-sm xu-icon-btn" href="{:url('add_carousel')}"><i class="layui-icon">&#xe608;</i>添加</a>
+    <form action="" class="layui-form search-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    <input type="text" name="field_content" placeholder="名称搜索" autocomplete="off" class="layui-input">
+                    <input type="text" name="field_name" hidden value="name">
+                </div>
+                <div class="layui-input-inline">
+                    <button class="layui-btn layui-btn-primary" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="layui-tab" lay-filter="typeNews1" >
+    <ul class="layui-tab-title">
+        <li class="layui-this">全部</li>
+        <li value="1">龙昆南校区</li>
+        <li value="2">桂林洋校区</li>
+    </ul>
+</div>
+<!--table-->
+<table class="layui-table" id="carousel" lay-filter="carouselTable"></table>
+
+
+{/block}
+{block name="script"}
+<!--toolBar-->
+<script type="text/html" id="rightToolBar">
+    <a class="layui-btn layui-btn-sm" lay-event="edit">修改</a>
+    <a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
+</script>
+<script type="text/html" id="statusTpl">
+    {{#  if(d.status == 0){ }}
+    <span>不显示</span>
+    {{#  } else { }}
+    <span class="status-normal">显示</span>
+    {{# } }}
+</script>
+
+<!--typeNameTpl-->
+<script type="text/html" id="portalNameTpl">
+    {{#  if(d.campus.name != undefined){ }}
+    <span>{{d.campus.name}}</span>
+    {{#  } else { }}
+    <span>无</span>
+    {{# } }}
+</script>
+<script type="text/html" id="jumpTpl">
+    {{#  if(d.jump_type == 1){ }}
+    <span>不跳转</span>
+    {{#   }else if(d.jump_type == 2){  }}
+    <span>跳转到店铺</span>
+    {{#  } else { }}
+    <span>跳转外部链接</span>
+    {{# } }}
+</script>
+<!--imageTpl-->
+<script type="text/html" id="imageTpl">
+    {{# if(d.picture != null){  }}
+    <img class="xu-title-pic" src="{{d.picture}}">
+    {{#  }  }}
+</script>
+<script type="text/html" id="adminTpl">
+    {{#   if(d.admin.real_name != null) {  }}
+    <span>{{d.admin.real_name}}</span>
+    {{#   }else if(d.admin.login_name != null){  }}
+    <span>{{d.admin.login_name}}</span>
+    {{#  }else {  }}
+    {{#  } }}
+</script>
+
+
+<script>
+    layui.use(['element', 'layer', 'table', 'form', 'xlp', 'flow'], function () {
+        var $ = layui.jquery, element = layui.element, table = layui.table, layer = layui.layer, form = layui.form, xlp = layui.xlp;
+        xlp.startLoading();
+
+        //table生成
+        var carouselTable = table.render({
+            elem: "#carousel"
+            ,url: "{:url('carousel')}"
+            ,response: {
+                statusCode: 200
+                ,msgName: 'message'
+            }
+            ,cols: [[
+                {field:'id', width:50,title:'ID'},
+                {field:'name',width:200, title:'轮播图名称'},
+                {field:'campus_id',width:100, title:'所属校区', templet: "#portalNameTpl"},
+                {field:'picture', title:'图片', templet: "#imageTpl"},
+                {field:'admin', title:'编辑人', templet: "#adminTpl"},
+                {field:'create_time',width:200, title:'编辑时间' ,sort: true},
+                {field:'jump_type', title:'跳转类型', templet: "#jumpTpl"},
+                {field:'sort', title:'排序',edit: 'text',sort:true},
+                {field:'jump_url',width:150, title:'跳转地址'},
+                {field:'status',width:100, title:'是否显示', templet: "#statusTpl"},
+                {fixed: 'right', align:'center', width:130,toolbar: '#rightToolBar ', title:'操作'}
+            ]]
+            ,page: {
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                ,groups: 5
+                ,first: false
+                ,last: false
+            }
+            ,done: function (res, curr, count){
+                xlp.reSetIframeHeight();
+                xlp.closeLoading();
+            }
+        });
+
+        //监听工具条
+        table.on('tool(carouselTable)', function(obj){
+            var data = obj.data;
+            var layEvent = obj.event;
+
+            if(layEvent === 'delete'){ //撤销
+                layer.confirm("确定删除该轮播图吗?", function(index){
+                    xlp.postHttp("{:url('deleted_carousel')}", {
+                        id: data.id,
+                    }, function (res) {
+                        obj.del();
+                        layer.close(index);
+                        layer.msg('删除成功');
+                    });
+                });
+            }else if(layEvent === 'edit'){
+                location.href= "{:url('edit_carousel')}?id="+data.id;
+            }
+        });
+        //编辑排序
+        table.on('edit(carouselTable)', function(obj){
+            xlp.postHttp("{:url('edit_sort')}", {
+                id: obj.data.id,
+                sort: obj.value
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+
+        element.on('tab(typeNews1)', function(data){
+
+            /* console.log(this); //当前Tab标题所在的原始DOM元素
+             console.log(data.index); //得到当前Tab的所在下标
+             console.log(data.elem); //得到当前的Tab大容器*/
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    paystatus: data.index
+                }
+            });
+        });
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+
+    //搜索
+    form.on('submit(search)', function (data) {
+        xlp.startLoading();
+        carouselTable.reload({
+            where: {
+                fields: data.field
+            }
+            ,page: {
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                ,groups: 5
+                ,first: false
+                ,last: false
+                ,curr: 1 //重新从第 1 页开始
+            }
+        });
+        return false;
+    });
+    })
+</script>
+{/block}

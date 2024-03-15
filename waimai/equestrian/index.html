@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover, user-scalable=no,viewport-fit=cover" />
+    <title>骑手端</title>
+  </head>
+  <body>
+    <van-nav-bar safe-area-inset-top />
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <van-number-keyboard safe-area-inset-bottom />
+  </body>
+  <script type="text/javascript">
+    window.onload = function() {
+      // 阻止双击放大
+      var lastTouchEnd = 0;
+      document.addEventListener('touchstart', function(event) {
+        if (event.touches.length > 1) {
+          event.preventDefault();
+        }
+      });
+      document.addEventListener('touchend', function(event) {
+        var now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+          event.preventDefault();
+        }
+        lastTouchEnd = now;
+      }, false);
+
+      // 阻止双指放大
+      document.addEventListener('gesturestart', function(event) {
+        event.preventDefault();
+      });
+    }
+
+    function onBridgeReady(){
+       WeixinJSBridge.call('hideToolbar');
+    }
+
+    if (typeof WeixinJSBridge == "undefined"){
+        if( document.addEventListener ){
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        }else if (document.attachEvent){
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    }else{
+        onBridgeReady();
+    }
+
+
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        WeixinJSBridge.call('hideToolbar');        // 隐藏底部状态栏
+        WeixinJSBridge.call('hideOptionMenu');     // 隐藏右上角的三个点的选项
+        WeixinJSBridge.call('showToolbar');        // 显示底部状态栏
+        WeixinJSBridge.call('showOptionMenu');     // 显示右上角的三个点的选项
+    });
+  </script>
+</html>

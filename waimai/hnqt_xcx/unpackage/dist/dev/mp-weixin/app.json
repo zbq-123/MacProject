@@ -1,0 +1,91 @@
+{
+  "pages": [
+    "pages/index",
+    "pages/login",
+    "pages/dingdan",
+    "pages/wode",
+    "pages/search",
+    "pages/address/xinzengdizhi",
+    "pages/address/wodedizhi",
+    "pages/address/xiugaidizhi",
+    "pages/food/jinpengshitang",
+    "pages/food/tijiaodingdan",
+    "pages/food/dingdantijiao",
+    "pages/food/dindanDetail",
+    "pages/wallet/index",
+    "pages/wallet/balance",
+    "pages/makemoney/index",
+    "pages/makemoney/details",
+    "pages/wallet/gift_money",
+    "pages/personal/index",
+    "pages/card/index",
+    "pages/card/month",
+    "pages/coupon/index",
+    "pages/customer_service/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pages-other",
+      "pages": [
+        "card/index",
+        "idle/index",
+        "idle/add",
+        "idle/spot",
+        "train/index",
+        "train/model_jiaxiao",
+        "train/commont",
+        "train/add_commont",
+        "supermarket/index",
+        "supermarket/dateil",
+        "electronics/index",
+        "electronics/dateil",
+        "electronics/tijiaodingdan",
+        "electronics/dingdantijiao"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index",
+        "iconPath": "static/tarbar/home.png",
+        "selectedIconPath": "static/tarbar/home_on.png",
+        "text": "圈圈食堂"
+      },
+      {
+        "pagePath": "pages/dingdan",
+        "iconPath": "static/tarbar/order.png",
+        "selectedIconPath": "static/tarbar/order_on.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/wode",
+        "iconPath": "static/tarbar/my.png",
+        "selectedIconPath": "static/tarbar/my_on.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "更加精准的推荐检测站位置"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "usingComponents": {
+    "goods-spec": "/components/goodsSpec"
+  }
+}

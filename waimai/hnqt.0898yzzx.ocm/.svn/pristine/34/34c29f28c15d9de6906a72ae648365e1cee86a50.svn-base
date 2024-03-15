@@ -1,0 +1,110 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>成功订单统计</legend>
+</fieldset>
+<!--headToolBar-->
+<style type="text/css">
+    .main-content{
+        width: 770px;
+    }
+</style>
+<div class="tip-btn-line" style="width: 770px;">
+    <div class="layui-btn layui-btn-sm xu-icon-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669; </i>刷新</div>
+    <!--搜索表单-->
+    <form action="" class="layui-form search-form">
+        <div class="layui-form-item">
+                    <div class="layui-input-inline layui-form" lay-filter="storeSelect">
+                        <select name="store_id" id="storeId" lay-filter="storeId"  lay-search>
+                            <option value="0">所有店铺</option>
+                        </select>
+                    </div>
+                    <button class="layui-btn layui-btn-primary" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i>搜索</button>
+                
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="layui-form-item"></div>
+<table class="layui-table" id="dataTable" lay-filter="dataTable"></table>
+{/block}
+{block name="script"}
+
+<script>
+    layui.use(['element', 'layer', 'table', 'form', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, table = layui.table, layer = layui.layer, form = layui.form, xlp = layui.xlp;
+        xlp.startLoading();
+
+        //table生成
+        var dataTable = table.render({
+            elem: "#dataTable"
+            ,url: "{:url('user_stasticstic')}"
+            ,width: 800
+            ,response: {
+                statusCode: 200
+                ,msgName: 'message'
+            }
+            ,cols: [[
+                /*{type:'checkbox'},*/
+                {field:'nickname', align:'center', title:'用户'},
+                {field:'store_name', align:'center', title:'所属店铺'},
+                {field:'phone', align:'center', title:'联系电话'},
+                {field:'num',align:'center', title:'消费次数'},
+            ]]
+            ,done: function (res, curr, count){
+                xlp.reSetIframeHeight();
+                xlp.closeLoading();
+            }
+        });
+
+
+        //获取筛选条件的所有店铺
+        xlp.getHttp("{:url('api/get_store')}", {}, function (res) {
+            $("#storeId").html('<option value="0">所有店铺</option>');
+            layui.each(res, function (i) {
+                $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "storeSelect");
+            })
+        });
+
+
+        //搜索
+        form.on('submit(search)', function (data) {
+            xlp.startLoading();
+            console.log(data.field);
+            dataTable.reload({
+                where: {
+                    store_id: data.field.store_id
+                }
+                // ,page: {
+                //     layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                //     ,groups: 5
+                //     ,first: false
+                //     ,last: false
+                //     ,curr: 1 //重新从第 1 页开始
+                // }
+            });
+            return false;
+        });
+
+        //搜索
+        form.on('submit(search3)', function (data) {
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    fields: data.data.field
+                }
+                ,page: {
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                    ,groups: 5
+                    ,first: false
+                    ,last: false
+                    ,curr: 1 //重新从第 1 页开始
+                }
+            });
+            return false;
+        });
+    })
+</script>
+{/block}

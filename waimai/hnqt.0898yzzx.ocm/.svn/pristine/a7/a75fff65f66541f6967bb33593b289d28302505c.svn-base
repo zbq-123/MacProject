@@ -1,0 +1,16 @@
+[ 2020-11-02T00:00:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-11-02T00:00:01+08:00 ][ log ] 2020-11-02 00:00:01自动收货开始执行
+
+[ 2020-11-02T00:00:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-11-02T00:00:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-11-02T00:00:01+08:00 ][ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ 2020-11-02T23:00:01+08:00 ][ info ] [ LOG ] INIT File
+[ 2020-11-02T23:00:01+08:00 ][ log ] 2020-11-02 23:00:01自动收货开始执行
+
+[ 2020-11-02T23:00:01+08:00 ][ info ] [ DB ] INIT mysql

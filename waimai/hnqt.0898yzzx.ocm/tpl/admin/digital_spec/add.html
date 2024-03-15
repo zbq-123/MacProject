@@ -1,0 +1,56 @@
+{extend name="public/popup" /}
+{block name="content"}
+<!-- <a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="{:url('ratio')}"><i class="layui-icon">&#xe603;</i>返回</a> -->
+<fieldset class="layui-elem-field layui-field-title">
+
+    <legend>添加规格</legend>
+</fieldset>
+<form class="layui-form layui-form-edit" action="{:url('add')}" method="post" lay-filter="newsForm">
+
+    <div class="layui-form-item">
+
+        <label class="layui-form-label">规格名称</label>
+
+        <div class="layui-input-inline layui-form" lay-filter="fixedIdSelect">
+            <input type="text" name="name" value=""  class="layui-input">
+        </div>
+
+
+
+
+        <div class="layui-form-item"></div>
+
+
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="save">保存</button>
+                <!--        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="audit">提交审核</button>-->
+                <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+{/block}
+{block name="script"}
+<script type="text/javascript"
+        src="__STATIC__/ueditor/ueditor.config.js?version={$Think.config.web_config.site_version}"></script>
+<script type="text/javascript"
+        src="__STATIC__/ueditor/ueditor.all.js?version={$Think.config.web_config.site_version}"></script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+       
+
+        form.on("submit(cancel)", function (data) {
+            location.href = "{:url('index')}";
+            return false;
+        });
+    })
+
+</script>
+
+
+{/block}

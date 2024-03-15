@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "驾校",
+  "navigationBarBackgroundColor": "#f7dd93",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u-rate": "/uni_modules/uview-ui/components/u-rate/u-rate",
+    "u-line": "/uni_modules/uview-ui/components/u-line/u-line",
+    "u--text": "/uni_modules/uview-ui/components/u--text/u--text",
+    "u-scroll-list": "/uni_modules/uview-ui/components/u-scroll-list/u-scroll-list",
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse",
+    "u-album": "/uni_modules/uview-ui/components/u-album/u-album",
+    "u-empty": "/uni_modules/uview-ui/components/u-empty/u-empty"
+  }
+}

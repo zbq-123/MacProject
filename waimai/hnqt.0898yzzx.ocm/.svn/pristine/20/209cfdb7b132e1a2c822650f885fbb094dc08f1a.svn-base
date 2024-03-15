@@ -1,0 +1,64 @@
+html,body{
+    background: #f5f5f5;
+}
+
+.mui-action-back{
+    color: #333;
+}
+
+.address-panel{
+    background: #fff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 8px;
+}
+
+
+.address-detail-panel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.mui-bar .mui-btn-link{
+    color: #42CA47!important;
+    font-size: 15px;
+}
+
+.address-edit{
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+}
+
+
+.panel-address-info{
+
+}
+
+.panel-address-info .address{
+    color:#333333;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+
+.panel-address-info .user-info{
+    color: #666;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.address-default{
+    color: #42CA47;
+    font-size: 12px;
+    line-height: 12px;
+    border: 1px #42CA47 solid;
+    padding: 2px 4px 0px 4px;
+    border-radius: 4px;
+    margin-top: -2px;
+    background: rgba(66,202,71,0.1);
+}

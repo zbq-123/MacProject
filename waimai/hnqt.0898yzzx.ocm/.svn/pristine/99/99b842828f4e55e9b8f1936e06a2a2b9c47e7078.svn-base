@@ -1,0 +1,528 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:50:"/var/www/king_hsst/tpl/store/store/edit_store.html";i:1604313649;s:45:"/var/www/king_hsst/tpl/store/common/meta.html";i:1604313647;s:47:"/var/www/king_hsst/tpl/store/common/script.html";i:1604313647;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>修改店铺</title>
+
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/store.css" rel="stylesheet" />
+    <link href="/static/store/mui/css/mui.picker.css" rel="stylesheet" />
+    <link href="/static/store/mui/css/mui.poppicker.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/store/mui/css/mui.picker.min.css" />
+    <!--App自定义的css-->
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <a href="store.html" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon mui-icon-left-nav title-refresh-icon"></span><span >返回</span></a>
+    <h1 class="mui-title">修改店铺</h1>
+    <div id="submit_btn" class="mui-pull-right cancel-a" style="padding-top: 13px;color: #007aff;">保存</div>
+</header>
+<!--顶部标题 end-->
+
+<div class="mui-content">
+    <div class="edit-store-box">
+        <form id="edit_store_form" class="" action="" method="post">
+            <!--店铺基本信息 start-->
+            <div class="edit-list-block p-b-15">
+                <div class="edit-list">
+                    <div class="edit-list-name" style="text-align: center">店鋪LOGO</div>
+                    <div id="upload_store_logo" class="mui-input-row " >
+                        <div class="edit-store-logo"><img id="logo_img" <?php if(empty($store['logo']) || (($store['logo'] instanceof \think\Collection || $store['logo'] instanceof \think\Paginator ) && $store['logo']->isEmpty())): ?> src="/static/store/icon/upload-img.png" <?php else: ?> src="<?php echo $store['logo']; ?>"<?php endif; ?> alt=""></div>
+                        <input type="file" id="upload_logo" name="file" style="display:none" onchange ="uploadFile()">
+                        <input id="store_logo" name="logo" type="text" value="<?php echo $store['logo']; ?>" hidden>
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">店铺编号</div>
+                    <div class="mui-input-row">
+                        <input value="<?php echo $store['number']; ?>" readonly type="text" class="edit-store-input" style="background: #f9f9f9" placeholder="请输入店铺编号">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">店铺名称</div>
+                    <div class="mui-input-row">
+                        <input name="name" value="<?php echo $store['name']; ?>" type="text" class="edit-store-input" placeholder="请输入店铺名称">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">店铺电话</div>
+                    <div class="mui-input-row">
+                        <input name="phone" value="<?php echo $store['phone']; ?>" type="text" class="edit-store-input mui-input-clear" placeholder="请输入店铺电话，多个可用逗号隔开">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">店铺地址</div>
+                    <div class="mui-input-row">
+                        <input name="address" value="<?php echo $store['address']; ?>" type="text" class="edit-store-input mui-input-clear" placeholder="请输入店铺地址">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">店铺描述</div>
+                    <div class="mui-input-row">
+                        <textarea name="detail" id="detail" class="edit-store-textarea mui-input-clear" rows="5" placeholder="请输入店铺描述"><?php echo $store['detail']; ?></textarea>
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">店铺公告</div>
+                    <div class="mui-input-row">
+                        <textarea name="notice" id="notice" class="edit-store-textarea mui-input-clear" rows="5" placeholder="请输入店铺公告"><?php echo $store['notice']; ?></textarea>
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">允许退款</div>
+                    <div  id='box_refundPicker'  class="edit-store-sift-btn">
+                        <input type="text"  placeholder="是否允许退款" id="box_refund">
+                        <input name="is_refund" id="box_is_refund" hidden type="text">
+                    </div>
+                </div>
+                <!--<div class="edit-list">-->
+                    <!--<ul class="mui-table-view mui-grid-view mui-grid-9">-->
+                        <!--<li class="mui-table-view-cell mui-media mui-col-xs-6 "  style="padding: 0px 2px!important;border: 0px!important;">-->
+                            <!--<div class="double-columns-box">所属分区</div>-->
+                            <!--<div  id='schoolPicker'  class="edit-store-sift-btn">-->
+                                <!--<input type="text" name=""  placeholder="所属分区" id="schoolResult">-->
+                                <!--<span></span>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li class="mui-table-view-cell mui-media mui-col-xs-6 "  style="padding: 0px 2px!important;border: 0px!important;">-->
+                            <!--<div class="double-columns-box">店铺分类</div>-->
+                            <!--<div  id='categoryPicker'  class="edit-store-sift-btn">-->
+                                <!--<input type="text"  name=""  placeholder="店铺分类" id="categoryResult">-->
+                                <!--<span></span>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <div class="edit-list">
+                    <div class="edit-list-name">营业时间</div>
+                    <ul class="mui-table-view mui-grid-view mui-grid-9">
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 "  style="padding: 0px 2px!important;border: 0px!important;">
+                            <div  id='on_data_1'  class="edit-store-sift-btn">
+                                <input type="text" value="<?php echo $store['start_time1']; ?>" name="start_time1" class="data-input-on" placeholder="选择开始时间" id="opt_on_data_1">
+                                <span></span>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 "  style="padding: 0px 2px!important;border: 0px!important;">
+                            <div  id='off_data_1'  class="edit-store-sift-btn">
+                                <input type="text" value="<?php echo $store['end_time1']; ?>"  name="end_time1" class="data-input-off" placeholder="选择结束时间" id="opt_off_data_1">
+                                <span></span>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 "  style="padding: 0px 2px!important;border: 0px!important;">
+                            <div  id='on_data_2'  class="edit-store-sift-btn">
+                                <input type="text" value="<?php echo $store['start_time2']; ?>" name="start_time2" class="data-input-on"placeholder="选择开始时间" id="opt_on_data_2">
+                                <span></span>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 "  style="padding: 0px 2px!important;border: 0px!important;">
+                            <div  id='off_data_2'  class="edit-store-sift-btn">
+                                <input type="text" value="<?php echo $store['end_time2']; ?>"  name="end_time2" class="data-input-off" placeholder="选择结束时间" id="opt_off_data_2">
+                                <span></span>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 "  style="padding: 0px 2px!important;border: 0px!important;">
+                            <div  id='on_data_3'  class="edit-store-sift-btn">
+                                <input type="text" value="<?php echo $store['start_time3']; ?>" name="start_time3" class="data-input-on" placeholder="选择开始时间" id="opt_on_data_3">
+                                <span></span>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell mui-media mui-col-xs-6 "  style="padding: 0px 2px!important;border: 0px!important;">
+                            <div  id='off_data_3'  class="edit-store-sift-btn">
+                                <input type="text" value="<?php echo $store['end_time3']; ?>"  name="end_time3" class="data-input-off" placeholder="选择结束时间" id="opt_off_data_3">
+                                <span></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--店铺基本信息 end-->
+
+            <!--店铺费用相关信息 start-->
+            <div class="edit-list-block p-b-15 p-t-15">
+                <div class="edit-list">
+                    <div class="edit-list-name">起送金额（单位：元）</div>
+                    <div class="mui-input-row">
+                        <input name="min_price" value="<?php echo $store['min_price']; ?>" type="number" step="0.01" class="edit-store-input" placeholder="请输入起送价">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">用户付单后可手动取消时间（单位：秒）</div>
+                    <div class="mui-input-row">
+                        <input name="order_cancel_time" value="<?php echo $store['order_cancel_time']; ?>" type="number" class="edit-store-input" placeholder="请输入可取消时间，如：60秒，输入60">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">餐盒费收取类型</div>
+                    <div class="mui-input-row">
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                            <li class="mui-table-view-cell mui-media mui-col-xs-6 "  style="padding: 0px 2px!important;border: 0px!important;">
+                                <div  id='box_typePicker'  class="edit-store-sift-btn">
+                                    <input type="text"  placeholder="餐盒费收取类型" id="box_typeResult">
+                                    <input name="box_type" id="box_type" hidden type="text">
+                                    <span></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">餐盒费名称</div>
+                    <div class="mui-input-row">
+                        <input name="box_name" value="<?php echo $store['box_name']; ?>" type="text" class="edit-store-input" placeholder="请输入餐盒费名称">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">餐盒费金额（单位：元）</div>
+                    <div class="mui-input-row">
+                        <input name="box_price" value="<?php echo $store['box_price']; ?>" type="number" step="0.01" class="edit-store-input" placeholder="请输入餐盒费金额">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">跑腿费名称</div>
+                    <div class="mui-input-row">
+                        <input name="delivery_name" value="<?php echo $store['delivery_name']; ?>" type="text" class="edit-store-input" placeholder="请输入跑腿费名称">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">跑腿费金额（单位：元）</div>
+                    <div class="mui-input-row">
+                        <input name="delivery_price" value="<?php echo $store['delivery_price']; ?>" type="text" step="0.01" class="edit-store-input" placeholder="请输入跑腿费金额">
+                    </div>
+                </div>
+            </div>
+            <!--店铺费用相关信息 end-->
+
+            <!--店铺提现相关信息 start-->
+            <div class="edit-list-block p-b-15 p-t-15">
+                <div class="edit-list">
+                    <div class="edit-list-name">银行卡号</div>
+                    <div class="mui-input-row">
+                        <input name="bank_card" value="<?php echo $store['bank_card']; ?>" type="text" class="edit-store-input" placeholder="请输入银行卡号">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">开户行信息</div>
+                    <div class="mui-input-row">
+                        <input name="bank_info" value="<?php echo $store['bank_info']; ?>" type="text" class="edit-store-input" placeholder="请输入开户行信息">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">开户人姓名</div>
+                    <div class="mui-input-row">
+                        <input name="bank_card_name" value="<?php echo $store['bank_card_name']; ?>" type="text" class="edit-store-input" placeholder="请输入开户人姓名">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">支付宝账号</div>
+                    <div class="mui-input-row">
+                        <input name="ali_card" value="<?php echo $store['ali_card']; ?>" type="text" class="edit-store-input" placeholder="请输入支付宝账号">
+                    </div>
+                </div>
+                <div class="edit-list">
+                    <div class="edit-list-name">支付宝拥有人姓名</div>
+                    <div class="mui-input-row">
+                        <input name="ali_name" value="<?php echo $store['ali_name']; ?>" type="text" class="edit-store-input" placeholder="请输入支付宝拥有人姓名">
+                    </div>
+                </div>
+            </div>
+            <!--店铺提现相关信息 end-->
+        </form>
+    </div>
+</div>
+
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/jquery/jquery-1.8.3.min.js"></script>
+<script src="/static/store/mui/js/mui.picker.js"></script>
+<script src="/static/store/mui/js/mui.picker.min.js"></script>
+<script src="/static/store/mui/js/mui.poppicker.js"></script>
+
+
+<script>
+    // 解决 a 标签不能跳转
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    });
+    document.getElementById("submit_btn").addEventListener('click', function() {
+        document.getElementById("edit_store_form").submit();//js原生方式表单提交
+    });
+
+
+</script>
+<!--下拉选项-->
+<script>
+    (function($, doc) {
+        $.init();
+        // 下拉选项
+        $.ready(function() {
+            /**
+             * 获取对象属性的值
+             * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+             * @param {Object} obj 对象
+             * @param {String} param 属性名
+             */
+            //普通示例
+
+            /*
+            // 所属分区
+            var schoolPicker = new $.PopPicker();
+            schoolPicker.setData([{
+                value: 'ywj',
+                text: '南校区'
+            }, {
+                value: 'aaa',
+                text: '桂林洋校区'
+            }
+            ]);
+            var schoolPickerButton = doc.getElementById('schoolPicker');
+            var schoolResult = doc.getElementById('schoolResult');
+            schoolPickerButton.addEventListener('tap', function(event) {
+                schoolPicker.show(function(items) {
+                    schoolResult.value = items[0]['text'];
+                    console.log(schoolResult.value);
+                    //返回 false 可以阻止选择框的关闭
+                    //return false;
+                });
+            }, false);*/
+
+            /*
+            // 店铺分类
+            var categoryPicker = new $.PopPicker();
+            categoryPicker.setData([{
+                value: 'ywj',
+                text: '董事长'
+            }, {
+                value: 'aaa',
+                text: '总经理'
+            }, {
+                value: 'lj',
+                text: '罗辑'
+            }]);
+            var categoryPickerButton = doc.getElementById('categoryPicker');
+            var categoryResult = doc.getElementById('categoryResult');
+            categoryPickerButton.addEventListener('tap', function(event) {
+                categoryPicker.show(function(items) {
+                    categoryResult.value = items[0]['text'];
+                    console.log(categoryResult.value);
+                    //返回 false 可以阻止选择框的关闭
+                    //return false;
+                });
+            }, false);*/
+
+            // 餐盒费收取类型
+            var box_typePicker = new $.PopPicker();
+            box_typePicker.setData([{
+                value: '1',
+                text: '按订单收取'
+            }, {
+                value: '2',
+                text: '按商品数量收取'
+            }]);
+            var box_typePickerButton = doc.getElementById('box_typePicker');
+            var box_typeResult = doc.getElementById('box_typeResult');
+            var box_type = doc.getElementById('box_type');
+            var store_box_type = <?php echo $store['box_type']; ?>;
+            if (store_box_type == 1) {
+                box_typeResult.value = '按订单收取';
+                box_type.value = store_box_type;
+            }else if (store_box_type== 2){
+                box_typeResult.value = '按商品数量收取';
+                box_type.value = store_box_type;
+            }
+            box_typePickerButton.addEventListener('tap', function(event) {
+                box_typePicker.show(function(items) {
+                    box_typeResult.value = items[0]['text'];
+                    box_type.value = items[0]['value'];;
+                    console.log(box_typeResult.value);
+                    //返回 false 可以阻止选择框的关闭
+                    //return false;
+                });
+            }, false);
+
+            // 退款
+             var box_refundPicker = new $.PopPicker();
+            box_refundPicker.setData([{
+                value: '0',
+                text: '允许'
+            }, {
+                value: '1',
+                text: '不允许'
+            }]);
+            var box_refundButton = doc.getElementById('box_refundPicker');
+            var box_refund = doc.getElementById('box_refund');
+            var box_is_refund = doc.getElementById('box_is_refund');
+            var store_refound = <?php echo $store['is_refund']; ?>;
+            if (store_refound == 0) {
+                box_refund.value = '允许';
+                box_is_refund.value = 0;
+            }else{
+                box_refund.value = '不允许';
+                box_is_refund.value = 1;
+            }
+            box_refundButton.addEventListener('tap', function(event) {
+                box_refundPicker.show(function(items) {
+                    box_refund.value = items[0]['text'];
+                    box_is_refund.value = items[0]['value'];;
+                    //返回 false 可以阻止选择框的关闭
+                    //return false;
+                });
+            }, false);
+        });
+
+    })(mui, document);
+</script>
+<!--时间选项-->
+<script>
+    (function($, doc) {
+        $.init();
+        //时间选项
+        var opt_on_data = [];
+        var opt_off_data = [];
+        for (var i=0;i<3;i++) {
+            opt_on_data[i] = $('#opt_on_data_' + (i+1))[0];
+            opt_off_data[i] = $('#opt_off_data_' + (i+1))[0];
+        }
+        $('.data-input-on').each(function(i, btn) {
+            btn.addEventListener('tap', function() {
+                var _self = this;
+                var result = opt_on_data[i];
+                if(_self.picker) {
+                    _self.picker.show(function (rs) {
+                        result.value = rs.text;
+                        console.log(result);
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                } else {
+                    var optionsJson = '{"type":"time"}' || '{}';
+                    var options = JSON.parse(optionsJson);
+                    var id = this.getAttribute('id');
+                    /*
+                     * 首次显示时实例化组件
+                     * 示例为了简洁，将 options 放在了按钮的 dom 上
+                     * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+                     */
+                    _self.picker = new $.DtPicker(options);
+                    _self.picker.show(function(rs) {
+                        /*
+                         * rs.value 拼合后的 value
+                         * rs.text 拼合后的 text
+                         * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                         * rs.m 月，用法同年
+                         * rs.d 日，用法同年
+                         * rs.h 时，用法同年
+                         * rs.i 分（minutes 的第二个字母），用法同年
+                         */
+                        // result.innerText = '选择后: ' + rs.text;
+                        result.value = rs.text;
+                        console.log( result.value);
+                        /*
+                         * 返回 false 可以阻止选择框的关闭
+                         * return false;
+                         */
+                        /*
+                         * 释放组件资源，释放后将将不能再操作组件
+                         * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+                         * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+                         * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+                         */
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }
+
+            }, false);
+        });
+        $('.data-input-off').each(function(i, btn) {
+            btn.addEventListener('tap', function() {
+                var _self = this;
+                var result = opt_off_data[i];
+                if(_self.picker) {
+                    _self.picker.show(function (rs) {
+                        result.value = rs.text;
+                        console.log(result);
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                } else {
+                    var optionsJson = '{"type":"time"}' || '{}';
+                    var options = JSON.parse(optionsJson);
+                    var id = this.getAttribute('id');
+                    /*
+                     * 首次显示时实例化组件
+                     * 示例为了简洁，将 options 放在了按钮的 dom 上
+                     * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+                     */
+                    _self.picker = new $.DtPicker(options);
+                    _self.picker.show(function(rs) {
+                        /*
+                         * rs.value 拼合后的 value
+                         * rs.text 拼合后的 text
+                         * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                         * rs.m 月，用法同年
+                         * rs.d 日，用法同年
+                         * rs.h 时，用法同年
+                         * rs.i 分（minutes 的第二个字母），用法同年
+                         */
+                        // result.innerText = '选择后: ' + rs.text;
+                        result.value = rs.text;
+                        console.log( result.value);
+                        /*
+                         * 返回 false 可以阻止选择框的关闭
+                         * return false;
+                         */
+                        /*
+                         * 释放组件资源，释放后将将不能再操作组件
+                         * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+                         * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+                         * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+                         */
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }
+
+            }, false);
+        });
+
+    })(mui, document);
+</script>
+<!--上传图片-->
+<script type="text/javascript">
+
+    $('#upload_store_logo').click(function(){
+        document.getElementById("upload_logo").click();
+    });
+    function uploadFile() {
+        var myform = new FormData();
+        myform.append('file',$('#upload_logo')[0].files[0]);
+        $.ajax({
+            url: "<?php echo url('upload/storeLogo'); ?>",
+            type: "POST",
+            data: myform,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                mui.toast('上传成功！',{ duration:'long' });
+                $("#logo_img").attr('src',data.data);  /*预览图片*/
+                $("#store_logo").val(data.data);  /*将服务端的图片url赋值给form表单的隐藏input标签*/
+            },
+            error:function(data){
+                mui.toast('上传失败！',{ duration:'long' });
+            }
+        });
+    }
+
+</script>
+
+</html>

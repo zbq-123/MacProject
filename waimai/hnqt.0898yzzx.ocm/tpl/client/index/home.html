@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+    <link rel="stylesheet" href="__STATIC__/client/mui/css/hsst-index.css">
+</head>
+<body>
+<nav class="mui-bar mui-bar-tab">
+    <a id="active_home" class="mui-tab-item {empty name='Request.get.active'}mui-active{else/}{eq name='Request.get.active' value='home'}mui-active{/eq}{/empty}" href="#home">
+        <img id="home_img" class="tab-img" src="__STATIC__/client/icon/index_{empty name='Request.get.active'}on{else/}{eq name='Request.get.active' value='home'}on{else/}off{/eq}{/empty}.png" />
+        <div class="tab-name">首页</div>
+    </a>
+    <a id="active_orders" class="mui-tab-item {eq name='Request.get.active' value='orders'}mui-active{/eq}" href="#orders">
+        <img id="orders_img" class="tab-img" src="__STATIC__/client/icon/orders_{eq name='Request.get.active' value='orders'}on{else/}off{/eq}.png" />
+        <div class="tab-name">订单</div>
+    </a>
+    <a id="active_user" class="mui-tab-item {eq name='Request.get.active' value='user'}mui-active{/eq}" href="#user">
+        <img id="user_img" class="tab-img" src="__STATIC__/client/icon/user_{eq name='Request.get.active' value='user'}on{else/}off{/eq}.png" />
+        <div class="tab-name">我的</div>
+    </a>
+</nav>
+<div class="mui-content">
+    <iframe src="{:url('index/index')}" id="home" class="iframe-css mui-control-content {empty name='Request.get.active'}mui-active{else/}{eq name='Request.get.active' value='home'}mui-active{/eq}{/empty}"></iframe>
+    <iframe src="{:url('orders/index')}" id="orders" class="iframe-css mui-control-content {eq name='Request.get.active' value='orders'}mui-active{/eq}"></iframe>
+    <iframe src="{:url('user/index')}" id="user" class="iframe-css mui-control-content {eq name='Request.get.active' value='user'}mui-active{/eq}"></iframe>
+</div>
+</body>
+
+{include file="common/script" /}
+<script type="text/JavaScript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+
+    mui.ready(function(){
+        mui(".mui-bar-tab").on('tap','.mui-tab-item',function(){
+
+            var href = this.getAttribute("href");
+
+            if(href == '#home'){
+                mui('#home_img')[0].src = '__STATIC__/client/icon/index_on.png';
+                mui('#orders_img')[0].src = '__STATIC__/client/icon/orders_off.png';
+                mui('#user_img')[0].src = '__STATIC__/client/icon/user_off.png';
+            }else if(href == '#orders'){
+                mui('#home_img')[0].src = '__STATIC__/client/icon/index_off.png';
+                mui('#orders_img')[0].src = '__STATIC__/client/icon/orders_on.png';
+                mui('#user_img')[0].src = '__STATIC__/client/icon/user_off.png';
+            }else if(href == '#user'){
+                mui('#home_img')[0].src = '__STATIC__/client/icon/index_off.png';
+                mui('#orders_img')[0].src = '__STATIC__/client/icon/orders_off.png';
+                mui('#user_img')[0].src = '__STATIC__/client/icon/user_on.png';
+            }
+        })
+
+    });
+
+    wx.config({
+        debug: false,
+        appId: '{$signPackage.appId}',
+        timestamp: '{$signPackage.timestamp}',
+        nonceStr: '{$signPackage.nonceStr}',
+        signature: '{$signPackage.signature}',
+        jsApiList: [
+            'checkJsApi',
+            'openLocation',
+            'getLocation'
+        ]
+    });
+
+    /*tipTest();
+
+    function tipTest() {
+        var data = {};
+        var btnArray = ['退出', '明白'];
+
+        mui.confirm('该系统暂时处于测试阶段，非测试人员请勿使用。', '温馨提醒', btnArray, function (e) {
+            if (e.index == 0) {
+                WeixinJSBridge.call('closeWindow');
+            }
+        });
+    }*/
+</script>
+</html>

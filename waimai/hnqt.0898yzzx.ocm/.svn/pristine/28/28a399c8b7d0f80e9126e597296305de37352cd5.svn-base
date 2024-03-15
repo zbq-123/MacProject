@@ -1,0 +1,255 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:38:"/var/www/jpgy/tpl/store/home/home.html";i:1618455188;s:40:"/var/www/jpgy/tpl/store/common/meta.html";i:1618455187;s:42:"/var/www/jpgy/tpl/store/common/script.html";i:1618455187;}*/ ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>首页</title>
+
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/home.css" rel="stylesheet" />
+    <!--App自定义的css-->
+    <style>
+
+    </style>
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+    <a onclick="javascript:location.reload()"><span class="mui-icon mui-icon-refresh title-refresh-icon"></span></a>
+    <h1 class="mui-title">首页</h1>
+    <div onclick="javascript:logout()" class="mui-pull-right cancel-a" ><img class="cancel-icon " src="/static/store/icon/cancel-icon.png" alt=""></div>
+</header>
+<!--顶部标题 end-->
+
+<div class="mui-content">
+    <!--店铺信息栏 start-->
+    <div class="mui-content after-clear">
+        <ul class="mui-table-view mui-table-view-chevron" style="background: #007aff;margin-top: 0px;">
+            <li class="mui-table-view-cell header-inline pd-6-15">
+                <div class="heard-img-box">
+                    <img class="mui-pull-left" src="<?php if(!(empty($store['logo']) || (($store['logo'] instanceof \think\Collection || $store['logo'] instanceof \think\Paginator ) && $store['logo']->isEmpty()))): ?><?php echo $store['logo']; endif; ?> ">
+                </div>
+                <div class="name-text-box">
+                    <span><?php if(!(empty($store['name']) || (($store['name'] instanceof \think\Collection || $store['name'] instanceof \think\Paginator ) && $store['name']->isEmpty()))): ?><?php echo $store['name']; endif; ?></span>
+                </div>
+                <div class="edit-btn-box">
+                    <a href="edit_password.html"><button type="button" class="mui-btn mui-btn-warning edit-btn" >
+                        修改密码
+                    </button></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--店铺信息栏 end-->
+
+    <!--营业信息栏 start-->
+    <div class="" >
+        <ul class="mui-table-view mui-grid-view mui-grid-9" style="background: #33CCCC!important;">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 " style="padding: 2px 10px!important;">
+                <div style="margin: 0;padding: 10px 0px;">
+                    <div class="mui-media-body" style="font-size: 18px">￥<?php echo $today['turnover']; ?></div>
+                    <div class="" style="color: white;padding-top:10px;">昨日营业额</div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 "  style="padding: 2px 10px!important;">
+                <div style="margin: 0;padding: 10px 0px;">
+                    <div class="mui-media-body" style="font-size: 18px"><?php echo $today['order_count']; ?></div>
+                    <div class="" style="color: white;padding-top:10px;">昨日成单数</div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 "  style="padding: 2px 10px!important;">
+                <div  style="margin: 0;padding: 10px 0px;">
+                    <div class="mui-media-body" style="font-size: 18px">￥<?php echo $today['today_money']; ?></div>
+                    <div class="" style="color: white;padding-top:10px;">昨日应得</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--营业信息栏 end-->
+
+    <!--账户余额栏 start-->
+    <div class="mui-table-view balance-box">
+        <img class="balance-img" src="/static/store/icon/balance-icon.png">
+        <div class="balance-text-box after-clear">
+            <span>账户余额</span>
+            <div class="money-number">￥ <?php echo $store['balance']; ?></div>
+        </div>
+        <div class="balance-btn-box after-clear">
+            <a href="cashing.html"><button type="button" class="mui-btn mui-btn-primary" >申请提现</button></a>
+        </div>
+    </div>
+    <!--账户余额栏 end-->
+
+    <!--店铺功能栏 start-->
+    <div class="">
+        <ul class="mui-table-view mui-grid-view mui-grid-9" style="background: white!important;border: 0px!important;">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">
+                <a href="balance_itemized.html" class="store-function-box">
+                    <img class="function-img" src="/static/store/icon/function/function-count-icon.png">
+                    <div class="mui-media-body" >营收统计</div>
+                </a>
+            </li>
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="/static/store/icon/function/function-delivery-icon.png">-->
+                    <!--<div class="mui-media-body" >配送员管理</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="/static/store/icon/function/function-user-icon.png">-->
+                    <!--<div class="mui-media-body" >子账号管理</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="/static/store/icon/function/function- ticket-icon.png">-->
+                    <!--<div class="mui-media-body" >验券功能</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 tuiding" style="border: 0px;position:relative">
+                <a href="../orders/refunds_orders.html" class="store-function-box ">
+                    <img class="function-img" src="/static/store/icon/function/function-re-order-icon.png">
+                    <div class="mui-media-body" >退款订单</div>
+                </a>
+                <span class="biaoshi" ></span>
+                <div id="anniu"></div>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">
+                <a href="../orders/orders_refunds_request.html" class="store-function-box">
+                    <img class="function-img" src="/static/store/icon/function/function-refunds-icon.png">
+                    <div class="mui-media-body" >退款申请</div>
+                </a>
+            </li>
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="/static/store/icon/function/function-comment-icon.png">-->
+                    <!--<div class="mui-media-body" >店铺评论</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="/static/store/icon/function/function-dispatch-icon.png">-->
+                    <!--<div class="mui-media-body" >调度中心</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">-->
+                <!--<a href="#" class="store-function-box">-->
+                    <!--<img class="function-img" src="/static/store/icon/function/function-hurry-icon.png">-->
+                    <!--<div class="mui-media-body" >催单订单</div>-->
+                <!--</a>-->
+            <!--</li>-->
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" style="border: 0px;">
+                <a href="../orders/order_user_stastistic.html" class="store-function-box">
+                    <img class="function-img" src="/static/store/icon/function/function-user-stast-icon.png">
+                    <div class="mui-media-body" >客户统计</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--店铺功能栏 end-->
+</div>
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+<script>
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+
+    <!--解决 a 标签不能跳转-->
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    });
+    function logout(){
+        var btnArray = ['取消', '确定'];
+        mui.confirm('确定注销登录吗？', '注销登录', btnArray, function(e) {
+            if (e.index == 1) {
+                window.parent.location.href = "../login/logout";
+            } else {
+
+            }
+        })
+    }
+    var ti =''
+   function music(){
+        ti=setTimeout(function(){
+         document.getElementById('anniu').innerHTML='';
+         ti='';
+        },2000)
+   }
+    
+   localStorage.setItem("big_tuidan_Id", "");
+    var tuidanJilv='';
+	var id =<?php echo $refund_max_id; ?>;
+    if(!localStorage.getItem("big_tuidan_Id")){
+			tuidanJilv=id
+    }else{
+		tuidanJilv=localStorage.getItem("big_tuidan_Id")
+	}
+    
+    var tuidanJilvBig='';
+    function timeout(){
+        mui.ajax('/store/index/get_refunds_count',{
+            data:{
+                id:tuidanJilv            },
+            dataType:'json',//服务器返回json格式数据
+            type:'post',//HTTP请求类型
+            timeout:5000,//超时时间设置为5秒；
+            headers:{'Content-Type':'application/json'},
+            success:function(data){
+                //服务器返回响应，根据响应结果，分析是否成功；
+               if(data.data.length!=0){
+                    document.getElementsByClassName('biaoshi')[0].setAttribute('style','display:block;width:20px;height:20px;border-radius:50%;background-color:red;font-size:10px;color:#fff;position:absolute;right:20px;top:5px;');
+                    document.getElementsByClassName('biaoshi')[0].innerHTML=data.data.count;
+                    
+					localStorage.setItem("big_tuidan_Id", data.data.max_id);
+                    let audio =`<audio style="display:none" src="/static/store/music/1702 (1).mp3" autoplay="autoplay" >
+                                 当前浏览器不支持audio
+                                </audio>`
+                    document.getElementById('anniu').innerHTML=audio
+                    music()
+               }else{
+                document.getElementsByClassName('biaoshi')[0].setAttribute('style','display:none')
+               }
+            },
+            error:function(xhr,type,errorThrown){
+                //异常处理；
+                mui.toast('erroe',{ duration:'long' });
+                // console.log(type);
+            }
+        });
+    }
+    timeout()
+    setInterval(function(){
+        timeout()
+    },5000)
+    
+    // // 按钮弹窗
+    // document.getElementById("logoutbtn").addEventListener('tap', function() {
+    //     var btnArray = ['取消', '确定'];
+    //     mui.confirm('确定注销登录吗？', '注销登录', btnArray, function(e) {
+    //         if (e.index == 1) {
+    //             console.log('确定注销');
+    //             var logout = document.getElementById("logout");
+    //             // //取消<a>标签原先的onclick事件,使<a>标签点击后通过href跳转(因为无法用js跳转)
+    //             // logout.setAttribute("onclick",'');
+    //             // //激发标签点击事件OVER
+    //             logout.click();
+    //             console.log('取消');
+    //         } else {
+    //             console.log('取消注销');
+    //         }
+    //     })
+    // });
+</script>
+</html>

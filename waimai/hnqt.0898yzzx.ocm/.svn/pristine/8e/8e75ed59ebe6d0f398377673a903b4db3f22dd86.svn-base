@@ -1,0 +1,295 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:57:"/www/wwwroot/wmgl.0898yzzx.com/tpl/admin/store/goods.html";i:1623238837;s:64:"/www/wwwroot/wmgl.0898yzzx.com/tpl/admin/public/public_main.html";i:1623238834;s:57:"/www/wwwroot/wmgl.0898yzzx.com/tpl/admin/common/meta.html";i:1623238837;s:59:"/www/wwwroot/wmgl.0898yzzx.com/tpl/admin/common/script.html";i:1623238837;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:"海师食堂外卖"); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/layui/css/layui.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>"  media="all">
+<link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+<link rel="stylesheet" href="/static/css/style.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+    
+</head>
+
+<body class="layui-layout-body">
+<!--内容主题区域-->
+<div id="content"  class="main-body">
+    <div style="padding: 15px;" id="content-wrap">
+        <p>
+                <span class="layui-breadcrumb">
+                <?php if(is_array($breadcrumb) || $breadcrumb instanceof \think\Collection || $breadcrumb instanceof \think\Paginator): $i = 0; $__LIST__ = $breadcrumb;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bread): $mod = ($i % 2 );++$i;?>
+                <a><cite><?php echo $bread; ?></cite></a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </span>
+        </p>
+
+        <div class=" main-content">
+            
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>商品管理</legend>
+</fieldset>
+<!--headToolBar-->
+<div class="tip-btn-line">
+    <div class="layui-btn layui-btn-sm xu-icon-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669; </i>刷新</div>
+    <div class="layui-btn layui-btn-sm xu-icon-btn" id="addBtn"><i class="layui-icon">&#xe608;</i>添加</div>
+    <!-- <div class="layui-btn layui-btn-sm xu-icon-btn" id="line"><i class="layui-icon">&#xe608;</i>一键上架</div>
+    <div class="layui-btn layui-btn-sm xu-icon-btn" id="unline"><i class="layui-icon">&#xe608;</i>一键下架</div> -->
+    <!--搜索表单-->
+    <form action="" class="layui-form search-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    <input type="text" name="field_content" placeholder="商品名称搜索" autocomplete="off" class="layui-input">
+                    <input type="text" name="field_name" hidden value="name">
+                </div>
+                <div class="layui-input-inline">
+                    <button class="layui-btn layui-btn-primary" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<!--table-->
+<table class="layui-table" id="dataTable" lay-filter="dataTable"></table>
+
+        </div>
+    </div>
+</div>
+<script src="/static/layui/layui.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/common.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/echarts.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/js/' //layui全局设置
+        ,version: '<?php echo \think\Config::get('web_config.site_version'); ?>'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+<!--toolBar-->
+
+<script type="text/html" id="pictureTpl">
+    {{#  if(d.image != null){  }}
+    <img class="xu-title-pic" src="{{d.image}}">
+    {{# }  }}
+</script>
+
+<!--typeNameTpl-->
+<script type="text/html" id="categoryTpl">
+    {{#  if(d.category.name != undefined){ }}
+    <span>{{d.category.name}}</span>
+    {{#  } else { }}
+    <span>无</span>
+    {{# } }}
+</script>
+<!--typeNameTpl-->
+<script type="text/html" id="storeTpl">
+    {{#  if(d.store.name != undefined){ }}
+    <span>{{d.store.name}}</span>
+    {{#  } else { }}
+    <span>无</span>
+    {{# } }}
+</script>
+<script type="text/html" id="statusTpl">
+    {{#  if(d.status == 1){ }}<span>上架</span>
+    {{#  } else if(d.status == 2) {  }}<span>下架</span>
+
+    <span></span>
+    {{#  }  }}
+</script>
+<script type="text/html" id="rightToolBar">
+    <a class="layui-btn layui-btn-sm" lay-event="edit">修改</a>
+  <a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
+</script>
+
+<script type="text/html" id="moneyTpl">
+    {{d.price/100}}元
+
+</script>
+
+<script type="text/html" id="stockTpl">
+    {{#  if(d.stock == null){ }} 
+        0
+    {{#  } else {  }}
+        {{d.stock}}
+    {{#   }  }}
+</script>
+
+<script>
+    layui.use(['element', 'layer', 'table', 'form', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, table = layui.table, layer = layui.layer, form = layui.form, xlp = layui.xlp;
+        xlp.startLoading();
+
+        //table生成
+        var dataTable = table.render({
+            elem: "#dataTable"
+            ,url: "<?php echo url('goods'); ?>"
+            ,response: {
+                statusCode: 200
+                ,msgName: 'message'
+            }
+            ,cols: [[
+                {field:'id', width:80,title:'ID'},
+                {field:'store_id', title:'店铺', templet: "#storeTpl"},
+                {field:'image', title:'店铺图片',templet: "#pictureTpl"},
+                {field:'name', title:'商品名称'},
+                {field:'number', title:'商品编号'},
+                {field:'price', title:'商品价格',templet: "#moneyTpl"},
+                {field:'unit', title:'商品单位',width:90},
+                {field:'tag', title:'商品标签'},
+                {field:'goods_category_id', title:'所属分类', templet: "#categoryTpl"},
+                {field:'status', title:'状态', templet: "#statusTpl"},
+                {field:'stock', title:'库存', templet: "#stockTpl"},
+                {field:'sort', title:'排序',edit: 'text',sort:true,width:80},
+                {field:'create_time', title:'创建时间'},
+                {field:'update_time', title:'更新时间'},
+                {fixed: 'right',width:150, align:'center', toolbar: '#rightToolBar', title:'操作'}
+
+
+            ]]
+            ,page: {
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                ,groups: 5
+                ,first: false
+                ,last: false
+            }
+            ,done: function (res, curr, count){
+                xlp.reSetIframeHeight();
+                xlp.closeLoading();
+            }
+        });
+
+
+        //监听工具条
+        table.on('tool(dataTable)', function(obj){
+            var data = obj.data;
+            var layEvent = obj.event;
+
+            if(layEvent === 'delete'){ //撤销
+                layer.confirm("确定删除吗?", function(index){
+                    xlp.postHttp("<?php echo url('delete_goods'); ?>", {
+                        id: data.id,
+                    }, function (res) {
+                        obj.del();
+                        layer.close(index);
+                        layer.msg('删除成功');
+                    });
+                });
+            }else if(layEvent == 'edit') {
+                location.href = "<?php echo url('edit_goods'); ?>?id="+data.id;}
+            else if(layEvent === 'status'){
+                xlp.postHttp("<?php echo url('status'); ?>",{
+                    id: data.id,
+                    status: status
+                },function (res) {
+                    obj.update({'status': status});
+                    if (status == 2) {
+                        $(tr).find('.disable-btn').removeClass('layui-btn-danger');
+                        $(tr).find('.disable-btn').text("开启");
+                    }else{
+                        $(tr).find('.disable-btn').addClass('layui-btn-danger');
+                        $(tr).find('.disable-btn').text("关闭");
+                    }
+                })
+            }
+        });
+
+
+        $("#addBtn").on('click', function () {
+            location.href ="<?php echo url('add_goods'); ?>?store_id=<?php echo $store_id; ?>";
+        });
+        //监听指定开关
+        form.on('switch(switchTest)', function(data){
+            value = this.value;
+            if (data.elem.checked == true) {
+                xlp.postHttp("<?php echo url('status'); ?>", {
+                    id: value,
+                    status: 2
+                }, function (res) {
+                    layer.msg("营业中");
+                })
+            }
+            else{
+                xlp.postHttp("<?php echo url('status'); ?>", {
+                    id: value,
+                    status: 1
+                }, function (res) {
+                    layer.msg("休息中");
+                })
+            }
+
+        });
+
+
+
+
+        //编辑排序
+        table.on('edit(dataTable)', function(obj){
+            xlp.postHttp("<?php echo url('edit_sort1'); ?>", {
+                id: obj.data.id,
+                sort: obj.value
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+        //一键上架
+        $("#line").on('click', function () {
+            xlp.postHttp("<?php echo url('on_off_goods'); ?>", {
+                status: 1
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+        //一键下架
+         $("#unline").on('click', function () {
+            xlp.postHttp("<?php echo url('on_off_goods'); ?>", {
+                status: 2
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+        //搜索
+        form.on('submit(search)', function (data) {
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    fields: data.field
+                }
+                ,page: {
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                    ,groups: 5
+                    ,first: false
+                    ,last: false
+                    ,curr: 1 //重新从第 1 页开始
+                }
+            });
+            return false;
+        });
+
+        //搜索
+        form.on('submit(search3)', function (data) {
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    fields: data.data.field
+                }
+                ,page: {
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                    ,groups: 5
+                    ,first: false
+                    ,last: false
+                    ,curr: 1 //重新从第 1 页开始
+                }
+            });
+            return false;
+        });
+    })
+</script>
+
+</body>
+</html>

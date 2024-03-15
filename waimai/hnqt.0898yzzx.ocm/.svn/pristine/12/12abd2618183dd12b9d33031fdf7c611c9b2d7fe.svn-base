@@ -1,0 +1,144 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:60:"/www/wwwroot/wmgl.yzzx0898.com/tpl/store/goods/category.html";i:1623238840;s:57:"/www/wwwroot/wmgl.yzzx0898.com/tpl/store/common/meta.html";i:1623238839;s:59:"/www/wwwroot/wmgl.yzzx0898.com/tpl/store/common/script.html";i:1623238839;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>分类管理</title>
+
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/goods.css" rel="stylesheet" />
+    <!--App自定义的css-->
+
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <a href="goods" class=" mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon mui-icon-left-nav title-refresh-icon"></span><span >返回</span></a>
+    <h1 class="mui-title">分类管理</h1>
+    <!--<a href="add_category.html" class="mui-pull-right cancel-a" style="padding-top: 12px">添加</a>-->
+</header>
+<!--顶部标题 end-->
+
+<div  id="up_down_refresh" class="mui-content mui-scroll-wrapper">
+    <div class="after-clear">
+        <!--搜索框 start-->
+        <div class="mui-input-row search-box" style="background: white;">
+            <input type="search" class="mui-input-clear" placeholder="输入分类名称/ID" style="margin-bottom: 0px;">
+            <button type="button" class="mui-btn mui-btn-primary mui-icon mui-icon-search" > 查询</button>
+        </div>
+        <!--搜索框 end-->
+
+        <!--分类列表 start-->
+        <div class="category-list-body">
+            <?php if(is_array($goods_category) || $goods_category instanceof \think\Collection || $goods_category instanceof \think\Paginator): $i = 0; $__LIST__ = $goods_category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+            <div class="category-list">
+                <div class="category-id-box">分类ID：<?php echo $vo['id']; ?></div>
+                <div class="category-info-box">
+                    <!--分类信息 start-->
+                    <div class="category-info-left">
+                        <p style="margin-bottom: 20px">分类名称： <span><?php echo $vo['name']; ?></span></p>
+                        <p>排序： <span><?php echo $vo['sort']; ?></span></p>
+                    </div>
+                    <!--分类信息 end-->
+
+                    <!--操作按钮 start-->
+                    <div class="category-info-right">
+                        <a href="edit_category?category_id=<?php echo $vo['id']; ?>">
+                            <button type="button" class="mui-btn mui-btn-warning edit-btn" >修改</button>
+                        </a>
+                        <br>
+                        <button id="deleted_btn_<?php echo $vo['id']; ?>" type="button" class="mui-btn mui-btn-danger edit-btn" style="background: red;">删除</button>
+                    </div>
+                    <!--操作按钮 end-->
+                </div>
+            </div>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </div>
+        <!--分类列表 end-->
+    </div>
+</div>
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+
+<!--解决 a 标签不能跳转-->
+<script>
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    })
+</script>
+<!--下拉刷新，上拉加载-->
+<script>
+    mui.init({
+        pullRefresh: {
+            container: '#up_down_refresh',
+            down: {
+                callback: pulldownRefresh
+            },
+            up: {
+                contentrefresh: '正在加载...',
+                callback: pullupRefresh
+            }
+        },
+        swipeBack:true, //启用右滑关闭功能
+    });
+    function pulldownRefresh() {
+        setTimeout(function() {
+            mui('#up_down_refresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+        }, 1500);
+    }
+    var count = 0;
+    /**
+     * 上拉加载具体业务实现
+     */
+    function pullupRefresh() {
+        setTimeout(function() {
+            mui('#up_down_refresh').pullRefresh().endPullupToRefresh(true); //参数为true代表没有更多数据了。
+        }, 1500);
+    }
+</script>
+<!--弹窗-->
+<script>
+    // 按钮弹窗
+    <?php echo $goods_category_btn; ?>.forEach(function(value,index,array){
+        document.getElementById("deleted_btn_"+value.id).addEventListener('tap', function() {
+            var btnArray = ['取消', '确定'];
+            mui.confirm('是否确定删除该分类', '删除分类', btnArray, function(e) {
+                if (e.index == 1) {
+                    console.log('确定删除');
+                    mui.ajax('deleted_category',{
+                        data:{
+                            category_id: value['id'],
+                        },
+                        dataType:'json',//服务器返回json格式数据
+                        type:'post',//HTTP请求类型
+                        timeout:5000,//超时时间设置为5秒；
+                        headers:{'Content-Type':'application/json'},
+                        success:function(data){
+                            //服务器返回响应，根据响应结果，分析是否成功；
+                            if (data.data)
+                                mui.toast('删除分类成功！',{ duration:'long' });
+                            javascript:location.reload()
+                        },
+                        error:function(xhr,type,errorThrown){
+                            //异常处理；
+                            mui.toast('删除异常，请重试！',{ duration:'long' });
+                            // console.log(type);
+                        }
+                    });
+                } else {
+                    console.log('取消删除');
+                }
+            })
+        });
+    });
+</script>
+
+</html>

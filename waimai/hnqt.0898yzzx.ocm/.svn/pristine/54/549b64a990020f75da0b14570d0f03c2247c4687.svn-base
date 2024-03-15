@@ -1,0 +1,47 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<form class="layui-form" action="" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">权限名</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" placeholder="请输入" autocomplete="off" lay-verify="required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">父规则</label>
+        <div class="layui-input-block">
+            <select name="pid" lay-filter="pid">
+                <option value="0">无</option>
+                {foreach name="parent" item="p"}
+                <option value="{$p.id}">{$p._name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">规则URL</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" placeholder="例如 admin/index/test" autocomplete="off" lay-verify="required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">状态</label>
+        <input type="radio" name="status" value="1" title="正常" checked>
+        <input type="radio" name="status" value="0" title="禁用">
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+{/block}
+{block name="script"}
+<script>
+    layui.use(['element', 'form'], function () {
+        var $ = layui.$, element = layui.element, form = layui.form;
+        reSetIframeHeight();
+    })
+</script>
+{/block}

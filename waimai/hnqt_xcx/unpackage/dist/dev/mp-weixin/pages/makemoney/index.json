@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "扫一扫去赚钱",
+  "navigationBarBackgroundColor": "#55aaff",
+  "usingComponents": {
+    "u--text": "/uni_modules/uview-ui/components/u--text/u--text",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup"
+  }
+}

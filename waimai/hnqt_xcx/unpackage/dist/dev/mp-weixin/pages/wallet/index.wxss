@@ -1,0 +1,85 @@
+
+.zhandan.data-v-2253ba35{
+	overflow-y: scroll;
+	max-height: 60vh;
+	-webkit-animation: bounceInLeft-data-v-2253ba35 1s ease infinite;
+	        animation: bounceInLeft-data-v-2253ba35 1s ease infinite;
+	-webkit-animation-iteration-count:1;
+	        animation-iteration-count:1;
+	-webkit-animation-fill-mode:forwards;
+	        animation-fill-mode:forwards;
+}
+.detailed.data-v-2253ba35{
+	width: 100%;
+	background: #f0f0f0;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	line-height: 30px;
+	color: black;
+}
+@-webkit-keyframes bounceInLeft-data-v-2253ba35 {
+from {
+    height: 0;
+}
+to {
+    height: 60vh;
+}
+}
+@keyframes bounceInLeft-data-v-2253ba35 {
+from {
+    height: 0;
+}
+to {
+    height: 60vh;
+}
+}
+.detailed.data-v-2253ba35:last-child{
+	padding-bottom: 10px;
+}
+.wallet.data-v-2253ba35{
+	background: linear-gradient(to bottom,#f7dd93,white);
+	padding: 40rpx;
+}
+.wallet_box.data-v-2253ba35{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: white;
+	padding: 40rpx;
+	background: #55aaff;
+	border-top-left-radius: 20rpx;
+	border-top-right-radius: 20rpx;
+}
+.right.data-v-2253ba35{
+	display: flex;
+	align-items: center;
+}
+.recharge.data-v-2253ba35{
+	border-radius: 20rpx;
+	padding: 40rpx;
+	background: white;
+	margin-top: -10px;
+}
+.recharge button.data-v-2253ba35{
+	background: #55aaff;
+	color: white;
+	border-radius: 15px;
+	font-size: 15px;
+	width: 50%;
+	margin-top: 30px;
+	display: inline-block;
+}
+.r_recharge.data-v-2253ba35{		
+	display: flex;
+	align-items: center;
+}
+.balance.data-v-2253ba35{
+	width: 50%;
+	border-right: 1px solid #b9b9b9;
+	margin-right: 20rpx;
+}
+.balance.data-v-2253ba35:last-child{
+	border: 0;
+}
+

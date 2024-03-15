@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+</head>
+
+<body class="layui-layout-body">
+    <!--内容主题区域-->
+    <div id="content"  class="main-body">
+        <div style="padding: 15px;">
+            <p>
+                <span class="layui-breadcrumb">
+                {volist name="breadcrumb" id="bread"}
+                <a><cite>{$bread}</cite></a>
+                {/volist}
+            </span>
+            </p>
+
+            <div class=" main-content">
+                {__CONTENT__}
+            </div>
+        </div>
+    </div>
+{include file="common/script" /}
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+</body>
+</html>

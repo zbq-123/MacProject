@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "数码产品",
+  "navigationBarBackgroundColor": "#f7dd93",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar"
+  }
+}

@@ -1,0 +1,187 @@
+
+/****************/
+/*店铺列表*/
+/****************/
+.w-200{
+    width: 200px;
+}
+
+.store-list-body{
+    width: 94%;
+    margin: auto;
+}
+.store-list-body .store-list-box{
+    width: 100%;
+    border-radius: 7px;
+    background: #ffffff;
+    margin-top: 10px;
+    padding: 15px 10px;
+    position: relative;
+}
+
+.store-list-box .store-heads-box{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.store-heads-box .header-img{
+    height: 60px;
+    width: 60px;
+
+}
+.store-heads-text{
+    margin-left: 15px;
+    overflow: hidden;
+    width: 60%;
+}
+.store-heads-text span{
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.store-heads-text p{
+    font-size: 16px!important;
+    margin-bottom: 0px!important;
+    margin-top: 10px!important;
+}
+.edit-btn-box{
+    position: absolute;
+    right: 10px;
+    top: 25px;
+}
+.edit-btn{
+    font-size: 14px;
+    padding: 4px 12px;
+    /*width: 70px;*/
+    height: 30px;
+}
+/*.mui-switch:before {*/
+    /*content: '已关闭'!important;*/
+    /*color: red;*/
+    /*font-size: 11px;*/
+    /*right: 4px;*/
+/*}*/
+/*.mui-switch.mui-active:before {*/
+    /*content: '已开启' !important;*/
+    /*font-size: 11px;*/
+    /*left: 4px;*/
+/*}*/
+
+.switch-btn-box{
+    margin-top: 15px;
+}
+.switch-btn-box button{
+    margin-bottom: 0px;
+    border-radius: 10px;
+    height: 50px;
+    line-height: 1.1;
+    letter-spacing: 3px;
+}
+.store-list-box .store-info-box{
+    color: #333333;
+}
+.store-info-box .store-info-list-box{
+    display: flex;
+    align-content: center;
+    padding-top: 10px;
+}
+.store-info-list-box .store-info-title{
+    width: 90px;
+}
+.store-info-list-box .store-info-details{
+    max-width: 70%!important;
+}
+
+
+/****************/
+/*修改店铺*/
+/****************/
+.edit-store-box{
+    padding: 0px 10px;
+    margin-top: 10px;
+}
+.edit-list-block{
+    /*border-top: 1px dashed #007aff;*/
+}
+.edit-list-block:nth-child(n+2){
+    border-top: 1px dashed #007aff;
+}
+.edit-list{
+
+}
+.edit-list-name{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #007aff;
+}
+.edit-store-logo{
+    height: 90px;
+    width: 90px;
+    background: white!important;
+    margin-bottom: 10px;
+    /*border: 1px solid #ffffff!important;*/
+    margin: auto;
+}
+.edit-store-logo img{
+    height: 90px;
+    width: 90px;
+}
+.edit-store-input{
+    border: 0px solid #007aff!important;
+    font-size: 14px!important;
+    height: 35px!important;
+    margin-bottom: 10px!important;
+}
+.edit-store-textarea{
+    border: 0px solid #007aff!important;
+    font-size: 14px!important;
+    margin-bottom: 10px!important;
+}
+
+.double-columns-box{
+    text-align: left;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #007aff;
+}
+.edit-store-sift-btn{
+    display: flex;
+    align-content: center;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    position: relative;
+    background: white;
+    margin-bottom: 10px;
+}
+.edit-store-sift-btn input{
+    font-size: 14px!important;
+    letter-spacing: 1px;
+    border: 0px;
+    padding: 0px 5px;
+    margin-left: 2px;
+    height: 32px;
+    color: #333333;
+    margin-bottom: 0px!important;
+}
+.edit-store-sift-btn span{
+    width: 0;
+    height: 0;
+    border-top: 8px solid #007aff;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    margin: auto;
+    margin-right: 5px;
+}
+
+
+/*自动取消提示框位置*/
+.mui-toast-container {
+    bottom: 50% !important;/*离布局底部的距离*/
+}

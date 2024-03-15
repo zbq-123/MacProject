@@ -1,0 +1,247 @@
+
+/****************/
+/*商品列表*/
+/****************/
+.category-btn-box{
+    border-top: 1px solid #dfdfdf;
+    position: fixed;
+    bottom: 0px;
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    background: white;
+    display: flex;
+    align-content: center;
+}
+.category-btn-box a{
+    width: 50%;
+}
+.category-btn-box button{
+    width: 100%;
+    border: 0px;
+    box-sizing: border-box;
+    color: #007aff;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+/*商品*/
+.goods-category{
+    width: 100%;
+    background: #ededed;
+    color: #999999;
+    height: 30px;
+    padding-left: 10px;
+    line-height: 30px;
+    font-size: 14px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.goods-content-box{
+    width: 100%;
+    /*background: #D9D9D9;*/
+    border-bottom: 1px solid #dfdfdf;
+    display: flex;
+    align-content: center;
+    padding: 12px 8px;
+}
+.goods-content-box .goods-img-box{
+    height: 65px;
+    width: 65px;
+    border: 1px solid #f5f5f5;
+    box-sizing: border-box;
+    border-radius: 5px;
+    position: relative;
+}
+.goods-content-box .goods-img-box img{
+    height: 65px;
+    width: 65px;
+    border-radius: 5px;
+}
+.goods-content-box .goods-img-box .tag{
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    padding: 1px 4px;
+    background: #FF3300;
+    color: #ffffff;
+    font-size: 10px;
+    line-height: 14px;
+    border-radius: 3px;
+}
+.goods-content-box .goods-info-box{
+    margin-left: 10px;
+    width: auto;
+}
+.goods-content-box .goods-name{
+    padding-top: 4px;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    height: 40px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.goods-content-box .goods-tag{
+    padding: 4px 8px;
+    background: #FF3300;
+    color: #FFFFFF;
+    max-width: 100px;
+    font-size: 10px;
+    border-radius: 3px;
+}
+.goods-content-box .goods-sales{
+    color: #666666;
+    font-size: 11px;
+}
+.goods-content-box .goods-price{
+    color: #FF3300;
+    font-size: 13px;
+    font-weight: bold;
+}
+.goods-content-box .goods-manage-btn{
+    padding-top: 5px;
+    width: 100%;
+}
+.goods-content-box .goods-manage-btn button{
+    height: 25px!important;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 8px;
+    margin-top: 5px;
+}
+
+/****************/
+/*修改商品*/
+/****************/
+.edit-goods-box{
+    padding: 0px 10px;
+    margin-top: 10px;
+}
+.edit-list{
+
+}
+.edit-list-name{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #007aff;
+}
+.edit-goods-input{
+    border: 0px solid #007aff!important;
+    font-size: 14px!important;
+    height: 35px!important;
+    margin-bottom: 10px!important;
+}
+.edit-goods-textarea{
+    border: 0px solid #007aff!important;
+    font-size: 14px!important;
+    margin-bottom: 10px!important;
+}
+.double-columns-box{
+    text-align: left;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #007aff;
+}
+.edit-goods-sift-btn{
+    display: flex;
+    align-content: center;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    position: relative;
+    background: white;
+    margin-bottom: 10px;
+}
+.edit-goods-sift-btn input{
+    font-size: 14px!important;
+    letter-spacing: 1px;
+    border: 0px;
+    padding: 0px 5px;
+    margin-left: 2px;
+    height: 32px;
+    color: #333333;
+    margin-bottom: 0px!important;
+}
+.edit-goods-sift-btn span{
+    width: 0;
+    height: 0;
+    border-top: 8px solid #007aff;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    margin: auto;
+    margin-right: 5px;
+}
+.edit-goods-logo{
+    height: 90px;
+    width: 90px;
+    background: white!important;
+    margin-bottom: 40px;
+}
+.edit-goods-logo img{
+    height: 90px;
+    width: 90px;
+}
+
+
+
+/****************/
+/*分类管理*/
+/****************/
+.category-list-body{
+    width: 100%;
+
+    /*margin-top: 10px;*/
+}
+.category-list{
+    margin-top: 15px;
+    background: #ffffff;
+}
+.category-id-box{
+    border-bottom: 1px solid #d2d2d2;
+    color: #007aff;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 30px;
+    font-size: 16px;
+}
+.category-info-box{
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-content: center;
+}
+.category-info-left{
+    width: 80%;
+}
+.category-info-left p{
+    font-size: 16px;
+    color: #000000;
+}
+.category-info-left span{
+    font-size: 16px;
+    color: #007aff;
+}
+.category-info-right{
+    width: 20%;
+    text-align: right;
+}
+.edit-btn{
+    font-size: 14px;
+    padding: 4px 12px;
+    height: 30px;
+}
+.edit-btn:nth-child(n+2){
+    margin-top: 10px;
+}
+
+/*自动取消提示框位置*/
+.mui-toast-container {
+    bottom: 50% !important;/*离布局底部的距离*/
+}

@@ -1,0 +1,118 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="{:url('carousel')}"><i class="layui-icon">&#xe603;</i>返回</a>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>添加轮播图</legend>
+</fieldset>
+<form class="layui-form" action="{:url('add_carousel')}" method="post" lay-filter="carouselForm">
+    <div class="layui-form-item">
+        <label class="layui-form-label">轮播图名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" placeholder="请输入" lay-verify="name|required" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item" id="titlePicture">
+        <label class="layui-form-label">图片<p>(375px*120px)</p></label>
+        <div class="layui-input-block">
+            <div class="layui-upload-drag xu-upload" id="image">
+                <i class="layui-icon">&#xe67c;</i>
+                <p>点击上传</p>
+            </div>
+        </div>
+
+            <input type="hidden" name="picture" id="imageUrl" placeholder="图片地址" class="layui-input" lay-verify="required">
+
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属校区</label>
+        <div class="layui-input-inline layui-form" lay-filter="navigationIdSelect">
+            <select name="campus_id" id="navigationId" lay-verify=""  lay-filter="navigationId" lay-search>
+                <option value="">请选择(可以输入搜索)</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否显示</label>
+        <div class="layui-input-block">
+            <select name="status" lay-verify="required">
+                <option value="0">不显示</option>
+                <option value="1">显示</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">跳转类型</label>
+        <div class="layui-input-block">
+            <select name="jump_type" lay-verify="required">
+                <option value="1">不跳转</option>
+                <option value="2">跳转到店铺</option>
+                <option value="3">跳转到外部链接</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">跳转地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="jump_url" class="layui-input" placeholder="填写跳转地址，不跳转输入：0">
+        </div>
+    </div>
+
+    <label class="layui-form-label">排序</label>
+    <div class="layui-input-inline" >
+        <input type="text" name="sort" placeholder="请输入"  class="layui-input">
+    </div>
+    <div class="layui-form-item"></div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="save">提交</button>
+        </div>
+    </div>
+</form>
+{/block}
+{block name="script"}
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length > 40 ){
+                    return '标题限制40个字符且不为空';
+                }
+            },
+            jump_url: function(value){
+                if(value.length > 255){
+                    return '跳转地址限制255个字符且不为空';
+                }
+            }
+
+        });
+        xlp.getHttp("{:url('api/all_campus')}", {}, function (res) {
+            $("#navigationId").html('<option value="">请选择(可以输入搜索)</option>');
+            layui.each(res, function (i) {
+                $("#navigationId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "navigationIdSelect");
+            })
+        });
+        upload.render({
+            elem: '#image'
+            ,url: "{:url('upload/carouselImage')}"
+            ,size: 1024*5
+            ,done: function(res, index, upload){
+                if(res.code == 200){
+                    $("#imageUrl").val(res.data);
+                    $("#image").html("<img src='"+res.data+"' width='150' height='95'>");
+                    $("#image").css({"padding": "0"});
+                }
+            }
+        });
+    })
+</script>
+{/block}

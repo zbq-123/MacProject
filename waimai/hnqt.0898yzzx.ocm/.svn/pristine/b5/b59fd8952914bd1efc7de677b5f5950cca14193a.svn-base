@@ -1,0 +1,1460 @@
+---------------------------------------------------------------
+[ 2021-07-24T18:59:18+08:00 ] 111.29.149.136 POST wmgl.0898yzzx.com/store/home/cashing.html
+[运行时间：0.034865s] [吞吐率：28.68req/s] [内存消耗：2,889.55kb] [文件加载：119]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'cashing',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/store/home/cashing.html',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'https://wmgl.0898yzzx.com',
+  'cache-control' => 'max-age=0',
+  'content-length' => '18',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'cashing_amount' => '232',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->cashing[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T18:59:19+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/orders/get_orders?page=1&status=0&create_time=2021-7-24&today_number=
+[运行时间：0.862908s] [吞吐率：1.16req/s] [内存消耗：2,955.74kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'orders',
+    2 => 'get_orders',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/store/orders/orders',
+  'sec-fetch-site' => 'same-origin',
+  'sec-fetch-mode' => 'cors',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'status' => '0',
+  'create_time' => '2021-7-24',
+  'today_number' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Orders->get_orders[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T18:59:19+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/home/cashing_records.html
+[运行时间：0.140456s] [吞吐率：7.12req/s] [内存消耗：3,037.02kb] [文件加载：114]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'cashing_records',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/store/home/cashing.html',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->cashing_records[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/store/home/cashing_records.html [ array (
+  0 => 'money_draw',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T18:59:22+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/home/cashing.html
+[运行时间：0.024833s] [吞吐率：40.27req/s] [内存消耗：2,800.58kb] [文件加载：114]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'cashing',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/store/home/home',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->cashing[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/store/home/cashing.html [ array (
+  0 => 'store_balance',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T18:59:23+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/home/home
+[运行时间：0.272748s] [吞吐率：3.67req/s] [内存消耗：2,863.94kb] [文件加载：114]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/store/orders/orders_refunds_request.html',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->home[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/store/home/home.html [ array (
+  0 => 'refund_max_id',
+  1 => 'store',
+  2 => 'today',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T18:59:24+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/orders/orders_refunds_request.html
+[运行时间：0.975358s] [吞吐率：1.03req/s] [内存消耗：3,109.09kb] [文件加载：115]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'orders',
+    2 => 'orders_refunds_request',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/store/home/home',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Orders->orders_refunds_request[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/store/orders/orders_refunds_request.html [ array (
+  0 => 'orders',
+  1 => 'store',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T18:59:25+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/orders/get_orders?page=1&status=0&create_time=2021-7-24&today_number=
+[运行时间：1.679290s] [吞吐率：0.60req/s] [内存消耗：3,033.62kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'orders',
+    2 => 'get_orders',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/store/orders/orders',
+  'sec-fetch-site' => 'same-origin',
+  'sec-fetch-mode' => 'cors',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'status' => '0',
+  'create_time' => '2021-7-24',
+  'today_number' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Orders->get_orders[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T18:59:25+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/home/home.html
+[运行时间：1.394713s] [吞吐率：0.72req/s] [内存消耗：2,863.45kb] [文件加载：114]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/store/index/index.html',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->home[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/store/home/home.html [ array (
+  0 => 'refund_max_id',
+  1 => 'store',
+  2 => 'today',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T18:59:25+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/home/home
+[运行时间：1.836257s] [吞吐率：0.54req/s] [内存消耗：2,863.39kb] [文件加载：114]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'home',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/store/home/home.html',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\store\controller\Home->home[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/store/home/home.html [ array (
+  0 => 'refund_max_id',
+  1 => 'store',
+  2 => 'today',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T18:59:39+08:00 ] 101.226.103.14 POST wmgl.0898yzzx.com/client/notify/wxrefund_goods
+[运行时间：0.289742s] [吞吐率：3.45req/s] [内存消耗：2,761.39kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxrefund_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'text/xml',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '1341',
+  'pragma' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxrefund_goods[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Notify.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [ordersRefundNotifyError]回调请求退款订单找不到,notify_id=10407;refund_order_code=tk202107241825218530698321
+---------------------------------------------------------------
+[ 2021-07-24T19:21:57+08:00 ] 39.144.69.2 GET wmgl.0898yzzx.com/client/index/home.html
+[运行时间：0.018351s] [吞吐率：54.49req/s] [内存消耗：2,080.28kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e0gjkp23ncta1m97eks1ackug3',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-site' => 'none',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; JER-AN10 Build/HUAWEIJER-AN10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045709 Mobile Safari/537.36 MMWEBID/3524 MicroMessenger/8.0.7.1920(0x28000751) Process/tools WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T19:21:57+08:00 ] 39.144.69.2 GET wmgl.0898yzzx.com/client/auth/index.html
+[运行时间：0.024415s] [吞吐率：40.96req/s] [内存消耗：1,957.73kb] [文件加载：106]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e0gjkp23ncta1m97eks1ackug3',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-site' => 'none',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; JER-AN10 Build/HUAWEIJER-AN10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045709 Mobile Safari/537.36 MMWEBID/3524 MicroMessenger/8.0.7.1920(0x28000751) Process/tools WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T19:21:58+08:00 ] 39.144.69.2 GET wmgl.0898yzzx.com/client/auth/callback?code=051VnPkl2oxFr74yuzol2BJ0mK2VnPkq&state=1
+[运行时间：0.450460s] [吞吐率：2.22req/s] [内存消耗：2,746.17kb] [文件加载：113]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'callback',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e0gjkp23ncta1m97eks1ackug3',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-site' => 'none',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; JER-AN10 Build/HUAWEIJER-AN10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045709 Mobile Safari/537.36 MMWEBID/3524 MicroMessenger/8.0.7.1920(0x28000751) Process/tools WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'code' => '051VnPkl2oxFr74yuzol2BJ0mK2VnPkq',
+  'state' => '1',
+)
+[ info ] [ RUN ] app\client\controller\Auth->callBack[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Auth.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T19:21:59+08:00 ] 39.144.69.2 GET wmgl.0898yzzx.com/client/index/home.html
+[运行时间：0.480279s] [吞吐率：2.08req/s] [内存消耗：2,097.66kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e0gjkp23ncta1m97eks1ackug3',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-site' => 'none',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; JER-AN10 Build/HUAWEIJER-AN10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045709 Mobile Safari/537.36 MMWEBID/3524 MicroMessenger/8.0.7.1920(0x28000751) Process/tools WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->home[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/client/index/home.html [ array (
+  0 => 'signPackage',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T19:21:59+08:00 ] 39.144.69.2 GET wmgl.0898yzzx.com/client/user/index.html
+[运行时间：0.267392s] [吞吐率：3.74req/s] [内存消耗：2,869.72kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e0gjkp23ncta1m97eks1ackug3',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/client/index/home.html',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; JER-AN10 Build/HUAWEIJER-AN10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045709 Mobile Safari/537.36 MMWEBID/3524 MicroMessenger/8.0.7.1920(0x28000751) Process/tools WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\User->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/client/user/index.html [ array (
+  0 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T19:21:59+08:00 ] 39.144.69.2 GET wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.270203s] [吞吐率：3.70req/s] [内存消耗：2,137.42kb] [文件加载：109]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e0gjkp23ncta1m97eks1ackug3',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/client/index/home.html',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; JER-AN10 Build/HUAWEIJER-AN10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045709 Mobile Safari/537.36 MMWEBID/3524 MicroMessenger/8.0.7.1920(0x28000751) Process/tools WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Orders.php ]
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/client/orders/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T19:22:00+08:00 ] 39.144.69.2 GET wmgl.0898yzzx.com/client/index/index.html
+[运行时间：0.668461s] [吞吐率：1.50req/s] [内存消耗：3,260.59kb] [文件加载：118]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e0gjkp23ncta1m97eks1ackug3',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/client/index/home.html',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-mode' => 'nested-navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; JER-AN10 Build/HUAWEIJER-AN10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045709 Mobile Safari/537.36 MMWEBID/3524 MicroMessenger/8.0.7.1920(0x28000751) Process/tools WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/client/index/index.html [ array (
+  0 => 'user_id',
+  1 => 'coupons',
+  2 => 'campus',
+  3 => 'carousel',
+  4 => 'category',
+  5 => 'store',
+  6 => 'weather',
+  7 => 'campus_name',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T19:22:00+08:00 ] 39.144.69.2 POST wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.391026s] [吞吐率：2.56req/s] [内存消耗：2,877.29kb] [文件加载：117]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=e0gjkp23ncta1m97eks1ackug3',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://wmgl.0898yzzx.com/client/orders/index.html',
+  'sec-fetch-site' => 'same-origin',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'sec-fetch-mode' => 'cors',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; JER-AN10 Build/HUAWEIJER-AN10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045709 Mobile Safari/537.36 MMWEBID/3524 MicroMessenger/8.0.7.1920(0x28000751) Process/tools WeChat/arm64 Weixin NetType/5G Language/zh_CN ABI/arm64',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'https://wmgl.0898yzzx.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '6',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T19:29:42+08:00 ] 101.226.103.14 POST wmgl.0898yzzx.com/client/notify/wxrefund_goods
+[运行时间：0.336292s] [吞吐率：2.97req/s] [内存消耗：2,761.39kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxrefund_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'text/xml',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '1341',
+  'pragma' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxrefund_goods[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Notify.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [ordersRefundNotifyError]回调请求退款订单找不到,notify_id=10408;refund_order_code=tk202107241825218530698321
+---------------------------------------------------------------
+[ 2021-07-24T19:39:39+08:00 ] 185.142.236.35 GET 139.9.34.13/
+[运行时间：0.015957s] [吞吐率：62.67req/s] [内存消耗：1,754.83kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => '139.9.34.13',
+  'accept-encoding' => 'identity',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T19:59:43+08:00 ] 101.226.103.24 POST wmgl.0898yzzx.com/client/notify/wxrefund_goods
+[运行时间：0.272038s] [吞吐率：3.68req/s] [内存消耗：2,761.39kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxrefund_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'text/xml',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '1341',
+  'pragma' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxrefund_goods[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Notify.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [ordersRefundNotifyError]回调请求退款订单找不到,notify_id=10409;refund_order_code=tk202107241825218530698321
+---------------------------------------------------------------
+[ 2021-07-24T20:06:20+08:00 ] 47.112.193.218 GET wmgl.0898yzzx.com/
+[运行时间：0.016566s] [吞吐率：60.36req/s] [内存消耗：1,754.41kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'python-requests/2.20.1',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:11:41+08:00 ] 180.126.55.22 GET wmgl.0898yzzx.com/client/index/home.html
+[运行时间：0.019259s] [吞吐率：51.92req/s] [内存消耗：2,072.84kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-cn',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000927) NetType/WIFI Language/zh_CN',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:11:41+08:00 ] 180.126.55.22 GET wmgl.0898yzzx.com/client/auth/index.html
+[运行时间：0.018060s] [吞吐率：55.37req/s] [内存消耗：1,953.20kb] [文件加载：106]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=2tmpv1hulmcd91go8k5n8nnk0p',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000927) NetType/WIFI Language/zh_CN',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Auth->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Auth.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:11:44+08:00 ] 180.126.55.22 GET wmgl.0898yzzx.com/client/auth/callback?code=0617Y41005hl8M1nDx0003wwpn47Y41M&state=1
+[运行时间：0.532633s] [吞吐率：1.88req/s] [内存消耗：2,745.62kb] [文件加载：113]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'auth',
+    2 => 'callback',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=2tmpv1hulmcd91go8k5n8nnk0p',
+  'referer' => 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9569bfe00332918f&redirect_uri=https://wmgl.0898yzzx.com/client/auth/callback&response_type=code&scope=snsapi_userinfo&state=1&md=true&uin=MzM5ODU3NDY1Nw%3D%3D&key=f85bd2bc6159c142ea9e534e9d9be48e4947b97645f60226ad4dac0b7913916b63f3b4ff761df6d95dfaf624e30d812fe163e65eb5f04996318bd99beaac4ff24ab2a39b0aaa06873751fdd7d1003906a32ce1515b90bb574cf9def3bcfdab5bc2eefd6644806c34d49c9773df2ace1c6f7a979d2bfc2a464416efc72fcafa74&version=18000927&pass_ticket=Hg0dDYezpOblJYU7N66WVoYSrk3e1IPXdw%2BwuJa9UK6Dy0rbAWoR3%2BdqRsYlRg4l',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000927) NetType/WIFI Language/zh_CN',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'code' => '0617Y41005hl8M1nDx0003wwpn47Y41M',
+  'state' => '1',
+)
+[ info ] [ RUN ] app\client\controller\Auth->callBack[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Auth.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:11:44+08:00 ] 180.126.55.22 GET wmgl.0898yzzx.com/client/index/home.html
+[运行时间：0.019630s] [吞吐率：50.94req/s] [内存消耗：2,097.09kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'home',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=2tmpv1hulmcd91go8k5n8nnk0p',
+  'referer' => 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9569bfe00332918f&redirect_uri=https://wmgl.0898yzzx.com/client/auth/callback&response_type=code&scope=snsapi_userinfo&state=1&md=true&uin=MzM5ODU3NDY1Nw%3D%3D&key=f85bd2bc6159c142ea9e534e9d9be48e4947b97645f60226ad4dac0b7913916b63f3b4ff761df6d95dfaf624e30d812fe163e65eb5f04996318bd99beaac4ff24ab2a39b0aaa06873751fdd7d1003906a32ce1515b90bb574cf9def3bcfdab5bc2eefd6644806c34d49c9773df2ace1c6f7a979d2bfc2a464416efc72fcafa74&version=18000927&pass_ticket=Hg0dDYezpOblJYU7N66WVoYSrk3e1IPXdw%2BwuJa9UK6Dy0rbAWoR3%2BdqRsYlRg4l',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000927) NetType/WIFI Language/zh_CN',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->home[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/client/index/home.html [ array (
+  0 => 'signPackage',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:11:45+08:00 ] 180.126.55.22 GET wmgl.0898yzzx.com/client/user/index.html
+[运行时间：0.260253s] [吞吐率：3.84req/s] [内存消耗：2,865.65kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=2tmpv1hulmcd91go8k5n8nnk0p',
+  'referer' => 'https://wmgl.0898yzzx.com/client/index/home.html',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000927) NetType/WIFI Language/zh_CN',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\User->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/client/user/index.html [ array (
+  0 => 'user',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:11:45+08:00 ] 180.126.55.22 GET wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.262913s] [吞吐率：3.80req/s] [内存消耗：2,133.35kb] [文件加载：109]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=2tmpv1hulmcd91go8k5n8nnk0p',
+  'referer' => 'https://wmgl.0898yzzx.com/client/index/home.html',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000927) NetType/WIFI Language/zh_CN',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Orders.php ]
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/client/orders/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:11:45+08:00 ] 180.126.55.22 GET wmgl.0898yzzx.com/client/index/index.html
+[运行时间：0.810473s] [吞吐率：1.23req/s] [内存消耗：3,257.51kb] [文件加载：118]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=2tmpv1hulmcd91go8k5n8nnk0p',
+  'referer' => 'https://wmgl.0898yzzx.com/client/index/home.html',
+  'accept-language' => 'zh-cn',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000927) NetType/WIFI Language/zh_CN',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Index->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/client/index/index.html [ array (
+  0 => 'user_id',
+  1 => 'coupons',
+  2 => 'campus',
+  3 => 'carousel',
+  4 => 'category',
+  5 => 'store',
+  6 => 'weather',
+  7 => 'campus_name',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:11:45+08:00 ] 180.126.55.22 POST wmgl.0898yzzx.com/client/orders/index.html
+[运行时间：0.549847s] [吞吐率：1.82req/s] [内存消耗：2,875.55kb] [文件加载：117]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'orders',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=2tmpv1hulmcd91go8k5n8nnk0p',
+  'content-length' => '6',
+  'referer' => 'https://wmgl.0898yzzx.com/client/orders/index.html',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x18000927) NetType/WIFI Language/zh_CN',
+  'origin' => 'https://wmgl.0898yzzx.com',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'host' => 'wmgl.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\client\controller\Orders->index[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Orders.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:24:12+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/login/index.html
+[运行时间：0.025260s] [吞吐率：39.59req/s] [内存消耗：2,908.25kb] [文件加载：114]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-site' => 'none',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/store/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T20:29:44+08:00 ] 101.226.103.14 POST wmgl.0898yzzx.com/client/notify/wxrefund_goods
+[运行时间：0.266721s] [吞吐率：3.75req/s] [内存消耗：2,761.39kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxrefund_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'text/xml',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '1341',
+  'pragma' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxrefund_goods[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Notify.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [ordersRefundNotifyError]回调请求退款订单找不到,notify_id=10410;refund_order_code=tk202107241825218530698321
+---------------------------------------------------------------
+[ 2021-07-24T20:41:12+08:00 ] 47.112.193.218 GET hqgl.0898yzzx.com/
+[运行时间：0.015973s] [吞吐率：62.61req/s] [内存消耗：1,754.41kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'python-requests/2.20.1',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'host' => 'hqgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T21:19:21+08:00 ] 47.112.193.218 GET jpgy.0898yzzx.com/
+[运行时间：0.016581s] [吞吐率：60.31req/s] [内存消耗：1,754.41kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'python-requests/2.20.1',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T21:28:33+08:00 ] 192.241.198.19 GET 139.9.34.13/actuator/health
+[运行时间：0.032844s] [吞吐率：30.45req/s] [内存消耗：1,756.03kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'actuator',
+    1 => 'health',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 zgrab/0.x',
+  'host' => '139.9.34.13',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T21:29:44+08:00 ] 101.226.103.14 POST wmgl.0898yzzx.com/client/notify/wxrefund_goods
+[运行时间：0.263116s] [吞吐率：3.80req/s] [内存消耗：2,761.39kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxrefund_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'text/xml',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '1341',
+  'pragma' => 'no-cache',
+  'connection' => 'Keep-Alive',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxrefund_goods[ /www/wwwroot/wmgl.yzzx0898.com/application/client/controller/Notify.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [ordersRefundNotifyError]回调请求退款订单找不到,notify_id=10411;refund_order_code=tk202107241825218530698321
+---------------------------------------------------------------
+[ 2021-07-24T21:38:08+08:00 ] 113.31.114.242 GET jpgy.0898yzzx.com/
+[运行时间：0.015848s] [吞吐率：63.10req/s] [内存消耗：1,757.59kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'no-cache',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Dalvik/2.1.0 (Linux; U; Android 7.0; ZTE BA520 Build/MRA58K)',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T21:46:16+08:00 ] 139.162.145.250 GET 139.9.34.13/bag2
+[运行时间：0.016474s] [吞吐率：60.70req/s] [内存消耗：1,756.32kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'bag2',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)',
+  'host' => '139.9.34.13',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T23:21:12+08:00 ] 58.218.204.54 GET maot.beijing-hualian.com/api/moutai/V1.0/getCode?formData=PZEKbyUnpaeJILP8GpZ0NL0uvrSBWHKsprF65%2B8dJPqqcrAypDvyfzsUCvyQs1f%2BFdHM7UGaT65Wb3BQCVjWCb1jMZCV5jz5f2U50Agy9wWhqd%2FDGbQ8uZhCiJMXmwQNk%2BL3tLEf5yw3Ccevjpor84VvBpgGlS13exMQamvwCNY8lFc08sikZfVRWWMy9IwIzKrHGsRHn0P16XZz8IkbxA%3D%3D
+[运行时间：0.016548s] [吞吐率：60.43req/s] [内存消耗：1,763.52kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'moutai',
+    2 => 'V1.0',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'application/x-www-form-urlencoded',
+  'token' => '6Sc3stkQcqEFJblxw9eaw4cyCeL3oRtnvNxKsSikq4Q=',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'host' => 'maot.beijing-hualian.com',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.12(0x17000c2d) NetType/WIFI Language/zh_CN',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'formData' => 'PZEKbyUnpaeJILP8GpZ0NL0uvrSBWHKsprF65+8dJPqqcrAypDvyfzsUCvyQs1f+FdHM7UGaT65Wb3BQCVjWCb1jMZCV5jz5f2U50Agy9wWhqd/DGbQ8uZhCiJMXmwQNk+L3tLEf5yw3Ccevjpor84VvBpgGlS13exMQamvwCNY8lFc08sikZfVRWWMy9IwIzKrHGsRHn0P16XZz8IkbxA==',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-07-24T23:23:47+08:00 ] 111.29.149.136 GET wmgl.0898yzzx.com/store/login/index.html
+[运行时间：0.024002s] [吞吐率：41.66req/s] [内存消耗：2,908.25kb] [文件加载：114]
+[ info ] [ LANG ] /www/wwwroot/wmgl.yzzx0898.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'store',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=lqkgp81q1voldaql2aqqcd8g83',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-site' => 'none',
+  'x-requested-with' => 'com.tencent.mm',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/77.0.3865.120 MQQBrowser/6.2 TBS/045710 Mobile Safari/537.36 MMWEBID/6672 MicroMessenger/8.0.7.1920(0x28000750) Process/tools WeChat/arm32 Weixin NetType/WIFI Language/zh_CN ABI/arm64',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'wmgl.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\store\controller\Login->index[ /www/wwwroot/wmgl.yzzx0898.com/application/store/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/wmgl.yzzx0898.com/tpl/store/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File

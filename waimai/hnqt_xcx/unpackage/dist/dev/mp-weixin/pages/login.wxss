@@ -1,0 +1,73 @@
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.login .text {
+  font-size: 26rpx;
+  color: #252525;
+  margin-bottom: 20rpx;
+}
+.login .text2 {
+  color: #9E9E9E;
+  font-size: 24rpx;
+  margin-bottom: 40rpx;
+}
+.login .icon {
+  text-align: center;
+}
+.login .icon > image {
+  width: 160rpx;
+  margin: 80rpx 0;
+}
+.login .dsc {
+  font-size: 34rpx;
+  color: #9E9E9E;
+}
+.login .head {
+  font-size: 56rpx;
+  color: #252525;
+  margin-bottom: 40rpx;
+  margin-top: 40rpx;
+}
+.login .avatar-wrapper {
+  width: 200rpx;
+  height: 200rpx;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+.login .avatar-wrapper .avatar {
+  width: 100%;
+  height: 100%;
+}
+.login .nickname {
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #dddddd;
+  border-bottom: 1rpx solid #dddddd;
+  padding: 20rpx 0;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.login .nickname > text {
+  margin-right: 80rpx;
+}
+.bgr {
+  width: 100%;
+  height: 85rpx;
+  background-position: center;
+  background-size: cover;
+  background-image: linear-gradient(To right, #2CB174, #35C784);
+  text-align: center;
+  line-height: 85rpx;
+  color: #fff;
+  font-size: 30rpx;
+  letter-spacing: 2rpx;
+  margin: 0 auto 100rpx;
+  border-radius: 50rpx;
+}
+

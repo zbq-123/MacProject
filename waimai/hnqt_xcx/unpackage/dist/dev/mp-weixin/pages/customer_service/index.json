@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "客服中心",
+  "navigationBarBackgroundColor": "#f7dd93",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u--text": "/uni_modules/uview-ui/components/u--text/u--text",
+    "u-collapse": "/uni_modules/uview-ui/components/u-collapse/u-collapse",
+    "u-collapse-item": "/uni_modules/uview-ui/components/u-collapse-item/u-collapse-item",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon"
+  }
+}

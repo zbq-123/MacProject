@@ -1,0 +1,219 @@
+<?php
+namespace app\admin\controller;
+
+use app\admin\model\Admin;
+use app\common\controller\AdminBase;
+use app\admin\model\AuthGroup;
+use app\admin\model\AuthGroupAccess;
+use app\admin\model\AuthRule;
+use think\Db;
+use util\Ret;
+
+class Rule extends AdminBase
+{
+    /******规则*****/
+    //规则列表
+    public function index()
+    {
+        if ($this->request->isAjax()) {
+            $data = AuthRule::all();
+            $data = \util\Data::tree($data, 'title', 'id', 'pid');
+            $result = [];
+            foreach ($data as $key => $value) {
+                $result[] = $value;
+            }
+            return json(new Ret($result));
+        } else {
+            return $this->fetch();
+        }
+    }
+    //添加规则
+    public function add()
+    {
+        if (request()->isPost()) {
+            $data = request('post.')->except('id');
+            $rule = new AuthRule;
+            $result = $rule->allowField(true)->save($data);
+            if ($result) {
+                $this->success("添加成功", 'rule/index', null, 1);
+            } else {
+                $this->error("添加失败");
+            }
+        }else{
+            $data = getTreeData(AuthRule::all(), 'title');
+            $this->assign('parent', $data);
+            return $this->fetch();
+        }
+    }
+    //修改规则
+    public function edit()
+    {
+        $rule = new AuthRule;
+        $result = $rule->allowField(true)->save(input('post.'), ['id'   =>  input('post.id')]);
+        if ($result) {
+            $this->redirect('index');
+        }else{
+            $this->error('更新失败', null, null, 1);
+        }
+    }
+
+    //删除规则
+    public function delete()
+    {
+        $id = input('param.id');
+        $rule = AuthRule::get($id);
+        if ($rule) {
+            AuthRule::destroy(['pid'    =>  $rule->id]);
+            $rule->delete();
+            return json(new Ret());
+        }
+        abort(605, '规则不存在');
+    }
+
+    //******用户组*****//
+    //用户组
+    public function group()
+    {
+        if (request()->isAjax()) {
+            $data = AuthGroup::all();
+            return json(new Ret($data));
+        }
+        return $this->fetch();
+    }
+    //给用户组分配权限
+    public function rule_group()
+    {
+        if (request()->isPost()) {
+            $group = AuthGroup::get(input('param.id'));
+            $group->rules = implode(",", input('post.rules/a'));
+            $group->status = input('post.status');
+            $group->title = input('post.title');
+            $result = $group->save();
+            if (false !== $result) {
+                $this->success("权限修改成功", 'Rule/group', null, 1);
+            }else{
+                $this->error("权限修改失败");
+            }
+
+        }else{
+            $gid = input('param.id');
+            $rules = Db::table('auth_rule')->select();
+            $rule_data = \util\Data::channelLevel($rules, 0, "&nbsp;", 'id', 'pid');
+            $group = AuthGroup::get($gid);
+            $group['rules'] = explode(',', $group->rules);
+            //dump($rule_data);
+            //dump($rule_data['4']['_data']);
+            $this->assign([
+                'group'   =>  $group,
+                'rule_data' =>  $rule_data
+            ]);
+            return $this->fetch();
+        }
+    }
+    //修改添加用户组
+    public function editGroup()
+    {
+        $group =new AuthGroup;
+        if (!empty(input('post.id'))) {
+            $result = $group->where('id', input('post.id'))->update(['title' => input('post.title')]);
+        }else {
+            $group->title = input('post.title');
+            $result = $group->save();
+        }
+        if ($result) {
+            $this->success('更新成功', null,null,1);
+        }else{
+            $this->error('更新失败',null,null,1);
+        }
+    }
+    //删除用户组
+    public function deleteGroup()
+    {
+        $group = AuthGroup::get(input('post.id'));
+        $result = $group->delete();
+        Db::table('auth_group_access')->where(['group_id'    =>  input('post.id')])->delete();
+        if ($result) {
+            return json(new Ret());
+        }else{
+            abort(605, "删除失败");
+        }
+    }
+
+    /*****管理员*****/
+    public function admin_list()
+    {
+        if (request()->isAjax()) {
+            $admin = Admin::with('group')->field("id, login_name, image, real_name, create_time, last_login_time, disabled, is_root")->select();
+            return json(new Ret($admin));
+        }else{
+            $group_list = AuthGroup::all();
+            $this->assign("group_list", $group_list);
+            $portal = \app\admin\model\Store::where('deleted', 0)->order('update_time desc')->select();
+            $this->assign('store', $portal);
+            $digital=Db::name('digital')->where('deleted', 0)->order('update_time desc')->select();
+            $this->assign('digital', $digital);
+            return $this->fetch();
+        }
+    }
+    //修改添加管理员
+    public function edit_admin()
+    {
+        $id = input('post.id/d');
+        $group_id = input('post.group_id/d');
+
+
+        $data = request()->except('id', 'post');
+
+
+        if (empty($id)) {
+            missParam([
+                'password'  =>  $data['password'],
+                'login_name'    =>  $data['login_name']
+            ]);
+            $data['password'] = md5($data['password']);
+            $admin = new Admin;
+            $result = $admin->allowField(true)->data($data)->save();
+            $result2 = empty($group_id) ? true : $admin->group()->save(input('post.group_id'));
+
+        }else{
+            if (empty($data['password'])) {
+                unset($data['password']);
+            }else {
+                $data['password'] = md5($data['password']);
+            }
+            $admin = Admin::get($id);
+            $result = $admin->allowField(true)->data($data)->save();
+
+           //暂时管理员只能属于一个权限组
+            $access = AuthGroupAccess::where('uid', $id)->find();
+            if ($access) {
+                $access->group_id = $group_id;
+                $result2 = false === $access->save() ? false : true;
+            }else{
+                $access = new AuthGroupAccess;
+                $access->uid = $id;
+                $access->group_id = $id;
+                $result2 = $access->save();
+            }
+        }
+        if ($result && $result2) {
+            $this->success("操作成功", null, null, 1);
+        }else{
+            $this->error('操作失败');
+        }
+    }
+    //删除管理员
+    public function delete_admin()
+    {
+        $id = input('post.id');
+        $admin = Admin::get($id);
+        $admin->group()->detach();
+        $result = $admin->delete();
+        if ($result) {
+            return json(new Ret());
+
+        }else{
+            abort(605);
+        }
+    }
+}

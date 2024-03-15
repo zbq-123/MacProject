@@ -1,0 +1,335 @@
+.location-header {
+    background: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.location-header .left {
+    display: flex;
+    align-items: center;
+}
+
+.location-header .left .weather-left {
+    font-size: 27px;
+    line-height: 27px;
+    padding: 0 8px;
+    border-right: 2px solid #5BBBFF;
+}
+
+.location-header .left .weather-right {
+    padding-left: 8px;
+}
+
+.location-header .left .weather-right .name {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.location-header .left .weather-right .oc {
+    height: 16px;
+    font-size: 10px;
+    line-height: 18px !important;
+    background: #E7F3FC;
+    border-radius: 4px;
+    /* padding: 0px 8px; */
+    text-align: center;
+}
+
+.location-header .right {
+    color: #fff;
+    border-radius: 15px;
+}
+
+.location-header .right img {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+}
+
+.location-header .right span {
+    font-size: 14px;
+    line-height: 15px;
+	white-space: nowrap;
+}
+
+/* 轮播图 尺寸：995px*465px */
+.mui-slider {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: calc(100% - 30px);
+    height: calc(32.7vw);
+    margin: 0 15px;
+    border-radius: 4px;
+}
+
+.mui-slider img {
+    border-radius: 4px;
+    width: calc(100% - 30px);
+    height: calc(32.7vw);
+}
+
+.mui-slider-indicator .mui-active.mui-indicator {
+    background: #42CA47;
+}
+
+.mui-slider-indicator .mui-indicator {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin: 1px 0px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-box-shadow: 0 0 0px 0px #fff;
+    box-shadow: 0 0 0px 0px #fff;
+}
+
+.mui-slider-indicator {
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+    text-align: center;
+    background: 0 0;
+}
+
+/*分类*/
+.type-btn {
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.type-btn .type-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+}
+
+.type-btn .type-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+}
+
+.type-btn .type-item span {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.shop-title {
+    line-height: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+/*店铺列表*/
+.store-panle {
+    width: 100%;
+    padding: 0;
+}
+
+.store-panle .store {
+    display: flex;
+    align-items: start;
+    padding: 0px 15px 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.store-panle .store:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgb(153, 153, 153) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .3s, opacity .5s;
+}
+
+.store-panle .store:active:after {
+    transform: scale(0, 0);
+    opacity: .3;
+    transition: 0s;
+}
+
+.store-panle .store img {
+    width: 84px;
+    height: 71px;
+    border: 1px solid #f6f6f6;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.store-panle .store .info {
+    margin-left: 10px;
+    width: 100%;
+}
+
+.store-panle .store .info .store-title {
+    display: flex;
+    justify-content: space-between;
+    line-height: 20px;
+    margin-top: 0px;
+}
+
+.store-panle .store .info .store-title span {
+    font-size: 15px;
+    color: #333333;
+    font-weight: bold;
+    margin-bottom: 7px;
+    text-align: justify;
+}
+
+.store-panle .store .info .store-title img {
+    width: 20px;
+    height: 20px;
+    border: 0;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.store-panle .store .info .store-sale {
+    font-size: 12px;
+    line-height: 12px;
+    color: #999999;
+    /* margin-bottom: 8px; */
+	margin: 2px 0 13px;
+}
+
+.store-panle .store .info .store-ps {
+    font-size: 12px;
+    line-height: 12px;
+    color: #999999;
+    margin-bottom: 8px;
+}
+
+.store-panle .store .info .store-status-star {
+    width: 50px;
+    font-size: 12px;
+    line-height: 20px !important;
+    text-align: center;
+    height: 18px;
+    font-weight: bold;
+    /* color: #FF8500; */
+    /* border: 1px solid #FF8500; */
+    border-radius: 4px;
+}
+
+.store-panle .store .info .store-status-end {
+    width: 50px;
+    font-size: 12px;
+    line-height: 20px !important;
+    text-align: center;
+    height: 18px;
+    font-weight: bold;
+    /* color: #999999; */
+    /* border: 1px solid #999999; */
+    border-radius: 4px;
+}
+
+.line-store{
+    width: calc(100vw - 45px);
+    height: 1px;
+    background: #f6f6f6;
+    margin: 0 15px 0 30px;
+}
+
+/*选择校区*/
+.select-campus{
+    position: fixed;
+    width: 100%;
+    height: calc(100vh);
+    top: 0;
+    left: 0;
+    /* display: flex; */
+    /* flex-direction: column; */
+	/* flex-wrap: wrap; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    z-index: 999;
+    clear: both;
+	overflow-y: scroll;
+}
+
+.campus-btn{
+    width: 90%;
+    height: calc(22vh);
+    color: white;
+    border-radius: 4px;
+	margin:0 auto;
+   background-size:cover;
+    padding:40px 15px 15px 15px;
+    position: relative;
+}
+
+.campus-btn:nth-child(2n-1){
+	/* margin-right:3%; */
+}
+.campus-btn:nth-child(1){
+	background-image: url("../icon/bgr1.png");
+	
+    /* background: linear-gradient(90deg,#ff559e, #ff847e, #ffab62); */
+}
+
+.campus-btn:nth-child(2){
+	background-image: url("../icon/bgr2.png");
+    /* background: linear-gradient(90deg,#ff9337, #ffb03b, #ffce3e); */
+}
+.campus-btn:nth-child(3){
+	background-image: url("../icon/bgr3.png");
+    /* background: linear-gradient(90deg,#ff9337, #ffb03b, #ffce3e); */
+}
+.campus-btn:nth-child(4){
+	background-image: url("../icon/bgr4.png");
+    /* background: linear-gradient(90deg,#ff9337, #ffb03b, #ffce3e); */
+    /* box-shadow: 2px 2px 4px #ffbe5e; */
+}
+
+.campus-btn .campus-name{
+    font-size: 15px;
+	font-weight: bold;
+	/* width:60%; */
+	/* padding-top:calc(4vh); */
+}
+
+.campus-btn .campus-info{
+    font-size: 12px;
+	width:60%;
+	height:cale(7vh);
+	overflow: hidden;
+}
+
+.campus-btn .campus-icon{
+    width: auto;
+    height: 80px;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+.select-close{
+    width: 40px;
+    height: 40px;
+	display: block;
+	margin:10px auto;
+    /* position: fixed;
+    left: auto;
+    right: auto;
+    bottom: 50px; */
+}
+
+

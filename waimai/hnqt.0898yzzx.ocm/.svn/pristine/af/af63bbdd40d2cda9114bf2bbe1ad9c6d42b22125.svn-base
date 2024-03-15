@@ -1,0 +1,381 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>商品管理</legend>
+</fieldset>
+<!--headToolBar-->
+<div class="tip-btn-line">
+    <div class="layui-btn layui-btn-sm xu-icon-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669; </i>刷新</div>
+    <div class="layui-btn layui-btn-sm xu-icon-btn" id="addBtn"><i class="layui-icon">&#xe608;</i>添加</div>
+    <!-- <div class="layui-btn layui-btn-sm xu-icon-btn" id="line"><i class="layui-icon">&#xe608;</i>一键上架</div>
+    <div class="layui-btn layui-btn-sm xu-icon-btn" id="unline"><i class="layui-icon">&#xe608;</i>一键下架</div> -->
+    <!--搜索表单-->
+    <form action="" class="layui-form search-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <div class="layui-input-inline">
+                    <input type="text" name="field_content" placeholder="商品名称搜索" autocomplete="off" class="layui-input">
+                    <input type="text" name="field_name" hidden value="name">
+                </div>
+                <div class="layui-input-inline">
+                    <button class="layui-btn layui-btn-primary" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<div id="today" style="margin: 20px;display: none;">
+	<div class="layui-form-item">
+	    <label class="layui-form-label">今日价格：</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="title" id="salesprice" lay-verify="required" autocomplete="off" placeholder="必填" class="layui-input">
+	    </div>
+	  </div>
+	<div class="layui-form">
+	  <div class="layui-form-item">
+	    <div class="layui-inline">
+	      <label class="layui-form-label">开始时间：</label>
+	      <div class="layui-input-inline">
+	        <input type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="layui-form">
+	  <div class="layui-form-item">
+	    <div class="layui-inline">
+	      <label class="layui-form-label">结束时间：</label>
+	      <div class="layui-input-inline">
+	        <input type="text" class="layui-input" id="test2" placeholder="yyyy-MM-dd">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+<!--table-->
+<table class="layui-table" id="dataTable" lay-filter="dataTable"></table>
+{/block}
+{block name="script"}
+<!--toolBar-->
+
+<script type="text/html" id="pictureTpl">
+    {{#  if(d.image != null){  }}
+    <img class="xu-title-pic" src="{{d.image}}">
+    {{# }  }}
+</script>
+<script type="text/html" id="requiredTpl">
+    {{#  if(d.isrequired==1){ }}
+
+    <div class="layui-input-block" style="margin-left: 5px">
+        <input type="checkbox" checked="" name="isrequired"   value="{{d.id}}" lay-skin="switch" lay-filter="switchTest"lay-text="必选|非必选">
+    </div>
+    {{#  } else { }}
+    <div class="layui-input-block" style="margin-left: 5px">
+        <input type="checkbox"   name="isrequired"   value="{{d.id}}" lay-skin="switch" lay-filter="switchTest" lay-text="必选|非必选">
+    </div>
+    {{# } }}
+</script>
+<!--typeNameTpl-->
+<script type="text/html" id="categoryTpl">
+    {{#  if(d.category.name != undefined){ }}
+    <span>{{d.category.name}}</span>
+    {{#  } else { }}
+    <span>无</span>
+    {{# } }}
+</script>
+<!--typeNameTpl-->
+<script type="text/html" id="storeTpl">
+    {{#  if(d.store.name != undefined){ }}
+    <span>{{d.store.name}}</span>
+    {{#  } else { }}
+    <span>无</span>
+    {{# } }}
+</script>
+<script type="text/html" id="statusTpl">
+    {{#  if(d.status == 1){ }}<span>上架</span>
+    {{#  } else if(d.status == 2) {  }}<span>下架</span>
+
+    <span></span>
+    {{#  }  }}
+</script>
+<script type="text/html" id="rightToolBar">
+    <a class="layui-btn layui-btn-sm layui-btn-warm" lay-event="today">今日特价</a>
+    <a class="layui-btn layui-btn-sm" lay-event="edit">修改</a>
+  <a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
+</script>
+
+<script type="text/html" id="moneyTpl">
+    {{d.price/100}}元
+
+</script>
+
+<script type="text/html" id="stockTpl">
+    {{#  if(d.stock == null){ }} 
+        0
+    {{#  } else {  }}
+        {{d.stock}}
+    {{#   }  }}
+</script>
+
+<script>
+    layui.use(['element', 'layer', 'table', 'form', 'xlp','laydate'], function () {
+        var $ = layui.jquery,laydate = layui.laydate, element = layui.element, table = layui.table, layer = layui.layer, form = layui.form, xlp = layui.xlp;
+        xlp.startLoading();
+		laydate.render({
+		    elem: '#test1'
+		});
+        laydate.render({
+            elem: '#test2'
+        });
+
+        //table生成
+        var dataTable = table.render({
+            elem: "#dataTable"
+            ,url: "{:url('goods')}"
+            ,response: {
+                statusCode: 200
+                ,msgName: 'message'
+            }
+            ,cols: [[
+                {field:'id', width:80,title:'ID'},
+                {field:'store_id', title:'校区', templet: function (res){
+                    if(res.campus){
+                        return res.campus.name;
+                    }
+                }},
+                {field:'store_id', title:'店铺', templet: "#storeTpl"},
+                {field:'image', title:'店铺图片',templet: "#pictureTpl"},
+                {field:'name', title:'商品名称'},
+                {field:'number', title:'商品编号'},
+                {field:'price', title:'商品价格',templet: "#moneyTpl"},
+                {field:'unit', title:'商品单位',width:90},
+                {field:'tag', title:'商品标签'},
+                {field:'goods_category_id', title:'所属分类', templet: "#categoryTpl"},
+                {field:'status', title:'状态', templet: "#statusTpl"},
+                {field:'stock', title:'库存', templet: "#stockTpl"},
+                {field:'isrequired', title:'必选否', templet: "#requiredTpl"},
+                {field:'sort', title:'排序',edit: 'text',sort:true,width:80},
+                {field:'create_time', title:'创建时间'},
+                {field:'update_time', title:'更新时间'},
+                {fixed: 'right',width:250, align:'center', toolbar: '#rightToolBar', title:'操作'}
+
+
+            ]]
+            ,page: {
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                ,groups: 5
+                ,first: false
+                ,last: false
+            }
+            ,done: function (res, curr, count){
+                xlp.reSetIframeHeight();
+                xlp.closeLoading();
+            }
+        });
+
+
+        //监听工具条
+        table.on('tool(dataTable)', function(obj){
+            var data = obj.data;
+            var layEvent = obj.event;
+
+            if(layEvent === 'delete'){ //撤销
+                layer.confirm("确定删除吗?", function(index){
+                    xlp.postHttp("{:url('delete_goods')}", {
+                        id: data.id,
+                    }, function (res) {
+                        obj.del();
+                        layer.close(index);
+                        layer.msg('删除成功');
+                    });
+                });
+            }else if(layEvent == 'edit') {
+                location.href = "{:url('edit_goods')}?id="+data.id;}
+            else if(layEvent === 'status'){
+                xlp.postHttp("{:url('status')}",{
+                    id: data.id,
+                    status: status
+                },function (res) {
+                    obj.update({'status': status});
+                    if (status == 2) {
+                        $(tr).find('.disable-btn').removeClass('layui-btn-danger');
+                        $(tr).find('.disable-btn').text("开启");
+                    }else{
+                        $(tr).find('.disable-btn').addClass('layui-btn-danger');
+                        $(tr).find('.disable-btn').text("关闭");
+                    }
+                })
+            }else if(layEvent == 'today'){
+				layer.open({
+					type: 1, //Layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（载层）4（tips层）,
+					title: '今日特价',   //标题
+					area: ['30%'],   //宽高
+					shade: 0.4,   //遮罩透明度
+					content: $("#today"),//支持获取DOM元素
+					scrollbar: false,//屏蔽浏览器滚动条
+					btn: ['确认', '取消'],
+					yes: function(index, layero){
+                        var salesprice = $('#salesprice').val();
+                        var startime = $('#test1').val();
+                        var endtime = $('#test2').val();
+                        if(salesprice == ''){
+                            alert('请输入今日特价');
+                            return false;
+                        }else{
+                            if(salesprice*100>=obj.data.price){
+                                alert('今日特价不能大于或者等于商品价格');
+                                return false;
+                            }
+                        }
+                        if(startime==''){
+                            alert('请选择活动开始时间');
+                            return false;
+                        } else{
+                            var time = Date.parse(new Date());
+                            var newstartime = Date.parse(startime);
+                            if(time>=newstartime) {
+                                alert('活动开始时间不能小于今日');
+                                return false;
+                            }
+                        }
+                        if(endtime==''){
+                            alert('请选择活动结束时间');
+                            return false;
+                        } else{
+                            var newendtime = Date.parse(endtime);
+                            if(newstartime>newendtime||newstartime==newendtime){
+                                alert('活动结束时间不能小于或等于开始时间');
+                                return false;
+                            }
+                        }
+                        xlp.postHttp("{:url('goodsp/add_goodsp')}", {
+                            salesprice:salesprice,
+                            startime:startime,
+                            endtime:endtime,
+                            data: obj.data,
+                        }, function (res) {
+                            location.href ="{:url('goodsp/goodsplist')}";
+                        })
+						console.log(obj)
+					},
+					btn2: function(index, layero){
+						$('#today').hide()
+					}
+				});
+			}
+        });
+
+
+        $("#addBtn").on('click', function () {
+            location.href ="{:url('add_goods')}?store_id={$store_id}";
+        });
+        //监听指定开关
+        form.on('switch(switchTest)', function(data){
+            value = this.value;
+            if (data.elem.checked == true) {
+                xlp.postHttp("{:url('status')}", {
+                    id: value,
+                    status: 2
+                }, function (res) {
+                    layer.msg("营业中");
+                })
+            }
+            else{
+                xlp.postHttp("{:url('status')}", {
+                    id: value,
+                    status: 1
+                }, function (res) {
+                    layer.msg("休息中");
+                })
+            }
+
+        });
+
+        //监听指定开关
+        form.on('switch(switchTest)', function(data){
+            value = this.value;
+
+            if (data.elem.checked == true) {
+                xlp.postHttp("{:url('isrequired')}", {
+                    id: value,
+                    isrequired: 1
+                }, function (res) {
+                    layer.msg("必选");
+                })
+            }
+            else{
+                xlp.postHttp("{:url('isrequired')}", {
+                    id: value,
+                    isrequired: 0
+                }, function (res) {
+                    layer.msg("非必选");
+                })
+            }
+
+        });
+
+
+        //编辑排序
+        table.on('edit(dataTable)', function(obj){
+            xlp.postHttp("{:url('edit_sort1')}", {
+                id: obj.data.id,
+                sort: obj.value
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+        //一键上架
+        $("#line").on('click', function () {
+            xlp.postHttp("{:url('on_off_goods')}", {
+                status: 1
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+        //一键下架
+         $("#unline").on('click', function () {
+            xlp.postHttp("{:url('on_off_goods')}", {
+                status: 2
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+        //搜索
+        form.on('submit(search)', function (data) {
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    fields: data.field
+                }
+                ,page: {
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                    ,groups: 5
+                    ,first: false
+                    ,last: false
+                    ,curr: 1 //重新从第 1 页开始
+                }
+            });
+            return false;
+        });
+
+        //搜索
+        form.on('submit(search3)', function (data) {
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    fields: data.data.field
+                }
+                ,page: {
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                    ,groups: 5
+                    ,first: false
+                    ,last: false
+                    ,curr: 1 //重新从第 1 页开始
+                }
+            });
+            return false;
+        });
+    })
+</script>
+{/block}

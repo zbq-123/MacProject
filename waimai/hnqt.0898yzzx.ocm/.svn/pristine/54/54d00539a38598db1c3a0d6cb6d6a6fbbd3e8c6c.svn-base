@@ -1,0 +1,470 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:57:"/www/wwwroot/wmgl.0898yzzx.com/tpl/store/goods/goods.html";i:1623238840;s:57:"/www/wwwroot/wmgl.0898yzzx.com/tpl/store/common/meta.html";i:1623238839;s:59:"/www/wwwroot/wmgl.0898yzzx.com/tpl/store/common/script.html";i:1623238839;}*/ ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>商品管理</title>
+
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/goods.css" rel="stylesheet" />
+    <!--App自定义的css-->
+    <style>
+        .mui-row.mui-fullscreen>[class*="mui-col-"] {
+            height: 100%;
+        }
+
+        .mui-col-xs-3,
+        .mui-col-xs-9 {
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        .mui-segmented-control .mui-control-item {
+            line-height: 50px;
+            width: 100%;
+        }
+
+        .mui-control-content {
+            display: block;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body >
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+    <a onclick="javascript:location.reload()"><span class="mui-icon mui-icon-refresh title-refresh-icon"></span></a>
+    <h1 class="mui-title">商品管理</h1>
+    <a href="add_goods.html" class="mui-pull-right cancel-a"><img class="cancel-icon " src="/static/store/icon/add-icon.png" alt=""></a>
+</header>
+<!--顶部标题 end-->
+
+<div class="mui-content mui-scroll-wrapper after-clear" >
+    <!--搜索框 start-->
+    <div class="mui-input-row search-box after-clear" style="background: white;">
+        <input type="search" class="mui-input-clear" placeholder="输入商品名称/商品编号" style="margin-bottom: 0px;" id="keyword" value="<?php echo $keyword; ?>">
+        <button id="search_Btn" type="button" class="mui-btn mui-btn-primary mui-icon mui-icon-search" > 查询</button>
+    </div>
+    <!--搜索框 end-->
+
+    <!--商品列表 start-->
+    <div class="mui-content mui-row mui-fullscreen" style="top: 90px;bottom: 40px;">
+
+        <div class="mui-col-xs-3">
+            <div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+                <?php if(is_array($category_and_goods) || $category_and_goods instanceof \think\Collection || $category_and_goods instanceof \think\Paginator): $k = 0; $__LIST__ = $category_and_goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?>
+                <a class="mui-control-item" data-index="<?php echo $k-1; ?>" href="#content<?php echo $k; ?>"><?php echo $vo['name']; ?></a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </div>
+        </div>
+
+        <div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
+            <?php if(is_array($category_and_goods) || $category_and_goods instanceof \think\Collection || $category_and_goods instanceof \think\Paginator): $k = 0; $__LIST__ = $category_and_goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?>
+            <div id="content<?php echo $k; ?>" class="mui-control-content">
+                <ul class="mui-table-view">
+                    <div class="goods-category"><?php echo $vo['name']; ?>
+                        <div style="float: right;">
+                            <span class="goods-category" id="line_<?php echo $k; ?>" style="cursor: pointer;border:0">一键上架</span>
+                            <span class="goods-category" id="unline_<?php echo $k; ?>" style="cursor: pointer;border:0">一键下架</span>
+                        </div>
+                    </div>
+                    <?php if(is_array($vo['goods']) || $vo['goods'] instanceof \think\Collection || $vo['goods'] instanceof \think\Paginator): $goodskey = 0; $__LIST__ = $vo['goods'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goodsvo): $mod = ($goodskey % 2 );++$goodskey;?>
+                    <li class="">
+                        <!--商品 start-->
+                        <div class="goods-content-box after-clear">
+                            <!--商品图片 start-->
+                            <div class="goods-img-box">
+                                <img src="<?php echo $goodsvo['image']; ?>" alt="">
+                                <?php if(!(empty($goodsvo['tag']) || (($goodsvo['tag'] instanceof \think\Collection || $goodsvo['tag'] instanceof \think\Paginator ) && $goodsvo['tag']->isEmpty()))): ?>
+                                <div class="tag"><?php echo $goodsvo['tag']; ?></div>
+                                <?php endif; ?>
+                            </div>
+                            <!--商品图片 start-->
+
+                            <!--商品信息 start-->
+                            <div class="goods-info-box">
+                                <!--商品描述 start-->
+                                <div>
+                                    <div class="goods-name m-b-5"><?php echo $goodsvo['name']; ?></div>
+                                    <div class="goods-sales">销量 <?php echo $goodsvo['sale']; ?> 份</div>
+                                    <div class="goods-price">￥<?php echo $goodsvo['price']; ?> / <?php echo $goodsvo['unit']; ?></div>
+                                    <div class="goods-sales">库存: <?php echo $goodsvo['stock']; ?></div>
+                                </div>
+                                <!--商品描述 start-->
+
+                                <!--商品管理按钮 start-->
+                                <div class="goods-manage-btn after-clear">
+                                    <a href="edit_goods.html?goods_id=<?php echo $goodsvo['id']; ?>"><button type="button" class="mui-btn mui-btn-warning">编辑</button></a>
+                                    <button id="goods_sell<?php echo $k; ?>_<?php echo $goodskey; ?>" type="button" class="mui-btn mui-btn-primary <?php if($goodsvo['status'] == '1'): ?>mui-btn-outlined<?php endif; ?>"><?php if($goodsvo['status'] == '1'): ?>下架<?php else: ?>上架<?php endif; ?></button>
+                                    <button id="deleted_goods<?php echo $k; ?>_<?php echo $goodskey; ?>" type="button" class="mui-btn mui-btn-danger" style="background: red">删除</button>
+                                </div>
+                                <!--商品管理按钮 end-->
+                            </div>
+                            <!--商品信息 end-->
+                        </div>
+                        <!--商品 end-->
+                    </li>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul>
+            </div>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </div>
+    </div>
+    <!--商品列表 end-->
+
+    <!--分类管理按钮 start-->
+    <div class="category-btn-box">
+        <a href="category.html"><button type="button" >分类管理</button></a>
+        <a href="add_category.html"><button type="button" >新建分类</button></a>
+    </div>
+    <!--分类管理按钮 end-->
+</div>
+
+
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+
+<script>
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+    // 搜索
+    //var search_Btn = document.getElementById('search_Btn');
+    
+    document.getElementById('search_Btn').onclick=function(){
+        var _k = document.getElementById("keyword").value;
+        location.href ="/store/goods/goods.html?keyword="+_k;
+    }
+    
+    // $("#search_Btn").on('click', function () {
+    //         location.href ="<?php echo url('goods'); ?>?keyword="+_k;
+    //     });                  
+                  
+    // search_Btn.addEventListener('tap', function(event) {
+    //     mui.toast('该功能正在升级完善中！',{ duration:'long' });
+    // }, false);
+</script>
+<script>
+    var controls = document.getElementById("segmentedControls");
+    var contents = document.getElementById("segmentedControlContents");
+    /***************************/
+    //默认选中第一个
+    controls.querySelector('.mui-control-item').classList.add('mui-active');
+    // contents.querySelector('.mui-control-content').classList.add('mui-active');
+
+    (function() {
+        var controlsElem = document.getElementById("segmentedControls");
+        var contentsElem = document.getElementById("segmentedControlContents");
+        var controlListElem = controlsElem.querySelectorAll('.mui-control-item');
+        var contentListElem = contentsElem.querySelectorAll('.mui-control-content');
+        var controlWrapperElem = controlsElem.parentNode;
+        var controlWrapperHeight = controlWrapperElem.offsetHeight;
+        var controlMaxScroll = controlWrapperElem.scrollHeight - controlWrapperHeight;//左侧类别最大可滚动高度
+        var maxScroll = contentsElem.scrollHeight - contentsElem.offsetHeight;//右侧内容最大可滚动高度
+        var controlHeight = controlListElem[0].offsetHeight;//左侧类别每一项的高度
+        var controlTops = []; //存储control的scrollTop值
+        var contentTops = [0]; //存储content的scrollTop值
+        var length = contentListElem.length;
+        for (var i = 0; i < length; i++) {
+            controlTops.push(controlListElem[i].offsetTop + controlHeight);
+        }
+        for (var i = 1; i < length; i++) {
+            var offsetTop = contentListElem[i].offsetTop;
+            if (offsetTop + 100 >= maxScroll) {
+                var height = Math.max(offsetTop + 100 - maxScroll, 100);
+                var totalHeight = 0;
+                var heights = [];
+                for (var j = i; j < length; j++) {
+                    var offsetHeight = contentListElem[j].offsetHeight;
+                    totalHeight += offsetHeight;
+                    heights.push(totalHeight);
+                }
+                for (var m = 0, len = heights.length; m < len; m++) {
+                    contentTops.push(parseInt(maxScroll - (height - heights[m] / totalHeight * height)));
+                }
+                break;
+            } else {
+                contentTops.push(parseInt(offsetTop));
+            }
+        }
+        contentsElem.addEventListener('scroll', function() {
+            var scrollTop = contentsElem.scrollTop;
+            for (var i = 0; i < length; i++) {
+                var offsetTop = contentTops[i];
+                var offset = Math.abs(offsetTop - scrollTop);
+//						console.log("i:"+i+",scrollTop:"+scrollTop+",offsetTop:"+offsetTop+",offset:"+offset);
+                if (scrollTop < offsetTop) {
+                    if (scrollTop >= maxScroll) {
+                        onScroll(length - 1);
+                    } else {
+                        onScroll(i - 1);
+                    }
+                    break;
+                } else if (offset < 20) {
+                    onScroll(i);
+                    break;
+                }else if(scrollTop >= maxScroll){
+                    onScroll(length - 1);
+                    break;
+                }
+            }
+        });
+        var lastIndex = 0;
+        //监听content滚动
+        var onScroll = function(index) {
+            if (lastIndex !== index) {
+                lastIndex = index;
+                var lastActiveElem = controlsElem.querySelector('.mui-active');
+                lastActiveElem && (lastActiveElem.classList.remove('mui-active'));
+                var currentElem = controlsElem.querySelector('.mui-control-item:nth-child(' + (index + 1) + ')');
+                currentElem.classList.add('mui-active');
+                //简单处理左侧分类滚动，要么滚动到底，要么滚动到顶
+                var controlScrollTop = controlWrapperElem.scrollTop;
+                if (controlScrollTop + controlWrapperHeight < controlTops[index]) {
+                    controlWrapperElem.scrollTop = controlMaxScroll;
+                } else if (controlScrollTop > controlTops[index] - controlHeight) {
+                    controlWrapperElem.scrollTop = 0;
+                }
+            }
+        };
+        //滚动到指定content
+        var scrollTo = function(index) {
+            contentsElem.scrollTop = contentTops[index];
+        };
+        mui(controlsElem).on('tap', '.mui-control-item', function(e) {
+            scrollTo(this.getAttribute('data-index'));
+            return false;
+        });
+    })();
+    /***************************/
+
+    /*************商品管理按钮**************/
+    <?php echo $category_and_goods_btn; ?>.forEach(function(categoryvalue,categoryindex,categoryarray){
+        categoryvalue['goods'].forEach(function(goodsvalue,goodsindex,goodsarray){
+			
+            document.getElementById("goods_sell"+(categoryindex+1)+'_'+(goodsindex+1)).addEventListener('tap', function() {
+                var btnArray = ['否', '是'];
+                if (goodsvalue['status'] == 1) {
+                    mui.confirm('确定要下架所选商品吗？', '下架', btnArray, function(e) {
+                        if (e.index == 1) {
+                            console.log('确定下架');
+                            mui.ajax('goods_sell',{
+                                data:{
+                                    goods_id: goodsvalue['id'],
+                                    status:'2',
+                                },
+                                dataType:'json',//服务器返回json格式数据
+                                type:'post',//HTTP请求类型
+                                timeout:5000,//超时时间设置为5秒；
+                                headers:{'Content-Type':'application/json'},
+                                success:function(data){
+                                    //服务器返回响应，根据响应结果，分析是否成功；
+                                    if (data.data)
+                                        mui.toast('商品下架成功！',{ duration:'long' });
+										goodsvalue.status=2
+										document.getElementById("goods_sell"+(categoryindex+1)+'_'+(goodsindex+1)).innerHTML='上架'
+										document.getElementById("goods_sell"+(categoryindex+1)+'_'+(goodsindex+1)).setAttribute("class",'mui-btn mui-btn-primary ')
+										
+                                    // javascript:location.reload()
+                                },
+                                error:function(xhr,type,errorThrown){
+                                    //异常处理；
+                                    mui.toast('下架异常，请重试！',{ duration:'long' });
+                                    // console.log(type);
+                                }
+                            });
+                        } else {
+                            console.log('取消下架');
+                        }
+                    })
+                }else {
+                    mui.confirm('确定要上架所选商品吗？', '上架', btnArray, function(e) {
+                        if (e.index == 1) {
+                            console.log('确定上架');
+                            mui.ajax('goods_sell',{
+                                data:{
+                                    goods_id: goodsvalue['id'],
+                                    status:'1',
+                                },
+                                dataType:'json',//服务器返回json格式数据
+                                type:'post',//HTTP请求类型
+                                timeout:5000,//超时时间设置为5秒；
+                                headers:{'Content-Type':'application/json'},
+                                success:function(data){
+                                    //服务器返回响应，根据响应结果，分析是否成功；
+                                    if (data.data)
+                                        mui.toast('商品上架成功！',{ duration:'long' });
+										goodsvalue.status=1
+										document.getElementById("goods_sell"+(categoryindex+1)+'_'+(goodsindex+1)).innerHTML='下架'
+										document.getElementById("goods_sell"+(categoryindex+1)+'_'+(goodsindex+1)).setAttribute("class",'mui-btn mui-btn-primary mui-btn-outlined')
+                                    // javascript:location.reload()
+                                },
+                                error:function(xhr,type,errorThrown){
+                                    //异常处理；
+                                    mui.toast('下架异常，请重试！',{ duration:'long' });
+                                    // console.log(type);
+                                }
+                            });
+                        } else {
+                            console.log('取消上架');
+                        }
+                    })
+                }
+            });
+
+            document.getElementById("deleted_goods"+(categoryindex+1)+'_'+(goodsindex+1)).addEventListener('tap', function() {
+                var btnArray = ['否', '是'];
+                mui.confirm('确定要删除所选商品吗？', '删除', btnArray, function(e) {
+                    if (e.index == 1) {
+                        console.log('确定删除');
+                        mui.ajax('deleted_goods',{
+                            data:{
+                                goods_id: goodsvalue['id'],
+                            },
+                            dataType:'json',//服务器返回json格式数据
+                            type:'post',//HTTP请求类型
+                            timeout:5000,//超时时间设置为5秒；
+                            headers:{'Content-Type':'application/json'},
+                            success:function(data){
+                                //服务器返回响应，根据响应结果，分析是否成功；
+                                if (data.data)
+                                    mui.toast('删除商品成功！',{ duration:'long' });
+                                javascript:location.reload()
+                            },
+                            error:function(xhr,type,errorThrown){
+                                //异常处理；
+                                mui.toast('删除异常，请重试！',{ duration:'long' });
+                                // console.log(type);
+                            }
+                        });
+                    } else {
+                        console.log('取消删除');
+                    }
+                })
+            });
+            // 一键上架
+            document.getElementById("line_"+(categoryindex+1)).addEventListener('tap', function() {
+                var btnArray = ['否', '是'];
+                mui.confirm('确定要一键上架吗？', '上架', btnArray, function(e) {
+                    if (e.index == 1) {
+                        mui.ajax('on_off_goods',{
+                            data:{
+                                store_id: goodsvalue['store_id'],
+                                goods_category_id: goodsvalue['goods_category_id'],
+                                status: 1,
+                            },
+                            dataType:'json',//服务器返回json格式数据
+                            type:'post',//HTTP请求类型
+                            timeout:5000,//超时时间设置为5秒；
+                            headers:{'Content-Type':'application/json'},
+                            success:function(data){
+                                //服务器返回响应，根据响应结果，分析是否成功；
+                                if (data.data)
+                                    mui.toast('一键上架成功！',{ duration:'long' });
+                                javascript:location.reload()
+                            },
+                            error:function(xhr,type,errorThrown){
+                                //异常处理；
+                                mui.toast('操作异常，请重试！',{ duration:'long' });
+                                // console.log(type);
+                            }
+                        });
+                    } else {
+                        console.log('取消删除');
+                    }
+                })
+            });
+            // 一键下架
+            document.getElementById("unline_"+(categoryindex+1)).addEventListener('tap', function() {
+                var btnArray = ['否', '是'];
+                mui.confirm('确定要一键下架吗？', '下架', btnArray, function(e) {
+                    if (e.index == 1) {
+                        mui.ajax('on_off_goods',{
+                            data:{
+                                store_id: goodsvalue['store_id'],
+                                goods_category_id: goodsvalue['goods_category_id'],
+                                status: 2,
+                            },
+                            dataType:'json',//服务器返回json格式数据
+                            type:'post',//HTTP请求类型
+                            timeout:5000,//超时时间设置为5秒；
+                            headers:{'Content-Type':'application/json'},
+                            success:function(data){
+                                //服务器返回响应，根据响应结果，分析是否成功；
+                                if (data.data)
+                                    mui.toast('一键下架成功！',{ duration:'long' });
+                                javascript:location.reload()
+                            },
+                            error:function(xhr,type,errorThrown){
+                                //异常处理；
+                                mui.toast('操作异常，请重试！',{ duration:'long' });
+                                // console.log(type);
+                            }
+                        });
+                    } else {
+                        console.log('取消删除');
+                    }
+                })
+            });
+            // 查询
+            // document.getElementById("search_Btn").addEventListener('tap', function() {
+            //         var _k = document.getElementById("keyword").value;
+            //         mui.ajax('search',{
+            //             data:{
+            //                 store_id: goodsvalue['store_id'],
+            //                 goods_category_id: goodsvalue['goods_category_id'],
+            //                 keyword: _k,
+            //             },
+            //             dataType:'json',//服务器返回json格式数据
+            //             type:'post',//HTTP请求类型
+            //             timeout:5000,//超时时间设置为5秒；
+            //             headers:{'Content-Type':'application/json'},
+            //             success:function(data){
+            //                 //服务器返回响应，根据响应结果，分析是否成功；
+            //                 if (data){
+            //                     //console.log(data);
+            //                     var obj = data;
+            //                     if(categoryindex == 1){
+            //                         var _h = '<div id="content1"class="mui-control-content"><ul class="mui-table-view"><div class="goods-category">c_test<div style="float: right;"><span class="goods-category" id="line_1" style="cursor: pointer;border:0">一键上架</span><span class="goods-category" id="unline_1" style="cursor: pointer;border:0">一键下架</span></div></div>';
+            //                         Object.keys(obj).forEach(function(key){
+            //                              console.log(obj[key]);
+            //                              _h += '<li class=""><div class="goods-content-box after-clear"><div class="goods-img-box"><img src="'+obj[key].image+'" alt=""></div><div class="goods-info-box"><div><div class="goods-name m-b-5">'+obj[key].name+'</div><div class="goods-sales">销量 '+obj[key].sale+' 份</div><div class="goods-price">￥'+obj[key].price+' / '+obj[key].unit+'</div><div class="goods-sales">库存: '+obj[key].stock+'</div><div class="goods-manage-btn after-clear"><a href="edit_goods.html?goods_id='+obj[key].id+'"><button type="button" class="mui-btn mui-btn-warning">编辑</button></a><button id="goods_sell1_1" type="button" class="mui-btn mui-btn-primary ">上架</button><button id="deleted_goods1_1" type="button" class="mui-btn mui-btn-danger" style="background: red">删除</button></div></div></div></li>';
+            //                         });
+            //                         _h += '</ul></div>';
+            //                         var contents = document.getElementById("segmentedControlContents");
+            //                         contents.innerHTML = _h;
+            //                     }
+                                
+            //                 }
+
+            //                 //     mui.toast('一键下架成功！',{ duration:'long' });
+            //                 // }
+            //                 // javascript:location.reload()
+            //             },
+            //             error:function(xhr,type,errorThrown){
+            //                 //异常处理；
+            //                 mui.toast('操作异常，请重试！',{ duration:'long' });
+            //                 // console.log(type);
+            //             }
+            //         });
+            // });
+       });
+    });
+    /*************商品管理按钮**************/
+
+
+</script>
+</html>

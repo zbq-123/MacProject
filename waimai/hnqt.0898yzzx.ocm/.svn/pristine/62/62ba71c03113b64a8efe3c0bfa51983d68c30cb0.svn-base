@@ -1,0 +1,139 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:67:"/www/wwwroot/hnqt.0898yzzx.com/tpl/store/orders/orders_details.html";i:1649383381;s:57:"/www/wwwroot/hnqt.0898yzzx.com/tpl/store/common/meta.html";i:1649383380;s:59:"/www/wwwroot/hnqt.0898yzzx.com/tpl/store/common/script.html";i:1649383380;}*/ ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>店铺订单</title>
+	<meta name="format-detection" content="telephone=yes"/>
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/order.css" rel="stylesheet" />
+    <!--App自定义的css-->
+    <style>
+        body{
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon mui-icon-left-nav title-refresh-icon"></span><span >返回</span></a>
+    <h1 class="mui-title">订单详情</h1>
+    <!--<a class="mui-pull-right cancel-a"><img class="cancel-icon " src="/static/store/icon/cancel-icon.png" alt=""></a>-->
+</header>
+<!--顶部标题 end-->
+
+<div class="mui-content">
+    <div>
+        <ul class="mui-table-view">
+            <div class="order-details-heard-box after-clear">
+                <?php echo $order['store_name']; ?>
+                <div>订单号: &nbsp;<span><?php echo $order['order_number']; ?></span></div>
+            </div>
+            <li class="mui-table-view-cell li-box font-weight-bold h-40 font-size-14">
+                <div class="order-details-left order-goods-left-width">商品名称</div>
+                <div class="order-goods-right order-details-right order-goods-right-width p-l-10"><span>数量</span><span>小计</span></div>
+            </li>
+            <?php if(is_array($order['all_goods']) || $order['all_goods'] instanceof \think\Collection || $order['all_goods'] instanceof \think\Paginator): $i = 0; $__LIST__ = $order['all_goods'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$all_goods_vo): $mod = ($i % 2 );++$i;?>
+            <li class="mui-table-view-cell li-box">
+                <div class="order-details-left order-goods-left-width">
+                    <div class="order-details-goods-box">
+                        <!--<div class="goods-img-box"><img src="/static/store/test-img/shuijiao.jpg" alt=""></div>-->
+                        <div class="goods-info-box"><div class="goods-name"><?php echo $all_goods_vo['name']; ?></div></div>
+                    </div>
+                </div>
+                <div class="order-goods-right order-details-right order-goods-right-width order-goods-count p-l-10"><span><?php echo $all_goods_vo['count']; ?> <?php echo $all_goods_vo['unit']; ?></span><span>￥<?php echo $all_goods_vo['all_price']; ?></span></div>
+            </li>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+            <li class="mui-table-view-cell li-box font-weight-bold h-40 font-size-14"><div class="order-details-left ">商品总数</div><div class="order-details-right">x<?php echo $order['all_count']; ?></div></li>
+            <li class="mui-table-view-cell li-box font-weight-bold h-40 font-size-14"><div class="order-details-left "><?php echo $order['convey_name']; ?></div><div class="order-details-right money-color">￥ <?php echo $order['convey_price']; ?></div></li>
+            <li class="mui-table-view-cell li-box font-weight-bold h-40 font-size-14"><div class="order-details-left "><?php echo $order['box_name']; ?></div><div class="order-details-right money-color">￥ <?php echo $order['box_price']; ?></div></li>
+            <li class="mui-table-view-cell li-box font-weight-bold h-40 font-size-14"><div class="order-details-left ">总价</div><div class="order-details-right money-color">￥ <?php echo $order['total_price']; ?></div></li>
+            <li class="mui-table-view-cell li-box font-weight-bold h-40 font-size-14"><div class="order-details-left ">实付</div><div class="order-details-right money-color">￥ <?php echo $order['total_price']; ?></div></li>
+            <li class="mui-table-view-cell li-box font-weight-bold h-40 font-size-14"><div class="order-details-left ">商家应得</div><div class="order-details-right money-color">￥ <?php echo $order['store_price']; ?></div></li>
+        </ul>
+        <ul class="mui-table-view" style="margin-top: 10px">
+            <li  class="mui-table-view-cell li-box font-size-14"><div class="order-details-left ">顾客姓名：</div><div class="order-details-right" style="color: #0099FF"><?php echo $order['delivery_name']; if($order['gender'] == '0'): ?>（先生）<?php endif; if($order['gender'] == '1'): ?>（女士）<?php endif; ?></div></li>
+            <li  class="mui-table-view-cell li-box font-size-14"><div class="order-details-left ">手机号码：</div><a href="tel:<?php echo $order['delivery_phone']; ?>"><div class="order-details-right" style="color: #0099FF"><?php echo $order['delivery_phone']; ?></div></a></li>
+            <li  class="mui-table-view-cell li-box font-size-14"><div class="order-details-left ">配送地址：</div><div class="order-details-right" style="color: #0099FF"><?php echo $order['delivery_address']; ?></div></li>
+            <li  class="mui-table-view-cell li-box font-size-14"><div class="order-details-left ">下单次数：</div><div class="order-details-right"><?php echo $order['user_order_count']; ?> 次</div></li>
+            <li  class="mui-table-view-cell li-box font-size-14"><div class="order-details-left ">付款方式：</div><div class="order-details-right"><?php echo $order['pay_type_text']; ?></div></li>
+            <!--<li  class="mui-table-view-cell li-box font-size-14"><div class="order-details-left ">店铺电话：</div><div class="order-details-right">15266666666</div></li>-->
+            <!--<li  class="mui-table-view-cell li-box font-size-14"><div class="order-details-left ">店铺地址：</div><div class="order-details-right">龙昆南路99号龙昆南路99号龙昆南路99号龙昆南路99号</div></li>-->
+            <li  class="mui-table-view-cell li-box font-size-14"><div class="order-details-left ">下单时间：</div><div class="order-details-right"><?php echo $order['create_time']; ?></div></li>
+            <li  class="mui-table-view-cell li-box font-size-14"><div class="order-details-left ">订单状态：</div><div class="order-details-right" style="<?php echo $order['order_status']['style']; ?>"><?php echo $order['order_status']['text']; ?></div></li>
+        </ul>
+        <!--订单按钮 start-->
+        <div class="order-btn-box" style="background: white;padding: 0px 15px;border-top: 1px solid #007aff;margin-bottom: 15px">
+            <?php if($order['status'] == '2'): ?>
+            <button id="take_order_Btn" type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="letter-spacing: 4px;padding: 4px 20px!important;">接单</button>
+            <button id="reject_order_Btn" type="button" class="mui-btn mui-btn-warning mui-btn-outlined" style="letter-spacing: 4px;padding: 4px 20px!important;">拒单</button>
+            <?php endif; ?>
+            <button id='print_order_Btn' type="button" class="mui-btn mui-btn-primary mui-btn-outlined">无线打印</button>
+            <?php if($order['status'] == '3'): ?>
+            <button id="success_order_Btn" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">订单完成</button>
+            <button id="refund_order_Btn" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">商家申请退款</button>
+            <?php endif; ?>
+        </div>
+        <!--订单按钮 end-->
+    </div>
+
+</div>
+
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+
+<!--解决 a 标签不能跳转-->
+<script>
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    })
+</script>
+<script>
+    (function($, doc) {
+        $.init();
+        // 按钮弹窗
+        document.getElementById("print_order_Btn").addEventListener('tap', function() {
+            var btnArray = ['否', '是'];
+            mui.confirm('确定要发送至无线打印吗？', '无线打印', btnArray, function(e) {
+                if (e.index == 1) {
+                    console.log('确定打印');
+                    mui.ajax('print_orders',{
+                        data:{
+                            id: <?php echo $order['id']; ?>,
+                        },
+                        dataType:'json',//服务器返回json格式数据
+                        type:'post',//HTTP请求类型
+                        timeout:5000,//超时时间设置为5秒；
+                        headers:{'Content-Type':'application/json'},
+                        success:function(data){
+                            //服务器返回响应，根据响应结果，分析是否成功；
+                            if (data.data)
+                                console.log('打印成功');
+                            mui.toast(data.data.content,{ duration:'long' });
+                            // javascript:location.reload();
+                        },
+                        error:function(xhr,type,errorThrown){
+                            //异常处理；
+                            mui.toast('打印订单异常，请重试！',{ duration:'long' });
+                            // console.log(type);
+                        }
+                    });
+                } else {
+                    console.log('取消打印');
+                }
+            })
+        });
+    })(mui, document);
+</script>
+
+</html>

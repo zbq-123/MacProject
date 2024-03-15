@@ -1,0 +1,185 @@
+html,body{
+    background: #f5f5f5;
+}
+
+.mui-action-back{
+    color: #333;
+}
+
+.orders-submit-panel{
+    background: #fff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 8px;
+}
+
+.address-detail-panel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-address-info{
+
+}
+
+.panel-address-info .address{
+    color:#333333;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+
+.panel-address-info .user-info{
+    color: #666;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.orders-submit-panel .mui-icon{
+    flex-shrink: 0;
+    color: #999;
+    font-size: 20px;
+}
+
+.store-name{
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: 1px #f6f6f6 solid;
+}
+
+.goods-item{
+    display: flex;
+    padding-top: 15px;
+}
+
+.goods-item .goods-img{
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.goods-item .goods-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.goods-item .goods-info .goods-name{
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.goods-item .goods-info .goods-count{
+    font-size: 12px;
+    color: #999;
+    line-height: 14px;
+}
+
+.goods-item .goods-price{
+    flex-shrink: 0;
+    line-height: 18px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.orders-other-price{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.orders-other-price .other-name{
+    line-height: 14px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.orders-other-price .other-price{
+    line-height: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.orders-count-price{
+    text-align: right;
+    color: #333;
+    font-weight: bold;
+}
+
+.orders-count-price .price-name{
+    font-size: 12px;
+    padding-right: 10px;
+}
+
+.orders-count-price .price-number{
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.pay-type{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pay-type .pay-type-title{
+    line-height: 14px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.pay-type .pay-type-name{
+    line-height: 14px;
+    font-size: 14px;
+    color: #999;
+}
+
+.pay-type .pay-type-name .mui-icon{
+    line-height: 14px;
+    font-size: 18px;
+    color: #999;
+}
+
+
+/*底部购买条*/
+.store-bottom{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    background: #333;
+    z-index: 1000;
+    align-items: center;
+}
+
+.store-price{
+    flex: 1;
+    padding-left: 15px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+
+.store-submit{
+    flex-shrink: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    width: 110px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}

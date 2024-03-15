@@ -1,0 +1,54 @@
+<?php
+namespace app\api\controller;
+use alipay\Wappay;
+use think\Collection;
+use think\Db;
+use util\WxPay;
+
+class Supermarket extends Collection{
+
+    //商超列表
+    public function get_supermarket_list(){
+        $campus_id = input('campus_id');
+        if(empty($campus_id)){
+            return json(['code'=>201,'msg'=>'参数有误']);
+        }
+        $res=Db::name('supermarket')
+            ->where('deleted',0)
+            ->where('campus_id',$campus_id)
+            ->select();
+        if(!empty($res)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$res]);
+        }else{
+            return json(['code'=>204,'msg'=>'没有数据']);
+        }
+    }
+    //商超下的商品
+    public function get_supermarket_good(){
+        $supermarket_id = input('supermarket_id');
+        if(empty($supermarket_id)){
+            return json(['code'=>201,'msg'=>'参数有误']);
+        }
+        $goods_list = Db::name('supermarket_sort')
+            ->where('supermarket_id',$supermarket_id)
+            ->where('deleted',0)
+            ->field('id,name')
+            ->order('id asc')
+            ->select();
+
+        if(!empty($goods_list)){
+            foreach($goods_list as $k=>$v){
+                $goods_list[$k]['goods'] = Db::name('supermarket_good')
+                    ->where('category_id',$v['id'])
+                    ->where('status',1)
+                    ->where('deleted',0)
+                    ->field('id,name,category_id,price,unit,tag,image,sale,stock')
+                    ->select();
+            }
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$goods_list]);
+        }else{
+            return json(['code'=>204,'msg'=>'没有数据']);
+        }
+    }
+
+}

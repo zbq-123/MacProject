@@ -1,0 +1,10 @@
+<xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code_des><![CDATA[JSAPI支付必须传openid]]></err_code_des>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<mch_id><![CDATA[1490022892]]></mch_id>
+<appid><![CDATA[wx6895a741117ce1d8]]></appid>
+<nonce_str><![CDATA[cWuMxrzCGJgL7nI2]]></nonce_str>
+<sign><![CDATA[D1F8FD3A7711A308CC62C1EFD38DE14D]]></sign>
+</xml>

@@ -1,0 +1,19 @@
+
+.popup{
+	padding: 20rpx;
+	overflow-y: scroll;
+	font-size: 28rpx;
+}
+.pay{
+	display: flex;
+	align-items: center;
+	margin: 20rpx 0;
+	justify-content: center;
+}
+.gift_money{
+	padding: 30rpx;
+}
+.u-text__value{
+	font-family: ui-sans-serif;
+}
+

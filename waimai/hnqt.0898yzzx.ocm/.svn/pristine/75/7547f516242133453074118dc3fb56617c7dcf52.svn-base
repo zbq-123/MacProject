@@ -1,0 +1,10 @@
+<xml><return_code><![CDATA[SUCCESS]]></return_code>
+<return_msg><![CDATA[OK]]></return_msg>
+<result_code><![CDATA[FAIL]]></result_code>
+<err_code_des><![CDATA[appid和openid不匹配]]></err_code_des>
+<err_code><![CDATA[PARAM_ERROR]]></err_code>
+<mch_id><![CDATA[1490022892]]></mch_id>
+<appid><![CDATA[wx9569bfe00332918f]]></appid>
+<nonce_str><![CDATA[jNEPbDPbXcqz9e4U]]></nonce_str>
+<sign><![CDATA[038538E1CBA2F48FB89414606B1A37A0]]></sign>
+</xml>

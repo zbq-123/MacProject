@@ -1,0 +1,270 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/www/wwwroot/hnqt.0898yzzx.com/tpl/admin/rider/add_rider.html";i:1649413643;s:64:"/www/wwwroot/hnqt.0898yzzx.com/tpl/admin/public/public_main.html";i:1649831629;s:57:"/www/wwwroot/hnqt.0898yzzx.com/tpl/admin/common/meta.html";i:1649388818;s:59:"/www/wwwroot/hnqt.0898yzzx.com/tpl/admin/common/script.html";i:1649383380;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:"圈圈食堂"); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/layui/css/layui.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>"  media="all">
+<link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+<link rel="stylesheet" href="/static/css/style.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+    
+</head>
+
+<body class="layui-layout-body">
+<!--内容主题区域-->
+<div id="content"  class="main-body">
+    <div style="padding: 15px;" id="content-wrap">
+        <!-- <p>
+                <span class="layui-breadcrumb">
+                <?php if(is_array($breadcrumb) || $breadcrumb instanceof \think\Collection || $breadcrumb instanceof \think\Paginator): $i = 0; $__LIST__ = $breadcrumb;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bread): $mod = ($i % 2 );++$i;?>
+                <a><cite><?php echo $bread; ?></cite></a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </span>
+        </p> -->
+
+        <div class=" main-content">
+            
+<style type="text/css">
+    #content{
+        min-height: 800px;
+    }
+</style>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>添加骑手</legend>
+</fieldset>
+<form class="layui-form layui-form-edit" action="<?php echo url('add_rider'); ?>" method="post" lay-filter="newsForm">
+
+    <div class="layui-form-item">
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="user_name" placeholder="如：hs0001" class="layui-input">
+            </div>
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="password" placeholder="请输入密码" lay-verify="name|required" class="layui-input">
+            </div>
+            
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="phone" placeholder="请输入骑手手机号" lay-verify="phone|required" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">所属校区</label>
+            <div class="layui-input-inline layui-form" lay-filter="navigationIdSelect">
+                <select name="campus_id" id="navigationId" lay-filter="navigationId" lay-search>
+                    <option value="">请选择(可以输入搜索)</option>
+                </select>
+            </div>
+        </div>
+
+        
+        <div class="layui-form-item"></div>
+
+        <div class="layui-form-item">
+            <div class="layui-form-item" id="titlePicture1">
+                <label class="layui-form-label">微信收款码</label>
+                <div class="layui-input-inline">
+                    <div class="layui-upload-drag xu-upload" id="picture1" style="display: none;">
+                        <i class="layui-icon">&#xe67c;</i>
+                        <p>点击上传</p>
+                    </div>
+                </div>
+                <input type="hidden" name="logo">
+            </div>
+        </div>
+
+       
+        <div class="layui-form-item"></div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="save">保存</button>
+                <!--        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="audit">提交审核</button>-->
+                <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>
+                <a class="layui-btn layui-btn-primary" href="<?php echo url('index'); ?>" style="padding: 0 8px;"><i class="layui-icon">&#xe603;</i>返回</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+        </div>
+    </div>
+</div>
+<script src="/static/layui/layui.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/common.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/echarts.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/js/' //layui全局设置
+        ,version: '<?php echo \think\Config::get('web_config.site_version'); ?>'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+
+        //自定义验证规则
+        form.verify({
+            name: function (value) {
+                if (value.length > 100) {
+                    return '限制100个字符且不为空';
+                }
+            }
+
+        });
+
+        //输入图片上传按钮序号初始化上传组件
+
+
+        upload.render({
+            elem: '#picture1'
+            , url: "<?php echo url('upload/store'); ?>"
+            , size: 2048
+            , done: function (res, index, upload) {
+                if (res.code == 200) {
+                    $("#titlePicture1").find("input[name='logo']").eq(1 - 1).val(res.data);
+                    $("#picture1").html("<img src='" + res.data + "' width='138' height='95'>");
+                    $("#picture1").css({"padding": "0"});
+                }
+
+                //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+                var item = this.item;
+            }
+        });
+        $("#picture1").css({"display": "inline-block"});
+
+
+        xlp.getHttp("<?php echo url('api/all_campus'); ?>", {}, function (res) {
+            $("#navigationId").html('<option value="">请选择(可以输入搜索)</option>');
+            layui.each(res, function (i) {
+                $("#navigationId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "navigationIdSelect");
+            })
+        });
+
+        form.on("submit(cancel)", function (data) {
+            location.href = "<?php echo url('news_column'); ?>";
+            return false;
+        });
+    })
+
+</script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+        //初始化编辑器
+        var ue = xlp.ueEditor('container', {});
+        ue.ready(function () {
+            xlp.reSetIframeHeight();
+        });
+
+
+        //自定义验证规则
+        form.verify({
+            title: function (value) {
+                if (value.length > 60 | value.length == 0) {
+                    return '标题限制60个字符且不为空';
+                }
+            },
+            keyword: function (value) {
+                if (value.length > 255) {
+                    return '字数限制255个字符';
+                }
+            },
+            writer: function (value) {
+                if (value.length > 20) {
+                    return '字数限制20个字符';
+                }
+            },
+            summary: function (value) {
+                if (value.length > 255) {
+                    return '字数限制255个字符';
+                }
+            },
+            source: function (value) {
+                if (value.length > 60 | value.length == 0) {
+                    return '字数限制60个字符且不为空';
+                }
+            },
+            editor: function (value) {
+                if (value.length > 20) {
+                    return '字数限制20个字符';
+                }
+            },
+
+        });
+
+        /* xlp.getHttp("<?php echo url('api/all_column'); ?>", {}, function (res) {
+             $("#columnTypeId").html('<option value="">请选择(可以输入搜索)</option>');
+             layui.each(res, function (i) {
+                 $("#columnTypeId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                 form.render("select", "columnTypeIdSelect");
+             })
+         });*/
+
+
+        form.on("submit(audit)", function (data) {
+            $("#status").val("1");
+
+        });
+        form.on("submit(cancel)", function (data) {
+            location.href = "<?php echo url('news_subject'); ?>";
+            return false;
+        });
+    })
+
+</script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            , type: 'time',
+
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test2' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test3' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test4' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test5' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test6' //指定元素
+            , type: 'time'
+        });
+    });
+</script>
+
+</body>
+</html>

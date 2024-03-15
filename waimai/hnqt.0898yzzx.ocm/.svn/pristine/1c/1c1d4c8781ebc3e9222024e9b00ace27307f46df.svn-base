@@ -1,0 +1,400 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:64:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\store\add_store.html";i:1649385562;s:61:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\public\popup.html";i:1649385562;s:60:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\common\meta.html";i:1649386124;s:62:"D:\phpstudy_pro\WWW\demo.hnqt.com\tpl\admin\common\script.html";i:1649385561;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:"圈圈食堂"); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/layui/css/layui.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>"  media="all">
+<link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+<link rel="stylesheet" href="/static/css/style.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+    
+</head>
+
+<body>
+<!--弹窗iframe基本布局-->
+<!--内容区域-->
+<div id="content"  class="main-body">
+    <div id="content-wrap">
+        <div class=" main-content">
+            
+<a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="<?php echo url('store'); ?>"><i class="layui-icon">&#xe603;</i>返回</a>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>添加商铺</legend>
+</fieldset>
+<form class="layui-form layui-form-edit" action="<?php echo url('add_store'); ?>" method="post" lay-filter="newsForm">
+
+    <div class="layui-form-item">
+        <div class="layui-form-item">
+            <label class="layui-form-label">店铺编号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="number" placeholder="如：hs0001" class="layui-input">
+            </div>
+            <label class="layui-form-label">店铺名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" placeholder="请输入店铺名称" lay-verify="name|required" class="layui-input">
+            </div>
+            <label class="layui-form-label">电话</label>
+            <div class="layui-input-inline">
+                <input type="text" name="phone" placeholder="请输入店铺电话" lay-verify="phone|required" class="layui-input">
+            </div>
+            <label class="layui-form-label">店铺地址</label>
+            <div class="layui-input-inline">
+                <input type="text" name="address" placeholder="请输入店铺地址" lay-verify="address|required" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">所属校区</label>
+            <div class="layui-input-inline layui-form" lay-filter="navigationIdSelect">
+                <select name="campus_id" id="navigationId" lay-filter="navigationId" lay-search>
+                    <option value="">请选择(可以输入搜索)</option>
+                </select>
+            </div>
+
+            <label class="layui-form-label">起送金额</label>
+            <div class="layui-input-inline">
+                <input type="number" step="0.01" name="min_price" placeholder="单位：元" lay-verify="min_price|required" class="layui-input">
+            </div>
+
+            <label class="layui-form-label">跑腿费名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="delivery_name" placeholder="如：配送费" lay-verify="delivery_name|required" class="layui-input">
+            </div>
+
+            <label class="layui-form-label">跑腿费</label>
+            <div class="layui-input-inline">
+                <input type="number" step="0.01" name="delivery_price" placeholder="单位：元" lay-verify="delivery_price|required" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+
+            <label class="layui-form-label">餐盒费方案类型</label>
+            <div class="layui-input-inline layui-form" lay-filter="fixedIdSelect">
+                <select name="box_type" lay-verify="required" lay-filter="fixedId" lay-search>
+                    <option value="" style="width: 15%">请选择(可以输入搜索)</option>
+                    <option value="1">按订单收取</option>
+                    <option value="2">商品数量收取</option>
+
+                </select>
+            </div>
+
+            <label class="layui-form-label">餐盒费名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="box_name" placeholder="如：打包费" lay-verify="box_name|required" class="layui-input">
+            </div>
+
+            <label class="layui-form-label">餐盒费价格</label>
+            <div class="layui-input-inline">
+                <input type="number" step="0.01" name="box_price" placeholder="单位：元" lay-verify="box_price|required" class="layui-input">
+            </div>
+
+            <label class="layui-form-label">接单后允许自动取消时间(秒)</label>
+            <div class="layui-input-inline">
+                <input type="number" name="order_cancel_time" placeholder="单位：秒，如：60，表示 60秒" lay-verify="order_cancel_time|required" class="layui-input">
+            </div>
+
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">营业时间</label>
+            <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+                <input type="text" name="start_time1" placeholder="请输入开始时间(时间段1)" class="layui-input" id="test1">
+            </div>
+            <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+                <input type="text" name="end_time1" placeholder="请输入结束时间(时间段1)" class="layui-input" id="test2">
+            </div>
+            <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+                <input type="text" name="start_time2" placeholder="请输入开始时间(时间段2)" class="layui-input" id="test3">
+            </div>
+            <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+                <input type="text" name="end_time2" placeholder="请输入结束时间(时间段2)" class="layui-input" id="test4">
+            </div>
+            <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+                <input type="text" name="start_time3" placeholder="请输入开始时间(时间段3)" class="layui-input" id="test5">
+            </div>
+            <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+                <input type="text" name="end_time3" placeholder="请输入结束时间(时间段3)" class="layui-input" id="test6">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">银行卡号</label>
+            <div class="layui-input-inline">
+                <input type="number" name="bank_card" placeholder="请输入银行卡号" lay-verify="bank_card" class="layui-input">
+            </div>
+
+            <label class="layui-form-label">开户名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="bank_card_name" placeholder="请输入开户名" lay-verify="bank_card_name"
+                       class="layui-input">
+            </div>
+            <label class="layui-form-label">开户行地址</label>
+            <div class="layui-input-inline">
+                <input type="text" name="bank_info" placeholder="请输入开户行地址" lay-verify="bank_info" class="layui-input">
+            </div>
+
+
+            <label class="layui-form-label">支付宝账号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="ali_card" placeholder="请输入支付宝账号" lay-verify="ali_card|required" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付宝使用人名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="ali_name" placeholder="如：张三" lay-verify="ali_name|required" class="layui-input">
+            </div>
+
+
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-inline">
+                <input type="text" name="sort" placeholder="如：9" class="layui-input">
+            </div>
+
+            <label class="layui-form-label">收取维护费费率</label>
+            <div class="layui-input-inline">
+                <input type="number" step="0.0001" name="manage_ratio" value="0.02" placeholder="如：0.02表示总金额的2%" lay-verify="manage_ratio|required" class="layui-input">
+            </div>
+
+            <label class="layui-form-label">收取开发费费率</label>
+            <div class="layui-input-inline">
+                <input type="number" step="0.0001" name="develop_ratio" value="0.01" placeholder="如：0.01表示总金额的1%" lay-verify="manage_ratio|required" class="layui-input">
+            </div>
+
+            <label class="layui-form-label">在线支付手续费率</label>
+            <div class="layui-input-inline">
+                <input type="number" step="0.001" name="pay_ratio" value="0.006" placeholder="如：0.01表示总金额的1%" lay-verify="manage_ratio|required" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item"></div>
+
+        <!--<div class="layui-form-item"></div>
+            <label class="layui-form-label">是否可删除</label>
+            <div class="layui-input-inline layui-form" lay-filter="fixedIdSelect">
+                <select name="is_edit"  lay-verify="required" lay-filter="fixedId" lay-search>
+                    <option value=""   style="width: 15%">请选择(可以输入搜索)</option>
+                    <option value="0">不可删除</option>
+                    <option value="1">可删除</option>
+
+                </select>
+            </div>-->
+        <div class="layui-form-item">
+            <div class="layui-form-item" id="titlePicture1">
+                <label class="layui-form-label">图片</label>
+                <div class="layui-input-inline">
+                    <div class="layui-upload-drag xu-upload" id="picture1" style="display: none;">
+                        <i class="layui-icon">&#xe67c;</i>
+                        <p>点击上传</p>
+                    </div>
+                </div>
+                <input type="hidden" name="logo">
+            </div>
+
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">公告</label>
+                <div class="layui-input-block">
+                    <textarea name="notice" style="padding: 10px" cols="80"  rows="6" placeholder="请输入" lay-verify="notice|required"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">店铺描述</label>
+            <div class="layui-input-block" id="content">
+                <script id="container" name="detail" type="text/plain"></script>
+            </div>
+        </div>
+        <div class="layui-form-item"></div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="save">保存</button>
+                <!--        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="audit">提交审核</button>-->
+                <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+        </div>
+    </div>
+</div>
+<script src="/static/layui/layui.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/common.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/echarts.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/js/' //layui全局设置
+        ,version: '<?php echo \think\Config::get('web_config.site_version'); ?>'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+<script type="text/javascript" src="/static/ueditor/ueditor.config.js?version=<?php echo \think\Config::get('web_config.site_version'); ?>"></script>
+<script type="text/javascript" src="/static/ueditor/ueditor.all.js?version=<?php echo \think\Config::get('web_config.site_version'); ?>"></script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+
+        //自定义验证规则
+        form.verify({
+            name: function (value) {
+                if (value.length > 100) {
+                    return '限制100个字符且不为空';
+                }
+            }
+
+        });
+
+        //输入图片上传按钮序号初始化上传组件
+
+
+        upload.render({
+            elem: '#picture1'
+            , url: "<?php echo url('upload/store'); ?>"
+            , size: 2048
+            , done: function (res, index, upload) {
+                if (res.code == 200) {
+                    $("#titlePicture1").find("input[name='logo']").eq(1 - 1).val(res.data);
+                    $("#picture1").html("<img src='" + res.data + "' width='138' height='95'>");
+                    $("#picture1").css({"padding": "0"});
+                }
+
+                //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+                var item = this.item;
+            }
+        });
+        $("#picture1").css({"display": "inline-block"});
+
+
+        xlp.getHttp("<?php echo url('api/all_campus'); ?>", {}, function (res) {
+            $("#navigationId").html('<option value="">请选择(可以输入搜索)</option>');
+            layui.each(res, function (i) {
+                $("#navigationId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "navigationIdSelect");
+            })
+        });
+
+        form.on("submit(cancel)", function (data) {
+            location.href = "<?php echo url('news_column'); ?>";
+            return false;
+        });
+    })
+
+</script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+        //初始化编辑器
+        var ue = xlp.ueEditor('container', {});
+        ue.ready(function () {
+            xlp.reSetIframeHeight();
+        });
+
+
+        //自定义验证规则
+        form.verify({
+            title: function (value) {
+                if (value.length > 60 | value.length == 0) {
+                    return '标题限制60个字符且不为空';
+                }
+            },
+            keyword: function (value) {
+                if (value.length > 255) {
+                    return '字数限制255个字符';
+                }
+            },
+            writer: function (value) {
+                if (value.length > 20) {
+                    return '字数限制20个字符';
+                }
+            },
+            summary: function (value) {
+                if (value.length > 255) {
+                    return '字数限制255个字符';
+                }
+            },
+            source: function (value) {
+                if (value.length > 60 | value.length == 0) {
+                    return '字数限制60个字符且不为空';
+                }
+            },
+            editor: function (value) {
+                if (value.length > 20) {
+                    return '字数限制20个字符';
+                }
+            },
+
+        });
+
+        /* xlp.getHttp("<?php echo url('api/all_column'); ?>", {}, function (res) {
+             $("#columnTypeId").html('<option value="">请选择(可以输入搜索)</option>');
+             layui.each(res, function (i) {
+                 $("#columnTypeId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                 form.render("select", "columnTypeIdSelect");
+             })
+         });*/
+
+
+        form.on("submit(audit)", function (data) {
+            $("#status").val("1");
+
+        });
+        form.on("submit(cancel)", function (data) {
+            location.href = "<?php echo url('news_subject'); ?>";
+            return false;
+        });
+    })
+
+</script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            , type: 'time',
+
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test2' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test3' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test4' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test5' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test6' //指定元素
+            , type: 'time'
+        });
+    });
+</script>
+
+</body>
+</html>

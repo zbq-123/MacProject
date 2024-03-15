@@ -1,0 +1,558 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:55:"/var/www/king_hsst/tpl/store/orders/refunds_orders.html";i:1604313648;s:45:"/var/www/king_hsst/tpl/store/common/meta.html";i:1604313647;s:47:"/var/www/king_hsst/tpl/store/common/script.html";i:1604313647;}*/ ?>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+		<title>退款订单</title>
+		<meta name="format-detection" content="telephone=yes" />
+		<!--标准mui.css-->
+		<link href="/static/store/store-css/order.css" rel="stylesheet" />
+		<link href="/static/store/mui/css/mui.picker.css" rel="stylesheet" />
+		<link href="/static/store/mui/css/mui.poppicker.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="/static/store/mui/css/mui.picker.min.css" />
+		<!--App自定义的css-->
+		<style>
+			body{
+            background: white;
+        }
+        .order-box{
+            margin-top: 10px!important;
+        }
+    </style>
+	</head>
+
+	<body>
+		<!--顶部标题 start-->
+		<header id="header" class="mui-bar mui-bar-nav">
+			<a href="../index/index.html" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span
+				 class="mui-icon mui-icon mui-icon-left-nav title-refresh-icon"></span><span>返回</span></a>
+			<h1 class="mui-title">退款订单</h1>
+		</header>
+		<!--顶部标题 end-->
+
+		<div id="up_down_refresh" class="mui-content mui-scroll-wrapper">
+			<div class="after-clear">
+				<!--搜索框 start-->
+				<!-- <div class="mui-input-row search-box" style="background: #fff">
+					<input type="search" class="mui-input-clear" placeholder="输入名称/ID/手机号" style="margin-bottom: 0px;">
+					<button id="search_Btn" type="button" class="mui-btn mui-btn-primary mui-icon mui-icon-search"> 查询</button>
+				</div> -->
+				<!--搜索框 end-->
+
+				<!--筛选栏 start-->
+				<div class="sifg-box" style="background: #fff">
+					<ul class="mui-table-view mui-grid-view mui-grid-9" style="background: #ffffff!important;">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4" style="padding: 0px 2px!important;border: 0px!important;">
+							<div id='datademo' data-options='{"type":"date","beginYear":2020,"endYear":2050}' class="sift-btn-box datatime">
+								<!--<button >选择日期</button>-->
+								<input type="text" name="" placeholder="选择日期" id="choosedata">
+								<span></span>
+							</div>
+						</li>
+						<!-- <li class="mui-table-view-cell mui-media mui-col-xs-4" style="padding: 0px 2px!important;border: 0px!important;">
+							<div id='storePicker' class="sift-btn-box">
+								<button  class="mui-btn" type='button'>所属店铺
+								<input type="text" name="" placeholder="所属店铺" id="storeResult">
+								<span></span>
+							</div>
+						</li> -->
+						<!-- <li class="mui-table-view-cell mui-media mui-col-xs-4" style="padding: 0px 2px!important;border: 0px!important;">
+							<div id='orderPicker' class="sift-btn-box">
+								<button class="mui-btn" type='button'>订单状态</button>
+								<input type="text" name="" placeholder="订单状态" id="orderResult">
+								<span></span>
+							</div>
+						</li> -->
+						<li class="mui-table-view-cell mui-media mui-col-xs-4" id="seachwrap" style="padding: 0px 2px!important;border: 0px!important;">
+						    <div   class="sift-btn-box">
+						        <!--<button class="mui-btn" type='button'>订单状态</button>-->
+						        <input type="text" id="seach_value"  name=""  placeholder="今日订单" >
+						        <span id="seach_hcj" style="width:50px;height:30px;line-height:30px;font-size:13px;border:1px solid #eee;border-right:none;border-top:none;border-bottom:none;">查询</span>
+						    </div>
+						</li>
+					</ul>
+				</div>
+				<!--筛选栏 end-->
+
+				<!--订单 start-->
+				<div class="order-body" id="order-body">
+					<div id="order_list">
+
+					</div>
+				</div>
+				<!--订单 end-->
+			</div>
+		</div>
+
+	</body>
+	
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+	<script src="/static/store/mui/js/mui.picker.js"></script>
+	<script src="/static/store/mui/js/mui.picker.min.js"></script>
+	<script src="/static/store/mui/js/mui.poppicker.js"></script>
+	<script src="/static/jquery/jquery-1.8.3.min.js"></script>
+
+	<!--解决 a 标签不能跳转-->
+	<script>
+		mui('body').on('tap', 'a', function() {
+			document.location.href = this.href;
+		})
+	</script>
+	<!--下拉刷新，上拉加载-->
+	<script>
+		(function($, doc) {
+			var pagenum; //总共页数
+			var now_page = 1; //当前页码
+			var newdate = new Date;
+			var seachValue='';
+			date = newdate.getFullYear() + '-' + (newdate.getMonth() + 1) + '-' + newdate.getDate()
+
+			var y = newdate.getFullYear()
+			document.getElementById('datademo').setAttribute('data-options', '{"type":"date","beginYear":2020,"endYear":' + (y +
+				1) + '}')
+			$.init();
+			// 下拉选项
+			var storename = '<?php echo $store['name']; ?>';
+			$.ready(function() {
+				get_order_list(date)
+				// 搜索
+				// var search_Btn = doc.getElementById('search_Btn');
+				// search_Btn.addEventListener('tap', function(event) {
+				// 	mui.toast('该功能正在升级完善中！', {
+				// 		duration: 'long'
+				// 	});
+				// }, false);
+
+				//普通示例
+				// var storePicker = new $.PopPicker();
+				// storePicker.setData([{
+				//     value: 'ywj',
+				//     text: storename
+				// }]);
+				// var storePickerButton = doc.getElementById('storePicker');
+				// var storeResult = doc.getElementById('storeResult');
+				// storePickerButton.addEventListener('tap', function(event) {
+				// 	// mui.toast('该功能正在升级完善中！', {
+				// 	// 	duration: 'long'
+				// 	// });
+				// 	storePicker.show(function(items) {
+				// 	    storeResult.value = items[0]['text'];
+				// 	    console.log(storeResult.value);
+				// 	    //返回 false 可以阻止选择框的关闭
+				// 	    //return false;
+				// 	});
+				// }, false);
+
+				// 	var orderPicker = new $.PopPicker();
+				// 	orderPicker.setData([ {
+				// 	    value: 'aaa',
+				// 	    text: '客户退款成功'
+				// 	}, {
+				// 	    value: 'lj',
+				// 	    text: '拒绝客户退款'
+				// 	}, {
+				// 	    value: 'lj',
+				// 	    text: '自申退款成功'
+				// 	}, {
+				// 	    value: 'lj',
+				// 	    text: '自申退款失败'
+				// 	}]);
+				// 	var orderPickerButton = doc.getElementById('orderPicker');
+				// 	// var orderResult = doc.getElementById('orderResult');
+				// 	orderPickerButton.addEventListener('tap', function(event) {
+				// 		// mui.toast('该功能正在升级完善中！', {
+				// 		// 	duration: 'long'
+				// 		// });
+				// 		orderPicker.show(function(items) {
+				// 		orderResult.value = items[0]['text'];
+				// 		console.log(orderResult.value);
+				// 		// 返回 false 可以阻止选择框的关闭
+				// 		return false;
+				// 		});
+				// 	}, false);
+				// });
+				
+				//查找的input输入事件
+				$('#seach_value')[0].oninput=function(){
+					seachValue=this.value
+				}
+				//查找的提交按钮
+				doc.getElementById('seach_hcj').addEventListener('tap',function(){
+					
+					now_page=1;
+					document.getElementById('order-body').innerHTML='<div id="order_list"></div>'
+					get_order_list()
+				})
+				
+				//时间选项
+				var result = $('#choosedata')[0];
+				var btns = $('#datademo');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						// mui.toast('该功能正在升级完善中！', {
+						// 	duration: 'long'
+						// });
+						var _self = this;
+						result.value = null;
+						if (_self.picker) {
+							_self.picker.show(function(rs) {
+								result.value = rs.text;
+								console.log(result);
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						} else {
+							var optionsJson = this.getAttribute('data-options') || '{}';
+							var options = JSON.parse(optionsJson);
+							var id = this.getAttribute('id');
+							/*
+							 * 首次显示时实例化组件
+							 * 示例为了简洁，将 options 放在了按钮的 dom 上
+							 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+							 */
+							_self.picker = new $.DtPicker(options);
+							_self.picker.show(function(rs) {
+								/*
+								 * rs.value 拼合后的 value
+								 * rs.text 拼合后的 text
+								 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+								 * rs.m 月，用法同年
+								 * rs.d 日，用法同年
+								 * rs.h 时，用法同年
+								 * rs.i 分（minutes 的第二个字母），用法同年
+								 */
+								// result.innerText = '选择后: ' + rs.text;
+								result.value = rs.text;
+								console.log(result.value);
+								date = result.value
+								now_page = 1;
+								document.getElementById('order-body').innerHTML = '<div id="order_list"></div>'
+								get_order_list()
+								/*
+								 * 返回 false 可以阻止选择框的关闭
+								 * return false;
+								 */
+								/*
+								 * 释放组件资源，释放后将将不能再操作组件
+								 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+								 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+								 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+								 */
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+
+					}, false);
+				});
+			})
+			// $.ready(function() {
+			// 	get_order_list();
+			// });
+
+			mui.init({
+				pullRefresh: {
+					container: '#up_down_refresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				},
+				swipeBack: true, //启用右滑关闭功能
+			});
+
+			function pulldownRefresh() {
+				setTimeout(function() {
+					mui('#up_down_refresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+					javascript: location.reload();
+				}, 1500);
+			}
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#up_down_refresh').pullRefresh().endPullupToRefresh((++now_page > pagenum)); //参数为true代表没有更多数据了。
+					get_order_list();
+				}, 1500);
+			}
+			// 获取订单列表
+			function get_order_list() {
+				var result = "";
+
+				$.ajax({
+					url: 'get_refunds_orders?page=' + now_page+'&status='+9, //api
+					type: 'get',
+					dataType: "json",
+					timeout: 10000,
+					data: {
+						create_time: date,
+						today_number:seachValue
+					},
+					error: function(data) {
+						console.log("error")
+					},
+					success: function(res) {
+						pagenum = res.data.pagenum;
+						var data = res.data.data;
+						// 遍历输入订单
+						$.each(data, function(i, value) {
+							result +=
+								'           <div class="order-box">\n' +
+								'                <!--订单头部 start-->\n' +
+								'                <div class="order-heard-box after-clear">\n' +
+								'                    <div class="order-heard-left">\n' +
+								'                        ' + value.store_name + '' +
+								'                        <div>单号: &nbsp;<span>' + value.today_number + '</span></div>\n' +
+								'                    </div>\n' +
+								'                    <div class="order-heard-right" style="' + value.order_status.style + '">\n' +
+								'                        ' + value.order_status.text + '' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'                <!--订单头部 end-->\n' +
+								'                <!--订单内容 start-->\n' +
+								'                <div class="order-info-box">\n' +
+								'                        <p>订单编号: &nbsp;<span>' + value.order_number + '</span></p>\n' +
+								'                    <p>\n' +
+								'                        姓名:  <span>' + value.delivery_name +
+								'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n' +
+								'                        <span style="color: #8f8f94;font-size: 14px;">电话: <a href="tel:' + value.delivery_phone +
+								'"><span>' + value.delivery_phone + '</span></a></span>\n' +
+								'                    </p>\n' +
+								'                    <p>地址:  <span>' + value.delivery_address + '</span></p>\n' +
+								'                    <p>下单次数:  <span style="color: red">' + value.user_order_count + ' 次</span></p>\n' +
+								'                    <p>应收:<span  style="color: red">￥ ' + value.total_price + '</span><span>  （' + value
+								.count + ' 件商品）</span></p>\n' +
+								'                    <p>' + value.create_time + ' <span  style="color: red">外送订单</span></p>\n';
+							if (value.status == 8) {
+								result += '<span class="agreey" status="9"  subId=' + value.id +
+									' style="border:1px solid #0099FF;padding:5px 10px;display:inline-block">同意</span><span class="agreey" status="10" subId="' +
+									value.id +
+									'" style="margin-left:20px;border:1px solid red;padding:5px 10px;color:red;display:inline-block">拒绝</span>'
+							}
+							result +=
+								'                </div>\n' +
+								'                <!--订单内容 end-->\n' +
+								'                <!--订单详情按钮 start-->\n' +
+								'                <div class="order-details-btn-box after-clear">\n' +
+								'                    <a href="orders_details?id=' + value.id +
+								'" target="_Self">订单详情&nbsp;<span></span></a>\n' +
+								'                </div>\n' +
+								'                <!--订单详情按钮 end-->\n' +
+								'                <!--订单按钮 start-->\n' +
+								'                <div class="order-btn-box">\n';
+							result +=
+								// '                    <button id="del_order_Btn_'+value.id+'" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">删除订单</button>\n' +
+								'                </div>\n' +
+								'                <!--订单按钮 end-->\n' +
+								'            </div>\n';
+						});
+						jQuery(result).insertBefore('.order-body #order_list'); //显示订单
+						$.each(document.getElementsByClassName('agreey'), function(i, value) {
+							console.log(i, value)
+							value.addEventListener('tap', function() {
+								let that = jQuery(this);
+								mui.toast('加载中，请稍后', {
+									duration: 'long'
+								});
+								if (that.attr('status') == 9) {
+									$.ajax({
+										url: '/store/orders/agree_refunds_request', //api
+										type: 'post',
+										dataType: "json",
+										timeout: 10000,
+										data: {
+											'status': that.attr('status'),
+											'id': that.attr('subId')
+										},
+										error: function(data) {
+											console.log("error")
+										},
+										success: function(res) {
+											console.log(res)
+											mui.toast(res.data.content, {
+												duration: 'long'
+											});
+											setTimeout(function() {
+												window.location.reload()
+											}, 2000)
+										}
+									})
+								} else {
+									$.ajax({
+										url: '/store/orders/refuse_refunds_request', //api
+										type: 'post',
+										dataType: "json",
+										timeout: 10000,
+										data: {
+											'status': that.attr('status'),
+											'id': that.attr('subId')
+										},
+										error: function(data) {
+											console.log("error")
+										},
+										success: function(res) {
+											console.log(res)
+											mui.toast(res.data.content, {
+												duration: 'long'
+											});
+											setTimeout(function() {
+												window.location.reload()
+											}, 2000)
+										}
+									})
+								}
+							})
+							// document.getElementById('agreey'+value.id).onclick=function(){
+							// 	let that =jQuery(this);
+							// 	 mui.toast('加载中，请稍后',{ duration:'long' });
+							// 	if(that.attr('status')==9){
+							// 		$.ajax({
+							// 		    url:'/store/orders/agree_refunds_request',  //api
+							// 		    type:'post',
+							// 		    dataType:"json",
+							// 		    timeout:10000,
+							// 		    data:{
+							// 				'status':that.attr('status'),
+							// 				'id':that.attr('subId')
+							// 			},
+							// 		    error:function(data){
+							// 		        console.log("error")
+							// 		    },
+							// 			success:function(res){
+							// 				console.log(res)
+							// 				 mui.toast(res.data.content,{ duration:'long' });
+							// 				 setTimeout(function(){
+							// 				 	window.location.reload()
+							// 				 },2000)
+							// 			}
+							// 		})
+							// 	}else{
+							// 		$.ajax({
+							// 		    url:'/store/orders/refuse_refunds_request',  //api
+							// 		    type:'post',
+							// 		    dataType:"json",
+							// 		    timeout:10000,
+							// 		    data:{
+							// 				'status':that.attr('status'),
+							// 				'id':that.attr('subId')
+							// 			},
+							// 		    error:function(data){
+							// 		        console.log("error")
+							// 		    },
+							// 			success:function(res){
+							// 				console.log(res)
+							// 				mui.toast(res.data.content,{ duration:'long' });
+							// 				setTimeout(function(){
+							// 					window.location.reload()
+							// 				},2000)
+							// 			}
+							// 		})
+							// 	}
+							// }
+						})
+
+						// jQuery('.order-body').on('click','.agreey',function(){
+						// 	let that =jQuery(this);
+						// 	 mui.toast('加载中，请稍后',{ duration:'long' });
+						// 	if(that.attr('status')==9){
+						// 		$.ajax({
+						// 		    url:'/store/orders/agree_refunds_request',  //api
+						// 		    type:'post',
+						// 		    dataType:"json",
+						// 		    timeout:10000,
+						// 		    data:{
+						// 				'status':that.attr('status'),
+						// 				'id':that.attr('id')
+						// 			},
+						// 		    error:function(data){
+						// 		        console.log("error")
+						// 		    },
+						// 			success:function(res){
+						// 				console.log(res)
+						// 				 mui.toast(res.data.content,{ duration:'long' });
+						// 				 setTimeout(function(){
+						// 				 	window.location.reload()
+						// 				 },2000)
+						// 			}
+						// 		})
+						// 	}else{
+						// 		$.ajax({
+						// 		    url:'/store/orders/refuse_refunds_request',  //api
+						// 		    type:'post',
+						// 		    dataType:"json",
+						// 		    timeout:10000,
+						// 		    data:{
+						// 				'status':that.attr('status'),
+						// 				'id':that.attr('id')
+						// 			},
+						// 		    error:function(data){
+						// 		        console.log("error")
+						// 		    },
+						// 			success:function(res){
+						// 				console.log(res)
+						// 				mui.toast(res.data.content,{ duration:'long' });
+						// 				setTimeout(function(){
+						// 					window.location.reload()
+						// 				},2000)
+						// 			}
+						// 		})
+						// 	}
+
+						// })
+
+
+						//遍历加载每个订单按钮
+						// $.each(data,function(i,value){
+						//     //按钮
+						//     document.getElementById("del_order_Btn_"+value.id).addEventListener('tap', function () {
+						//         var btnArray = ['否', '是'];
+						//         mui.confirm('是否要删除该订单？', '删除订单', btnArray, function (e) {
+						//             if (e.index == 1) {
+						//                 console.log('确定删除');
+						//                 mui.ajax('deleted_orders',{
+						//                     data:{
+						//                         id: value.id,
+						//                     },
+						//                     dataType:'json',//服务器返回json格式数据
+						//                     type:'post',//HTTP请求类型
+						//                     timeout:5000,//超时时间设置为5秒；
+						//                     headers:{'Content-Type':'application/json'},
+						//                     success:function(data){
+						//                         //服务器返回响应，根据响应结果，分析是否成功；
+						//                         if (data.data)
+						//                             mui.toast('删除订单成功！',{ duration:'long' });
+						//                         javascript:location.reload()
+						//                     },
+						//                     error:function(xhr,type,errorThrown){
+						//                         //异常处理；
+						//                         mui.toast('删除订单异常异常，请重试！',{ duration:'long' });
+						//                         // console.log(type);
+						//                     }
+						//                 });
+						//             } else {
+						//                 console.log('取消删除');
+						//             }
+						//         })
+						//     });
+						// });
+
+					},
+				})
+			};
+
+		})(mui, document);
+	</script>
+
+</html>

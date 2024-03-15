@@ -1,0 +1,271 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:50:"/var/www/jpgy/tpl/store/home/balance_itemized.html";i:1618455187;s:40:"/var/www/jpgy/tpl/store/common/meta.html";i:1618455187;s:42:"/var/www/jpgy/tpl/store/common/script.html";i:1618455187;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>余额明细</title>
+
+    <!--标准mui.css-->
+    <link href="/static/store/store-css/home_function.css" rel="stylesheet" />
+    <link href="/static/store/mui/css/mui.picker.css" rel="stylesheet" />
+    <link href="/static/store/mui/css/mui.poppicker.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/store/mui/css/mui.picker.min.css" />
+
+</head>
+
+<body>
+<!--顶部标题 start-->
+<header id="header" class="mui-bar mui-bar-nav">
+    <a href="home.html" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span class="mui-icon mui-icon mui-icon-left-nav title-refresh-icon"></span><span >返回</span></a>
+    <h1 class="mui-title">余额明细</h1>
+</header>
+<!--顶部标题 end-->
+
+<div id="up_down_refresh" class="mui-content mui-scroll-wrapper">
+    <div class="after-clear">
+        <!--筛选栏 start-->
+        <div class="sifg-box" style="background: #ffffff">
+            <ul class="mui-table-view mui-grid-view mui-grid-9" style="background: #ffffff!important;">
+                <li  class="mui-table-view-cell mui-media mui-col-xs-6" style="padding: 0px 2px!important;border: 0px!important;">
+                    <div id='datademo' data-options='{"type":"date","beginYear":2015,"endYear":2020}' class="sift-btn-box datatime">
+                        <input type="text"  name="" placeholder="选择日期" id="choosedata">
+                        <span></span>
+                    </div>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-6"  style="padding: 0px 2px!important;border: 0px!important;">
+                    <div  id='cashingPicker'  class="sift-btn-box">
+                        <input type="text"  name=""  placeholder="操作状态" id="cashingResult">
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--筛选栏 end-->
+
+        <!--余额明细 start-->
+        <div class="cashing-records-body" id="order-body">
+            <div id="records_list" class="after-clear">
+
+            </div>
+        </div>
+        <!--余额明细 end-->
+    </div>
+</div>
+
+</body>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/store/mui/js/mui.picker.js"></script>
+<script src="/static/store/mui/js/mui.picker.min.js"></script>
+<script src="/static/store/mui/js/mui.poppicker.js"></script>
+<script src="/static/jquery/jquery-1.8.3.min.js"></script>
+
+<!--解决 a 标签不能跳转-->
+<script>
+    mui('body').on('tap','a',function(){
+        document.location.href=this.href;
+    })
+</script>
+<!--下拉刷新，上拉加载-->
+<script>
+    (function($, doc) {
+        var pagenum;  //总共页数
+        var now_page=1; //当前页码
+		var date=''//日期
+		var status=0//状态
+        var newdate=new Date;
+        
+		$.init();
+		// 下拉选项
+		$.ready(function() {
+			get_order_list();
+		    // 下拉选择状态
+			
+		    var cashingPicker = new $.PopPicker();
+		    cashingPicker.setData([{
+		        value: '1',
+		        text: '收入'
+		    }, {
+		        value: '2',
+		        text: '支出'
+		    }, {
+		        value: '0',
+		        text: '全部'
+		    }]);
+		    var cashingPickerButton = doc.getElementById('cashingPicker');
+		    var cashingResult = doc.getElementById('cashingResult');
+		    cashingPickerButton.addEventListener('tap', function(event) {
+		        cashingPicker.show(function(items) {
+		            cashingResult.value = items[0]['text'];
+		            console.log(cashingResult.value);
+					now_page = 1;
+					status=items[0]['value']
+					document.getElementById('order-body').innerHTML = '<div id="records_list"></div>'
+					get_order_list()
+		            //返回 false 可以阻止选择框的关闭
+		            //return false;
+		        });
+		    }, false);
+		});
+		
+		//时间选项
+		var result = $('#choosedata')[0];
+		var btns = $('#datademo');
+		btns.each(function(i, btn) {
+		    btn.addEventListener('tap', function() {
+		        var _self = this;
+		        result.value = null;
+		        if(_self.picker) {
+		            _self.picker.show(function (rs) {
+		                result.value = rs.text;
+		                console.log(result);
+		                _self.picker.dispose();
+		                _self.picker = null;
+		            });
+		        } else {
+		            var optionsJson = this.getAttribute('data-options') || '{}';
+		            var options = JSON.parse(optionsJson);
+		            var id = this.getAttribute('id');
+		            /*
+		             * 首次显示时实例化组件
+		             * 示例为了简洁，将 options 放在了按钮的 dom 上
+		             * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+		             */
+		            _self.picker = new $.DtPicker(options);
+		            _self.picker.show(function(rs) {
+		                /*
+		                 * rs.value 拼合后的 value
+		                 * rs.text 拼合后的 text
+		                 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+		                 * rs.m 月，用法同年
+		                 * rs.d 日，用法同年
+		                 * rs.h 时，用法同年
+		                 * rs.i 分（minutes 的第二个字母），用法同年
+		                 */
+		                // result.innerText = '选择后: ' + rs.text;
+		                result.value = rs.text;
+						date=result.value
+						now_page = 1;
+						document.getElementById('order-body').innerHTML = '<div id="records_list"></div>'
+						get_order_list()
+		                console.log( result.value);
+		                /*
+		                 * 返回 false 可以阻止选择框的关闭
+		                 * return false;
+		                 */
+		                /*
+		                 * 释放组件资源，释放后将将不能再操作组件
+		                 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+		                 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+		                 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+		                 */
+		                _self.picker.dispose();
+		                _self.picker = null;
+		            });
+		        }
+		
+		    }, false);
+		});
+
+        mui.init({
+            pullRefresh: {
+                container: '#up_down_refresh',
+                down: {
+                    callback: pulldownRefresh
+                },
+                up: {
+                    contentrefresh: '正在加载...',
+                    callback: pullupRefresh
+                }
+            },
+            swipeBack:true, //启用右滑关闭功能
+        });
+        function pulldownRefresh() {
+            setTimeout(function() {
+                mui('#up_down_refresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+                javascript:location.reload();
+            }, 1500);
+        }
+        var count = 0;
+        /**
+         * 上拉加载具体业务实现
+         */
+        function pullupRefresh() {
+            setTimeout(function() {
+                mui('#up_down_refresh').pullRefresh().endPullupToRefresh((++now_page>pagenum)); //参数为true代表没有更多数据了。
+                get_order_list();
+            }, 1500);
+        }
+
+        // 获取余额明细列表
+        function get_order_list(){
+            var result="";
+
+            $.ajax({
+                url:'get_balance_itemized_list?page='+now_page,  //api
+                type:'get',
+                dataType:"json",
+                timeout:10000,
+                data:{
+					create_time: date,
+					status:status
+				},
+                error:function(data){
+                    console.log("error")
+                },
+                success:function(res){
+                    pagenum = res.data.pagenum;
+                    var data = res.data.data;
+                    // 遍历余额明细
+                    $.each(data,function(i,value){
+
+                        if (value.status == 1){
+                            result +=
+                                '           <div class="cashing-records-list">\n' +
+                                '               <div class="list-head after-clear">\n' +
+                                '                   <div class="list-head-left">收入&nbsp;&nbsp;&nbsp;<span style="color: #009933">'+value.money+'</span></div>\n' +
+                                '               </div>\n' +
+                                '               <div class="list-body">\n' +
+                                '                   <p>操作前账户余额：'+value.old_balance+'</p>\n' +
+                                '                   <p>操作后账户余额：'+value.now_balance+'</p>\n' +
+                                '                   <p>时间：'+value.create_time+'</p>\n' +
+                                '                   <p>备注：'+value.notes+'</p>\n' +
+                                '               </div>\n' +
+                                '           </div>' ;
+                        }
+                        if (value.status == 2){
+                            result +=
+                                '           <div class="cashing-records-list">\n' +
+                                '               <div class="list-head after-clear">\n' +
+                                '                   <div class="list-head-left">支出&nbsp;&nbsp;&nbsp;<span style="color: #FF3300">-'+value.money+'</span></div>\n' +
+                                '               </div>\n' +
+                                '               <div class="list-body">\n' +
+                                '                   <p>操作前账户余额：'+value.old_balance+'</p>\n' +
+                                '                   <p>操作后账户余额：'+value.now_balance+'</p>\n' +
+                                '                   <p>时间：'+value.create_time+'</p>\n' +
+                                '                   <p>备注：'+value.notes+'</p>\n' +
+                                '               </div>\n' +
+                                '           </div>' ;
+                        }
+                    });
+                    jQuery(result).insertBefore('.cashing-records-body #records_list');//显示订单
+                },
+            })
+        };
+
+    })(mui, document);
+</script>
+<!--下拉选项-->
+<script>
+    (function($, doc) {
+       
+
+    })(mui, document);
+</script>
+</html>

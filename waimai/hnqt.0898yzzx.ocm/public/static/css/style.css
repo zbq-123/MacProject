@@ -1,0 +1,96 @@
+
+body, html{
+
+}
+.main-body{
+    background-color: #f1f4f6;
+}
+.main-content{
+   background-color: #fff;
+    padding:15px;
+}
+.layui-logo.xu-logo{
+    font-size:20px;
+    color:#15c5b4;
+}
+.xu-icon-btn .layui-icon{
+    margin-right:0;
+}
+span.status-normal, span.status-normal>i.layui-icon{
+    color: #1E9FFF;
+    font-size:14px;
+}
+sapn.status-disable, span.status-disable>i.layui-icon{
+    color: #bbbaba;
+    font-size:14px;
+}
+.tip-btn-line>.layui-form{
+    height:35px;
+    line-height: 35px;
+    float: right;
+}
+.tip-btn-line>.layui-form .layui-input {
+    height:35px;
+    line-height: 35px;
+}
+.tip-btn-line>.layui-form .layui-btn {
+    height:34px;
+    line-height: 34px;
+}
+.status-reject{
+    color: #FF5722;
+}
+.status-published{
+    color: #009688;
+}
+.status-review{
+    color: #009688;
+}
+.layui-upload-drag.xu-upload{
+    padding:10px 40px;
+}
+.layui-input-inline.layui-input-inline-upload{
+    width:auto;
+}
+.layui-input-inline.layui-input-inline-text{
+    width:500px;
+    margin-bottom:20px;
+}
+.layui-input-inline.layui-input-inline-text>textarea{
+    min-height: 95px;
+}
+.layui-form.layui-form-edit{
+    padding-right:40px;
+    padding-top: 10px;
+}
+.image-common{
+    height:95px;
+    width:150px;
+}
+.no-padding{
+    padding:0;
+}
+.layui-upload-drag.no-padding{
+    padding:0;
+}
+.xu-title-pic{
+    height:100%;
+}
+.layui-form-select dl{
+    z-index:1000;
+}
+.layui-form .form-word{
+    line-height:38px;
+}
+.layui-form .form-word-color{
+    line-height:38px;
+    color: #FF5722;
+}
+.layui-form-pane .form-word,.layui-form-pane .form-word-color{
+    padding-left:10px;
+}
+.layui-form .form-word img{
+    padding-top:5px;
+    height:200px;
+    width:320px;
+}

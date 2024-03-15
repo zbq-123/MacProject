@@ -1,0 +1,568 @@
+<?php
+namespace app\api\controller;
+use alipay\Wappay;
+use app\admin\model\User;
+use think\Collection;
+use app\admin\model\HomeCarousel;
+use app\admin\model\Store;
+use think\Db;
+use app\admin\model\Campus;
+use app\admin\model\GoodsPromotion;
+use app\admin\model\Orders;
+use app\admin\model\Coupon;
+use think\Log;
+use think\Model;
+use think\Validate;
+use util\Ret;
+use util\WxPay;
+
+
+class Home extends Collection{
+    //获取轮播图
+    public function getcarousel(){
+        $campus_id = input('campus_id');
+        if(!empty($campus_id)){
+            $maps = [
+                'deleted'=>0,
+                'status'=>1,
+                'campus_id'=>$campus_id,
+            ];
+        }
+        else{
+            $maps = [
+                'deleted'=>0,
+                'status'=>1,
+                'campus_id'=>'',
+            ];
+        }
+        $carousel = new HomeCarousel();
+        $data   = $carousel
+            ->where($maps)
+            ->field('id carousel_id,jump_type,jump_url,picture')
+            ->order('sort desc,id asc')
+            ->select();
+
+        if(empty($data)){
+            return json(['code'=>204,'msg'=>'没有数据']);
+        }
+        else{
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+        }
+    }
+    //推荐商家列表
+    public function getstore()
+    {
+        $campus_id = input('campus_id');
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $limit = 10;
+        $store = new Store();
+        $order = new Orders();
+        $page = input('page')?input('page'):1;
+        $name =  input('name');
+       
+        if(!empty($name)){
+            $storedata = Db::name('store') ->alias('s')
+                ->join('goods g' ,'s.id = g.store_id','left')
+                ->field('s.id,s.logo,s.name,s.campus_id,s.min_price,s.delivery_price,s.delivery_name,s.status,s.start_time1,s.end_time1,s.start_time2,s.end_time2,s.start_time3,s.end_time3')
+                ->where( 's.name|g.name','like', '%' . $name . '%' )
+                ->where('s.campus_id', $campus_id)
+                ->where('s.deleted', 0)
+                ->where('g.deleted', 0)
+                ->order('s.status asc')
+                ->group('s.id')
+                ->limit($limit)
+                ->page($page)
+                ->select();
+            $storecount = Db::name('store') ->alias('s')
+                ->join('goods g' ,'s.id = g.store_id','left')
+                ->field('s.id,s.logo,s.name,s.campus_id,s.min_price,s.delivery_price,s.delivery_name,s.status')
+                ->where( 's.name|g.name','like', '%' . $name . '%' )
+                ->where('s.campus_id', $campus_id)
+                ->where('s.deleted', 0)
+                ->where('g.deleted', 0)
+                ->group('s.id')
+                ->count();
+            
+        }else{
+            $storedata = $store
+                ->where('campus_id', $campus_id)
+                ->where('deleted', 0)
+                ->field("id,logo,name,campus_id,min_price,delivery_price,delivery_name,status,start_time1,end_time1,start_time2,end_time2,start_time3,end_time3")
+                ->order('status asc')
+                ->limit($limit)
+                ->page($page)
+                ->select();
+            $storecount = $store
+                ->where('campus_id', $campus_id)
+                ->where('deleted', 0)
+                ->field("id,logo,name,min_price,delivery_price,delivery_name,status")
+                ->order('id asc')
+                ->count();
+        }
+        $now_time = date('H:i:s', time());
+        if (!empty($storedata)) {
+            foreach ($storedata as &$store_item) {
+                //是否营业
+                if ($store_item['status'] == 1&&!empty($store_item['start_time1'])) {
+
+                    if ($store_item['start_time1'] < $now_time && $store_item['end_time1'] > $now_time || $store_item['start_time2'] < $now_time && $store_item['end_time2'] > $now_time || $store_item['start_time3'] < $now_time && $store_item['end_time3'] > $now_time) {
+                        $store_item['status'] = 1;
+                    } else {
+                        $store_item['status'] = 2;
+                    }
+                }
+
+                $store_item['min_price'] = $store_item['min_price'] / 100;
+                $store_item['delivery_price'] = $store_item['delivery_price'] / 100;
+                //计算订单量
+                $store_item['sale'] = $order
+                    ->where('store_id', $store_item['id'])
+                    ->where('deleted', 0)
+                    ->where('status', 7)
+                    ->count();
+            }
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$storedata,'count'=>$storecount]);
+         }
+         else {
+            return json(['code' => 204, 'msg' => '没有数据']);
+        }
+
+    }
+
+
+    //获取所有校区
+    public function getcampus(){
+        $campus =   new Campus();
+        $campusdata =   $campus
+            ->where('deleted',0)
+            ->field('id campus_id,name,address,lat,lon')
+            ->order('sort desc,id asc')
+            ->select();
+        if(!empty($campusdata)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$campusdata]);
+        }
+        else{
+            return json(['code'=>204,'msg'=>'操作失败']);
+        }
+    }
+    //通过用户id获取选中的校区id
+    public function getcampuid(){
+        $user_id    =   input('user_id');
+        if(empty($user_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $user   =   new User();
+        $campusid =   $user
+            ->where('id',$user_id)
+            ->where('disabled',0)
+            ->where('deleted',0)
+            ->field('campus_id')
+            ->find();
+
+        if(!empty($campusid)){
+            $res=Db::name('campus')->where('id',$campusid['campus_id'])->field('id,name')->find();
+            $data['campus_id']=$res['id'];
+            $data['campus_name']=$res['name'];
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+        }
+        else{
+            return json(['code'=>204,'msg'=>'操作失败']);
+        }
+    }
+    //通过用户id跟校区id更新用户原来的校区id
+    public function updateusercampus(){
+        $user_id   = input('user_id');
+        if(empty($user_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $campus_id = input('campus_id');
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $user   =   new User();
+        if(!empty($user_id)){
+            $userid =   $user
+                ->where('id',$user_id)
+                ->where('disabled',0)
+                ->where('deleted',0)
+                ->field('id')
+                ->find();
+            if(!empty($userid)){
+                if(!empty($campus_id)){
+                    $updatacampusid =   $user
+                        ->where('id',$user_id)
+                        ->update(['campus_id'=>$campus_id,'create_time'=>date('Y-m-d H:i:s', time())]);
+                    if(!empty($updatacampusid)){
+
+                        return json(['code'=>200,'msg'=>'更新成功','data'=>$updatacampusid]);
+                    }
+                    else{
+                        return json(['code'=>204,'msg'=>'更新失败']);
+                    }
+                }
+            }else{
+                return json(['code'=>204,'msg'=>'用户不存在']);
+            }
+        }else{
+            return json(['code'=>204,'msg'=>'用户id为空']);
+        }
+    }
+
+
+    public function get_phone(){
+        //获取到的code
+        $phoneCode = input('code')?:'b8a06cad3858052546241718d4a8176e25abb5993ebe40cff15d09a7ad46a486';
+        if(empty($phoneCode)){
+            return json(['code'=>201,'msg'=>'参数有误']);
+        }
+//        $user_info =  Db::name('tp_user')
+//            ->where('id',$user_id)
+//            ->where('status',1)
+//            ->field('phone')
+//            ->find();
+//        if(!empty($user_info['phone'])){
+//            return json(['code'=>200,'msg'=>'获取成功','data'=>$user_info['phone']]);
+//        }
+
+        $appid  = 'wx97228d4a1cc79b44';
+        $appSecret  ='7b812ddf8aaac046d5ada592257235cb';
+
+        $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . $appid . '&secret=' . $appSecret;
+        $getToken = curl_init();
+        curl_setopt($getToken, CURLOPT_URL, $url);
+        curl_setopt($getToken, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($getToken, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($getToken, CURLOPT_HEADER, 0);
+        curl_setopt($getToken, CURLOPT_RETURNTRANSFER, 1);//此处若设置为0则为直接输出,设置为1则为将返回结果赋值给变量
+        curl_setopt($getToken, CURLOPT_CONNECTTIMEOUT, 10);
+        $resultData = curl_exec($getToken);
+        $disposeData = json_decode($resultData);//此处将返回的结果转化为对象,若在后方加上true则将返回的数据转化为数组
+        $access_token = $disposeData->access_token;//此处选用将结果转化为对象,从对象中取值赋值给相关变量
+        /**
+         * 分割线----------------------------------------------
+         * 上方代码为通过appid与secret获取access_token,即公众号小程序调用接口唯一凭证
+         */
+        //$phoneCode = $_POST['phoneCode'];//从小程序端传送过来的code是获取用户手机号所需要的参数之一
+        $code = array('code' => $phoneCode);//将从小程序端获取的数据转换为数组格式
+        $finalCode = json_encode($code);
+        $numberUrl = 'https://api.weixin.qq.com/wxa/business/getuserphonenumber?access_token=' . $access_token;
+
+        $getNumber = curl_init();
+//        curl_setopt($getNumber, CURLOPT_URL, $numberUrl);
+//        curl_setopt($getNumber, CURLOPT_RETURNTRANSFER, 1);
+//        curl_setopt($getNumber, CURLOPT_SSL_VERIFYPEER, 0);
+//        curl_setopt($getNumber, CURLOPT_SSL_VERIFYHOST, 0);
+//        curl_setopt($getNumber, CURLOPT_POST, 1);
+//        curl_setopt($getNumber, CURLOPT_HEADER, 0);
+//        curl_setopt($getNumber, CURLOPT_POSTFIELDS, $finalCode);
+//        curl_setopt($getNumber, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($getNumber, CURLOPT_URL, $numberUrl);
+        curl_setopt($getNumber, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($getNumber, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($getNumber, CURLOPT_HEADER, 0);
+        curl_setopt($getNumber, CURLOPT_POST, 1);
+        curl_setopt($getNumber, CURLOPT_POSTFIELDS, $finalCode);
+        curl_setopt($getNumber, CURLOPT_RETURNTRANSFER, 1);//此处若设置为0则为直接输出,设置为1则为将返回结果赋值给变量
+        curl_setopt($getNumber, CURLOPT_CONNECTTIMEOUT, 10);
+        $resultData = curl_exec($getNumber);
+
+        curl_close($getNumber);
+        $disposeData = json_decode($resultData,true);
+        $phoneNumber = $disposeData['phone_info']['phoneNumber'];
+        //$number = array('phoneNumber' => $phoneNumber);
+
+
+
+       
+
+        if(!empty($phoneNumber)){
+
+            $user_data=array();
+            $data       =array();
+            $user_info =  Db::name('user')
+                ->where('phone',$phoneNumber)
+                ->where('disabled',0)
+                ->where('deleted',0)
+                ->field('id,phone')
+                ->find();
+
+            if(!empty($user_info)){
+                $data['user_id']=$user_info['id'];
+                $data['phone']=$user_info['phone'];
+                return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+            }
+            else{
+                $user_data['phone']  = $phoneNumber;
+
+                $user_data['create_time']      = date("Y-m-d H:i:s",time());
+
+                $result = Db::name('user')->insertGetId($user_data);
+                $res['user_id']=$result;
+                $res['phone']=$phoneNumber;
+                if(!empty($result)){
+                    return json(['code'=>200,'msg'=>'操作成功','data'=>$res]);
+                }else{
+                    return json(['code'=>203,'msg'=>'操作失败']);
+                }
+            }
+        }else{
+            return json(['code'=>204,'msg'=>'获取失败']);
+        }
+    }
+
+    //通过code获取openid
+    public function getuseropenid()
+    {
+        //获取到的code
+        $code = input('code');
+        $user_name   = input('nickname');
+        $image      = input('image');
+
+        if(empty($code)||empty($user_name)||empty($image)){
+            return json(['code'=>201,'msg'=>'参数有误']);
+        }
+        //$code='093lw7ll2soUq94nXfnl2ijgzc0lw7ld';
+        //获取access_token
+        $appid  = 'wx97228d4a1cc79b44';
+        $appSecret  ='7b812ddf8aaac046d5ada592257235cb';
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, 'https://api.weixin.qq.com/sns/jscode2session?appid=' . $appid . '&secret=' .  $appSecret  . '&js_code=' . $code . '&grant_type=authorization_code');
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);//阻止对证书的检查
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
+        //获取access_token和openid,转换为数组
+        $data = json_decode(curl_exec($curl), true);
+        curl_close($curl);
+        if(!empty($data['openid'])){
+            $openid = $data['openid'];
+            $user_info =  Db::name('user')
+                ->where('gz_openid',$openid)
+                ->where('disabled',0)
+                ->where('deleted',0)
+                ->field('id,nickname,image')
+                ->find();
+            if(!empty($user_info)){
+                if($user_name!=$user_info['nickname']){
+                    Db::name('user')->where('id',$user_info['id'])->update(['nickname'=>$user_name]);
+                }
+                if($image!=$user_info['image']){
+                    Db::name('user')->where('id',$user_info['id'])->update(['image'=>$image]);
+                }
+                $user_data['user_id']=$user_info['id'];
+                return json(['code'=>200,'msg'=>'操作成功','data'=>$user_data]);
+            }
+            else{
+                $user_data['gz_openid']  = $openid;
+                $user_data['nickname']   = $user_name;
+                $user_data['image']      = $image;
+                $user_data['create_time']      = date("Y-m-d H:i:s",time());
+
+                $result = Db::name('user')->insertGetId($user_data);
+                $res['user_id']=$result;
+                if(!empty($result)){
+                    return json(['code'=>200,'msg'=>'操作成功','data'=>$res]);
+                }else{
+                    return json(['code'=>203,'msg'=>'操作失败']);
+                }
+            }
+        }else{
+            return json(['code'=>204,'msg'=>'获取失败']);
+        }
+    }
+    //通过openid获取用户id
+   
+
+    //获取特价商品
+    public function getgoodsp(){
+        $campus_id = input('campus_id');
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $goodsp = new GoodsPromotion();
+        $now_time = date('Y-m-d H:i:s', time());
+        $data   = Db::name('goods_promotion')->alias('g')
+            ->join('store s','g.store_id=s.id','left')
+            ->where('g.campus_id',$campus_id)
+            ->where('g.deleted',0)
+            ->where('s.status',1)
+            ->where('g.start_time','<=',$now_time)
+            ->where('g.end_time','>=',$now_time)
+            ->field('g.good_id,g.goodsimage,g.salesprice,g.goodprice,g.goodsname,g.storename,g.start_time,g.end_time,g.store_id')
+            ->order('g.sort desc,g.id asc')
+            ->limit(6)
+            ->select();
+
+        if(!empty($data)) {
+            foreach ($data as $key => $val) {
+                $data[$key]['salesprice'] = $val['salesprice'] / 100;
+                $data[$key]['goodprice'] = $val['goodprice'] / 100;
+
+            }
+
+        }
+        if(!empty($data)){
+           return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+        }else{
+            return json(['code'=>204,'msg'=>'没有数据','data'=>$data]);
+        }
+
+    }
+    //获取平台优惠券
+    public function getcoupon(){
+
+        $campus_id = input('campus_id');
+        $user_id   = input('user_id');
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'参数有误']);
+        }
+        $Coupon = new Coupon();
+        $maps = [];
+        $maps['start_time'] = ['<',date("Y-m-d H:i:s",time())];
+        $maps['end_time'] = ['>',date("Y-m-d H:i:s",time())];
+        $maps['status'] = 1;
+        $maps['campus_id'] = $campus_id;
+
+
+        $coupons = $Coupon->where($maps)->field('id,name,discount_money,full_money,start_time,end_time')->select();
+        if(!empty($coupons)){
+            foreach($coupons as $k =>$v){
+                $usercoupon = Db::name('coupon_user')->where('user_id',$user_id)->where('coupon_id',$v['id'])->find();
+                if(!empty($usercoupon)){
+                    unset($coupons[$k]);
+                }
+            }
+        }
+
+        if(!empty($coupons)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$coupons]);
+        }
+        else{
+            return json(['code'=>204,'msg'=>'没有数据']);
+        }
+
+    }
+    // 用户领取优惠券
+    public function addcoupon()
+    {
+        $coupon_id = input('coupon_id');
+        $campus_id = input('campus_id');
+        if(empty($coupon_id)){
+            return json(['code'=>204,'msg'=>'优惠券id参数有误']);
+        }
+        if(empty($campus_id)){
+            return json(['code'=>204,'msg'=>'校区id参数有误']);
+        }
+        $in_data = [];
+        $in_data['user_id'] = input('user_id');
+        if(empty($in_data['user_id'])){
+            return json(['code'=>204,'msg'=>'参数有误']);
+
+
+
+        }
+        $in_data['coupon_id'] = $coupon_id;
+        $in_data['campus_id'] = $campus_id;
+        $in_data['redeem_time'] = date('Y-m-d H:i:s',time());
+
+        $maps = [];
+        $maps['user_id'] = $in_data['user_id'];
+        $maps['campus_id'] = $in_data['campus_id'];
+        $maps['coupon_id'] = $in_data['coupon_id'];
+        $maps['is_used'] = 0;
+        $coupon = Db::name('coupon_user')->where($maps)->find();
+        if($coupon){
+            return json(['code'=>204,'msg'=>'已领取，不能重复领取']);
+        }
+
+        $res  = Db::name('coupon_user')->insert($in_data);
+
+        if(!empty($res)){
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$res]);
+        }else{
+            return json(['code'=>204,'msg'=>'领取失败']);
+        }
+    }
+
+    public function edit_order(){
+        $res=Db::name('orders')
+            ->where('create_time','>','2022-10-01 17:41:38')
+            ->where('status','7')
+            ->where('store_id','39')
+            ->where('create_time','<','2022-10-25 0:23:22')
+            ->select();
+        $data=array();
+        foreach($res as $k=>$v){
+            $data[$k]['id']=$v['id'];
+//            $data[$k]['box_price']=$v['box_price'];
+//            $data[$k]['convey_price']=$v['convey_price'];
+//            $data[$k]['discount_money']=$v['discount_money']*100;
+//            $data[$k]['total_price']=$v['total_price'];
+//            $data[$k]['count_price']=$v['total_price']+$v['discount_money']*100;
+            $data[$k]['manage_price']=round(($v['total_price']+$v['discount_money']*100)*$v['manage_ratio']);
+            $data[$k]['develop_price']=round(($v['total_price']+$v['discount_money']*100)*$v['develop_ratio']);
+            $data[$k]['pay_manage_price']=round(($v['total_price']+$v['discount_money']*100)*$v['pay_manage_ratio']);
+
+           $data[$k]['store_price']=$v['total_price']-$data[$k]['manage_price']-$data[$k]['develop_price']-$data[$k]['pay_manage_price'];
+
+        }
+        //dump($data);
+
+        foreach($data as $k =>$v){
+          Db::name('orders')->where('id',$v['id'])->update(['pay_manage_ratio'=>0.005]);
+        }
+        //dump($res);
+        //dump($data);
+    }
+    public function send(){
+        $now_time=date('H:i:s',time());
+        if($now_time>'09:00:15'){
+           echo 123;
+        }
+        $url = 'https://web01.cc138008.com/kaijiang/history/ygxy5.json?v=1665384716364';
+        // $url='https://web01.cc138008.com/server/history/award?page=3&page_size=100&gt=ygxy5&open_time=2022-9-27';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-FORWARDED-FOR:111.222.333.4', 'CLIENT-IP:111.222.333.4'));
+        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11");
+        $output = curl_exec($ch);
+        $info = curl_getinfo($ch);
+        curl_close($ch);
+        $output=json_decode($output,true);
+        $data=$output['data']['list'][0];
+        $number = explode(',',$data['draw_code']);
+        $newnumber=$data['draw_code'];
+        $date=str_replace('期','',$data['pc_issue'][0]);
+        $start_time=$data['pc_issue'][1];
+        if(abs($number[0]-$number[1])==5||abs($number[0]-$number[2])==5||abs($number[0]-$number[3])==5||abs($number[1]-$number[2])==5||abs($number[1]-$number[3])==5||abs($number[2]-$number[3])==5){
+            $newdata['duishu']=1;
+        }else{
+            $newdata['duishu']=0;
+        }
+        if($number[0]==$number[1]||$number[0]==$number[2]||$number[0]==$number[3]||$number[1]==$number[2]||$number[1]==$number[3]||$number[2]==$number[3]){
+            $newdata['schong']=1;
+        }else{
+            $newdata['schong']=0;
+        }
+        if(!empty($newdata['schong'])&&empty($newdata['duishu'])){
+            $order_number=$date;
+            $order_describe=$date.'-'.$newnumber;
+
+            send_add_success('olytE6lYaexQlc5pxa-yvWumUWxE',
+                $order_number,
+                '测试',
+                date('Y-m-d',time()).'-'.$start_time,
+                $order_describe,
+                10);
+        }
+
+     
+    }
+}

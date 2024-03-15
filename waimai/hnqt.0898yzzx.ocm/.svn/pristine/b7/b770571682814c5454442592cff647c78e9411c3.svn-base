@@ -1,0 +1,235 @@
+{extend name="public/popup" /}
+{block name="content"}
+<a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="{:url('index')}"><i class="layui-icon">&#xe603;</i>返回</a>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>查看闲置</legend>
+</fieldset>
+<form class="layui-form layui-form-edit" action="{:url('edit')}" method="post" lay-filter="newsForm">
+
+    <div class="layui-form-item" style="height: 500px;">
+        <div class="layui-form-item">
+
+
+        </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">发布人</label>
+        <div class="layui-input-inline">
+            <input type="text" name="user_name" placeholder="请输入评论人" lay-verify="user_name|required" value="{$store.user_name}" class="layui-input">
+        </div>
+
+    </div>
+        <div class="layui-form-item">
+            <div class="layui-form-item" id="titlePicture1">
+                <label class="layui-form-label">闲置图片</label>
+                <div >
+<!--                    <div class="layui-upload-drag xu-upload" id="picture1" style="display: none;">-->
+                        {volist name="content_image" id="vo"}
+                        <img src="{$vo}" alt="" width="138" height="95" style="float: left;margin-right: 5px;">
+                        {/volist}
+<!--                    </div>-->
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="layui-form-item">
+<!--            <label class="layui-form-label">评论内容</label>-->
+<!--            <div class="layui-input-block" id="content">-->
+<!--                <script id="container" name="content" value="{$store.content}" type="text/plain">{$store.content}</script>-->
+<!--            </div>-->
+            <label class="layui-form-label">闲置内容</label>
+            <div class="layui-input-block">
+                <textarea id="demo" name="content" >{$store.content}</textarea>
+            </div>
+        </div>
+
+
+
+        <input type="hidden" name="id" value="{$store.id}">
+        <div class="layui-form-item"></div>
+
+
+          
+        <div class="layui-form-item"></div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+<!--                <button class="layui-btn" lay-submit lay-filter="save">保存</button>-->
+                <!--        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="audit">提交审核</button>-->
+<!--                <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>-->
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+{block name="script"}
+<script type="text/javascript" src="__STATIC__/ueditor/ueditor.config.js?version={$Think.config.web_config.site_version}"></script>
+<script type="text/javascript" src="__STATIC__/ueditor/ueditor.all.js?version={$Think.config.web_config.site_version}"></script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp','rate'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+        var rate = layui.rate;
+
+        //显示文字
+      
+
+        //自定义验证规则
+        form.verify({
+            name: function (value) {
+                if (value.length > 100) {
+                    return '限制100个字符且不为空';
+                }
+            }
+        });
+        //输入图片上传按钮序号初始化上传组件
+        upload.render({
+            elem: '#picture1'
+            , url: "{:url('upload/store')}"
+            , size: 2048
+            , done: function (res, index, upload) {
+                if (res.code == 200) {
+                    $("#titlePicture1").find("input[name='image']").eq(1 - 1).val(res.data);
+                    $("#picture1").html("<img src='" + res.data + "' width='138' height='95'>");
+                    $("#picture1").css({"padding": "0"});
+                }
+
+                //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+                var item = this.item;
+            }
+        });
+        $("#picture1").css({"display": "inline-block"});
+
+
+        xlp.getHttp("{:url('api/all_campus')}", {}, function (res) {
+            $("#navigationId").html('<option value="">请选择(可以输入搜索)</option>');
+            layui.each(res, function (i) {
+                $("#navigationId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "navigationIdSelect");
+            })
+        });
+
+        form.on("submit(cancel)", function (data) {
+            location.href = "{:url('news_column')}";
+            return false;
+        });
+    })
+
+</script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp','layedit'], function () {
+
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+        //初始化编辑器
+        var ue = xlp.ueEditor('container', {});
+        ue.ready(function () {
+            xlp.reSetIframeHeight();
+        });
+        var layedit = layui.layedit;
+        layedit.set({
+            uploadImage: {  //上传图片的设置
+                url: "{:url('upload/form_img')}" //接口url
+                ,type: 'post' //默认post
+            }
+        });
+        //layedit.build('demo');  //建立编辑器
+        tex = layedit.build('demo', {
+
+
+        });
+
+        //自定义验证规则
+        form.verify({
+            title: function (value) {
+                if (value.length > 60 | value.length == 0) {
+                    return '标题限制60个字符且不为空';
+                }
+            },
+            keyword: function (value) {
+                if (value.length > 255) {
+                    return '字数限制255个字符';
+                }
+            },
+            writer: function (value) {
+                if (value.length > 20) {
+                    return '字数限制20个字符';
+                }
+            },
+            summary: function (value) {
+                if (value.length > 255) {
+                    return '字数限制255个字符';
+                }
+            },
+            source: function (value) {
+                if (value.length > 60 | value.length == 0) {
+                    return '字数限制60个字符且不为空';
+                }
+            },
+            editor: function (value) {
+                if (value.length > 20) {
+                    return '字数限制20个字符';
+                }
+            },
+
+        });
+
+        /* xlp.getHttp("{:url('api/all_column')}", {}, function (res) {
+             $("#columnTypeId").html('<option value="">请选择(可以输入搜索)</option>');
+             layui.each(res, function (i) {
+                 $("#columnTypeId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                 form.render("select", "columnTypeIdSelect");
+             })
+         });*/
+
+
+        form.on("submit(audit)", function (data) {
+            $("#status").val("1");
+
+        });
+        form.on("submit(cancel)", function (data) {
+            location.href = "{:url('news_subject')}";
+            return false;
+        });
+    })
+
+</script>
+<script>
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            , type: 'time',
+
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test2' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test3' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test4' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test5' //指定元素
+            , type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test6' //指定元素
+            , type: 'time'
+        });
+    });
+</script>
+{/block}

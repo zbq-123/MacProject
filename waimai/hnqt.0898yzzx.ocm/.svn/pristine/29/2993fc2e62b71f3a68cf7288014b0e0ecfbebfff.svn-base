@@ -1,0 +1,192 @@
+<?php
+namespace app\admin\controller;
+
+use app\common\controller\Base;
+use util\Ret;
+use util\UploadHandler;
+
+/**
+ * 文件上传
+ */
+class Upload extends Base
+{
+    protected $_config = array(
+        'rule'   =>  [
+            'picture'  =>  ['size'=>3*1024*1024,'ext'=>'jpg,png,gif'],
+            'store'  =>  ['size'=>3*1024*1024,'ext'=>'jpg,png,gif'],
+            'goods'  =>  ['size'=>3*1024*1024,'ext'=>'jpg,png,gif'],
+            'video'  =>  ['size'=>300*1024*1024,'ext'=>'mp4,flv'],
+            'app'   =>  ['size'=>50*1024*1024,'ext'=>'apk,ipa'],
+            'avatar'  =>  ['size'=>1*1024*1024,'ext'=>'jpg,png,gif'],
+            'carousel'  =>  ['size'=>1*1024*1024,'ext'=>'jpg,png'],
+            'netgroup'  =>  ['size'=>1*1024*1024,'ext'=>'jpg,png,gif'],
+            'vote'  =>  ['size'=>1*1024*1024,'ext'=>'jpg,png,gif'],
+            'appstart'  =>  ['size'=>1*1024*1024,'ext'=>'jpg,png,gif'],
+            'column_logo'  =>  ['size'=>1*1024*1024,'ext'=>'jpg,png,gif'],
+            'train'  =>  ['size'=>3*1024*1024,'ext'=>'jpg,png,gif'],
+            'supermarket'  =>  ['size'=>3*1024*1024,'ext'=>'jpg,png,gif'],
+        ],
+        'path' =>  [
+            'picture'  =>  ROOT_PATH.'public/uploads/picture',
+            'store'  =>  ROOT_PATH.'public/uploads/store',
+            'goods'  =>  ROOT_PATH.'public/uploads/goods',
+            'video'  =>  ROOT_PATH.'public/uploads/news/videos',
+            'app'   =>  ROOT_PATH.'public/uploads/appfile/',
+            'avatar'  =>  ROOT_PATH.'public/uploads/avatar',
+            'carousel'  =>  ROOT_PATH.'public/uploads/carousel',
+            'netgroup'  =>  ROOT_PATH.'public/uploads/netgroup',
+            'vote'  =>  ROOT_PATH.'public/uploads/vote',
+            'appstart'  =>  ROOT_PATH.'public/uploads/appstart',
+            'column_logo'  =>  ROOT_PATH.'public/uploads/column_logo',
+            'train'  =>  ROOT_PATH.'public/uploads/train',
+            'supermarket'  =>  ROOT_PATH.'public/uploads/supermarket',
+        ]
+    );
+
+    protected function _initialize()
+    {
+        if (!isLogin()) {
+            abort(606);
+        }
+    }
+    //保存压缩处理上传图片
+    protected function saveImage($name,$width = 0,$height = 0,$thumbType = 1)
+    {
+        $file = request()->file('file');
+        $info = $file->validate($this->_config["rule"]["{$name}"])->move($this->_config['path']["{$name}"]);
+        if ($info) {
+            if ($width && $height) {
+                $image = \think\Image::open($info);
+                $image->thumb($width, $height, $thumbType)->save($this->_config['path']["{$name}"].'/'.$info->getSaveName());
+                return config('web_config.upload_host')."{$name}/".$info->getSaveName();
+            }else{
+                return config('web_config.upload_host')."{$name}/".$info->getSaveName();
+            }
+        }else{
+            abort(605, $file->getError());
+        }
+    }
+
+    //上传图片
+    public function picture()
+    {
+        $result = $this->saveImage("picture",720,400);
+        return json(new Ret($result));
+        /*$file = request()->file('file');
+        $info = $file->validate($this->_config['rule']['picture'])->move($this->_config['path']['picture']);
+        if ($info) {
+            return json(new Ret(config('web_config.upload_host').'news/picture/'.$info->getSaveName()));
+        }else{
+            abort(605, $file->getError());
+        }*/
+    }
+    //商店图片
+    public function store()
+    {
+        $result = $this->saveImage("store", 200, 150);
+        return json(new Ret($result));
+    }
+    //商店图片
+    public function goods()
+    {
+        $result = $this->saveImage("goods", 200, 150);
+        return json(new Ret($result));
+    }
+    //政务头像
+    public function avatarImage()
+    {
+        $result = $this->saveImage("avatar", 50, 50);
+        return json(new Ret($result));
+    }
+    //轮播图
+    public function carouselImage()
+    {
+        $result = $this->saveImage("carousel", 720, 400);
+        return json(new Ret($result));
+    }
+    //网群二维码
+    public function netGroupImage()
+    {
+        $result = $this->saveImage("netgroup", 300, 300);
+        return json(new Ret($result));
+    }
+    //投票图片
+    public function voteMemberImage()
+    {
+        $result = $this->saveImage("vote", 300, 300);
+        return json(new Ret($result));
+    }
+    //app启动图片
+    public function appStartImage()
+    {
+        $result = $this->saveImage("appstart", 720, 960);
+        return json(new Ret($result));
+    }
+
+    //上传广告图片
+    public function ad()
+    {
+        $result = $this->saveImage("ad", 200, 150);
+        return json(new Ret($result));
+    }
+
+    //大类LOGO图片
+    public function columnImage(){
+        $result = $this->saveImage("column_logo");
+        return json(new Ret($result));
+    }
+
+    //app文件上传
+    public function appUpload()
+    {
+        $file = request()->file('file');
+        $info = $file->validate($this->_config['rule']['app'])->move($this->_config['path']['app'], '',true);
+        if ($info) {
+            return json(new Ret(config('web_config.upload_host').'appfile/'.$info->getSaveName()));
+        }else{
+            abort(605, $file->getError());
+        }
+    }
+    //上传视频
+    //注意设置php.ini nginx上传文件大小限制
+    /**
+     * 准备修改为分片上传
+     * @return \think\response\Json
+     */
+    /*public function video()
+    {
+        $file = request()->file('file');
+        $info = $file->validate($this->_config['rule']['video'])->move($this->_config['path']['video']);
+        if ($info) {
+            return json(new Ret(config('web_config.upload_host').'news/video/'.$info->getSaveName()));
+        }else{
+            abort(605, $file->getError());
+        }
+    }*/
+
+    public function video()
+    {
+        if (request()->isPost() == false) {
+            abort(404);
+        }
+        $upload_handler = new UploadHandler([
+            'script_url' => '',
+            'upload_dir' => ROOT_PATH.'public/uploads/video/news/',
+            'upload_url' => config('web_config.upload_host').'video/news/',
+            'param_name' => 'file',
+        ]);
+    }
+
+    //驾校图片
+    public function train()
+    {
+        $result = $this->saveImage("train", 200, 150);
+        return json(new Ret($result));
+    }
+    //商超图片
+    public function supermarket()
+    {
+        $result = $this->saveImage("supermarket", 200, 150);
+        return json(new Ret($result));
+    }
+}

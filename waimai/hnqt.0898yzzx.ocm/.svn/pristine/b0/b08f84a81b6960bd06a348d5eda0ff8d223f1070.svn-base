@@ -1,0 +1,135 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:40:"/var/www/jpgy/tpl/store/login/index.html";i:1618455188;s:40:"/var/www/jpgy/tpl/store/common/meta.html";i:1618455187;s:42:"/var/www/jpgy/tpl/store/common/script.html";i:1618455187;}*/ ?>
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/store/mui/css/mui.min.css">
+<link href="/static/store/store-css/common.css" rel="stylesheet" />
+    <title>商家登录</title>
+    <style>
+        .mui-content-padded {
+            margin-top: 25px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .mui-btn {
+            padding: 10px;
+        }
+
+        .link-area {
+            display: block;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .spliter {
+            color: #bbb;
+            padding: 0px 8px;
+        }
+
+        .login-icon-box{
+            width: 150px;
+            height: 150px;
+            margin: auto;
+            padding: 10px;
+            border-radius: 50%;
+            background: white;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .login-icon-box img{
+            height: 90%;
+            width: 90%;
+        }
+
+        .login-form-box{
+            background: #007aff;
+            padding: 25px 0px;
+            border-radius: 15px;
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-input-box{
+            width: 100%;
+            color: white;
+            height: 45px!important;
+        }
+        .login-input-box:nth-child(2n+1) {
+            margin-bottom: 20px!important;
+        }
+        .login-input{
+            width: 70%!important;
+            background: white;
+            border-radius: 10px!important;
+            border: 0px!important;
+            margin-left: 15px;
+            color: #333333;
+        }
+        /*自动取消提示框位置*/
+        .mui-toast-container {
+            bottom: 50% !important;/*离布局底部的距离*/
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="mui-content">
+    <div class="login-icon-box">
+        <img src="/static/store/icon/store-icon.png" alt="">
+    </div>
+    <form  id='login_form' class="login-form-box" action=""  method="post">
+        <div class="login-input-box">
+            <label >账号</label>
+            <input id='username' name="username" type="text" required  class="login-input" placeholder="请输入账号">
+        </div>
+
+        <div class="login-input-box">
+            <label >密码</label>
+            <input id='password' name="password" type="password" required  class="login-input" placeholder="请输入密码">
+        </div>
+    </form>
+    <div class="mui-content-padded">
+        <button id='login' class="mui-btn mui-btn-block mui-btn-primary" style="width: 80%;margin: auto;border-radius: 10px;">登录</button>
+        <div class="link-area">
+            <a id='reg'>如何注册 ？</a>
+            <span class="spliter">|</span>
+            <a id='forgetPassword'>忘记密码 !</a>
+        </div>
+    </div>
+</div>
+
+<script src="/static/store/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/js/md5.js"></script>
+</body>
+<script>
+    document.getElementById("login").addEventListener('click', function() {
+        var username = document.getElementById("username");
+        var password = document.getElementById("password");
+        if (username.value == '' ){
+            mui.toast('用户名不能为空！',{ duration:'long' });
+            username.focus();
+        }else if (password.value == '' ){
+            mui.toast('密码不能为空！',{ duration:'long' });
+            password.focus();
+        }else {
+            password.value =md5(password.value);
+            document.getElementById("login_form").submit();//js原生方式表单提交
+        }
+    });
+    document.getElementById("reg").addEventListener('click', function() {
+        mui.toast('该功能正在升级完善中！',{ duration:'long' });
+    });
+    document.getElementById("forgetPassword").addEventListener('click', function() {
+        mui.toast('该功能正在升级完善中！',{ duration:'long' });
+    });
+</script>
+</html>

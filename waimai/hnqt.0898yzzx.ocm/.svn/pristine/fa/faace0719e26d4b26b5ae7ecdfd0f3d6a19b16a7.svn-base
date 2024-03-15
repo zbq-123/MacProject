@@ -1,0 +1,282 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: wenyi
+ * Date: 2020/7/15
+ * Time: 11:02
+ */
+
+namespace app\store\controller;
+
+use app\common\controller\StoreBase;
+use think\Db;
+use app\admin\model\Admin;
+use util\Ret;
+
+class Home extends StoreBase
+{
+    /**
+     * @Author: Wanglixian
+     * @Date: 2020/7/25 9:42
+     * @Description: 移动端--商家首页
+     * @return mixed
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function home(){
+        $admin = session('admin');
+        $store_id = $admin['store_id'];
+        $store = Db::name('store')->where('id',$store_id)->where('deleted',0)->find();
+        $store['balance'] = fen_change_yuan($store['balance']);
+
+        $today_start_time = date('Y-m-d 00:00:00', time() - 3600*24);
+        $today_end_time = date('Y-m-d 23:59:59', time() - 3600*24);
+        $today= [];
+        $today['turnover'] = 0.0;
+        $today['order_count'] = 0;
+        $today['today_money'] = 0.0;
+        $order = Db::name('orders')->where('store_id',$store_id)
+            ->where('status',7)
+            ->where('create_time','>=',$today_start_time)
+            ->where('create_time','<=',$today_end_time)
+            ->where('deleted',0)
+            ->select();
+        foreach ($order as &$item){
+            $today['turnover'] = $today['turnover']+fen_change_yuan($item['total_price']);
+            $today['today_money'] = $today['today_money']+fen_change_yuan($item['store_price']);
+            $today['order_count']++;
+        }
+
+        // 获取退款订单最大 ID
+        $admin = session('admin');
+        $store_id = $admin['store_id'];
+
+        $orders = Db::name('orders')
+        ->where('store_id',$store_id)
+        ->where('status','in','9')
+        ->where('deleted',0)
+        ->order('id desc')
+        ->find();
+dump($orders);
+        dump($store_id);
+        exit;
+
+        $this->assign('refund_max_id',$orders['id']);
+        $this->assign('store',$store);
+        $this->assign('today',$today);
+
+        return $this->fetch();
+    }
+
+    /**
+     * @Author: Wanglixian
+     * @Date: 2020/7/25 9:43
+     * @Description: 移动端--商家修改密码
+     * @return mixed
+     */
+    public function edit_password(){
+        $admin = session('admin');
+        if (request()->isPost()){
+            $old_password = request()->post('old_password');
+            $new_password = request()->post('new_password');
+            $again_new_password = request()->post('again_new_password');
+
+            $edit_admin = new Admin;
+            $edit_admin = $edit_admin->where('id',$admin['id'])->find();
+            if(false == $edit_admin){
+                $this->error = '检测数据错误，请重试！';
+                return false;
+            }
+            if(md5($old_password) == $edit_admin->password){
+                $edit_admin->password = md5($new_password);
+                $edit_admin->save();
+                $this->success("密码修改成功！", 'home/home', null, 1);
+            }else{
+                $this->error('原密码错误，请重试！');
+                return false;
+            }
+        }
+
+        return $this->fetch();
+    }
+
+    /**
+     * @Author: Wanglixian
+     * @Date: 2020/7/25 9:44
+     * @Description: 移动端--商家提现申请
+     * @return mixed
+     */
+    public function cashing(){
+        $admin = session('admin');
+        $store_id = $admin['store_id'];
+        $store = Db::name('store')->where('id',$store_id)->where('deleted',0)->find();
+
+        if (request()->isPost()){
+            $cashing_amount = request()->post('cashing_amount');
+            $data['store_id'] = $store_id;
+            $data['store_user_id'] = $admin['id'];
+            $data['money'] = yuan_change_fen($cashing_amount);
+            $data['old_balance'] = $store['balance'];
+            $data['now_balance'] = $store['balance']-$data['money'];
+
+            if ($data['now_balance'] < 0){
+                $this->error('申请提现金额超出账户当前余额！','home/cashing', null, 3);
+            }
+
+            // $money_draw_in = Db::name('money_draw')->where('status',1)->where('deleted',0)->find();
+            // if ($money_draw_in) {
+            //     $this->error('有提现申请未处理，待处理后才可申请提现！','home/cashing', null, 3);
+            // }
+            $money_draw_id = Db::name('money_draw')->insertGetId($data);
+            if ($money_draw_id){
+                $store = Db::name('store')->where('id',$store_id)->where('deleted',0)->update(['balance' => $data['now_balance'],'update_time'=>date('Y-m-d H:i:s',time())]);
+                if ($store){
+                    $store_amount_data = [];
+                    $store_amount_data['store_id'] = $store_id;
+                    $store_amount_data['money'] = $data['money'];
+                    $store_amount_data['old_balance'] = $data['old_balance'];
+                    $store_amount_data['now_balance'] = $data['now_balance'];
+                    $store_amount_data['status'] = 2;
+                    $store_amount_data['admin_id'] = session('admin.id');
+                    $store_amount_data['notes'] = '提现';
+                    $store_amount_records = Db::name('store_amount_records')->insert($store_amount_data);
+                    $this->success("提现成功，等待管理员审核！", 'home/cashing_records', null, 1);
+                }else{
+                    $money_draw_delete = Db::name('money_draw')->delete($money_draw_id);
+                    $this->error('提现错误，请重试！');
+                }
+            }else{
+                $this->error('提现错误，请重试！');
+            }
+        }
+
+        $store['balance'] = fen_change_yuan($store['balance']);
+        $this->assign('store_balance',$store['balance']);
+
+        return $this->fetch();
+    }
+
+    /**
+     * @Author: Wanglixian
+     * @Date: 2020/7/25 9:44
+     * @Description: 移动端--商家提现申请记录
+     * @return mixed
+     */
+    public function cashing_records(){
+        $admin = session('admin');
+        $store_id = $admin['store_id'];
+        $money_draw = Db::name('money_draw')->alias('a')
+            ->join('admin b','a.store_user_id = b.id','left')
+            ->where('a.store_id',$store_id)
+            ->where('deleted',0)
+            ->order('create_time desc')
+            ->field('money,old_balance,now_balance,pay_order_code,status,a.create_time,status2_time,status3_time,b.real_name admin_name')
+            ->select();
+
+        foreach ($money_draw as &$item){
+            $item['money'] = fen_change_yuan($item['money']);
+            $item['old_balance'] = fen_change_yuan($item['old_balance']);
+            $item['now_balance'] = fen_change_yuan($item['now_balance']);
+        }
+
+        $this->assign('money_draw',$money_draw);
+
+        return $this->fetch();
+    }
+
+    /**
+     * @Author: Wanglixian
+     * @Date: 2020/7/25 9:44
+     * @Description: 移动端--商家金额明细列表
+     * @return mixed
+     */
+    public function balance_itemized(){
+        $admin = session('admin');
+        $store_id = $admin['store_id'];
+
+        return $this->fetch();
+    }
+
+    /**
+     * @Author: Wanglixian
+     * @Date: 2020/8/19 11:56
+     * @Description: 移动端--获取商家金额明细
+     * @return Ret
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    // public function get_balance_itemized_list(){
+    //     $admin = session('admin');
+    //     $store_id = $admin['store_id'];
+    //     $page = request()->param('page');
+    //     $store_amount_records = Db::name('store_amount_records')
+    //         ->where('store_id',$store_id)
+    //         ->where('deleted',0)
+    //         ->order('create_time desc')
+    //         ->limit($this->limit)
+    //         ->page($page)
+    //         ->select();
+    //     $amount_records_count = Db::name('store_amount_records')
+    //         ->where('store_id',$store_id)
+    //         ->where('deleted',0)
+    //         ->order('create_time desc')
+    //         ->select();
+
+    //     foreach ($store_amount_records as &$item){
+    //         $item['money'] = fen_change_yuan($item['money']);
+    //         $item['old_balance'] = fen_change_yuan($item['old_balance']);
+    //         $item['now_balance'] = fen_change_yuan($item['now_balance']);
+    //     }
+
+    //     $data['data'] = $store_amount_records;
+    //     $data['pagenum'] = count($amount_records_count)/10;
+
+    //     return new Ret($data);
+    // }
+
+    public function get_balance_itemized_list(){
+        $admin = session('admin');
+        $store_id = $admin['store_id'];
+        $page = request()->param('page');
+        $create_time = request()->param('create_time');
+        $status = request()->param('status');
+        $where = [];
+        if($status){
+            $where = ['status'=>$status];
+        }
+        if($create_time){
+            $todayStart = $create_time.' 00:00:00'; 
+            $todayEnd = $create_time.' 23:59:59';  
+            $where['create_time'] = ['between',$todayStart.','.$todayEnd];
+        }
+        
+        $store_amount_records = Db::name('store_amount_records')
+            ->where('store_id',$store_id)
+            ->where($where)
+            ->where('deleted',0)
+            ->order('create_time desc')
+            ->limit($this->limit)
+            ->page($page)
+            ->select();
+        $amount_records_count = Db::name('store_amount_records')
+            ->where('store_id',$store_id)
+            ->where($where)
+            ->where('deleted',0)
+            ->order('create_time desc')
+            ->select();
+        foreach ($store_amount_records as &$item){
+            $item['money'] = fen_change_yuan($item['money']);
+            $item['old_balance'] = fen_change_yuan($item['old_balance']);
+            $item['now_balance'] = fen_change_yuan($item['now_balance']);
+        }
+
+        $data['data'] = $store_amount_records;
+        $data['pagenum'] = count($amount_records_count)/10;
+
+        return new Ret($data);
+    }
+
+
+}

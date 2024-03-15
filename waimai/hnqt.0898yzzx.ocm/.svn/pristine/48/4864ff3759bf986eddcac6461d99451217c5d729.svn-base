@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+    <link rel="stylesheet" href="__STATIC__/client/css/page-orders-submit.css">
+</head>
+<style type="text/css">
+    .visiHidden,.visiHidden1{
+        display:none
+    }
+</style>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">确认订单</h1>
+</header>
+<div class="mui-content">
+    <div class="orders-submit-panel">
+        <div class="address-detail-panel">
+            <div class="panel-address-info">
+                <div class="address">{$address.delivery_address}</div>
+                <div class="user-info">{$address.delivery_name}({$address.gender})&nbsp;&nbsp;&nbsp;&nbsp;{$address.delivery_phone}</div>
+            </div>
+            <div class="mui-icon mui-icon-forward"></div>
+        </div>
+    </div>
+	
+    <div class="orders-submit-panel">
+        <div class="store-name">{$store.name}</div>
+        {volist name='goods' id='vo'}
+        <div class="goods-item">
+            <img class="goods-img" src="{$vo.image}">
+            <div class="goods-info">
+                <div class="goods-name">{$vo.name}</div>
+                <div class="goods-count">x{$vo.count}</div>
+            </div>
+            <div class="goods-price">¥{$vo.price_count/100}</div>
+        </div>
+        {/volist}
+    </div>
+	<div class="orders-submit-panel">
+	    <div style="font-size:14px;margin-bottom:10px;font-weight: bold;">
+	       备注
+	    </div>
+	    <div class="">
+	        <textarea name="remake" style="margin-bottom:0;resize: none;width:100%;height:auto;font-size:15px" placeholder="比如:加辣"></textarea>
+	    </div>
+	</div>
+    <div class="orders-submit-panel">
+        {neq name="box_price" value="0"}
+        <div class="orders-other-price">
+            <div class="other-name">{$store.box_name}</div>
+            <div class="other-price">¥{$box_price/100}</div>
+        </div>
+        {/neq}
+        <div class="orders-other-price">
+            <div class="other-name">{$store.delivery_name}</div>
+            <div class="other-price">¥{$store.delivery_price/100}</div>
+        </div>
+		<!-- 我的优惠卷 -->
+		{if($coupons)}
+        <div class="orders-other-price" style="align-items: center;">
+            <div class="other-name">优惠券</div>
+            <div style="display:flex;align-items: center;text-align: right;justify-content: flex-end;">
+				<!-- 这里能直接判断如果没有卷就返回暂无可用即可 -->
+				<div class="other-price visiHidden" style="text-align: right;">减</div>
+				<!-- <select name="use_coupon" onchange="opstionBtn()" id="use_coupon" style="padding:0;margin-bottom:0;text-align: right;">
+					 <option value='请选择'>请选择</option>
+				    {foreach name="coupons" item="vo"}
+				    <option value="{$vo.coupon_id}">{$vo.discount_money}</option>
+				    {/foreach}
+				</select> -->
+				<input onclick="open_1()" id="use_coupon1" placeholder="请选择" readonly value="" style=";max-width: 40px;font-size: 13px;text-align: right;"/>
+				<div id="poupo" style="background: rgba(0,0,0,.5);width: 100%;height: 100vh;position: fixed;top: 0;left: 0;z-index: 99999;display: none;">
+					<div style="position: relative;top: 40%;left: 50%;transform: translate(-50%,-50%);width: 70%;max-height: 60%;overflow: hidden;overflow-y: scroll;border: 1px solid gray;padding:0 10px;background: white;border-radius: 5px;">
+						<p style="font-size: 14px;text-align: center;margin-top: 10px;">以下优惠卷可使用</p>
+						{foreach name="coupons" item="vo" key="key"}
+						<label onclick="opstionBtn1({$vo.coupon_id},{$vo.discount_money})" for="aa{$key}" style="margin:10px 0;padding: 5px 5px;border-radius: 5px;background: linear-gradient(to right,red,orange);display: flex;justify-content: space-between;align-items: center;">
+							<label for="aa{$key}" style="border-radius: 5px;color: orange;background: beige;height: 60px;line-height: 60px;display: inline-block;font-size: 14px;padding: 0 10px;">
+								优惠金额:{$vo.discount_money}
+							</label>
+							<label for="aa{$key}" style="display: flex;flex-flow: column;align-items: center;font-size: 14px;color: white;padding: 0 10px;">
+								满减优惠
+								<!-- <span style="font-size: 10px;color: azure;">满10使用</span> -->
+							</label>
+							<input type="radio" name="cou" id="aa{$key}">
+						</label>
+						{/foreach}
+						<img onclick="close_1()" style="position: fixed;margin-top: 20px;left: 50%;transform: translate(-50%);" src="__STATIC__/img/close.png" width="30">
+					</div>
+				</div>
+			</div>
+        </div>
+		{/if}
+		<!-- 月卡 -->
+		{if($card)}
+		<div class="orders-other-price" style="align-items: center;">
+		    <div class="other-name">月卡劵</div>
+		    <div style="display:flex;align-items: center;text-align: right;justify-content: flex-end;">
+				<!-- 这里能直接判断如果没有卷就返回暂无可用即可 -->
+				<div class="other-price visiHidden1" style="text-align: right;">减</div>
+				<input onclick="open_2()" id="use_coupon2" placeholder="请选择" readonly value="" style=";max-width: 40px;font-size: 13px;text-align: right;"/>
+				<div id="poupo1" style="background: rgba(0,0,0,.5);width: 100%;height: 100vh;position: fixed;top: 0;left: 0;z-index: 99999;display: none;">
+					<div style="position: relative;top: 40%;left: 50%;transform: translate(-50%,-50%);width: 70%;max-height: 60%;overflow: hidden;overflow-y: scroll;border: 1px solid gray;padding:0 10px;background: white;border-radius: 5px;">
+						<p style="font-size: 14px;text-align: center;margin-top: 10px;">以下月卡劵可使用{$card.count}次</p>
+						<label onclick="opstionBtn2({$card.id},{$card.coupon.discount_money})" for="aa" style="margin:10px 0;padding: 5px 5px;border-radius: 5px;background: linear-gradient(to right,red,orange);display: flex;justify-content: space-between;align-items: center;">
+							<label for="aa" style="border-radius: 5px;color: orange;background: beige;height: 60px;line-height: 60px;display: inline-block;font-size: 14px;padding: 0 10px;">
+								{$card.coupon.discount_money}元
+							</label>
+							<label for="aa" style="display: flex;flex-flow: column;align-items: center;font-size: 14px;color: white;padding: 0 10px;">
+								无门槛<span style="font-size: 10px;color: azure;">任意一家店铺(通用)</span>
+							</label>
+							<input type="radio" name="cou" id="aa"">
+						</label>
+						<img onclick="close_2()" style="position: fixed;margin-top: 20px;left: 50%;transform: translate(-50%);" src="__STATIC__/img/close.png" width="30">
+					</div>
+				</div>
+			</div>
+		</div>
+		{/if}
+        <div class="orders-count-price">
+            <span class="price-name">小计</span><span class="price-number">¥{$all_price/100}</span>
+        </div>
+    </div>
+	{if(!$card)}
+	<div class="orders-submit-panel" style="align-items: center;">
+	    <div class="other-name">开通校园月卡</div>
+	    <div style="display:flex;align-items: center;text-align: right;justify-content: space-between;margin-top: 10px;">
+	        <!-- 这里能直接判断如果没有卷就返回暂无可用即可 -->
+			<div class="card-submit" style="padding: 5px 5px;border-radius: 5px;background: linear-gradient(to right,red,orange);display: flex;justify-content: space-between;align-items: center;width: 100%;">
+				<span style="border-radius: 5px;color: orangered;background: beige;width: 45%;height: 60px;line-height: 60px;display: inline-block;font-size: 20px;padding: 0 10px;text-align: center;">
+					5元 X 6张
+				</span>
+				<p style="display: flex;flex-flow: column;align-items: center;font-size: 20px;color: white;padding: 0 10px;margin-top: 10px;">
+					点击购买<span style="font-size: 10px;color: azure;">大额优惠卷、不限各种美食等</span>
+				</p>
+			</div>
+	    </div>
+	</div>
+	{/if}
+    <div class="orders-submit-panel">
+        <div class="pay-type">
+            <div class="pay-type-title">支付方式</div>
+            <div class="pay-type-name">微信支付<span class="mui-icon mui-icon-forward"></span></div>
+        </div>
+    </div>
+    <div style="margin-bottom:80px"></div>
+
+    <div class="store-bottom">
+        <div class="store-price">
+            应支付: ¥{$all_price/100}
+        </div>
+        <div class="store-submit  {eq name='address.address_id' value='0'}hsst-background-gray{else/}hsst-background-main{/eq}">提交订单</div>
+        <!-- <div class="store-submit hsst-background-gray">提交订单</div> -->
+    </div>
+</div>
+</body>
+{include file="common/script" /}
+<script>
+     var lbt = {$lbt};
+     if(!lbt){
+        var jilv_money=document.getElementsByClassName('price-number')[0].innerHTML.replace('¥','')
+     }
+    
+   
+    if(window.localStorage.youhui!=''){
+        document.getElementsByClassName('price-number')[0].innerHTML=jilv_money-Number(window.localStorage.youhui)<=0?'0':jilv_money-Number(window.localStorage.youhui)
+        document.getElementsByClassName('store-price')[0].innerHTML='应支付: ¥'+(jilv_money-Number(window.localStorage.youhui)<=0?'0':jilv_money-Number(window.localStorage.youhui))
+        
+        document.getElementById("use_coupon").options[window.localStorage.options].selected=true
+        document.getElementsByClassName('visiHidden')[0].setAttribute('style','margin-right:10px;line-height: 16px;display:inline-block')
+        
+    }
+    function close_1(){
+        document.getElementById("poupo").style.display = "none";
+    }
+    function close_2(){
+        document.getElementById("poupo1").style.display = "none";
+    }
+    function open_1(){
+        document.getElementById("poupo").style.display = "block";
+    }
+    function open_2(){
+        document.getElementById("poupo1").style.display = "block";
+    }
+    // 优惠卷
+    function opstionBtn1(i,e){
+        var placeholder= $("#use_coupon1").attr("placeholder",i);
+        var objS = document.getElementById("use_coupon1");
+        jilv_money = jilv_money-Number(e)<=0?'0':jilv_money-Number(e);
+        //小计标签的显示金额
+        document.getElementsByClassName('price-number')[0].innerHTML=jilv_money
+        //应付标签的显示金额
+        document.getElementsByClassName('store-price')[0].innerHTML='应支付: ¥'+(jilv_money)
+        //减字标签显示隐藏
+        document.getElementsByClassName('visiHidden')[0].setAttribute('style','margin-right:10px;line-height: 16px;display:inline-block')
+        objS.value=e
+        document.getElementById("poupo").style.display = "none";
+    }
+    // 月卡
+    function opstionBtn2(i,e){
+        var placeholder= $("#use_coupon2").attr("placeholder",i);
+        var objS = document.getElementById("use_coupon2");
+        //小计标签的显示金额
+        jilv_money = jilv_money-Number(e)<=0?'0':jilv_money-Number(e)
+        document.getElementsByClassName('price-number')[0].innerHTML=jilv_money
+        //应付标签的显示金额
+        document.getElementsByClassName('store-price')[0].innerHTML='应支付: ¥'+(jilv_money)
+        //减字标签显示隐藏
+        document.getElementsByClassName('visiHidden1')[0].setAttribute('style','margin-right:10px;line-height: 16px;display:inline-block')
+        objS.value=e
+        document.getElementById("poupo1").style.display = "none";
+    }
+    // function opstionBtn(){
+    //  var objS = document.getElementById("use_coupon");
+    //  var grade = objS.options[objS.selectedIndex].value;
+    //  if(grade!='请选择'){
+    //      console.log(objS.options[objS.selectedIndex].text)
+    //      //小计标签的显示金额
+    //      document.getElementsByClassName('price-number')[0].innerHTML=jilv_money-Number(objS.options[objS.selectedIndex].text)<=0?'0':jilv_money-Number(objS.options[objS.selectedIndex].text)
+    //      //应付标签的显示金额
+    //      document.getElementsByClassName('store-price')[0].innerHTML='应支付: ¥'+(jilv_money-Number(objS.options[objS.selectedIndex].text)<=0?'0':jilv_money-Number(objS.options[objS.selectedIndex].text))
+    //      //减字标签显示隐藏
+    //      document.getElementsByClassName('visiHidden')[0].setAttribute('style','margin-right:10px;line-height: 16px;display:inline-block')
+    //      window.localStorage.youhui=objS.options[objS.selectedIndex].text
+    //      // window.localStorage.youhui_id=Number(objS.options[objS.selectedIndex].value)
+    //      window.localStorage.options=objS.selectedIndex
+    //  }else{
+    //      //小计标签的显示金额
+    //      document.getElementsByClassName('price-number')[0].innerHTML=jilv_money
+    //      //应付标签的显示金额
+    //      document.getElementsByClassName('store-price')[0].innerHTML='应支付: ¥'+jilv_money
+            
+    //      document.getElementsByClassName('visiHidden')[0].setAttribute('style','margin-right:10px;line-height: 16px;display:none')
+    //  }
+    //  console.log(grade);
+    // }
+
+    //去提交订单
+    jQuery('.store-submit').click(function(){
+        if(jQuery(this).hasClass('hsst-background-main')){
+            console.log('---------可以 去结算---------');
+            goConfirmOrders();
+        }else{
+            console.log('---------不可以 去结算---------');
+            mui.alert('请选择收货地址', '', function() {});
+        }
+    });
+
+    //提交月卡订单
+    jQuery('.card-submit').click(function(){
+        buyCard();
+    });
+    //address-detail-panel 获取地址
+    jQuery('.address-detail-panel').click(function(){
+        jQuery(location).attr('href',"{:url('user/address_list')}?is_submit=1");
+    });
+
+    function goConfirmOrders() {
+        var data = {};
+        data['store_id'] = {$store_id};
+        data['buy_goods'] = "{$buy_goods}";
+        data['buy_number'] = "{$buy_number}";
+        data['address_id'] = {$address_id};
+        data['remake'] =  jQuery('textarea').val();
+        data['use_coupon'] = $('#use_coupon1').attr('placeholder')=='请选择'?'':$('#use_coupon1').attr('placeholder');  //RICE
+        data['use_month_card'] = $('#use_coupon2').attr('placeholder')=='请选择'?'':$('#use_coupon2').attr('placeholder');  //RICE
+        
+        jQuery.ajax({
+            url:"{:url('pay/wxpay_goods')}",
+            data: data,
+            type: "POST",
+            dataType: 'json',
+            beforeSend: function () {
+                jQuery.showLoading('提交订单中',function () {});
+            },
+            success: function(res){
+                if (res.code == 200) {
+                    jQuery.loadSuccess('订单提交成功',function () {
+                        console.log('订单提交成功返回信息：'+JSON.stringify(res.data));
+                        var data = res.data;
+                        wakeupPay(res.data);
+                    });
+                }else{
+                    jQuery.loadError('订单提交失败',function () {
+                        mui.toast(res.message,{ duration: 3000 });
+                    });
+                }
+            },
+            error: function (xhr) {
+                // 只有请求不正常（状态码不为200）才会执行
+                jQuery.loadError('订单提交失败',function () {
+                    mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                });
+            },
+        });
+    }
+
+    // 购买月卡
+    function buyCard() {
+        var data = {};
+        jQuery.ajax({
+            url:"{:url('card/wxpay_card')}",
+            data: data,
+            type: "POST",
+            dataType: 'json',
+            beforeSend: function () {
+                jQuery.showLoading('提交订单中',function () {});
+            },
+            success: function(res){
+                if (res.code == 200) {
+                    jQuery.loadSuccess('订单提交成功',function () {
+                        console.log('订单提交成功返回信息：'+JSON.stringify(res.data));
+                        var data = res.data;
+                        wakeupPay(res.data);
+                    });
+                }else{
+                    jQuery.loadError('订单提交失败',function () {
+                        mui.toast(res.message,{ duration: 3000 });
+                    });
+                }
+            },
+            error: function (xhr) {
+                // 只有请求不正常（状态码不为200）才会执行
+                jQuery.loadError('订单提交失败',function () {
+                    mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                });
+            },
+        });
+    }
+    function replaceDoc(){
+        setTimeout(function () {
+            location.reload();
+        }, 3000);
+    }
+    function wakeupPay(data){
+
+        jQuery.showLoading('支付中',function () {});
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', data,
+            function(res){
+                if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                    // 使用以上方式判断前端返回,微信团队郑重提示：
+                    //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                    jQuery.loadSuccess('支付成功',function () {
+                        console.log('支付成功：'+JSON.stringify(res));
+                    });
+                    replaceDoc();
+                }else{
+                    jQuery.loadError('支付失败',function () {
+                        console.log('支付失败：'+JSON.stringify(res));
+                        mui.toast("支付失败："+res.err_msg,{ duration: 3000 });
+                    });
+                }
+                if(data['order_number']){
+                    setTimeout(function () {
+                        jumpOrdersDetail(data['order_number']);
+                    }, 3000);
+                }
+            });
+    }
+
+    //跳转到订单详情
+    function jumpOrdersDetail(order_number){
+        location.replace("{:url('orders/detail')}?order_number="+order_number);
+    }
+
+</script>
+</html>
+

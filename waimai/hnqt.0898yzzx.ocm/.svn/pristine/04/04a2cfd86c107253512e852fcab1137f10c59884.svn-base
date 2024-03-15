@@ -1,0 +1,39 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>提现页面</legend>
+    <blockquote class="layui-elem-quote">
+        <span >
+            店铺余额:  <span style="color: #FF0000;font-size: 26px">{$balance.balance}</span> (元)
+        </span>
+
+    </blockquote>
+</fieldset>
+<form class="layui-form " action="{:url('draw/draw')}" method="post" lay-filter="order_bill_deliveryForm" >
+    <label class="layui-form-label" style="width: auto;color:#696969"></label>
+    <div class="layui-form-item">
+        <div class="layui-form-item" ></div>
+        <label class="layui-form-label"style="width: 120px" ><span style="font-size:20px;color: #FF0000;width: 100px">*</span>提现金额</label>
+        <div class="layui-input-inline" >
+            <input type="number" step="0.01" onkeyup="value=value.replace(/[^\d.]/g,'')" name="balance"  lay-verify="express|required" class="layui-input">
+        </div>
+        <input type="hidden" name="id" value="{$balance.id}">
+        <button class="layui-btn layui-btn-normal" lay-submit lay-filter="save">确定</button>
+        <div class="layui-form-item" ></div>
+    </div>
+
+
+
+</form>
+{/block}
+{block name="script"}
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+
+
+    })
+</script>
+
+{/block}

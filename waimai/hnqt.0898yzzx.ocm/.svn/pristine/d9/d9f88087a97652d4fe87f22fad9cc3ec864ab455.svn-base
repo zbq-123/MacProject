@@ -1,0 +1,94 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:57:"/www/wwwroot/wmgl.yzzx0898.com/tpl/client/user/index.html";i:1623238830;s:58:"/www/wwwroot/wmgl.yzzx0898.com/tpl/client/common/meta.html";i:1623238831;s:60:"/www/wwwroot/wmgl.yzzx0898.com/tpl/client/common/script.html";i:1623238831;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>海师食堂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/client/mui/css/clear.css">
+<link rel="stylesheet" href="/static/client/mui/css/mui.min.css">
+<link rel="stylesheet" href="/static/client/mui/css/common.css">
+<link rel="stylesheet" href="/static/client/css/jquery-loadprompt.css">
+    <link rel="stylesheet" href="/static/client/css/page-user-index.css">
+</head>
+
+<body>
+<div class="mui-content">
+    <div class="user-header">
+        <img src="<?php if(empty($user['image']) || (($user['image'] instanceof \think\Collection || $user['image'] instanceof \think\Paginator ) && $user['image']->isEmpty())): ?>/static/client/examples/user-head.jpg<?php else: ?><?php echo $user['image']; endif; ?>" class="user-img" />
+        <div class="user-info">
+            <div class="nickname">
+                <span><?php echo $user['nickname']; ?></span>
+                <img src="/static/client/icon/icon-king.png" />
+            </div>
+            <div class="id">
+                <img src="/static/client/icon/icon-idbadge.png">
+                <span><?php echo $user['code']; ?></span>
+            </div>
+        </div>
+        <div class="user-more">个人中心</div>
+    </div>
+    <div class="user-number">
+        <div class="card">
+            <span class="card-name">消费</span>
+            <span class="card-number"><?php echo $user['total_price']/100; ?></span>
+        </div>
+        <div class="card">
+            <span class="card-name">订单数</span>
+            <span class="card-number"><?php echo $user['all_order']; ?></span>
+        </div>
+        <div class="card">
+            <span class="card-name">待处理</span>
+            <span class="card-number"><?php echo $user['pending_order']; ?></span>
+        </div>
+    </div>
+    <div class="user-item-p">
+        <div class="user-item" onclick="jumpOrders()">
+            <div class="item-info">
+                <img src="/static/client/icon/icon_orders.png" class="item-img">
+                <div class="item-name">我的订单</div>
+            </div>
+            <span class="mui-icon mui-icon-forward"></span>
+        </div>
+
+        <div class="user-item" onclick="jumpAddress()">
+            <div class="item-info">
+                <img src="/static/client/icon/icon_locations.png" class="item-img">
+                <div class="item-name">我的地址</div>
+            </div>
+            <span class="mui-icon mui-icon-forward"></span>
+        </div>
+		
+		<div class="user-item" onclick="jumpYouhui()">
+		    <div class="item-info">
+		        <img src="/static/client/icon/icon-id.png" class="item-img">
+		        <div class="item-name">我的优惠券</div>
+		    </div>
+		    <span class="mui-icon mui-icon-forward"></span>
+		</div>
+    </div>
+</div>
+</body>
+<script src="/static/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+<script src="/static/client/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/client/js/jquery-loadprompt.js" charset="utf-8"></script>
+<script>
+    //跳转到我的地址
+    function jumpAddress() {
+        jQuery(location).attr('href',"<?php echo url('user/address_list'); ?>");
+    }
+
+    function jumpOrders(){
+        parent.location.replace("<?php echo url('index/home'); ?>?active=orders");
+    }
+	function jumpYouhui() {
+	    jQuery(location).attr('href',"<?php echo url('user/youhui_list'); ?>");
+	}
+    jQuery(".user-more").click(function () {
+        mui.toast("此功能在升级完善中，敬请期待",{ duration: 2000 });
+    })
+</script>
+</html>

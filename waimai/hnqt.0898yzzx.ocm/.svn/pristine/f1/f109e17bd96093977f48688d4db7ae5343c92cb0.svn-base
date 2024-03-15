@@ -1,0 +1,709 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:58:"/www/wwwroot/wmgl.yzzx0898.com/tpl/client/store/index.html";i:1623238832;s:58:"/www/wwwroot/wmgl.yzzx0898.com/tpl/client/common/meta.html";i:1623238831;s:60:"/www/wwwroot/wmgl.yzzx0898.com/tpl/client/common/script.html";i:1623238831;}*/ ?>
+<!DOCTYPE html>
+<html style="font-size: 54px;">
+<head>
+    <meta charset="utf-8">
+<title>海师食堂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/client/mui/css/clear.css">
+<link rel="stylesheet" href="/static/client/mui/css/mui.min.css">
+<link rel="stylesheet" href="/static/client/mui/css/common.css">
+<link rel="stylesheet" href="/static/client/css/jquery-loadprompt.css">
+    <link rel="stylesheet" href="/static/client/css/page-store-index.css?v=1.2">
+</head>
+<style type="text/css">
+	.store-summary .sotre-summary-info{
+		padding-bottom:5px;
+	}
+	#client_youhuij{
+		margin-bottom:10px;
+		padding:0 10px;
+		overflow-x: auto;
+	}
+	.youhuilist{
+		padding:4px 5px;
+		border-radius:20px;
+		color:#fff;
+		font-size:13px;
+		display:inline-block;
+		margin-right:10px;
+	}
+	.yes{
+		background-color:rgb(240,52,93);
+	}
+	.no{
+		background-color:rgba(0,0,0,0.3);
+	}
+</style>
+<body>
+    <div class="mui-content">
+        <div class="store-summary">
+            <div class="sotre-summary-info">
+                <div class="summary-name"><?php echo $store['name']; ?></div>
+                <div class="summary-ps">起送价¥<?php echo $store['min_price']/100; ?> / <?php echo $store['delivery_name']; ?>¥<?php echo $store['delivery_price']/100; ?></div>
+                <div class="summary-notice">
+                    <div class="notice-title">公告：</div>
+                    <div class="notice-content"><?php echo $store['notice']; ?></div>
+                </div>
+            </div>
+            <img class="summary-img" src="<?php echo $store['logo']; ?>" />
+        </div>
+		<div id="client_youhuij">
+			<div class="youhuijwrap">
+			    <?php if(is_array($coupons) || $coupons instanceof \think\Collection || $coupons instanceof \think\Paginator): $i = 0; $__LIST__ = $coupons;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+				    <div <?php if(in_array($user_id,$vo['users'])): ?> class="youhuilist no" <?php else: ?> class="youhuilist yes" onclick="lingqu(<?php echo $vo['id']; ?>)"<?php endif; ?> ><span>领 </span>满<?php echo $vo['full_money']; ?>减<span><?php echo $vo['discount_money']; ?></span>元</div>
+				<?php endforeach; endif; else: echo "" ;endif; ?>
+			</div>
+		</div>
+        <div>
+            <div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
+                <a class="mui-control-item mui-active" href="#tab1" onclick="tabChange(1)"><span>点菜</span></a>
+                <a class="mui-control-item" href="#tab2" onclick="tabChange(2)"><span>商家</span></a>
+            </div>
+        </div>
+        <div>
+            <div id="tab1" class="mui-control-content mui-active">
+                <div>
+                    <!-- 菜单 -->
+                    <ul class="menus" style="padding-bottom: 50px;">
+                        <!--<li>
+                            <a href="#l1" class="menu" onclick="aSkip($(this))">清新素粥<span class="mui-badge menu-badge">1</span></a>
+                        </li>
+                        <li>
+                            <a href="#l2" class="menu" onclick="aSkip($(this))">滋养甜粥<span class="mui-badge menu-badge">8</span></a>
+                        </li>
+                        <li>
+                            <a href="#l3" class="menu" onclick="aSkip($(this))">特色点心</a>
+                        </li>-->
+                        <?php if(is_array($goods_list) || $goods_list instanceof \think\Collection || $goods_list instanceof \think\Paginator): $i = 0; $__LIST__ = $goods_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                        <li>
+                            <a id="menus<?php echo $vo['category_id']; ?>" href="#c<?php echo $vo['category_id']; ?>" class="menu" onclick="aSkip(jQuery(this))"><?php echo $vo['name']; ?></a>
+                        </li>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </ul>
+                    <!-- 商品列表 -->
+                    <div class="all_list" style="padding-bottom: 50px;">
+                        <?php if(is_array($goods_list) || $goods_list instanceof \think\Collection || $goods_list instanceof \think\Paginator): $i = 0; $__LIST__ = $goods_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                        <div class="type" id="c<?php echo $vo['category_id']; ?>">
+                            <p class="title"><?php echo $vo['name']; ?></p>
+                            <ul>
+                                <?php if(is_array($vo['goods']) || $vo['goods'] instanceof \think\Collection || $vo['goods'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vo['goods'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods): $mod = ($i % 2 );++$i;?>
+                                <li>
+                                    <div class="goods-item">
+                                        <div class="goods-item-img">
+                                            <img class="goods-item-img-img" src="<?php echo $goods['image']; ?>" />
+                                            <?php if(!(empty($goods['tag']) || (($goods['tag'] instanceof \think\Collection || $goods['tag'] instanceof \think\Paginator ) && $goods['tag']->isEmpty()))): ?><div class="goods-item-img-tag"><?php echo $goods['tag']; ?></div><?php endif; ?>
+                                        </div>
+                                    
+                                        <div class="goods-item-info">
+                                            <div class="goods-item-info-title"><?php echo $goods['name']; ?></div>
+                                            <div class="goods-item-info-sale" sto="<?php echo !empty($goods['stock'])?$goods['stock'] : 0; ?>">已售<?php echo $goods['sale']; ?> | 库存<?php echo !empty($goods['stock'])?$goods['stock'] : 0; ?></div>
+                                            <div class="goods-item-price">¥<?php echo $goods['price']/100; ?></div>
+                                        </div>
+                                        <div class="goods-item-btn">
+                                           <div class="mui-numbox" data-numbox-min='0'>
+                                                <button class="mui-btn mui-btn-numbox-minus" type="button"><img src="/static/client/icon/icon-minus.png"></button>
+                                                <input id="goods<?php echo $goods['goods_id']; ?>" onchange="showNumber(jQuery(this),<?php echo $goods['stock']; ?>)" data-price="<?php echo $goods['price']; ?>" data-goods_id="<?php echo $goods['goods_id']; ?>" data-category_id="<?php echo $vo['category_id']; ?>" class="numbox-out mui-input-numbox number-hidden" type="number" value="0" readonly />
+                                                
+                                                <button class="mui-btn mui-btn-numbox-plus" style="<?php echo !empty($goods['stock'])?'' :'display:none'; ?>" onclick="MoveBox(jQuery(this))" type="button"><img src="/static/client/icon/icon-plus.png"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </ul>
+                        </div>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </div>
+                </div>
+            </div>
+            <div id="tab2" class="mui-control-content">
+                <div class="store-introduce">
+                    <div class="store-introduce-card">
+                        <div class="introduce-name"><?php echo $store['name']; ?></div>
+                        <div class="introduce-location"><?php echo $store['address']; ?></div>
+                        <div class="introduce-title">商家信息</div>
+                        <div class="introduce-info">所在校区：<?php echo $store['campus_name']; ?></div>
+                        <div class="introduce-info">
+                            营业时间：<?php if($store['time1_status'] == '1'): ?><?php echo substr($store['start_time1'],0,5); ?>-<?php echo substr($store['end_time1'],0,5); ?>&nbsp;<?php endif; if($store['time2_status'] == '1'): ?><?php echo substr($store['start_time2'],0,5); ?>-<?php echo substr($store['end_time2'],0,5); ?>&nbsp;<?php endif; if($store['time3_status'] == '1'): ?><?php echo substr($store['start_time3'],0,5); ?>-<?php echo substr($store['end_time3'],0,5); ?>&nbsp;<?php endif; ?>
+                        </div>
+                        <div class="introduce-info">当前状态：<?php if($store['open'] == '1'): ?>营业中<?php else: ?>休息中<?php endif; ?></div>
+                    </div>
+                    <div class="store-introduce-card">
+                        <div class="introduce-title">商家描述</div>
+                        <div class="introduce-info"><?php echo $store['detail']; ?></div>
+                    </div>
+                    <a class="store-introduce-phone" href="tel:<?php echo $store['phone']; ?>">
+                        <img src="/static/client/icon/icon-phone.png">
+                        <span>联系商家</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-goods-list mui-hidden">
+            <div class="cart-goods-top">
+                <div class="top-title">已选商品</div>
+                <div class="top-btn" onclick="clearCart()"><img src="/static/client/icon/icon-del.png"><span>清空</span></div>
+            </div>
+            <div class="cart-item-list">
+
+            </div>
+            <div class="box-panel">
+            </div>
+        </div>
+        <div class="store-bottom">
+            <div class="store-buy">
+                <img class="store-buy-img" src="/static/client/icon/icon-cart-black.png" />
+            </div>
+            <div class="store-price">
+                <div class="store-goods-price mui-hidden"></div>
+                <div class="store-goods-tip">未选购商品</div>
+                <div class="store-ps-price">另需<?php echo $store['delivery_name']; ?>¥<?php echo $store['delivery_price']/100; ?></div>
+            </div>
+            <div class="store-submit hsst-background-gray"><?php if($store['open'] == '0'): ?>休息中<?php else: ?>¥<?php echo $store['min_price']/100; ?>起送<?php endif; ?></div>
+        </div>
+    </div>
+</body>
+
+<script src="/static/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+<script src="/static/client/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/client/js/jquery-loadprompt.js" charset="utf-8"></script>
+<script src="/static/jquery/jquery.mobile-1.4.4.min.js"></script>
+<script src="/static/jquery/jquery.fly.min.js"></script>
+<script>
+    var data_goods_list = eval(<?php echo json_encode($goods_list,true); ?>);
+    var data_store = eval(<?php echo json_encode($store,true); ?>);
+	window.localStorage.youhui=''
+	window.onload=function(){
+		jQuery('.youhuijwrap')[0].setAttribute('style','width:'+(jQuery('.youhuijwrap')[0].children.length*157)+'px')
+	}
+	function lingqu(id){
+		jQuery.ajax({
+		    url:"<?php echo url('add_coupon'); ?>",
+		    data: {coupon_id:id},
+		    type: "POST",
+		    dataType: 'json',
+		    beforeSend: function () {
+		        // jQuery.showLoading('正在获取中',function () {});
+		    },
+		    success: function(res){
+				jQuery.loadSuccess(res.message,function () {
+				    mui.toast(res.message,{ duration: 3000 });
+				});
+		        // if (res.code == 200) {
+		            
+		        // }else{
+		               
+		        // }
+		    },
+		    error: function (xhr) {
+		        // 只有请求不正常（状态码不为200）才会执行
+		        jQuery.loadError('请求异常',function () {
+		            mui.toast("错误码："+xhr.status,{ duration: 3000 });
+		        });
+		    },
+		});
+	}
+    //解决从确认订单返回的时候点餐信息丢失问题
+    jQuery('.numbox-out').map(function(){
+        if(this.value > 0){
+            showNumber(jQuery(this),this.value);
+        }
+    });
+
+    //店铺休息提醒
+    if(data_store['open'] == 0){
+        var open_tip_html =
+            `
+                    本店已休息
+                    <span class="open-tip">营业时间
+                    <?php if($store['time1_status'] == '1'): ?><?php echo substr($store['start_time1'],0,5); ?>-<?php echo substr($store['end_time1'],0,5); ?><br><?php endif; if($store['time2_status'] == '1'): ?><?php echo substr($store['start_time2'],0,5); ?>-<?php echo substr($store['end_time2'],0,5); ?><br><?php endif; if($store['time3_status'] == '1'): ?><?php echo substr($store['start_time3'],0,5); ?>-<?php echo substr($store['end_time3'],0,5); ?><br><?php endif; ?>
+                    </span>
+                    `;
+        mui.alert(open_tip_html, '', function() {});
+    }
+
+    //设置各块面板的初始宽高
+    jQuery(".all_list").focus();
+    var width = jQuery("body").width();
+    width = parseInt(width) * 0.73 - 1 + "px";
+    jQuery(".all_list").css("width", width);
+    jQuery(".bottom_nav").css("width", jQuery("body").width());
+    jQuery(".menus").css("height", jQuery(window).height() * 1 - 158);
+    jQuery(".menus").css("max-height", jQuery(window).height() * 1 - 158);
+
+    jQuery(".all_list").css("max-height", jQuery(window).height() * 1 - 158);
+    jQuery(".pa_bo").css("height", jQuery(window).height() * 0.7);
+
+    jQuery(".store-introduce").css("height", jQuery(window).height() * 1 - 158);
+
+
+    //防止在手机端时菜单栏下拉与主屏下拉冲突
+    jQuery("body").css({"height": "100%", "overflow": "hidden"});
+    jQuery("html").css({"height": "100%", "overflow": "hidden"});
+
+    //商品栏各个栏目的ID
+    var type = [<?php if(is_array($goods_list) || $goods_list instanceof \think\Collection || $goods_list instanceof \think\Paginator): $k = 0; $__LIST__ = $goods_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?>"c<?php echo $vo['category_id']; ?>"<?php if($k != count($goods_list)): ?>,<?php endif; endforeach; endif; else: echo "" ;endif; ?>];
+	
+    showNumber(jQuery("#goods"+type[0]));
+
+    //判断是否在滚动中
+    var ff = 0;
+    var timeId, timeId2;
+
+    //解决iPhone5 transform:不生效
+    if (jQuery(window).width() > 321) {
+        jQuery(".pic img").css("transform", "translate(-50%,-50%)");
+
+    } else {
+        jQuery(".pic img").css("margin", "-50%");
+    }
+
+    //判断当前所在的位置为合适的栏目加上样式
+    timeId = window.setTimeout("skipHref()", 200);
+    function skipHref() {
+        if (ff == 1) {
+        } else {
+            jQuery.each(type, function (i) {
+                if (jQuery("#" + type[i]).offset().top-158 < jQuery(window).height() * 0.1) {
+                    jQuery(".menus li").removeClass("active");
+                    jQuery(".menus a").removeClass("active");
+                    jQuery("a[href=#" + type[i] + "]").parent().addClass("active");
+                    jQuery("a[href=#" + type[i] + "]").addClass("active");
+
+                    var text = jQuery("a[href=#" + type[i] + "]").text();
+                    jQuery(".title").removeClass("active");
+                    jQuery("p:contains(" + text + ")").addClass("active");
+                }
+
+            });
+            timeId = window.setTimeout("skipHref()", 200);
+        }
+
+        jQuery(".all_list").focus();
+
+    }
+    /* 锚点跳转 */
+    var j = 0, posL = [], posO = {};
+    function aSkip(o) {
+        clearTimeout(timeId);
+        ff = 1;
+        timeId2 = window.setTimeout("isStop()", 200);
+        jQuery(".menus li").removeClass("active");
+        jQuery(".menus a").removeClass("active");
+        var text = jQuery(o).text();
+        jQuery(".title").removeClass("active");
+        jQuery("p:contains(" + text + ")").addClass("active");
+        jQuery(o).addClass("active");
+        jQuery(o).parent().addClass("active");
+
+        //平滑跳转
+        if (j == 0) {
+            jQuery.each(type, function (i, item) {
+                posO.id = "#" + type[i];
+                posO.top = jQuery("#" + type[i]).offset().top + jQuery(".all_list").scrollTop();
+                posL[i] = posO;
+                posO = {};
+            });
+            jQuery.each(posL, function (i, item) {
+                if (jQuery(o).attr("href") == item.id) {
+                    jQuery(".all_list").animate({scrollTop: item.top-158}, 700);
+                }
+            });
+            j++;
+
+        } else {
+            jQuery(".all_list").stop();
+            jQuery.each(posL, function (i, item) {
+                if (jQuery(o).attr("href") == item.id) {
+                    jQuery(".all_list").animate({scrollTop: item.top-158}, 700);
+                }
+            });
+        }
+
+
+    };
+
+
+    //锚点连接后判断动画是否完成
+    function isStop() {
+        //alert($(".all_list").is(":animated"))
+        if (jQuery(".all_list").is(":animated")) {
+            ff = 1;
+            timeId2 = window.setTimeout("isStop()", 200);
+        } else {
+            ff = 0;
+            clearTimeout(timeId2);
+
+        }
+    }
+
+    //左右联动
+    jQuery(".all_list").on("scrollstop", function () {
+        if (ff == 0) {
+            timeId = window.setTimeout("skipHref()", 200);
+        } else {
+            clearTimeout(timeId);
+        }
+
+
+    });
+
+    //数字按钮隐藏，触发购物车计算
+    function showNumber(o,stock=0){
+		// console.log(o,jQuery(o).val(),data_goods_list)
+		// if(o.length){
+		// 	if(data_goods_list[0].goods[o.parents('li').index()].stock<Number(jQuery(o).val())){
+		// 		jQuery(o).val(Number(jQuery(o).val()-1))
+		// 		mui.toast('没有库存啦',{ duration:'long' });
+		// 		return
+		// 	}
+		// }
+		if(jQuery(o).length!=0){
+			if(Number(jQuery(o).val()) > Number(stock)){
+			    jQuery(o).val(Number(jQuery(o).val()-1))
+			    mui.toast('没有库存啦',{ duration:'long' });
+			    return
+			}
+		}
+        
+        
+
+        if(jQuery(o).val() <= 0){
+            jQuery(o).addClass("number-hidden");
+        }else{
+            jQuery(o).removeClass("number-hidden");
+        }
+
+        //获取点菜信息，计算反馈到页面
+        var numbox_out_value_str = jQuery('.numbox-out').map(function(){return this.value}).get().join();
+        var numbox_out_gid_str = jQuery('.numbox-out').map(function(){return jQuery(this).data("goods_id")}).get().join();
+        var numbox_out_cid_str = jQuery('.numbox-out').map(function(){return jQuery(this).data("category_id")}).get().join();
+        var numbox_out_price_str = jQuery('.numbox-out').map(function(){return jQuery(this).data("price")}).get().join();
+
+        //console.log('indexStr='+numbox_out_value_str);
+        //console.log('indexStr2='+numbox_out_gid_str);
+        //console.log('indexStr3='+numbox_out_cid_str);
+
+        var numbox_out_value = numbox_out_value_str.split(",");
+        var numbox_out_gid = numbox_out_gid_str.split(",");
+        var numbox_out_cid = numbox_out_cid_str.split(",");
+        var numbox_out_price = numbox_out_price_str.split(",");
+
+        var category_count = {}; //计算每个分类商品数量
+        var goods_count = 0; //计算总商品数量
+        var goods_price = 0; //计算商品总金额
+        var box_price = 0; //计算餐盒费总金额
+        var all_price = 0; //计算商品+餐盒费总金额
+        for(var key in numbox_out_value){
+            if(numbox_out_value[key] > 0){
+                if(category_count[numbox_out_cid[key]] == undefined){
+                    category_count[numbox_out_cid[key]] = parseInt(numbox_out_value[key]);
+                }else{
+                    category_count[numbox_out_cid[key]] +=  parseInt(numbox_out_value[key]);
+                }
+                goods_count += parseInt(numbox_out_value[key]);
+                if(data_store['box_type'] == 1){
+                    box_price = data_store['box_price'];
+                }else{
+                    box_price += parseInt(numbox_out_value[key])*parseInt(data_store['box_price']);
+                }
+
+                goods_price += parseInt(numbox_out_value[key])*parseInt(numbox_out_price[key]);
+            }else{
+                if(category_count[numbox_out_cid[key]] == undefined){
+                    category_count[numbox_out_cid[key]] = 0;
+                }
+            }
+        }
+        all_price = goods_price + box_price;
+
+        //console.log('price:'+'goods_price--->'+goods_price+'；box_price--->'+box_price+'；delivery_price--->'+data_store['delivery_price']+'；all_price--->'+all_price);
+
+        //更新商品分类购买商品数量
+        jQuery.each(category_count,function (key,item) {
+            //console.log(key+':'+item);
+			
+            if(item > 0){
+                var category_tag_html =`<span class="mui-badge menu-badge">${item}</span>`;
+                jQuery('#menus'+key).children().filter('span').remove();
+                jQuery('#menus'+key).append(category_tag_html);
+            }else{
+                jQuery('#menus'+key).children().filter('span').remove();
+            }
+        });
+
+        //更新购买商品总数量
+        if(goods_count > 0){
+            var goods_tag_html =`<span class="store-buy-bage mui-badge">${goods_count}</span>`;
+
+            jQuery('.store-buy-img').attr('src','/static/client/icon/icon-cart.png');
+            jQuery('.store-buy').children().filter('span').remove();
+            jQuery('.store-buy').append(goods_tag_html);
+        }else{
+            jQuery('.store-buy-img').attr('src','/static/client/icon/icon-cart-black.png');
+            jQuery('.store-buy').children().filter('span').remove();
+        }
+
+        //更新购物车内容
+        //console.log(jQuery(o).data("goods_id"));
+        var add_cart_data = [];
+        jQuery.each(data_goods_list,function (category_key,category_item) {
+            jQuery.each(category_item['goods'],function (goods_key,goods_item) {
+                if(goods_item['goods_id'] == jQuery(o).data("goods_id")){
+                    add_cart_data = goods_item;
+                    add_cart_data['category_id'] = category_item['category_id'];
+                    return false;
+                }
+                if(add_cart_data.length > 0){
+                    return false;
+                }
+            });
+        });
+
+        if(jQuery('#cart'+jQuery(o).data("goods_id")).length>0){
+            if(jQuery(o).val() <= 0 && jQuery('#cart_goods'+jQuery(o).data("goods_id")).val() != jQuery(o).val()){
+                jQuery('#cart'+jQuery(o).data("goods_id")).remove();
+            }else{
+                jQuery('#cart_goods'+jQuery(o).data("goods_id")).val(jQuery(o).val());
+                jQuery('#cart_pirce'+jQuery(o).data("goods_id")).text('¥'+add_cart_data['price']*jQuery(o).val()/100);
+            }
+        }else{
+            if(jQuery(o).val() > 0){
+                var cart_html =
+                    `
+                    <div class="cart-item" id="cart${add_cart_data['goods_id']}">
+                        <img class="cart-item-img" src="${add_cart_data['image']}">
+                        <div class="cart-item-info">
+                            <div class="cart-item-info-name">${add_cart_data['name']}</div>
+                            <div class="cart-item-info-pirce" id="cart_pirce${add_cart_data['goods_id']}">¥${add_cart_data['price']*jQuery(o).val()/100}</div>
+                        </div>
+                        <div class="goods-item-btn">
+                            <div class="mui-numbox" data-numbox-min='0'>
+                                <button class="mui-btn mui-btn-numbox-minus" type="button"><img src="/static/client/icon/icon-minus.png"></button>
+                                <input class="numbox-in mui-input-numbox" onchange="cartChange(jQuery(this))" id="cart_goods${add_cart_data['goods_id']}" type="number" data-goods_id="${add_cart_data['goods_id']}" data-category_id="${add_cart_data['category_id']}" data-price="${add_cart_data['price']}" value="${jQuery(o).val()}" readonly />
+                                <button class="mui-btn mui-btn-numbox-plus" type="button"><img src="/static/client/icon/icon-plus.png"></button>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+
+                jQuery('.cart-item-list').prepend(cart_html);
+
+                mui('.mui-numbox').numbox();
+            }
+        }
+
+        //更新购物车餐盒费
+        if(box_price > 0){
+            var box_html =
+                `
+                <div class="box-info">
+                    <div class="box-name">${data_store['box_name']}</div>
+                    <div class="box-price">¥${box_price/100}</div>
+                </div>
+                `;
+            jQuery('.box-panel').html(box_html);
+        }else{
+            jQuery('.box-panel').html('');
+        }
+
+        updateAllPrice(all_price);
+
+    }
+
+    //更新底部显示总价 商品总金额+餐盒费
+    function updateAllPrice(all_price){
+        //更新总价
+        if(all_price > 0){
+            jQuery('.store-goods-price').removeClass('mui-hidden');
+            jQuery('.store-goods-tip').addClass('mui-hidden');
+            jQuery('.store-goods-price').text('¥'+(all_price/100));
+
+            //更新结算状态
+            if((all_price+parseInt(data_store['delivery_price'])) >= parseInt(data_store['min_price']) && data_store['open'] == 1){
+                jQuery('.store-submit').removeClass('hsst-background-gray');
+                jQuery('.store-submit').addClass('hsst-background-main');
+                jQuery('.store-submit').html('去结算');
+            }else{
+                if(data_store['open'] == 0){
+                    jQuery('.store-submit').html('休息中');
+                }else{
+                    var diff = parseInt(data_store['min_price']) - (all_price+parseInt(data_store['delivery_price']));
+                    jQuery('.store-submit').html('差¥'+diff/100+'起送');
+                }
+                jQuery('.store-submit').removeClass('hsst-background-main');
+                jQuery('.store-submit').addClass('hsst-background-gray');
+            }
+        }else{
+            jQuery('.store-goods-price').addClass('mui-hidden');
+            jQuery('.store-goods-tip').removeClass('mui-hidden');
+            jQuery('.store-goods-price').text('¥0');
+
+            jQuery('.store-submit').removeClass('hsst-background-main');
+            jQuery('.store-submit').addClass('hsst-background-gray');
+
+            jQuery('.store-submit').html('¥'+data_store['min_price']/100+'起送');
+        }
+    }
+
+    //用户操作修改购物车商品触发该方法
+    function cartChange(o) {
+        if(jQuery(o).val() > 0){
+			if(Number(jQuery(o).val())>Number(jQuery('#goods'+jQuery(o).data("goods_id")).parents('.goods-item-btn').siblings('.goods-item-info').find('.goods-item-info-sale').attr('sto'))){
+				jQuery(o).val(jQuery(o).val()-1)
+				return
+			}
+            jQuery('#goods'+jQuery(o).data("goods_id")).val(jQuery(o).val());
+            showNumber(jQuery('#goods'+jQuery(o).data("goods_id")),jQuery('#goods'+jQuery(o).data("goods_id")).parents('.goods-item-btn').siblings('.goods-item-info').find('.goods-item-info-sale').attr('sto'));
+        }else{
+            jQuery('#goods'+jQuery(o).data("goods_id")).val(0);
+            showNumber(jQuery('#goods'+jQuery(o).data("goods_id")));
+            jQuery('#goods'+jQuery(o).data("goods_id")).parent().prev().attr('disabled',true);
+
+            jQuery('#cart'+jQuery(o).data("goods_id")).remove();
+
+            if(jQuery(".cart-item-list").children().length <= 0){
+                jQuery(".cart-goods-list").addClass('mui-hidden');
+                mask.close();
+            }
+        }
+
+    }
+
+    //清空购物车
+    function clearCart(){
+        var btnArray = ['取消', '清空'];
+        jQuery(".cart-goods-list").addClass('mui-hidden');
+        mui.confirm('清空购物车？', '', btnArray, function(e) {
+            if (e.index == 1) {
+                var numbox_in_gid_str = jQuery('.numbox-in').map(function(){return jQuery(this).data("goods_id")}).get().join();
+                var numbox_in_cid_str = jQuery('.numbox-in').map(function(){return jQuery(this).data("category_id")}).get().join();
+
+                console.log('numbox_in_cid='+numbox_in_cid_str);
+
+                var numbox_in_gid = numbox_in_gid_str.split(",");
+                var numbox_in_cid = numbox_in_cid_str.split(",");
+
+                //重置所有已选商品数量
+                for(var key in numbox_in_gid){
+                    jQuery('#goods'+numbox_in_gid[key]).val(0);
+                    jQuery('#goods'+numbox_in_gid[key]).parent().prev().attr('disabled',true);
+                    jQuery('#goods'+numbox_in_gid[key]).addClass("number-hidden");
+                }
+
+                //重置分类商品数量
+                for(var k in numbox_in_cid){
+                    jQuery('#menus'+numbox_in_cid[k]).children().filter('span').remove();
+                }
+
+                //重置总商品数量和购物车图片
+                jQuery('.store-buy').children().filter('span').remove();
+                jQuery('.store-buy-img').attr('src','/static/client/icon/icon-cart-black.png');
+
+                //清空购物车内容 清空餐盒费内容
+                jQuery('.cart-item-list').html('');
+                jQuery('.box-panel').html('');
+
+                updateAllPrice(0);
+
+                //关闭遮罩
+                mask.close();
+            }else{
+                jQuery(".cart-goods-list").removeClass('mui-hidden');
+            }
+        })
+    }
+
+    //添加商品加入购物车动画
+    function MoveBox(o){
+        var flyer = jQuery('<img style="height: 20px;width: 20px;" src="/static/client/icon/icon-plus.png">');
+        flyer.fly({
+            start:{
+                left: jQuery(o).offset().left,  //开始位置（必填）#fly元素会被设置成position: fixed
+                top: jQuery(o).offset().top,  //开始位置（必填）
+            },
+            end:{
+                left: jQuery(".store-buy-img").offset().left+30, //结束位置（必填）
+                top: jQuery(".store-buy-img").offset().top+20,  //结束位置（必填）
+                width: 5, //结束时宽度
+                height: 5, //结束时高度
+            },
+            autoPlay: true, //是否直接运动,默认true
+            speed: 1.1, //越大越快，默认1.2
+            vertex_Rtop: 20, //运动轨迹最高点top值，默认20
+            onEnd: function(){
+                flyer.remove(); //移除dom
+            } //结束回调
+        });
+    }
+
+    var mask = mui.createMask(function () {
+        jQuery(".cart-goods-list").addClass('mui-hidden');
+    });//callback为用户点击蒙版时自动执行的回调；
+
+    jQuery('.store-buy').click(function(){
+        if(jQuery(".store-buy-img").attr('src') != '/static/client/icon/icon-cart-black.png'){
+            if(jQuery(".cart-goods-list").hasClass('mui-hidden')){
+                jQuery(".cart-goods-list").removeClass('mui-hidden');
+                mask.show();
+            }else{
+                jQuery(".cart-goods-list").addClass('mui-hidden');
+                mask.close();
+            }
+        }
+    });
+
+    function tabChange(tab) {
+        if(tab == 2){
+            jQuery('.store-bottom').addClass("mui-hidden");
+        }else{
+            jQuery('.store-bottom').removeClass("mui-hidden");
+        }
+    }
+
+    //去结算按钮
+    jQuery('.store-submit').click(function(){
+        if(jQuery(this).hasClass('hsst-background-main')){
+            console.log('---------可以 去结算---------');
+            goConfirmOrders();
+        }else{
+            console.log('---------不可以 去结算---------');
+            if(data_store['open'] == 0){
+                var open_tip_html =
+                    `
+                    本店已休息
+                    <span class="open-tip">营业时间
+                    <?php if($store['time1_status'] == '1'): ?><?php echo substr($store['start_time1'],0,5); ?>-<?php echo substr($store['end_time1'],0,5); ?><br><?php endif; if($store['time2_status'] == '1'): ?><?php echo substr($store['start_time2'],0,5); ?>-<?php echo substr($store['end_time2'],0,5); ?><br><?php endif; if($store['time3_status'] == '1'): ?><?php echo substr($store['start_time3'],0,5); ?>-<?php echo substr($store['end_time3'],0,5); ?><br><?php endif; ?>
+                    </span>
+                    `;
+                mui.alert(open_tip_html, '', function() {});
+            }
+        }
+    });
+
+    function goConfirmOrders(){
+        var numbox_in_gid_str = jQuery('.numbox-in').map(function(){return jQuery(this).data("goods_id")}).get().join();
+        var numbox_in_number_str = jQuery('.numbox-in').map(function(){return jQuery(this).val()}).get().join();
+
+        var numbox_in_gid = numbox_in_gid_str.split(",");
+        var numbox_in_number = numbox_in_number_str.split(",");
+
+        var buy_goods = []; //用户购买商品
+        for(var key in numbox_in_gid){
+            if(numbox_in_number[key] > 0){
+                buy_goods[key] = {};
+                buy_goods[key]['goods_id'] = parseInt(numbox_in_gid[key]);
+                buy_goods[key]['count'] = parseInt(numbox_in_number[key]);
+            }
+        }
+        jQuery(location).attr('href',"<?php echo url('orders/submit'); ?>?store_id="+data_store['store_id']+"&buy_goods="+numbox_in_gid_str+"&buy_number="+numbox_in_number_str);
+    }
+
+
+</script>
+</html>

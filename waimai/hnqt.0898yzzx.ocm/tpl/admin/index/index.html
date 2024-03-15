@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+</head>
+
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    {include file="common/header" /}
+    {include file="common/menu" /}
+
+    <!--内容主题区域-->
+    <div class="layui-body main-body">
+        <div style="padding: 15px;"  id="content">
+            <iframe src="{:url('index/index2')}" frameborder="0" id="content-iframe" name="contentiframe" style="width: 100%;;" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © 圈圈食堂系统
+    </div>
+</div>
+<audio id="aud" autoplay="autoplay"    >
+    你的浏览器版本太低，不支持audio标签
+</audio>
+
+</body>
+</html>
+<script src="__STATIC__/jquery/jquery-1.8.3.min.js"></script>
+<script src='__STATIC__/js/socket.io.js'></script>
+{include file="common/script" /}
+<script>
+    layui.config({
+        base: '__JS__/' //layui全局设置
+        ,version: '{$Think.config.web_config.site_version}'
+    });
+    layui.use(['jquery','element','layer','xlp'], function(){
+        var element = layui.element;
+        var $ = layui.jquery, layer = layui.layer, xlp = layui.xlp;
+
+        $("#content-iframe").load(function () {
+            var iframe = $("#content-iframe")[0];
+            iframeLoaded(iframe);
+        });
+        element.on('nav(menu)', function(elem){
+            var o = $(elem);
+            var href = o.data('url');
+            $("#content-iframe").eq(0).prop("src",href);
+            xlp.setCookie('refresh_url', href);
+        });
+        $("#logout").on('click', function () {
+            xlp.delCookie('refresh_url');
+        });
+        $(function () {
+            var href = xlp.getCookie('refresh_url');
+            if (href) {
+                $("#menu").find("a[data-url='"+href+"']").eq(0).parents('.layui-nav-item').eq(0).addClass('layui-nav-itemed');
+                $("#content-iframe").eq(0).prop("src",href);
+            }
+        });
+
+        // 连接服务端
+        var socket = io('https://jpgy.0898yzzx.com'); //这里当然填写真实的地址了
+        // uid可以是自己网站的用户id，以便针对uid推送以及统计在线人数
+        uid = {$uid};
+        // socket连接后以uid登录
+        socket.on('connect', function () {
+            socket.emit('login', uid);
+        });
+        // 后端推送来消息时
+        socket.on('new_msg', function (msg) {
+            console.log("收到消息：" + msg);
+
+            $('#aud').attr('src','__STATIC__/model/waimai.mp3');
+
+            layer.msg('您有新的订单，请及时处理！订单编号：' + msg,{time: 5000});
+
+        });
+        // 后端推送来在线数据时
+        socket.on('update_online_count', function (online_stat) {
+            console.log(online_stat);
+        });
+    });
+
+
+
+</script>
+</body>
+</html>

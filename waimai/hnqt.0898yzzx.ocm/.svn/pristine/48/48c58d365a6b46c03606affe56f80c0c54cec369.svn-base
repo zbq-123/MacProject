@@ -1,0 +1,1116 @@
+<?php
+namespace app\api\controller;
+use alipay\Wappay;
+use think\Collection;
+use think\Db;
+use think\Log;
+use think\Model;
+use think\Validate;
+use util\Ret;
+use util\WxPay;
+use app\admin\model\MonthCard;
+use app\admin\model\Coupon;
+
+class Orders extends Collection{
+    //用户确认订单，生成订单信息，返回支付信息
+    public function wxpay_goods(){
+        $store_id = input('post.store_id/d')?:17;
+        $buy_goods = input('post.buy_goods/s')?:"327:94,3231:,3241:104,327:95";
+        $buy_number = input('post.buy_number/s')?:'2,1,2,1';
+        $address_id = input('post.address_id/d')?:244;
+        $remake = input('post.remake');
+        $use_coupon = input('post.use_coupon'); //rice 优惠券
+        $use_month_card = input('post.use_month_card'); //rice 月卡
+        $user_id = input('post.user_id/d')?:1727;
+        $type = input('post.type/d');//商品类型1外卖2数码
+        //$sku_id = input('post.sku_id');//sku商品id
+        $validate = new Validate([
+            'store_id' => 'require|number|>:0',
+            'buy_goods' => 'require',
+            'buy_number' => 'require',
+            'address_id' => 'require|number|>:0',
+        ]);
+        if (!$validate->check(input('post.'))) {
+           return json(['code'=>204,'msg'=>'参数错误，请重试']);
+        }
+        $goods_ids = $buy_goods;
+        $buy_goods = explode(",",$buy_goods);
+        $buy_number = explode(",",$buy_number);
+        foreach($buy_goods as $v){
+            $goods_id[]=explode(":",$v);
+
+        }
+
+        if(count($buy_goods) != count($buy_number)){
+            return json(['code'=>204,'msg'=>'数据异常，请重试']);
+        }
+
+        // 获取优惠券并验证
+        $coupon_info = [];
+        if($use_coupon){
+            $coupon_mod = new Coupon();
+            $coupon_info = $coupon_mod->get_coupon($use_coupon);
+            if($coupon_info){
+                $date = date('Y-m-d H:i:s',time());
+                if($date>$coupon_info['end_time']){
+                    return json(['code'=>204,'msg'=>'优惠券有效期已过']);
+                }
+            }
+        }
+        // 获取月卡并验证
+        $card_info = [];
+        if($use_month_card){
+            $card_mod = new MonthCard();
+            $card_maps = [
+                'id'=> $use_month_card,
+            ];
+            $card_info = $card_mod->getMonthCard($card_maps);
+            if(empty($card_info)){
+                return json(['code'=>204,'msg'=>'月卡有效期已过']);
+            }
+        }
+        //1 获取用户收货地址信息
+        $address = Db::name('user_address')
+            ->where('user_id',$user_id)
+            ->where('deleted',0)
+            ->where('id',$address_id)
+            ->field('id address_id,gender,delivery_name,delivery_phone,delivery_address')
+            ->find();
+
+        if(empty($address)){
+            return json(['code'=>204,'msg'=>'地址不可用']);
+        }
+        //2 获取下单商品信息
+        $store = Db::name('store')
+            ->where('id',$store_id)
+            ->where('deleted',0)
+            ->field("id store_id,name,phone,address,detail,campus_id,min_price,start_time1,end_time1,start_time2,end_time2,start_time3,end_time3,logo,delivery_price,delivery_name,box_type,box_price,box_name,status,manage_ratio,develop_ratio,pay_ratio,order_cancel_time,user_open_id")
+            ->find();
+        if(empty($store)){
+            return json(['code'=>204,'msg'=>'店铺不存在']);
+        }
+        $campus = Db::name('campus')
+            ->where('id',$store['campus_id'])
+            ->where('deleted',0)
+            ->field('name')
+            ->find();
+
+        if(empty($campus)){
+            return json(['code'=>204,'msg'=>'该校区暂不支持下单']);
+        }
+        //所属校区
+        $store['campus_name'] = $campus['name'];
+        //计算营业状态
+        $now_time = date('H:i:s', time());
+        if($store['status'] == 1 && ($store['start_time1'] < $now_time && $store['end_time1'] > $now_time)){
+            $store['open'] = 1;
+        }else if($store['status'] == 1 && ($store['start_time2'] < $now_time && $store['end_time2'] > $now_time)){
+            $store['open'] = 1;
+        }else if($store['status'] == 1 && ($store['start_time3'] < $now_time && $store['end_time3'] > $now_time)){
+            $store['open'] = 1;
+        }else{
+            $store['open'] = 0;
+        }
+        if($store['open'] != 1){
+            return json(['code'=>204,'msg'=>'该店铺休息中']);
+        }
+        // 获取购买商品信息 计算金额
+        $buy_info = [];
+        $box_price = 0; //餐盒费价格
+        $all_price = 0; //购买总价格=商品+配送费+餐盒费
+        $goods_count = 0; //购买总数量
+        $discount_money = 0; //优惠金额 RICE
+
+        $goods_detail = ""; //获取订单表中的商品信息内容
+
+        foreach ($goods_id as $key=>$goods){
+            if($buy_number[$key] <= 0){
+                return json(['code'=>204,'msg'=>'商品异常，请重试']);
+            }
+           
+            $buy_info[$key] = Db::name('goods')
+                ->where('id',$goods[0])
+                ->where('status',1)
+                ->where('deleted',0)
+                ->field('id goods_id,number,image,name,price,unit')
+                ->find();
+            if(empty($buy_info[$key])){
+                return json(['code'=>204,'msg'=>'部分商品已下架']);
+            }
+            //商品是否促销
+//            $maps['start_time'] = ['<',date('Y-m-d H:i:s',time())];
+//            $maps['end_time'] = ['>',date('Y-m-d H:i:s',time())];
+//            $salesprice = Db::name('goods_promotion')
+//                ->where('good_id',$goods)
+//                ->where('deleted',0)
+//                ->where($maps)
+//                ->field('salesprice')
+//                ->find();
+//            if(!empty($salesprice)){
+//                $buy_info[$key]['price']    =$salesprice['salesprice'];
+//            }
+
+            //是否是sku商品
+            if(!empty($goods[1])){
+                $sku= Db::name('spec_goods_price')
+                    ->where('id',$goods[1])
+                    ->where('goods_id',$goods[0])
+                    ->field('id,price')
+                    ->find();
+                if(!empty($sku)){
+                    $buy_info[$key]['price']    =$sku['price']*100;
+                }
+            }
+
+            $buy_info[$key]['count'] = $buy_number[$key];
+            $buy_info[$key]['price_count'] = $buy_info[$key]['price'] * $buy_number[$key];
+            if($store['box_type'] == 1){
+                $box_price = $store['box_price'];
+            }else{
+                $box_price += $store['box_price']*$buy_info[$key]['count'];
+            }
+            $all_price += $buy_info[$key]['price_count'];
+            $goods_count += $buy_number[$key];
+            $goods_detail .= '--onelist--'.$buy_info[$key]['goods_id'];     //1 商品id
+            $goods_detail .= '--twolist--'.$buy_info[$key]['number'];       //2 商品编号
+            $goods_detail .= '--twolist--'.$buy_info[$key]['name'];         //3 商品名称
+            $goods_detail .= '--twolist--'.$buy_number[$key];               //4 购买数量
+            $goods_detail .= '--twolist--'.$buy_info[$key]['price'];        //5 单价
+            $goods_detail .= '--twolist--'.$buy_info[$key]['unit'];         //6 单位
+        }
+
+        // 判断优惠券是否满足条件
+
+        if($coupon_info){
+            if($all_price < $coupon_info['full_money']*100){
+                return json(['code'=>204,'msg'=>'优惠券未满足条件']);
+            }
+
+            $discount_money += $coupon_info['discount_money'];
+        }
+        //判断月卡是否满足条件
+        if($card_info){
+            if($all_price < $card_info['coupon']['full_money']){
+                return json(['code'=>204,'msg'=>'月卡未满足条件']);
+            }
+            $discount_money += $card_info['coupon']['discount_money'];
+        }
+        // 计算订单总金额 增加优惠金额
+        $all_price = $all_price + $box_price - ($discount_money*100)+$store['delivery_price'] ;
+        if($all_price < 0){
+            return json(['code'=>204,'msg'=>'优惠券优惠金额未满足条件']);
+        }
+        $create_time = date("Y-m-d H:i:s");
+
+        //订单数据生成
+        $orders_data = [];
+
+        $orders_data['order_number'] = build_order_no();
+        $orders_data['store_id'] = $store['store_id'];
+        $orders_data['goods_ids'] = $goods_ids;
+        $orders_data['user_id'] = $user_id;
+        $orders_data['store_name'] = $store['name'];
+        $orders_data['address_id'] = $address['address_id'];
+        $orders_data['count'] = $goods_count;
+        $orders_data['box_type'] = $store['box_type'];
+        $orders_data['box_price'] = $box_price;
+        $orders_data['box_name'] = $store['box_name'];
+        $orders_data['manage_ratio'] = $store['manage_ratio'];
+        $orders_data['manage_price'] = round($all_price*$orders_data['manage_ratio']);
+        $orders_data['develop_ratio'] = $store['develop_ratio'];
+        $orders_data['develop_price'] = round($all_price*$orders_data['develop_ratio']);
+        $orders_data['pay_manage_ratio'] = $store['pay_ratio'];//$sys_setting['wx_ratio'];
+        $orders_data['pay_manage_price'] = round($all_price*$orders_data['pay_manage_ratio']);
+        // $orders_data['store_price'] = $all_price - $orders_data['manage_price'] - $orders_data['develop_price'] - $orders_data['pay_manage_price'];
+
+        // 计算订单店铺获得金额
+        $store_price = $all_price - $orders_data['manage_price'] - $orders_data['develop_price'] - $orders_data['pay_manage_price'];
+        if($coupon_info){
+            //使用卖家的优惠券
+            if($coupon_info['seller_id'] == $store_id){
+                $store_price = $store_price - $discount_money;
+            }
+        }
+        $orders_data['store_price'] = $store_price;
+        $orders_data['convey_price'] = $store['delivery_price'];
+        $orders_data['convey_name'] = $store['delivery_name'];
+        $orders_data['total_price'] = $all_price;
+        $orders_data['campus_id'] = $store['campus_id'];
+        $orders_data['campus_name'] = $store['campus_name'];
+        $orders_data['delivery_name'] = $address['delivery_name'];
+        $orders_data['delivery_phone'] = $address['delivery_phone'];
+        $orders_data['delivery_address'] = $address['delivery_address'];
+        $orders_data['gender'] = $address['gender'];
+        $orders_data['pay_status'] = 1;
+        $orders_data['status'] = 1;
+        $orders_data['goods_detail'] = $goods_detail;
+        $orders_data['order_source'] = 2;
+        $orders_data['order_name'] = '海师外卖-'.$store['name'];
+        $orders_data['order_describe'] = $buy_info[0]['name'].'等，共'.$orders_data['count'].'件商品';
+        $orders_data['create_time'] = $create_time;
+        $orders_data['use_month_card'] = $use_month_card;
+        $orders_data['use_coupon'] = $use_coupon;
+        $orders_data['discount_money'] = $discount_money;
+        $orders_data['remake'] = $remake;
+
+        /*订单数据生成完成，准备插入数据*/
+        // 启动事务
+        Db::startTrans();
+
+        $is_true = false;
+        $insert_orders_id = Db::name('orders')->where('order_number','<>',$orders_data['order_number'])->insertGetId($orders_data);
+        if($insert_orders_id){
+            $is_true = true;
+            //订单生成成功，添加订单状态时间表
+            $orders_times = [];
+            $orders_times['orders_id'] = $insert_orders_id;
+            $orders_times['status'] = $orders_data['status'];
+            $orders_times['status_time'] = $create_time;
+
+            $insert_orders_times = Db::name('orders_times')->insert($orders_times);
+            if(!$insert_orders_times){
+                $is_true = false;
+                Log::error("[ordersTimesError]订单时间插入失败,info=".json_encode($orders_times));
+            }
+
+            // 更新coupon_user 表，用户使用优惠券信息 RICE add 2020-10-30
+            if($coupon_info){
+                $coupon_user_data['is_used'] = 1;
+                $coupon_user_data['order_no'] = $orders_data['order_number'];
+                $coupon_user_data['use_time'] = date('Y-m-d H:i:s',time());
+                $coupon_user_data['remark'] = '购物优惠';
+
+                $coupon_arr = Db::name('coupon_user')->where('coupon_id',$use_coupon)->where('user_id',$orders_data['user_id'])->update($coupon_user_data);
+                if(!$coupon_arr){
+                    $is_true = false;
+                }
+            }
+
+            // 扣减月卡次数
+            if($use_month_card){
+                $card_mod = new MonthCard();
+                // 验证月卡有效性
+                $card_id = $use_month_card;
+                $card_info = $card_mod->getMonthCard(['id'=>$card_id]);
+                if(!empty($card_info)){
+                    // 扣减
+                    $card_res = $card_mod->deductCount($card_id);
+                    if($card_res){
+                        // 增加日志
+                        $card_mod->addLog($card_id,1,$insert_orders_id);
+                    }else{
+                        $is_true = false;
+                    }
+                }
+                // Db::name('pay_test')->insert(['msg'=>'开始支付：'.$card_info['coupon']['discount_money']]);
+            }
+        }
+        //获取用户openid
+        $useropenid = Db::name('user')->where('id',$user_id)->field('gz_openid')->find();
+        if($is_true){
+            Db::commit();
+        }else{
+            Db::rollback();
+            return json(['code'=>204,'msg'=>'下单失败,请重试']);
+        }
+        //调用支付方式 RICE
+        if(1==2){//支付宝
+            $wappay = new Wappay();
+            $data = [];
+            $wappay->pay($data);
+        }else{//微信
+            //调用统一下单API
+            $params = [
+                'appid' => 'wx97228d4a1cc79b44',
+                'mch_id' => config('wx_config.wxpay_mchid'),
+                'nonce_str' => md5(time()),
+                'body' => $orders_data['order_name'],
+                'detail' => $orders_data['order_describe'],
+                'out_trade_no' => $orders_data['order_number'],
+                'total_fee' => $orders_data['total_price'],
+                'spbill_create_ip' => $_SERVER['SERVER_ADDR'],
+                'notify_url' => config('wx_config.wx_pay_notify'),
+                'trade_type' => 'JSAPI',
+                'product_id' => $insert_orders_id,
+                'openid' => $useropenid['gz_openid']
+            ];
+            $wxpay = new WxPay();
+            $arr = $wxpay->unifiedorder($params);
+            $wxpay->logs('logs.txt',$arr);
+            if (isset($arr['prepay_id'])) {
+                //重新签名
+                $data = [
+                    'appId' => $arr['appid'],
+                    'timeStamp' => "".time(),
+                    'nonceStr' => md5(time()),
+                    'package' => 'prepay_id='.$arr['prepay_id'],
+                    'signType' => 'MD5'
+                ];
+                $data = $wxpay->setSign($data);
+                $data['paySign'] = $data['sign'];
+                unset($data['sign']);
+                $data['order_number'] = $orders_data['order_number'];
+                // 今日下单单号统计 RICE
+                $today_number = Db::name('orders')
+                    ->where('store_id',$orders_data['store_id'])
+                    ->where('deleted',0)
+                    ->where('pay_status','>',1)
+                    ->where('status','in',[2,3,4,5,6,7,8,9,10,11,12,13,15])
+                    ->where('create_time','>=',date("Y-m-d 00:00:00",time()))
+                    ->where('create_time','<=',date("Y-m-d 23:59:59",time()))
+                    ->count();
+                // $store_name = $orders_data['store_name'] .'  单号 : '.$today_number;
+                
+                //给用户发送模板消息
+                send_add_success($useropenid['gz_openid'],
+                    $data['order_number'],
+                    $orders_data['store_name'],
+                    $orders_data['create_time'],
+                    $orders_data['order_describe'],
+                    $orders_data['total_price']);
+
+                // 给卖家发送模板消息
+                if($store['user_open_id']){
+                    send_add_success($store['user_open_id'],
+                        $data['order_number'],
+                        $orders_data['store_name'],
+                        $orders_data['create_time'],
+                        $orders_data['order_describe'],
+                        $orders_data['total_price']);
+                }
+
+                // 修改商品库存
+                $up_goods_info = '';
+                $up_stock = '';
+
+                foreach ($goods_id as $key => $value) {
+                    // 查库存
+                    if(!empty($value[1])){
+                        $get_goods_info = Db::name('spec_goods_price')->where('goods_id',$value[1])->field('store_count')->find();
+                        $up_stocks = $get_goods_info['store_count'] - $buy_number[$key];
+                        Db::name('spec_goods_price')->where('goods_id',$value[1])->update(['store_count' => $up_stocks]);
+                    }else{
+                        $up_goods_info = Db::name('goods')->where('id',$value[0])->field('stock')->find();
+                        $up_stock = $up_goods_info['stock'] - $buy_number[$key];
+                        Db::name('goods')->where('id',$value[0])->update(['stock' => $up_stock]);
+                    }
+
+                }
+//                foreach ($buy_goods as $key => $value) {
+//                    // 查库存
+//                    $up_goods_info = Db::name('goods')->where('id',$value)->field('stock')->find();
+//                    $up_stock = $up_goods_info['stock'] - $buy_number[$key];
+//                    Db::name('goods')->where('id',$value)->update(['stock' => $up_stock]);
+//                }
+                return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+            } else {
+                return json(['code'=>204,'msg'=>'prepay_id不存在']);
+
+            }
+        }
+        
+    }
+    /*
+  * 用户订单已经生成，传入订单编号，直接获取支付信息
+  * */
+    public function wxpay_goods_orders()
+    {
+        if(!request()->isPost()){
+            return json(['code'=>204,'msg'=>'下单失败']);
+        }
+
+        $order_number = input('post.order_number');
+        $user_id    = input('post.user_id ');
+        $validate = new Validate([
+            'order_number' => 'require',
+        ]);
+
+        if (!$validate->check(input('post.'))) {
+            return json(['code'=>204,'msg'=>'参数错误，请重试']);
+        }
+
+        $orders_data = Db::name('orders')
+            ->where('order_number',$order_number)
+            ->where('status',1)
+            ->where('pay_status',1)
+            ->where('user_id',$user_id)
+            ->where('deleted',0)
+            ->where('user_deleted',0)
+            ->find();
+dump($order_number);
+        dump($user_id);
+        dump($orders_data);
+exit;
+        if(empty($orders_data)){
+            return json(['code'=>204,'msg'=>'该订单已取消，请重新下单']);
+        }
+        if($orders_data['order_name'])
+        //2 获取下单商品信息
+        $store = Db::name('store')
+            ->where('id',$orders_data['store_id'])
+            ->where('deleted',0)
+            ->field("id store_id,name,phone,address,detail,campus_id,min_price,start_time1,end_time1,start_time2,end_time2,start_time3,end_time3,logo,delivery_price,delivery_name,box_type,box_price,box_name,status,manage_ratio,develop_ratio,order_cancel_time")
+            ->find();
+
+        if(empty($store)){
+            return json(['code'=>204,'msg'=>'店铺不存在']);
+        }
+
+        $campus = Db::name('campus')
+            ->where('id',$store['campus_id'])
+            ->where('deleted',0)
+            ->field('name')
+            ->find();
+        
+        if(empty($campus)){
+            return json(['code'=>204,'msg'=>'该校区暂不支持下单']);
+        }
+
+        //所属校区
+        $store['campus_name'] = $campus['name'];
+
+        //计算营业状态
+        $now_time = date('H:i:s', time());
+        if($store['status'] == 1 && ($store['start_time1'] < $now_time && $store['end_time1'] > $now_time)){
+            $store['open'] = 1;
+        }else if($store['status'] == 1 && ($store['start_time2'] < $now_time && $store['end_time2'] > $now_time)){
+            $store['open'] = 1;
+        }else if($store['status'] == 1 && ($store['start_time3'] < $now_time && $store['end_time3'] > $now_time)){
+            $store['open'] = 1;
+        }else{
+            $store['open'] = 0;
+        }
+
+        if($store['open'] != 1){
+            return json(['code'=>204,'msg'=>'该店铺休息中']);
+        }
+
+        $sys_setting = Db::name('sys_setting')
+            ->where('deleted',0)
+            ->field('wx_ratio')
+            ->find();
+
+        //店铺当前信息和订单信息不一致拒绝支付，要求重新下单
+        if($store['box_type'] != $orders_data['box_type'] || ($orders_data['box_type'] == 1 && $store['box_price'] != $orders_data['box_price']) || ($orders_data['box_type'] == 2 && $store['box_price']*$orders_data['count'] != $orders_data['box_price']) || $store['box_name'] != $orders_data['box_name'] || $store['manage_ratio'] != $orders_data['manage_ratio'] || $store['develop_ratio'] != $orders_data['develop_ratio'] || $store['delivery_price'] != $orders_data['convey_price'] || $store['delivery_name'] != $orders_data['convey_name']){
+            return json(['code'=>204,'msg'=>'店铺信息有变，请重新下单']);
+        }
+
+        if($orders_data['pay_manage_ratio'] != $sys_setting['wx_ratio']){
+            return json(['code'=>204,'msg'=>'平台信息有变，请重新下单']);
+        }
+
+        //查看商品是否下架,先获取下单商品id
+        $goods_ids =  explode('--onelist--', $orders_data['goods_ids']);
+
+        //3 获取购买商品信息 计算金额
+        $buy_info = [];
+
+        foreach ($goods_ids as $key=>$goods) {
+            $goods_info = Db::name('goods')
+                ->where('id', $goods)
+                ->where('status', 1)
+                ->where('deleted', 0)
+                ->field('id goods_id,number,image,name,price,unit')
+                ->find();
+
+            if (empty($goods_info)) {
+                return json(['code'=>204,'msg'=>'部分商品已下架，请重新下单']);
+            }
+        }
+        $useropenid = Db::name('user')->where('id',$user_id)->field('gz_openid')->find();
+        //调用统一下单API
+        $params = [
+            'appid' => 'wx97228d4a1cc79b44',
+            'mch_id' => config('wx_config.wxpay_mchid'),
+            'nonce_str' => md5(time()),
+            'body' => $orders_data['order_name'],
+            'detail' => $orders_data['order_describe'],
+            'out_trade_no' => $orders_data['order_number'],
+            'total_fee' => $orders_data['total_price'],
+            'spbill_create_ip' => $_SERVER['SERVER_ADDR'],
+            'notify_url' => config('wx_config.wx_pay_notify'),
+            'trade_type' => 'JSAPI',
+            'product_id' => $orders_data['id'],
+            'openid' => $useropenid['gz_openid']
+        ];
+        $wxpay = new WxPay();
+        $arr = $wxpay->unifiedorder($params);
+
+        if (isset($arr['prepay_id'])) {
+            //重新签名
+            $data = [
+                'appId' => $arr['appid'],
+                'timeStamp' => "".time(),
+                'nonceStr' => md5(time()),
+                'package' => 'prepay_id='.$arr['prepay_id'],
+                'signType' => 'MD5'
+            ];
+            $data = $wxpay->setSign($data);
+            $data['paySign'] = $data['sign'];
+            unset($data['sign']);
+            $data['order_number'] = $orders_data['order_number'];
+
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+
+        } else {
+            return json(['code'=>204,'msg'=>'prepay_id不存在']);
+        }
+    }
+    //月卡支付
+    public function wxpay_card()
+    {
+        if(!request()->isPost()){
+            return json(['code'=>204,'msg'=>'下单失败']);
+        }
+        $user_id = input('user_id');
+
+
+        // 增加月购
+        $total_price = input('total_price');
+        $discount_money = input('discount_money');
+        $full_money = input('full_money');
+
+        $card_mod = new MonthCard();
+        $card_info = $card_mod->add($user_id,$total_price,$discount_money,$full_money);
+        if(!$card_info){
+            return json(['code'=>204,'msg'=>'增加月卡失败']);
+        }
+        $useropenid = Db::name('user')->where('id',$user_id)->field('gz_openid')->find();
+        //调用支付方式 RICE
+        if(1==2){//支付宝
+            $wappay = new Wappay();
+            $data = [];
+            $wappay->pay($data);
+        }else{//微信
+
+            //调用统一下单API
+            $params = [
+                'appid' => 'wx97228d4a1cc79b44',
+                'mch_id' => config('wx_config.wxpay_mchid'),
+                'nonce_str' => md5(time()),
+                'body' => '购买月卡',
+                'detail' => '购买月卡',
+                'out_trade_no' => $card_info['card_number'],
+                'total_fee' => $card_info['total_price']*100,
+                'spbill_create_ip' => $_SERVER['SERVER_ADDR'],
+                'notify_url' => 'https://hnqt.0898yzzx.com/client/notify/wxpay_card',
+                'trade_type' => 'JSAPI',
+
+                'product_id' => $card_info['insert_orders_id'],
+                'openid' => $useropenid['gz_openid']
+            ];
+            $wxpay = new WxPay();
+            $arr = $wxpay->unifiedorder($params);
+            $wxpay->logs('logs.txt',$arr);
+
+            if (isset($arr['prepay_id'])) {
+                //重新签名
+                $data = [
+                    'appId' => $arr['appid'],
+                    'timeStamp' => "".time(),
+                    'nonceStr' => md5(time()),
+                    'package' => 'prepay_id='.$arr['prepay_id'],
+                    'signType' => 'MD5'
+                ];
+                $data = $wxpay->setSign($data);
+                $data['paySign'] = $data['sign'];
+                unset($data['sign']);
+
+                $data['card_number'] = $card_info['card_number'];
+                return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+            } else {
+                return json(['code'=>204,'msg'=>'prepay_id不存在']);
+            }
+        }
+        
+    }
+
+    //用户取消订单
+    //取消订单
+    public function cancel_orders()
+    {
+        
+        $order_number = input('order_number/s');
+        $user_id = input('user_id/s');
+        $validate = new Validate([
+            'order_number' => 'require',
+        ]);
+
+        if (!$validate->check(input('post.'))) {
+
+            return json(['code'=>204,'msg'=>'参数错误，请重试']);
+        }
+
+        //订单信息
+        $orders = Db::name('orders')
+            ->where('order_number',$order_number)
+            ->where('user_id',$user_id)
+            ->where('status',1)
+            ->where('pay_status',1)
+            ->where('deleted',0)
+            ->field('id,cancel_time,status,user_deleted,order_number,store_name,pay_type,total_price')
+            ->find();
+
+        if(empty($orders)){
+            return json(['code'=>204,'msg'=>'该订单不支持取消']);
+        }
+
+        if($orders['user_deleted'] == 1){
+            return json(['code'=>204,'msg'=>'操作失败，该订单已被删除']);
+        }
+
+        $update_time = date("Y-m-d H:i:s");
+
+        //如果用户没有付款，直接修改订单状态为取消
+        $cancel_res = Db::name('orders')
+            ->where('order_number',$order_number)
+            ->where('user_id',$user_id)
+            ->where('deleted',0)
+            ->update(['status'=>14,'update_time'=>$update_time]);
+
+        if($cancel_res){
+            //取消订单成功，添加订单状态时间表
+            $orders_times = [];
+            $orders_times['orders_id'] = $orders['id'];
+            $orders_times['status'] = 14;
+            $orders_times['status_time'] = $update_time;
+
+            $insert_orders_times = Db::name('orders_times')->insert($orders_times);
+            if(!$insert_orders_times){
+                Log::error("[ordersTimesError]订单时间插入失败,info=".json_encode($orders_times));
+            }
+            $useropenid = Db::name('user')->where('id',$user_id)->field('gz_openid')->find();
+
+            //给用户发送模板消息
+            send_orders_status($useropenid['gz_openid'],$orders['order_number'],$orders['total_price'],'待支付','已取消');
+
+            return json(['code'=>200,'msg'=>'取消订单成功','data'=>$insert_orders_times]);
+        }else{
+            return json(['code'=>204,'msg'=>'订单状态更改失败']);
+        }
+    }
+    //订单详情
+    public function getorderinfo(){
+        $order_number= input('order_number/s');
+        $orderinfo  = Db::name('orders')->where('order_number',$order_number)->find();
+        if(!empty($orderinfo)){
+            $orderinfo['box_price']=$orderinfo['box_price']/100;
+            $orderinfo['convey_price']=$orderinfo['convey_price']/100;
+           // $goods_ids  = $orderinfo['goods_ids'];
+            
+//            $goodsinfo  = Db::name('goods')->where('id', 'in', $goods_ids)->field('image,price,name,id,stock')->select();
+//            if (!empty($goodsinfo)) {
+//                foreach ($goodsinfo as $key => $val) {
+//                    $goodssale  = Db::name('goods_promotion')
+//                        ->where('good_id', $val['id'])
+//                        ->where('deleted',0)
+//                        ->field('salesprice')
+//                        ->find();
+//                    if(!empty($goodssale)){
+//                        $goodsinfo[$key]['price'] = $goodssale['salesprice']/100;
+//                    }else{
+//                        $goodsinfo[$key]['price'] = $val['price']/100;
+//                    }
+//                }
+//            }
+            $order_goods_detail =  explode('--onelist--', $orderinfo['goods_detail']);
+            foreach($order_goods_detail as $k =>$v){
+                if(!empty($v)){
+                    $order_goods_detail[$k]=explode('--twolist--', $v);
+                }
+            }
+            $goods=array();
+            foreach($order_goods_detail as $k =>$v){
+                if($k){
+                    $goods[$k]['id']=$v[0];
+                    $goods[$k]['name']=$v[2];
+                    $goods[$k]['number']=$v[3];
+                    $goods[$k]['price']=$v[4]/100;
+                    $goodsimage=Db::name('goods')
+                        ->where('id',$v[0])
+                        ->where('deleted',0)
+                        ->field('image')
+                        ->find();
+                    $goods[$k]['image']=$goodsimage['image'];
+                }
+            }
+            $orderinfo['total_price']   =$orderinfo['total_price']/100;
+            $orderinfo['goods']=$goods;
+            $res_phone=Db::name('store')->where('id',$orderinfo['store_id'])->field('phone')->find();
+            if(!empty($res_phone)){
+                $orderinfo['store_phone']=$res_phone['phone'];
+            }else{
+                $orderinfo['store_phone']='';
+            }
+            return json(['code'=>200,'msg'=>'操作成功','data'=>$orderinfo]);
+        }else{
+            return json(['code'=>204,'msg'=>'没有订单信息','data'=>0]);
+        }
+    }
+    //申请退款
+    public function apply_refund()
+    {
+        if(!request()->isPost()){
+            return json(['code'=>201,'msg'=>'请求失败']);
+        }
+        $order_number = input('order_number/s');
+        $user_id = input('user_id/s');
+        $validate = new Validate([
+            'order_number' => 'require',
+        ]);
+        if (!$validate->check(input('post.'))) {
+            return json(['code'=>202,'msg'=>'参数错误，请重试']);
+        }
+
+        //订单信息
+        $orders = Db::name('orders')
+            ->where('order_number',$order_number)
+            ->where('user_id',$user_id)
+            ->where('deleted',0)
+            ->where('status',3)
+            ->where('pay_status',2)
+            ->where('cancel_time','<=',date("Y-m-d H:i:s"))
+            ->field('id,cancel_time,status,user_deleted,order_number,store_name,pay_type,total_price,create_time,store_id')
+            ->find();
+
+        if(empty($orders)){
+            return json(['code'=>203,'msg'=>'该订单暂不支持申请退款']);
+        }
+
+        if($orders['user_deleted'] == 1){
+            return json(['code'=>205,'msg'=>'操作失败，该订单已被删除']);
+        }
+
+        $update_time = date("Y-m-d H:i:s");
+
+        //修改状态为申请退款
+        $cancel_res = Db::name('orders')
+            ->where('order_number',$order_number)
+            ->where('user_id',$user_id)
+            ->where('pay_status',2)
+            ->where('status',3)
+            ->where('deleted',0)
+            ->update(['status'=>8,'update_time'=>$update_time]);
+        $store_id = $orders['store_id'];
+
+        switch ($orders){
+            case 1:
+                $pay_type = '微信支付';
+                break;
+            case 2:
+                $pay_type = '支付宝支付';
+                break;
+            default:
+                $pay_type = '待支付';
+                break;
+        }
+
+        if($cancel_res){
+            //订单生成成功，添加订单状态时间表
+            $orders_times = [];
+            $orders_times['orders_id'] = $orders['id'];
+            $orders_times['status'] = 8;
+            $orders_times['status_time'] = $update_time;
+
+            $insert_orders_times = Db::name('orders_times')->insert($orders_times);
+            if(!$insert_orders_times){
+                Log::error("[ordersTimesError]订单时间插入失败,info=".json_encode($orders_times));
+            }
+            $useropenid = Db::name('user')->where('id',$user_id)->field('gz_openid')->find();
+            //给用户发送模板消息 退款申请已提交
+            send_refund_status($useropenid['gz_openid'],$orders['order_number'],$orders['total_price'],$orders['create_time'],$orders['status']);
+            //send_refund_status('NJ1Hq2tyh21w395hgbBGolkHs',$orders['order_number'],$orders['total_price'],$orders['create_time'],$orders['status']);
+            return json(['code'=>200,'msg'=>'申请退款已提交，请耐心等待','data'=>$cancel_res]);
+
+        }else{
+            if(empty($orders)){
+                return json(['code'=>204,'msg'=>'订单状态更改失败']);
+            }
+        }
+
+    }
+    //删除订单
+    public function del_orders(){
+        $order_number = input('order_number');
+        $user_id     = input('user_id');
+        if(empty($order_id)&&empty($user_id)){
+            return json(['code'=>201,'msg'=>'参数有误!']);
+        }
+        $res=Db::name('orders')->where('order_number',$order_number)->where('user_id',$user_id)->field('id')->find();
+
+        if(empty($res)){
+            return json(['code'=>202,'msg'=>'查询不到该订单!']);
+        }
+        $del_res=Db::name('orders')->where('id',$res['id'])->update(['deleted'=>1]);
+        if(!empty($del_res)){
+            return json(['code'=>200,'msg'=>'删除成功','data'=>$del_res]);
+        }else{
+            return json(['code'=>204,'msg'=>'删除失败']);
+        }
+    }
+
+    //数码商品用户确认订单，生成订单信息，返回支付信息
+    public function wxpay_digital_good(){
+        $store_id = input('post.store_id/d')?:17;
+        $buy_goods = input('post.buy_goods/s')?:"327:94,3231:,3241:104,327:95";
+        $buy_number = input('post.buy_number/s')?:'2,1,2,1';
+        $address_id = input('post.address_id/d')?:244;
+        $remake = input('post.remake');
+        $use_coupon = input('post.use_coupon'); //rice 优惠券
+        $use_month_card = input('post.use_month_card'); //rice 月卡
+        $user_id = input('post.user_id/d')?:1727;
+       
+        $validate = new Validate([
+            'store_id' => 'require|number|>:0',
+            'buy_goods' => 'require',
+            'buy_number' => 'require',
+            'address_id' => 'require|number|>:0',
+        ]);
+        if (!$validate->check(input('post.'))) {
+            return json(['code'=>201,'msg'=>'参数错误，请重试']);
+        }
+        $goods_ids = $buy_goods;
+        $buy_goods = explode(",",$buy_goods);
+        $buy_number = explode(",",$buy_number);
+        foreach($buy_goods as $v){
+            $goods_id[]=explode(":",$v);
+
+        }
+        if(count($buy_goods) != count($buy_number)){
+            return json(['code'=>204,'msg'=>'数据异常，请重试']);
+        }
+
+        //1 获取用户收货地址信息
+        $address = Db::name('user_address')
+            ->where('user_id',$user_id)
+            ->where('deleted',0)
+            ->where('id',$address_id)
+            ->field('id address_id,gender,delivery_name,delivery_phone,delivery_address')
+            ->find();
+
+        if(empty($address)){
+            return json(['code'=>202,'msg'=>'地址不可用']);
+        }
+        //2 获取下单商品信息
+        $store = Db::name('digital')
+            ->where('id',$store_id)
+            ->where('deleted',0)
+            ->field("id store_id,name,phone,address,image,campus_id")
+            ->find();
+        if(empty($store)){
+            return json(['code'=>203,'msg'=>'商家不存在']);
+        }
+        $campus = Db::name('campus')
+            ->where('id',$store['campus_id'])
+            ->where('deleted',0)
+            ->field('name')
+            ->find();
+
+        if(empty($campus)){
+            return json(['code'=>205,'msg'=>'该校区暂不支持下单']);
+        }
+        //所属校区
+        $store['campus_name'] = $campus['name'];
+        // 获取购买商品信息 计算金额
+        $buy_info = [];
+        $box_price = 0; //餐盒费价格
+        $all_price = 0; //购买总价格=商品+配送费+餐盒费
+        $goods_count = 0; //购买总数量
+        $discount_money = 0; //优惠金额 RICE
+        $goods_detail = ""; //获取订单表中的商品信息内容
+        foreach ($goods_id as $key=>$goods){
+            if($buy_number[$key] <= 0){
+                return json(['code'=>206,'msg'=>'商品异常，请重试']);
+            }
+            $buy_info[$key] = Db::name('digital_good')
+                ->where('id',$goods[0])
+                ->where('status',1)
+                ->where('deleted',0)
+                ->field('id goods_id,image,name,price,unit')
+                ->find();
+            if(empty($buy_info[$key])){
+                return json(['code'=>207,'msg'=>'部分商品已下架']);
+            }
+            $buy_info[$key]['price']=$buy_info[$key]['price']*100;
+            //是否是sku商品
+            if(!empty($goods[1])){
+                $sku= Db::name('digitalspec_goods_price')
+                    ->where('id',$goods[1])
+                    ->where('goods_id',$goods[0])
+                    ->field('id,price')
+                    ->find();
+                if(!empty($sku)){
+                    $buy_info[$key]['price']    =$sku['price']*100;
+                }
+            }
+            $buy_info[$key]['count'] = $buy_number[$key];
+            $buy_info[$key]['price_count'] = $buy_info[$key]['price'] * $buy_number[$key];
+
+            $all_price += $buy_info[$key]['price_count'];
+            $goods_count += $buy_number[$key];
+            $goods_detail .= '--onelist--'.$buy_info[$key]['goods_id'];     //1 商品id
+            $goods_detail .= '--twolist--'.$buy_info[$key]['goods_id'];       //2 商品编号
+            $goods_detail .= '--twolist--'.$buy_info[$key]['name'];         //3 商品名称
+            $goods_detail .= '--twolist--'.$buy_number[$key];               //4 购买数量
+            $goods_detail .= '--twolist--'.$buy_info[$key]['price'];        //5 单价
+            $goods_detail .= '--twolist--'.$buy_info[$key]['unit'];         //6 单位
+        }
+        $create_time = date("Y-m-d H:i:s");
+
+        //订单数据生成
+        $orders_data = [];
+
+        $orders_data['order_number'] = build_order_no();
+        $orders_data['store_id'] = $store['store_id'];
+        $orders_data['goods_ids'] = $goods_ids;
+        $orders_data['user_id'] = $user_id;
+        $orders_data['store_name'] = $store['name'];
+        $orders_data['address_id'] = $address['address_id'];
+        $orders_data['count'] = $goods_count;
+        $orders_data['box_type'] = '';
+        $orders_data['box_price'] = '';
+        $orders_data['box_name'] = '';
+        $orders_data['manage_ratio'] = '';
+        $orders_data['manage_price'] = '';
+        $orders_data['develop_ratio'] = '';
+        $orders_data['develop_price'] = '';
+        $orders_data['pay_manage_ratio'] = '';
+        $orders_data['pay_manage_price'] = '';
+        // $orders_data['store_price'] = $all_price - $orders_data['manage_price'] - $orders_data['develop_price'] - $orders_data['pay_manage_price'];
+
+        // 计算订单店铺获得金额
+        //$store_price = $all_price - $orders_data['manage_price'] - $orders_data['develop_price'] - $orders_data['pay_manage_price'];
+       
+        $orders_data['store_price'] = $all_price;
+        $orders_data['convey_price'] = 10;
+        $orders_data['convey_name'] = '运费';
+        $orders_data['total_price'] = $all_price;
+        $orders_data['campus_id'] = $store['campus_id'];
+        $orders_data['campus_name'] = $store['campus_name'];
+        $orders_data['delivery_name'] = $address['delivery_name'];
+        $orders_data['delivery_phone'] = $address['delivery_phone'];
+        $orders_data['delivery_address'] = $address['delivery_address'];
+        $orders_data['gender'] = $address['gender'];
+        $orders_data['pay_status'] = 1;
+        $orders_data['status'] = 1;
+        $orders_data['goods_detail'] = $goods_detail;
+        $orders_data['order_source'] = 2;
+        $orders_data['order_name'] = '数码产品-'.$store['name'];
+        $orders_data['order_describe'] = $buy_info[0]['name'].'等，共'.$orders_data['count'].'件商品';
+        $orders_data['create_time'] = $create_time;
+        $orders_data['use_month_card'] = '';
+        $orders_data['use_coupon'] = '';
+        $orders_data['discount_money'] = '';
+        $orders_data['remake'] = $remake;
+        /*订单数据生成完成，准备插入数据*/
+        // 启动事务
+        Db::startTrans();
+        $is_true = false;
+        $insert_orders_id = Db::name('orders')->where('order_number','<>',$orders_data['order_number'])->insertGetId($orders_data);
+        if($insert_orders_id){
+            $is_true = true;
+            //订单生成成功，添加订单状态时间表
+            $orders_times = [];
+            $orders_times['orders_id'] = $insert_orders_id;
+            $orders_times['status'] = $orders_data['status'];
+            $orders_times['status_time'] = $create_time;
+            $insert_orders_times = Db::name('orders_times')->insert($orders_times);
+            if(!$insert_orders_times){
+                $is_true = false;
+                Log::error("[ordersTimesError]订单时间插入失败,info=".json_encode($orders_times));
+            }
+        }
+        //获取用户openid
+        $useropenid = Db::name('user')->where('id',$user_id)->field('gz_openid')->find();
+        if($is_true){
+            Db::commit();
+        }else{
+            Db::rollback();
+            return json(['code'=>208,'msg'=>'下单失败,请重试']);
+        }
+        //调用支付方式 RICE
+        if(1==2){//支付宝
+            $wappay = new Wappay();
+            $data = [];
+            $wappay->pay($data);
+        }else{//微信
+            //调用统一下单API
+            $params = [
+                'appid' => 'wx97228d4a1cc79b44',
+                'mch_id' => config('wx_config.wxpay_mchid'),
+                'nonce_str' => md5(time()),
+                'body' => $orders_data['order_name'],
+                'detail' => $orders_data['order_describe'],
+                'out_trade_no' => $orders_data['order_number'],
+                'total_fee' => $orders_data['total_price'],
+                'spbill_create_ip' => $_SERVER['SERVER_ADDR'],
+                'notify_url' => config('wx_config.wx_pay_notify'),
+                'trade_type' => 'JSAPI',
+                'product_id' => $insert_orders_id,
+                'openid' => $useropenid['gz_openid']
+            ];
+            $wxpay = new WxPay();
+            $arr = $wxpay->unifiedorder($params);
+            $wxpay->logs('logs.txt',$arr);
+            if (isset($arr['prepay_id'])) {
+                //重新签名
+                $data = [
+                    'appId' => $arr['appid'],
+                    'timeStamp' => "".time(),
+                    'nonceStr' => md5(time()),
+                    'package' => 'prepay_id='.$arr['prepay_id'],
+                    'signType' => 'MD5'
+                ];
+                $data = $wxpay->setSign($data);
+                $data['paySign'] = $data['sign'];
+                unset($data['sign']);
+                $data['order_number'] = $orders_data['order_number'];
+                // 今日下单单号统计 RICE
+                $today_number = Db::name('orders')
+                    ->where('store_id',$orders_data['store_id'])
+                    ->where('deleted',0)
+                    ->where('pay_status','>',1)
+                    ->where('status','in',[2,3,4,5,6,7,8,9,10,11,12,13,15])
+                    ->where('create_time','>=',date("Y-m-d 00:00:00",time()))
+                    ->where('create_time','<=',date("Y-m-d 23:59:59",time()))
+                    ->count();
+                // $store_name = $orders_data['store_name'] .'  单号 : '.$today_number;
+                //给用户发送模板消息
+                send_add_success($useropenid['gz_openid'],
+                    $data['order_number'],
+                    $orders_data['store_name'],
+                    $orders_data['create_time'],
+                    $orders_data['order_describe'],
+                    $orders_data['total_price']);
+
+                // 给卖家发送模板消息
+//                if($store['user_open_id']){
+//                    send_add_success($store['user_open_id'],
+//                        $data['order_number'],
+//                        $orders_data['store_name'],
+//                        $orders_data['create_time'],
+//                        $orders_data['order_describe'],
+//                        $orders_data['total_price']);
+//                }
+                // 修改商品库存
+                $up_goods_info = '';
+                $up_stock = '';
+                foreach ($goods_id as $key => $value) {
+                    // 查库存
+                    if(!empty($value[1])){
+                        $get_goods_info = Db::name('digitalspec_goods_price')->where('goods_id',$value[1])->field('store_count')->find();
+                        $up_stocks = $get_goods_info['store_count'] - $buy_number[$key];
+                        Db::name('digitalspec_goods_price')->where('goods_id',$value[1])->update(['store_count' => $up_stocks]);
+                    }else{
+                        $up_goods_info = Db::name('digital_good')->where('id',$value[0])->field('stock')->find();
+                        $up_stock = $up_goods_info['stock'] - $buy_number[$key];
+                        Db::name('digital_good')->where('id',$value[0])->update(['stock' => $up_stock]);
+                    }
+                }
+                return json(['code'=>200,'msg'=>'操作成功','data'=>$data]);
+            } else {
+                return json(['code'=>204,'msg'=>'prepay_id不存在']);
+            }
+        }
+    }
+}

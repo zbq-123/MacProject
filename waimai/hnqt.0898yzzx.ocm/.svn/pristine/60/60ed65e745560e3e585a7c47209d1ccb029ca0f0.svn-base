@@ -1,0 +1,156 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: weitrun
+ * Date: 2020/7/9
+ * Time: 9:16
+ */
+
+namespace app\admin\controller;
+
+use app\admin\model\Admin;
+use app\admin\model\IdleGoods as IdleGoods_mod;
+use app\admin\model\User;
+use app\common\controller\AdminBase;
+use app\admin\model\Train as Train_mod;
+use app\admin\model\Experience as Experience_mod;
+use think\Db;
+use util\Ret;
+
+class IdleGoods extends AdminBase
+{
+    public function index()
+    {
+        if (request()->isAjax()) {
+            $comment = new IdleGoods_mod();
+            $fields = input('param.fields/a');
+            $map = [];
+            $result = $comment->getListData($map, $fields, $this->limit, $this->page);
+            return json($result);
+        }
+        return $this->fetch();
+    }
+
+    //添加
+    public function add(){
+        if (request()->post()) {
+            $data = request()->except(['deleted'], 'post');
+            //获取驾校名
+            if($data['train_id']){
+                $train = new Train_mod();
+                $res=$train->where('id',$data['train_id'])->field('id,name')->find();
+
+                if(!empty($res)){
+                    $data['train_name']=$res['name'];
+                }else{
+                    $data['train_name']='';
+                }
+            }
+            //获取体验券名称
+//            if($data['experience_id']){
+//                $experience = new Experience_mod();
+//                $result=$experience->where('id',$data['experience_id'])->field('id,name')->find();
+//                if(!empty($result)){
+//                    $data['experience_name']=$result['name'];
+//                }else{
+//                    $data['experience_name']='';
+//                }
+//            }
+            //获取用户id
+            if($data['user_name']){
+                $user_data=User::where('nickname',$data['user_name'])->field('id')->find();
+                if(!empty($user_data)){
+                    $data['user_id']=$user_data['id'];
+                }else{
+                    $data['user_id']='';
+                }
+            }
+            $comment = new IdleGoods_mod();
+            $result = $comment->editTrain($data);
+            if ($result) {
+                $this->success('操作成功', 'index', null, 1);
+            } else {
+                $this->error($comment->getError());
+            }
+        }
+        else{
+            $train = new Train_mod();
+            $res=$train->where('deleted',0)->field('id,name')->select();
+            $this->assign('train_list',$res);
+            $experience = new Experience_mod();
+            $res=$experience->where('deleted',0)->field('id,name')->select();
+            $this->assign('experience_list',$res);
+            return $this->fetch();
+        }
+    }
+
+    //删除
+    public function delete(){
+        $subject =IdleGoods_mod::where(['id'=>input('post.id')])->find();
+        if (false == $subject) {
+            abort(608, '资源不存在');
+        }
+        $subject->deleted = 1;
+        $result = $subject->save();
+        if ($result) {
+            return json(new Ret());
+        } else {
+            abort(608);
+        }
+    }
+
+    //修改
+    public function edit(){
+        if (request()->isPost()){
+            $data = request()->except(['deleted'],'post');
+            $data['admin_id'] = $this->adminId;
+            $comment = new IdleGoods_mod();
+            if($data['train_id']){
+                $train = new Train_mod();
+                $res=$train->where('id',$data['train_id'])->field('id,name')->find();
+
+                if(!empty($res)){
+                    $data['train_name']=$res['name'];
+                }else{
+                    $data['train_name']='';
+                }
+            }
+
+            $result = $comment->editTrain($data);
+            if ($result){
+                $this->success("操作成功", 'index', null ,1);
+            }
+            else{
+                $this->error($comment ->getError());
+            }
+        }else{
+            $id = request()->param('id');
+            $friendship=IdleGoods_mod::where('id', $id)->find();
+            if (empty($friendship)) {
+                $this->error("资源不存在");
+            }
+            $train = new Train_mod();
+            $res=$train->where('deleted',0)->field('id,name')->select();
+
+            $this->assign('train_list',$res);
+            $experience = new Experience_mod();
+            $result=$experience->where('deleted',0)->field('id,name')->select();
+
+            $content_image=array();
+            if(!empty($friendship['content_image'])){
+                $content_image  =$friendship['content_image'];
+                $content_image  =explode(',',$content_image);
+            }
+
+           
+           
+            $this->assign('experience_list',$result);
+            $this->assign('content_image',$content_image);
+            $this->assign("store", $friendship);
+            return $this->fetch();
+        }
+
+    }
+
+
+}

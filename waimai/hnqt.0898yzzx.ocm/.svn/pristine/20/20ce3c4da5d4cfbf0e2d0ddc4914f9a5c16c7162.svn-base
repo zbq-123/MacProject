@@ -1,0 +1,191 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<fieldset class="layui-elem-field layui-field-title">
+  <legend>促销列表</legend>
+</fieldset>
+<!--headToolBar-->
+<div class="tip-btn-line">
+  <div class="layui-btn layui-btn-sm xu-icon-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669; </i>刷新</div>
+  <!-- <div class="layui-btn layui-btn-sm xu-icon-btn" id="addBtn"><i class="layui-icon">&#xe608;</i>添加</div>-->
+  <!-- <div class="layui-btn layui-btn-sm xu-icon-btn" id="line"><i class="layui-icon">&#xe608;</i>一键上架</div>
+  <div class="layui-btn layui-btn-sm xu-icon-btn" id="unline"><i class="layui-icon">&#xe608;</i>一键下架</div> -->
+  <!--搜索表单-->
+  <form action="" class="layui-form search-form">
+    <div class="layui-form-item">
+      <div class="layui-inline">
+        <div class="layui-input-inline">
+          <input type="text" name="field_content" placeholder="商品名称搜索" autocomplete="off" class="layui-input">
+          <input type="text" name="field_name" hidden value="goodsname">
+        </div>
+        <div class="layui-input-inline">
+          <button class="layui-btn layui-btn-primary" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+<!--table-->
+<table class="layui-table" id="dataTable" lay-filter="dataTable"></table>
+{/block}
+{block name="script"}
+<!--toolBar-->
+
+<script type="text/html" id="pictureTpl">
+  {{#  if(d.goodsimage != null){  }}
+  <img class="xu-title-pic" src="{{d.goodsimage}}">
+  {{# }  }}
+</script>
+
+<!--typeNameTpl-->
+
+<!--typeNameTpl-->
+<script type="text/html" id="storeTpl">
+  {{#  if(d.store.name != undefined){ }}
+  <span>{{d.store.name}}</span>
+  {{#  } else { }}
+  <span>无</span>
+  {{# } }}
+</script>
+
+<script type="text/html" id="rightToolBar">
+  <a class="layui-btn layui-btn-sm" lay-event="edit">修改</a>
+  <a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
+</script>
+
+<script type="text/html" id="moneyTpl">
+  {{d.salesprice/100}}元
+
+</script>
+<script type="text/html" id="goodprice">
+  {{d.goodprice/100}}元
+
+</script>
+
+<script type="text/html" id="stockTpl">
+  {{#  if(d.stock == null){ }}
+  0
+  {{#  } else {  }}
+  {{d.stock}}
+  {{#   }  }}
+</script>
+
+<script>
+  layui.use(['element', 'layer', 'table', 'form', 'xlp'], function () {
+    var $ = layui.jquery, element = layui.element, table = layui.table, layer = layui.layer, form = layui.form, xlp = layui.xlp;
+    xlp.startLoading();
+
+    //table生成
+    var dataTable = table.render({
+      elem: "#dataTable"
+      ,url: "{:url('goodsplist')}"
+      ,response: {
+        statusCode: 200
+        ,msgName: 'message'
+      }
+      ,cols: [[
+        {field:'id', width:80,title:'ID'},
+        {field:'store_id', title:'校区', templet: function (res){
+            if(res.campus){
+              return res.campus.name;
+            }
+          }},
+        {field:'store_id', title:'店铺', templet: "#storeTpl"},
+        {field:'goodsimage', title:'商品图片',templet: "#pictureTpl"},
+        {field:'goodsname', title:'商品名称'},
+        {field:'salesprice', title:'促销价格',templet: "#moneyTpl"},
+        {field:'goodprice', title:'商品价格',templet: "#goodprice"},
+
+
+
+        {field:'sort', title:'排序',edit: 'text',sort:true,width:80},
+        {field:'start_time', title:'开始时间'},
+        {field:'end_time', title:'结束时间'},
+        {fixed: 'right',width:150, align:'center', toolbar: '#rightToolBar', title:'操作'}
+
+
+      ]]
+      ,page: {
+        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+        ,groups: 5
+        ,first: false
+        ,last: false
+      }
+      ,done: function (res, curr, count){
+        xlp.reSetIframeHeight();
+        xlp.closeLoading();
+      }
+    });
+
+
+    //监听工具条
+    table.on('tool(dataTable)', function(obj){
+      var data = obj.data;
+      var layEvent = obj.event;
+
+      if(layEvent === 'delete'){ //撤销
+        layer.confirm("确定删除吗?", function(index){
+          xlp.postHttp("{:url('delete_goodsp')}", {
+            id: data.id,
+          }, function (res) {
+            obj.del();
+            layer.close(index);
+            layer.msg('删除成功');
+          });
+        });
+      }else if(layEvent == 'edit') {
+        location.href = "{:url('edit_goodsp')}?id="+data.id;}
+
+    });
+
+    //监听指定开关
+
+
+    //编辑排序
+    table.on('edit(dataTable)', function(obj){
+      xlp.postHttp("{:url('edit_sort1')}", {
+        id: obj.data.id,
+        sort: obj.value
+      }, function(res) {
+        layer.msg("修改成功");
+      })
+    });
+
+    //搜索
+    form.on('submit(search)', function (data) {
+      xlp.startLoading();
+      dataTable.reload({
+        where: {
+          fields: data.field
+        }
+        ,page: {
+          layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+          ,groups: 5
+          ,first: false
+          ,last: false
+          ,curr: 1 //重新从第 1 页开始
+        }
+      });
+      return false;
+    });
+
+    //搜索
+    form.on('submit(search3)', function (data) {
+      xlp.startLoading();
+      dataTable.reload({
+        where: {
+          fields: data.data.field
+        }
+        ,page: {
+          layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+          ,groups: 5
+          ,first: false
+          ,last: false
+          ,curr: 1 //重新从第 1 页开始
+        }
+      });
+      return false;
+    });
+  })
+</script>
+{/block}

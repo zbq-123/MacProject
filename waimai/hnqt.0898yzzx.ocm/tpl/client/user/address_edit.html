@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+    <link rel="stylesheet" href="__STATIC__/client/css/jquery-labelauty.css">
+    <link rel="stylesheet" href="__STATIC__/client/css/page-user-address.css">
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">编辑地址</h1>
+    <a class="mui-btn mui-btn-link mui-pull-right"><img src="__STATIC__/client/icon/icon-del.png"></a>
+</header>
+<div class="mui-content">
+    <form class="address-form" method="post">
+        <div class="address-panel">
+            <div class="address-input">
+                <label>联系人</label>
+                <input type="text" placeholder="姓名" name="name" value="{$address.delivery_name}" >
+            </div>
+            <div class="address-radio-input">
+                <div class="radio-item">
+                    <input type="radio" name="gender" value="0" data-labelauty="先生" {eq name="address.gender" value="0"}checked{/eq}>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" name="gender" value="1" data-labelauty="女士" {eq name="address.gender" value="1"}checked{/eq}>
+                </div>
+            </div>
+            <div class="address-input">
+                <label>电话</label>
+                <input type="number" placeholder="手机号码" name="phone" value="{$address.delivery_phone}" >
+            </div>
+            <div class="address-input">
+                <label>地址</label>
+                <input type="text" placeholder="收货地址,包含门牌号" name="address" value="{$address.delivery_address}" >
+            </div>
+            <div class="address-radio-input2">
+                <label class="title">默认地址</label>
+                <div class="radio-item">
+                    <input type="radio" name="is_default" value="0" data-labelauty="普通" {eq name="address.is_default" value="0"}checked{/eq}>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" name="is_default" value="1" data-labelauty="默认" {eq name="address.is_default" value="1"}checked{/eq}>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="submit-btn" data-loading-text="提交中" >保 存</button>
+    </form>
+</div>
+</body>
+{include file="common/script" /}
+<script src="__STATIC__/jquery/jquery-labelauty.js"></script>
+<script>
+    jQuery(':input').labelauty();
+
+    mui.init();
+
+    var address_id = ""+{$address.address_id};
+
+    jQuery(".address-form").submit(function(){
+        var data = {};
+        data['name'] = jQuery("input[name='name']").val();
+        data['phone'] = jQuery("input[name='phone']").val();
+        data['address'] = jQuery("input[name='address']").val();
+        data['gender'] = jQuery("input[name='gender']:checked").val();
+        data['is_default'] = jQuery("input[name='is_default']:checked").val();
+        data['address_id'] = address_id;
+
+        jQuery.ajax({
+            url:"{:url('address_edit')}",
+            data: data,
+            type: "POST",
+            dataType: 'json',
+            beforeSend: function () {
+                jQuery.showLoading('提交中...',function () {
+                    mui(".submit-btn").button('loading');
+                });
+            },
+            success: function(res){
+                if (res.code == 200) {
+                    jQuery.loadSuccess('修改成功',function () {
+                        history.go(-1);
+                        mui(".submit-btn").button('reset');
+                    });
+                }else{
+                    jQuery.loadError('修改失败',function () {
+                        mui.toast(res.message,{ duration: 3000 });
+                        mui(".submit-btn").button('reset');
+                    });
+                }
+            },
+            error: function (xhr) {
+                // 只有请求不正常（状态码不为200）才会执行
+                jQuery.loadError('修改失败',function () {
+                    mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                    mui(".submit-btn").button('reset');
+                });
+            },
+        });
+
+        return false;
+    });
+
+
+    jQuery(".mui-pull-right").click(function(){
+        var btnArray = ['取消', '删除'];
+        mui.confirm('删除地址？', '', btnArray, function(e) {
+            if (e.index == 1) {
+                var data = {};
+                data['address_id'] = address_id;
+                jQuery.ajax({
+                    url:"{:url('address_del')}",
+                    data: data,
+                    type: "POST",
+                    dataType: 'json',
+                    beforeSend: function () {
+                        jQuery.showLoading('提交中...',function () {});
+                    },
+                    success: function(res){
+                        if (res.code == 200) {
+                            jQuery.loadSuccess('删除成功',function () {
+                                history.go(-1);
+                            });
+                        }else{
+                            jQuery.loadError('删除失败',function () {
+                                mui.toast(res.message,{ duration: 3000 });
+                            });
+                        }
+                    },
+                    error: function (xhr) {
+                        // 只有请求不正常（状态码不为200）才会执行
+                        jQuery.loadError('删除失败',function () {
+                            mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                        });
+                    },
+                });
+            }
+        });
+    });
+</script>
+</html>

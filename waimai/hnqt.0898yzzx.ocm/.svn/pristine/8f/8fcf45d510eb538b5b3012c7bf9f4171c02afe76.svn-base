@@ -1,0 +1,201 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>订单详情</legend>
+</fieldset>
+<div class="tip-btn-line">
+    <div class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" onclick="window.history.back();"><i class="layui-icon">&#xe603; </i>返回</div>
+    <div class="layui-btn layui-btn-sm xu-icon-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669; </i>刷新</div>
+</div>
+<style>
+    th{
+        background: #f5f5f5;
+        text-align: center!important;
+    }
+</style>
+
+<div class="layui-form">
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">订单商品详情</li>
+        </ul>
+    </div>
+    <table class="layui-table" style="text-align: center">
+        <thead>
+        <tr>
+            <th>商品id</th>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>购买数量</th>
+            <th>单价(元)</th>
+            <th>单位</th>
+        </tr>
+
+
+        </thead>
+        {volist name="we" id="vo"}
+        {neq name="vo" value=""}
+        <tr>
+            {volist name="vo" id="v" key="k"}
+            {neq name="v" value=""}<td>{neq name="k" value="5"}{$v}{else/}{$v/100}{/neq}</td>{/neq}
+            {/volist}
+        </tr>
+        {/neq}
+        {/volist}
+
+    </table>
+
+
+    <div class="layui-tab" style="margin-top: 40px">
+        <ul class="layui-tab-title">
+            <li class="layui-this">订单详细信息</li>
+        </ul>
+    </div>
+    <table class="layui-table">
+        <colgroup>
+            <col width="30%">
+            <col width="70%">
+            <col>
+        </colgroup>
+        <tr>
+            <th>订单编号</th>
+            <td>{$details.order_number}</td>
+        <tr>
+        <tr>
+            <th>支付状态</th>
+            <td>
+                {switch name="details.pay_status"}
+                {case value="1"}未支付{/case}
+                {case value="2"}已支付{/case}
+                {case value="3"}已退款{/case}
+                {default /}
+                {/switch}
+            </td>
+        <tr>
+        <tr>
+            <th>支付状态</th>
+            <td>
+                {switch name="details.status"}
+                    {case value="1"}提交订单{/case}
+                    {case value="2"}等待接单{/case}
+                    {case value="3"}已确认订单{/case}
+                    {case value="4"}配送中{/case}
+                    {case value="5"}配送成功{/case}
+                    {case value="6"}配送失败{/case}
+                    {case value="7"}已完成订单{/case}
+                    {case value="8"}用户申请退款{/case}
+                    {case value="9"}用户退款成功{/case}
+                    {case value="10"}用户退款失败{/case}
+                    {case value="11"}商家申请退款{/case}
+                    {case value="12"}商家退款成功{/case}
+                    {case value="13"}商家退款失败{/case}
+                    {case value="14"}未支付，取消订单{/case}
+                    {case value="15"}商家拒绝接单{/case}
+                    {default /}
+                {/switch}
+            </td>
+        <tr>
+        </tr>
+            <th>商品总数</th>
+            <td>{$details.count}</td>
+        <tr>
+
+        </tr>
+            <th>收货人姓名</th>
+            <td>{$details.delivery_name}</td>
+        <tr>
+        </tr>
+            <th>收货人电话</th>
+            <td>{$details.delivery_phone}</td>
+        <tr>
+        </tr>
+            <th>收货地址</th>
+            <td>{$details.delivery_address}</td>
+        </tr>
+        </tr>
+        <th>下单次数</th>
+        <td>{$details.user_order_count}</td>
+        </tr>
+        </tr>
+            <th>{$details.box_name}</th>
+            <td>{$details.box_price/100}元</td>
+        <tr>
+        </tr>
+            <th>{$details.convey_name}</th>
+            <td>{$details.convey_price/100}元</td>
+        <tr>
+        </tr>
+            <th>订单总金额</th>
+            <td>{$details.total_price/100}元</td>
+        <tr>
+        </tr>
+            <th>系统运行安全维护费{$details.manage_ratio*100}%</th>
+            <td>{$details.manage_price/100}元</td>
+        <tr>
+        </tr>
+            <th>平台开发费{$details.develop_ratio*100}%</th>
+            <td>{$details.develop_price/100}元</td>
+        <tr>
+        </tr>
+            <th>第三方支付收取的手续费{$details.pay_manage_ratio*100}%</th>
+            <td>{$details.pay_manage_price/100}元</td>
+        <tr>
+        </tr>
+        {if $details.use_month_card}
+        <th>使用月卡优惠金额</th>
+        <td>5元</td>
+        <tr>
+        </tr>
+        {/if}
+        {if $details.use_coupon}
+        <th>使用优惠券优惠金额</th>
+        <td>{$details.discount_money}元</td>
+        <tr>
+        {/if}
+        </tr>
+            <th>店铺实际应得金额</th>
+            <td>{$details.store_price/100}元</td>
+        <tr>
+    </table>
+
+    <div class="layui-tab" style="margin-top: 40px">
+        <ul class="layui-tab-title">
+            <li class="layui-this">订单状态更新时间</li>
+        </ul>
+    </div>
+    <ul class="layui-timeline">
+        {volist name="order_times" id="vo"}
+        <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis"></i>
+            <div class="layui-timeline-content layui-text">
+                <h3 class="layui-timeline-title">{$vo.status_time}</h3>
+                <p>
+                    {switch name="vo.status"}
+                    {case value="1"}提交订单{/case}
+                    {case value="2"}等待接单{/case}
+                    {case value="3"}已确认订单{/case}
+                    {case value="4"}配送中{/case}
+                    {case value="5"}配送成功{/case}
+                    {case value="6"}配送失败{/case}
+                    {case value="7"}已完成订单{/case}
+                    {case value="8"}用户申请退款{/case}
+                    {case value="9"}用户退款成功{/case}
+                    {case value="10"}用户退款失败{/case}
+                    {case value="11"}商家申请退款{/case}
+                    {case value="12"}商家退款成功{/case}
+                    {case value="13"}商家退款失败{/case}
+                    {case value="14"}未支付，取消订单{/case}
+                    {case value="15"}商家拒绝接单{/case}
+                    {default /}
+                    {/switch}
+                </p>
+            </div>
+        </li>
+        {/volist}
+    </ul>
+</div>
+{/block}
+{block name="script"}
+<!--toolBar-->
+
+{/block}

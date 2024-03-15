@@ -1,0 +1,96 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:57:"/www/wwwroot/jpgy.0898yzzx.com/tpl/client/index/home.html";i:1623240192;s:58:"/www/wwwroot/jpgy.0898yzzx.com/tpl/client/common/meta.html";i:1646642419;s:60:"/www/wwwroot/jpgy.0898yzzx.com/tpl/client/common/script.html";i:1623240192;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>圈圈海软食堂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/client/mui/css/clear.css">
+<link rel="stylesheet" href="/static/client/mui/css/mui.min.css">
+<link rel="stylesheet" href="/static/client/mui/css/common.css">
+<link rel="stylesheet" href="/static/client/css/jquery-loadprompt.css">
+    <link rel="stylesheet" href="/static/client/mui/css/hsst-index.css">
+</head>
+<body>
+<nav class="mui-bar mui-bar-tab">
+    <a id="active_home" class="mui-tab-item <?php if(empty(\think\Request::instance()->get('active')) || ((\think\Request::instance()->get('active') instanceof \think\Collection || \think\Request::instance()->get('active') instanceof \think\Paginator ) && \think\Request::instance()->get('active')->isEmpty())): ?>mui-active<?php else: if(\think\Request::instance()->get('active') == 'home'): ?>mui-active<?php endif; endif; ?>" href="#home">
+        <img id="home_img" class="tab-img" src="/static/client/icon/index_<?php if(empty(\think\Request::instance()->get('active')) || ((\think\Request::instance()->get('active') instanceof \think\Collection || \think\Request::instance()->get('active') instanceof \think\Paginator ) && \think\Request::instance()->get('active')->isEmpty())): ?>on<?php else: if(\think\Request::instance()->get('active') == 'home'): ?>on<?php else: ?>off<?php endif; endif; ?>.png" />
+        <div class="tab-name">首页</div>
+    </a>
+    <a id="active_orders" class="mui-tab-item <?php if(\think\Request::instance()->get('active') == 'orders'): ?>mui-active<?php endif; ?>" href="#orders">
+        <img id="orders_img" class="tab-img" src="/static/client/icon/orders_<?php if(\think\Request::instance()->get('active') == 'orders'): ?>on<?php else: ?>off<?php endif; ?>.png" />
+        <div class="tab-name">订单</div>
+    </a>
+    <a id="active_user" class="mui-tab-item <?php if(\think\Request::instance()->get('active') == 'user'): ?>mui-active<?php endif; ?>" href="#user">
+        <img id="user_img" class="tab-img" src="/static/client/icon/user_<?php if(\think\Request::instance()->get('active') == 'user'): ?>on<?php else: ?>off<?php endif; ?>.png" />
+        <div class="tab-name">我的</div>
+    </a>
+</nav>
+<div class="mui-content">
+    <iframe src="<?php echo url('index/index'); ?>" id="home" class="iframe-css mui-control-content <?php if(empty(\think\Request::instance()->get('active')) || ((\think\Request::instance()->get('active') instanceof \think\Collection || \think\Request::instance()->get('active') instanceof \think\Paginator ) && \think\Request::instance()->get('active')->isEmpty())): ?>mui-active<?php else: if(\think\Request::instance()->get('active') == 'home'): ?>mui-active<?php endif; endif; ?>"></iframe>
+    <iframe src="<?php echo url('orders/index'); ?>" id="orders" class="iframe-css mui-control-content <?php if(\think\Request::instance()->get('active') == 'orders'): ?>mui-active<?php endif; ?>"></iframe>
+    <iframe src="<?php echo url('user/index'); ?>" id="user" class="iframe-css mui-control-content <?php if(\think\Request::instance()->get('active') == 'user'): ?>mui-active<?php endif; ?>"></iframe>
+</div>
+</body>
+
+<script src="/static/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+<script src="/static/client/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/client/js/jquery-loadprompt.js" charset="utf-8"></script>
+<script type="text/JavaScript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+
+    mui.ready(function(){
+        mui(".mui-bar-tab").on('tap','.mui-tab-item',function(){
+
+            var href = this.getAttribute("href");
+
+            if(href == '#home'){
+                mui('#home_img')[0].src = '/static/client/icon/index_on.png';
+                mui('#orders_img')[0].src = '/static/client/icon/orders_off.png';
+                mui('#user_img')[0].src = '/static/client/icon/user_off.png';
+            }else if(href == '#orders'){
+                mui('#home_img')[0].src = '/static/client/icon/index_off.png';
+                mui('#orders_img')[0].src = '/static/client/icon/orders_on.png';
+                mui('#user_img')[0].src = '/static/client/icon/user_off.png';
+            }else if(href == '#user'){
+                mui('#home_img')[0].src = '/static/client/icon/index_off.png';
+                mui('#orders_img')[0].src = '/static/client/icon/orders_off.png';
+                mui('#user_img')[0].src = '/static/client/icon/user_on.png';
+            }
+        })
+
+    });
+
+    wx.config({
+        debug: false,
+        appId: '<?php echo $signPackage['appId']; ?>',
+        timestamp: '<?php echo $signPackage['timestamp']; ?>',
+        nonceStr: '<?php echo $signPackage['nonceStr']; ?>',
+        signature: '<?php echo $signPackage['signature']; ?>',
+        jsApiList: [
+            'checkJsApi',
+            'openLocation',
+            'getLocation'
+        ]
+    });
+
+    /*tipTest();
+
+    function tipTest() {
+        var data = {};
+        var btnArray = ['退出', '明白'];
+
+        mui.confirm('该系统暂时处于测试阶段，非测试人员请勿使用。', '温馨提醒', btnArray, function (e) {
+            if (e.index == 0) {
+                WeixinJSBridge.call('closeWindow');
+            }
+        });
+    }*/
+</script>
+</html>

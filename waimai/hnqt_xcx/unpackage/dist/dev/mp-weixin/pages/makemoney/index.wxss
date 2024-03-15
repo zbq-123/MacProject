@@ -1,0 +1,52 @@
+
+.know.data-v-42a82e2c{
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	-webkit-transform: translate(-50%,0);
+	        transform: translate(-50%,0);
+	font-size: 13px;
+	color: #a6a6a6;
+}
+.code.data-v-42a82e2c{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	-webkit-transform: translate(-50%,0);
+	        transform: translate(-50%,0);
+	width: 200px;
+}
+.code image.data-v-42a82e2c{
+	width: 100%;
+}
+.makemoney.data-v-42a82e2c{
+	background-color: #55aaff;
+	padding-top: 50px;
+}
+.content.data-v-42a82e2c{
+	background: #383838;
+	width: 80%;
+	margin: 0 auto;
+	border-top-left-radius: 10rpx;
+	border-top-right-radius: 10rpx;
+	padding: 40rpx;
+}
+.box.data-v-42a82e2c{
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1px solid white;
+}
+.tap.data-v-42a82e2c{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	color: white;
+	font-size: 25rpx;
+	line-height: 25px;
+}
+.money.data-v-42a82e2c{
+	margin-top: 20rpx;
+	display: flex;
+	align-items: center;
+}
+

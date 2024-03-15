@@ -1,0 +1,9 @@
+<?php
+return [
+    //网站设置
+    'site_version'  =>  '1.0.1',    //网站版本
+    'upload_host'   =>  '/uploads/',	//上传路径
+
+    //公众号验证是否开启调试模式
+    'zg_debug'  =>  false,
+];

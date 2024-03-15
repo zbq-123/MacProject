@@ -1,0 +1,228 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:60:"/www/wwwroot/jpgy.0898yzzx.com/tpl/client/orders/submit.html";i:1623240192;s:58:"/www/wwwroot/jpgy.0898yzzx.com/tpl/client/common/meta.html";i:1646642419;s:60:"/www/wwwroot/jpgy.0898yzzx.com/tpl/client/common/script.html";i:1623240192;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>圈圈海软食堂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="/static/client/mui/css/clear.css">
+<link rel="stylesheet" href="/static/client/mui/css/mui.min.css">
+<link rel="stylesheet" href="/static/client/mui/css/common.css">
+<link rel="stylesheet" href="/static/client/css/jquery-loadprompt.css">
+    <link rel="stylesheet" href="/static/client/css/page-orders-submit.css">
+</head>
+<style type="text/css">
+	.visiHidden{
+		display:none
+	}
+</style>
+<body>
+	
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">确认订单</h1>
+</header>
+<div class="mui-content">
+    <div class="orders-submit-panel">
+        <div class="address-detail-panel">
+            <div class="panel-address-info">
+                <div class="address"><?php echo $address['delivery_address']; ?></div>
+                <div class="user-info"><?php echo $address['delivery_name']; ?>(<?php echo $address['gender']; ?>)&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $address['delivery_phone']; ?></div>
+            </div>
+            <div class="mui-icon mui-icon-forward"></div>
+        </div>
+    </div>
+	
+    <div class="orders-submit-panel">
+        <div class="store-name"><?php echo $store['name']; ?></div>
+        <?php if(is_array($goods) || $goods instanceof \think\Collection || $goods instanceof \think\Paginator): $i = 0; $__LIST__ = $goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+        <div class="goods-item">
+            <img class="goods-img" src="<?php echo $vo['image']; ?>">
+            <div class="goods-info">
+                <div class="goods-name"><?php echo $vo['name']; ?></div>
+                <div class="goods-count">x<?php echo $vo['count']; ?></div>
+            </div>
+            <div class="goods-price">¥<?php echo $vo['price_count']/100; ?></div>
+        </div>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+    </div>
+	<div class="orders-submit-panel">
+	    <div style="font-size:14px;margin-bottom:10px;font-weight: bold;">
+	       备注
+	    </div>
+	    <div class="">
+	        <textarea name="remake" style="margin-bottom:0;resize: none;width:100%;height:auto;font-size:15px" placeholder="比如:加辣"></textarea>
+	    </div>
+	</div>
+    <div class="orders-submit-panel">
+        <?php if($box_price != '0'): ?>
+        <div class="orders-other-price">
+            <div class="other-name"><?php echo $store['box_name']; ?></div>
+            <div class="other-price">¥<?php echo $box_price/100; ?></div>
+        </div>
+        <?php endif; ?>
+        <div class="orders-other-price">
+            <div class="other-name"><?php echo $store['delivery_name']; ?></div>
+            <div class="other-price">¥<?php echo $store['delivery_price']/100; ?></div>
+        </div>
+        <div class="orders-other-price" style="align-items: center;">
+            <div class="other-name">优惠券</div>
+            <div style="display:flex;align-items: center;text-align: right;justify-content: flex-end;">
+				<!-- 这里能直接判断如果没有卷就返回暂无可用即可 -->
+				<div class="other-price visiHidden" style="">减</div>
+				<select name="use_coupon" onchange="opstionBtn()" id="use_coupon" style="padding:0;margin-bottom:0;text-align: right;">
+					 <option value='请选择'>请选择</option>
+				    <?php if(is_array($coupons) || $coupons instanceof \think\Collection || $coupons instanceof \think\Paginator): if( count($coupons)==0 ) : echo "" ;else: foreach($coupons as $key=>$vo): ?>
+				    <option value="<?php echo $vo['coupon_id']; ?>"><?php echo $vo['discount_money']; ?></option>
+				    <?php endforeach; endif; else: echo "" ;endif; ?>
+				</select>
+			</div>
+        </div>
+        <div class="orders-count-price">
+            <span class="price-name">小计</span><span class="price-number">¥<?php echo $all_price/100; ?></span>
+        </div>
+    </div>
+    <div class="orders-submit-panel">
+        <div class="pay-type">
+            <div class="pay-type-title">支付方式</div>
+            <div class="pay-type-name">微信支付<span class="mui-icon mui-icon-forward"></span></div>
+        </div>
+    </div>
+    <div style="margin-bottom:80px"></div>
+
+    <div class="store-bottom">
+        <div class="store-price">
+            应支付: ¥<?php echo $all_price/100; ?>
+        </div>
+        <div class="store-submit  <?php if($address['address_id'] == '0'): ?>hsst-background-gray<?php else: ?>hsst-background-main<?php endif; ?>">提交订单</div>
+        <!-- <div class="store-submit hsst-background-gray">提交订单</div> -->
+    </div>
+</div>
+</body>
+<script src="/static/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+<script src="/static/client/mui/js/mui.min.js" charset="utf-8"></script>
+<script src="/static/client/js/jquery-loadprompt.js" charset="utf-8"></script>
+<script>
+	
+	var jilv_money=document.getElementsByClassName('price-number')[0].innerHTML.replace('¥','')
+	if(window.localStorage.youhui!=''){
+		document.getElementsByClassName('price-number')[0].innerHTML=jilv_money-Number(window.localStorage.youhui)<=0?'0':jilv_money-Number(window.localStorage.youhui)
+		document.getElementsByClassName('store-price')[0].innerHTML='应支付: ¥'+(jilv_money-Number(window.localStorage.youhui)<=0?'0':jilv_money-Number(window.localStorage.youhui))
+		
+		document.getElementById("use_coupon").options[window.localStorage.options].selected=true
+		document.getElementsByClassName('visiHidden')[0].setAttribute('style','margin-right:10px;line-height: 16px;display:inline-block')
+		
+	}
+	function opstionBtn(){
+		var objS = document.getElementById("use_coupon");
+		var grade = objS.options[objS.selectedIndex].value;
+		if(grade!='请选择'){
+			console.log(objS.options[objS.selectedIndex].text)
+			//小计标签的显示金额
+			document.getElementsByClassName('price-number')[0].innerHTML=jilv_money-Number(objS.options[objS.selectedIndex].text)<=0?'0':jilv_money-Number(objS.options[objS.selectedIndex].text)
+			//应付标签的显示金额
+			document.getElementsByClassName('store-price')[0].innerHTML='应支付: ¥'+(jilv_money-Number(objS.options[objS.selectedIndex].text)<=0?'0':jilv_money-Number(objS.options[objS.selectedIndex].text))
+			//减字标签显示隐藏
+			document.getElementsByClassName('visiHidden')[0].setAttribute('style','margin-right:10px;line-height: 16px;display:inline-block')
+			window.localStorage.youhui=objS.options[objS.selectedIndex].text
+			// window.localStorage.youhui_id=Number(objS.options[objS.selectedIndex].value)
+			window.localStorage.options=objS.selectedIndex
+		}else{
+			//小计标签的显示金额
+			document.getElementsByClassName('price-number')[0].innerHTML=jilv_money
+			//应付标签的显示金额
+			document.getElementsByClassName('store-price')[0].innerHTML='应支付: ¥'+jilv_money
+			
+			document.getElementsByClassName('visiHidden')[0].setAttribute('style','margin-right:10px;line-height: 16px;display:none')
+		}
+		console.log(grade);
+	}
+    //去提交订单
+    jQuery('.store-submit').click(function(){
+        if(jQuery(this).hasClass('hsst-background-main')){
+            console.log('---------可以 去结算---------');
+            goConfirmOrders();
+        }else{
+            console.log('---------不可以 去结算---------');
+            mui.alert('请选择收货地址', '', function() {});
+        }
+    });
+
+    //address-detail-panel 获取地址
+    jQuery('.address-detail-panel').click(function(){
+        jQuery(location).attr('href',"<?php echo url('user/address_list'); ?>?is_submit=1");
+    });
+
+    function goConfirmOrders() {
+        var data = {};
+        data['store_id'] = <?php echo $store_id; ?>;
+        data['buy_goods'] = "<?php echo $buy_goods; ?>";
+        data['buy_number'] = "<?php echo $buy_number; ?>";
+        data['address_id'] = <?php echo $address_id; ?>;
+        data['remake'] =  jQuery('textarea').val();
+        data['use_coupon'] = $('#use_coupon').val()=='请选择'?'':$('#use_coupon').val();  //RICE
+		
+        jQuery.ajax({
+            url:"<?php echo url('pay/wxpay_goods'); ?>",
+            data: data,
+            type: "POST",
+            dataType: 'json',
+            beforeSend: function () {
+                jQuery.showLoading('提交订单中',function () {});
+            },
+            success: function(res){
+                if (res.code == 200) {
+                    jQuery.loadSuccess('订单提交成功',function () {
+                        console.log('订单提交成功返回信息：'+JSON.stringify(res.data));
+                        var data = res.data;
+                        wakeupPay(res.data);
+                    });
+                }else{
+                    jQuery.loadError('订单提交失败',function () {
+                        mui.toast(res.message,{ duration: 3000 });
+                    });
+                }
+            },
+            error: function (xhr) {
+                // 只有请求不正常（状态码不为200）才会执行
+                jQuery.loadError('订单提交失败',function () {
+                    mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                });
+            },
+        });
+    }
+
+    function wakeupPay(data){
+
+        jQuery.showLoading('支付中',function () {});
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', data,
+            function(res){
+                if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                    // 使用以上方式判断前端返回,微信团队郑重提示：
+                    //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                    jQuery.loadSuccess('支付成功',function () {
+                        console.log('支付成功：'+JSON.stringify(res));
+                    });
+                }else{
+                    jQuery.loadError('支付失败',function () {
+                        console.log('支付失败：'+JSON.stringify(res));
+                        mui.toast("支付失败："+res.err_msg,{ duration: 3000 });
+                    });
+                }
+                setTimeout(function () {
+                    jumpOrdersDetail(data['order_number']);
+                }, 3000);
+            });
+    }
+
+    //跳转到订单详情
+    function jumpOrdersDetail(order_number){
+        location.replace("<?php echo url('orders/detail'); ?>?order_number="+order_number);
+    }
+
+</script>
+</html>

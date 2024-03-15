@@ -1,0 +1,234 @@
+---------------------------------------------------------------
+[ 2022-07-07T22:52:24+08:00 ] 62.234.118.118 GET 62.234.118.118/.aws
+[运行时间：0.012222s] [吞吐率：81.82req/s] [内存消耗：1,780.20kb] [文件加载：100]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '.aws',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'x-forwarded-for' => '62.234.118.118',
+  'upgrade-insecure-requests' => '1',
+  'referer' => 'http://62.234.118.118:443/.aws',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36',
+  'host' => '62.234.118.118',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-07T23:02:17+08:00 ] 183.254.33.113 POST hnqt.0898yzzx.com/api/home/getcampus
+[运行时间：0.019584s] [吞吐率：51.06req/s] [内存消耗：2,873.27kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'home',
+    2 => 'getcampus',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'https://servicewechat.com/wx598e5597524f5bfb/0/page-frame.html',
+  'accept-encoding' => 'gzip,compress,br,deflate',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; DVC-AN00 Build/HUAWEIDVC-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4263 MMWEBSDK/20220604 Mobile Safari/537.36 MMWEBID/9858 MicroMessenger/8.0.24.2180(0x2800183B) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
+  'charset' => 'utf-8',
+  'content-length' => '2',
+  'connection' => 'keep-alive',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Home->getcampus[ /www/wwwroot/hnqt.0898yzzx.com/application/api/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-07T23:02:17+08:00 ] 183.254.33.113 POST hnqt.0898yzzx.com/api/home/getcoupon
+[运行时间：0.020996s] [吞吐率：47.63req/s] [内存消耗：2,878.25kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'home',
+    2 => 'getcoupon',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'https://servicewechat.com/wx598e5597524f5bfb/0/page-frame.html',
+  'accept-encoding' => 'gzip,compress,br,deflate',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; DVC-AN00 Build/HUAWEIDVC-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4263 MMWEBSDK/20220604 Mobile Safari/537.36 MMWEBID/9858 MicroMessenger/8.0.24.2180(0x2800183B) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
+  'charset' => 'utf-8',
+  'content-length' => '32',
+  'connection' => 'keep-alive',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'campus_id' => 5,
+  'user_id' => '1718',
+)
+[ info ] [ RUN ] app\api\controller\Home->getcoupon[ /www/wwwroot/hnqt.0898yzzx.com/application/api/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-07T23:02:19+08:00 ] 183.254.33.113 POST hnqt.0898yzzx.com/api/home/getcarousel
+[运行时间：0.020313s] [吞吐率：49.23req/s] [内存消耗：2,875.05kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'home',
+    2 => 'getcarousel',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'https://servicewechat.com/wx598e5597524f5bfb/0/page-frame.html',
+  'accept-encoding' => 'gzip,compress,br,deflate',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; DVC-AN00 Build/HUAWEIDVC-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4263 MMWEBSDK/20220604 Mobile Safari/537.36 MMWEBID/9858 MicroMessenger/8.0.24.2180(0x2800183B) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
+  'charset' => 'utf-8',
+  'content-length' => '15',
+  'connection' => 'keep-alive',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'campus_id' => 5,
+)
+[ info ] [ RUN ] app\api\controller\Home->getcarousel[ /www/wwwroot/hnqt.0898yzzx.com/application/api/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-07T23:02:19+08:00 ] 183.254.33.113 POST hnqt.0898yzzx.com/api/home/getstore
+[运行时间：0.029159s] [吞吐率：34.29req/s] [内存消耗：3,115.54kb] [文件加载：112]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'home',
+    2 => 'getstore',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'https://servicewechat.com/wx598e5597524f5bfb/0/page-frame.html',
+  'accept-encoding' => 'gzip,compress,br,deflate',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; DVC-AN00 Build/HUAWEIDVC-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4263 MMWEBSDK/20220604 Mobile Safari/537.36 MMWEBID/9858 MicroMessenger/8.0.24.2180(0x2800183B) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
+  'charset' => 'utf-8',
+  'content-length' => '15',
+  'connection' => 'keep-alive',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'campus_id' => 5,
+)
+[ info ] [ RUN ] app\api\controller\Home->getstore[ /www/wwwroot/hnqt.0898yzzx.com/application/api/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-07T23:02:19+08:00 ] 183.254.33.113 POST hnqt.0898yzzx.com/api/home/getgoodsp
+[运行时间：0.022070s] [吞吐率：45.31req/s] [内存消耗：2,875.13kb] [文件加载：110]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'home',
+    2 => 'getgoodsp',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'https://servicewechat.com/wx598e5597524f5bfb/0/page-frame.html',
+  'accept-encoding' => 'gzip,compress,br,deflate',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; DVC-AN00 Build/HUAWEIDVC-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4263 MMWEBSDK/20220604 Mobile Safari/537.36 MMWEBID/9858 MicroMessenger/8.0.24.2180(0x2800183B) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
+  'charset' => 'utf-8',
+  'content-length' => '15',
+  'connection' => 'keep-alive',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'campus_id' => 5,
+)
+[ info ] [ RUN ] app\api\controller\Home->getgoodsp[ /www/wwwroot/hnqt.0898yzzx.com/application/api/controller/Home.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-07T23:02:20+08:00 ] 183.254.33.113 POST hnqt.0898yzzx.com/api/stores/getstoreinfo
+[运行时间：0.021706s] [吞吐率：46.07req/s] [内存消耗：2,585.11kb] [文件加载：108]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'stores',
+    2 => 'getstoreinfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'https://servicewechat.com/wx598e5597524f5bfb/0/page-frame.html',
+  'accept-encoding' => 'gzip,compress,br,deflate',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; DVC-AN00 Build/HUAWEIDVC-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4263 MMWEBSDK/20220604 Mobile Safari/537.36 MMWEBID/9858 MicroMessenger/8.0.24.2180(0x2800183B) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
+  'charset' => 'utf-8',
+  'content-length' => '17',
+  'connection' => 'keep-alive',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'store_id' => '17',
+)
+[ info ] [ RUN ] app\api\controller\Stores->getstoreinfo[ /www/wwwroot/hnqt.0898yzzx.com/application/api/controller/Stores.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-07T23:02:20+08:00 ] 183.254.33.113 POST hnqt.0898yzzx.com/api/stores/getgoodslist
+[运行时间：0.033400s] [吞吐率：29.94req/s] [内存消耗：2,901.20kb] [文件加载：113]
+[ info ] [ LANG ] /www/wwwroot/hnqt.0898yzzx.com/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'stores',
+    2 => 'getgoodslist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'https://servicewechat.com/wx598e5597524f5bfb/0/page-frame.html',
+  'accept-encoding' => 'gzip,compress,br,deflate',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 10; DVC-AN00 Build/HUAWEIDVC-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/4263 MMWEBSDK/20220604 Mobile Safari/537.36 MMWEBID/9858 MicroMessenger/8.0.24.2180(0x2800183B) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android',
+  'charset' => 'utf-8',
+  'content-length' => '31',
+  'connection' => 'keep-alive',
+  'host' => 'hnqt.0898yzzx.com',
+)
+[ info ] [ PARAM ] array (
+  'campus_id' => 5,
+  'store_id' => '17',
+)
+[ info ] [ RUN ] app\api\controller\Stores->getgoodslist[ /www/wwwroot/hnqt.0898yzzx.com/application/api/controller/Stores.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File

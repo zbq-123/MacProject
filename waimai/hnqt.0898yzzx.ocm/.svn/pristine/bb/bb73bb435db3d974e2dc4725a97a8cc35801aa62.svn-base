@@ -1,0 +1,316 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>优惠券统计</legend>
+</fieldset>
+<!--headToolBar-->
+<div class="tip-btn-line">
+    <div class="layui-btn layui-btn-sm xu-icon-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669; </i>刷新</div>
+    <!-- <div class="layui-btn layui-btn-sm xu-icon-btn" id="addBtn"><i class="layui-icon">&#xe608;</i>添加</div> -->
+    <!-- <div class="layui-btn layui-btn-sm xu-icon-btn" id="line"><i class="layui-icon">&#xe608;</i>一键上架</div>
+    <div class="layui-btn layui-btn-sm xu-icon-btn" id="unline"><i class="layui-icon">&#xe608;</i>一键下架</div> -->
+    <!--搜索表单-->
+    <form action="" class="layui-form search-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <div class="layui-input-inline layui-form" lay-filter="campusSelect">
+                    <select name="campus_id" id="campusId" lay-filter="campusId"  lay-search>
+                        <option value="0">所有校区</option>
+                    </select>
+                </div>
+
+                <div class="layui-input-inline layui-form" lay-filter="storeSelect">
+
+                    <select name="store_id" id="storeId" lay-filter="storeId"  lay-search>
+                        <option value="0">所有店铺</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline layui-form">
+                    <select name="discount_money">
+                        <option value="">全部优惠金额</option>
+                        <option value="1.00">1.00</option>
+                        <option value="2.00">2.00</option>
+                        <option value="3.00">3.00</option>
+                        <option value="4.00">4.00</option>
+                        <option value="5.00">5.00</option>
+                        <option value="6.00">6.00</option>
+                        <option value="7.00">7.00</option>
+                        <option value="8.00">8.00</option>
+                        <option value="9.00">9.00</option>
+                        <option value="10.00">10.00</option>
+                        <option value="11.00">11.00</option>
+                        <option value="12.00">12.00</option>
+                        <option value="13.00">13.00</option>
+                        <option value="14.00">14.00</option>
+                        <option value="15.00">15.00</option>
+                        <option value="16.00<">16.00</option>
+                        <option value="17.00">17.00</option>
+                        <option value="18.00">18.00</option>
+                        <option value="19.00">19.00</option>
+                        <option value="20.00">20.00</option>
+                        <option value="21.00">21.00</option>
+                        <option value="22.00">22.00</option>
+                        <option value="23.00">23.00</option>
+                        <option value="24.00">24.00</option>
+                        <option value="25.00">25.00</option>
+                        <option value="26.00">26.00</option>
+                        <option value="27.00">27.00</option>
+                        <option value="28.00">28.00</option>
+                        <option value="29.00">29.00</option>
+                        <option value="30.00">30.00</option>
+
+                    </select>
+                </div>
+                <div class="layui-input-inline layui-form">
+                    <input type="text" class="layui-input" autocomplete="off" name="select_time" value="" id="test10" placeholder="选择统计时间范围">
+                </div>
+                <div class="layui-input-inline">
+                    <button class="layui-btn layui-btn-primary" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<!--table-->
+<p style="margin: 20px 0 0 0;font-size: 16px;text-align: center;">优惠券金额统计：<span id="amount" style="color: red;font-size: 20px;"></span></p>
+<table class="layui-table" id="dataTable" lay-filter="dataTable"></table>
+{/block}
+{block name="script"}
+<script type="text/html" id="rightToolBar">
+    <a class="layui-btn layui-btn-sm" lay-event="edit">修改</a>
+  <a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
+</script>
+<script type="text/html" id="statusTpl">
+    {{#  if(d.status == 1){ }}
+        正常
+    {{#   } }}
+    {{#  if(d.status == 2){ }}
+        过期
+    {{#   } }}
+    {{#  if(d.status == 3){ }}
+        删除
+    {{#   } }}
+</script>
+<script type="text/html" id="storeTpl">
+    {{#  if(d.store.name){ }}
+    {{ d.store.name}}
+    {{# }else{}}}
+     平台
+    {{# }}}
+</script>
+<script>
+    layui.use(['element', 'layer', 'table', 'form', 'xlp', 'laydate'], function () {
+        var $ = layui.jquery, element = layui.element, table = layui.table, layer = layui.layer, form = layui.form, xlp = layui.xlp, laydate = layui.laydate;;
+        xlp.startLoading();
+
+        //日期时间范围
+        laydate.render({
+            elem: '#test10'
+            ,type: 'date'
+            ,range: '~'
+            ,trigger:'click'
+        });
+        //table生成
+        var dataTable = table.render({
+            elem: "#dataTable"
+            ,url: "{:url('count')}"
+            ,response: {
+                statusCode: 200
+                ,msgName: 'message'
+            }
+            ,cols: [[
+                {field:'order_number', width:220,title:'订单编号'},
+                {field:'campus_name', title:'校区'},
+                {field:'store_name', title:'店铺名称'},
+                {field:'use_coupon', title:'优惠券ID'},
+                {field:'user_name', title:'用户',templet:function(res){
+                    return res.user.nickname;
+                }},
+                {field:'discount_money', title:'优惠券金额'},
+                {field:'create_time', title:'添加时间'},
+
+            ]]
+            ,page: {
+                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                ,groups: 5
+                ,first: false
+                ,last: false
+            }
+            ,done: function (res, curr, count){
+                xlp.reSetIframeHeight();
+                xlp.closeLoading();
+                $('#amount').html(res.count_arr.amount);
+            }
+        });
+
+
+        //监听工具条
+        table.on('tool(dataTable)', function(obj){
+            var data = obj.data;
+            var layEvent = obj.event;
+
+            if(layEvent === 'delete'){ //撤销
+                layer.confirm("确定删除吗?", function(index){
+                    xlp.postHttp("{:url('delete')}", {
+                        id: data.id,
+                    }, function (res) {
+                        obj.del();
+                        layer.close(index);
+                        layer.msg('删除成功');
+                    });
+                });
+            }else if(layEvent == 'edit') {
+                location.href = "{:url('edit')}?id="+data.id;}
+            else if(layEvent === 'status'){
+                xlp.postHttp("{:url('status')}",{
+                    id: data.id,
+                    status: status
+                },function (res) {
+                    obj.update({'status': status});
+                    if (status == 2) {
+                        $(tr).find('.disable-btn').removeClass('layui-btn-danger');
+                        $(tr).find('.disable-btn').text("开启");
+                    }else{
+                        $(tr).find('.disable-btn').addClass('layui-btn-danger');
+                        $(tr).find('.disable-btn').text("关闭");
+                    }
+                })
+            }
+        });
+
+
+        $("#addBtn").on('click', function () {
+            location.href ="{:url('add')}";
+        });
+        //监听指定开关
+        form.on('switch(switchTest)', function(data){
+            value = this.value;
+            if (data.elem.checked == true) {
+                xlp.postHttp("{:url('status')}", {
+                    id: value,
+                    status: 2
+                }, function (res) {
+                    layer.msg("营业中");
+                })
+            }
+            else{
+                xlp.postHttp("{:url('status')}", {
+                    id: value,
+                    status: 1
+                }, function (res) {
+                    layer.msg("休息中");
+                })
+            }
+
+        });
+
+
+
+
+        //编辑排序
+        table.on('edit(dataTable)', function(obj){
+            xlp.postHttp("{:url('edit_sort1')}", {
+                id: obj.data.id,
+                sort: obj.value
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+        //一键上架
+        $("#line").on('click', function () {
+            xlp.postHttp("{:url('on_off_goods')}", {
+                status: 1
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+        //一键下架
+         $("#unline").on('click', function () {
+            xlp.postHttp("{:url('on_off_goods')}", {
+                status: 2
+            }, function(res) {
+                layer.msg("修改成功");
+            })
+        });
+        //搜索
+        form.on('submit(search)', function (data) {
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    fields: data.field
+                }
+                ,page: {
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                    ,groups: 5
+                    ,first: false
+                    ,last: false
+                    ,curr: 1 //重新从第 1 页开始
+                }
+            });
+            return false;
+        });
+        //获取筛选条件的所有校区
+        xlp.getHttp("{:url('api/get_campus')}", {}, function (res) {
+            $("#campusId").html('<option value="0">所有校区</option>');
+            layui.each(res, function (i) {
+                $("#campusId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                form.render("select", "campusSelect");
+            })
+
+            if (campus_id) {
+                $('select[name="campus_id"]').next().find('.layui-select-title input').click();
+                $('select[name="campus_id"]').next().find('.layui-anim').children('dd[lay-value=' + campus_id + ']').click();
+            }
+        });
+        //获取筛选条件的所有店铺
+        xlp.getHttp("{:url('api/get_store')}", {}, function (res) {
+            $("#storeId").html('<option value="0">所有店铺</option>');
+            layui.each(res, function (i) {
+                $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "storeSelect");
+            })
+
+            if (store_id) {
+                $('select[name="store_id"]').next().find('.layui-select-title input').click();
+                $('select[name="store_id"]').next().find('.layui-anim').children('dd[lay-value=' + store_id + ']').click();
+            }
+        });
+
+        form.on('select(campusId)', function (data) {
+            xlp.getHttp("{:url('api/get_store')}", {
+                campus_id: data.value,
+            }, function (res) {
+                $("#storeId").html('<option value="0">所有店铺</option>');
+                layui.each(res, function (i) {
+                    $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                    form.render("select", "storeSelect");
+                })
+
+                if (noclick && store_id) {
+                    $('select[name="store_id"]').next().find('.layui-select-title input').click();
+                    $('select[name="store_id"]').next().find('.layui-anim').children('dd[lay-value=' + store_id + ']').click();
+                    noclick = false;
+                }
+            })
+        });
+        //搜索
+        form.on('submit(search3)', function (data) {
+            xlp.startLoading();
+            dataTable.reload({
+                where: {
+                    fields: data.data.field
+                }
+                ,page: {
+                    layout: ['limit', 'count', 'prev', 'page', 'next', 'skip']
+                    ,groups: 5
+                    ,first: false
+                    ,last: false
+                    ,curr: 1 //重新从第 1 页开始
+                }
+            });
+            return false;
+        });
+    })
+</script>
+{/block}

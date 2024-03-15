@@ -1,0 +1,28 @@
+
+page{
+	background: #f3f3f3;
+}
+.withdrawal{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 30rpx;
+	background: #f7dd93;
+}
+button{
+	margin: 0;
+	border: 1px solid black;
+	background-color: transparent;
+	border-radius: 30px;
+	font-size: 12px;
+}
+.content{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 2rpx 0;
+	font-size: 14px;
+	background: white;
+	padding: 5px;
+}
+

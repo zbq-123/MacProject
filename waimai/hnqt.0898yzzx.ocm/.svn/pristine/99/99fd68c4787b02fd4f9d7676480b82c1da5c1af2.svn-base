@@ -1,0 +1,12 @@
+Array
+(
+    [return_code] => SUCCESS
+    [return_msg] => OK
+    [result_code] => SUCCESS
+    [mch_id] => 1490022892
+    [appid] => wx97228d4a1cc79b44
+    [nonce_str] => ysHu2SEKEdwcPUdP
+    [sign] => 4C87F50AEC3A1878872EB075D38F3D7C
+    [prepay_id] => wx12093410514137a44495110854e2920000
+    [trade_type] => JSAPI
+)

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {include file="common/meta" /}
+    <link rel="stylesheet" href="__STATIC__/client/css/page-user-address-list.css">
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">收货地址</h1>
+    <a class="mui-btn mui-btn-link mui-pull-right" href="{:url('user/address_add')}">新增地址</a>
+</header>
+<div class="mui-content">
+    {volist name="address" id="vo"}
+    <div class="address-panel" data-address_id="{$vo.address_id}">
+        <div class="address-detail-panel">
+            <div class="panel-address-info">
+                <div class="address">{eq name="vo.is_default" value="1"}<span class="address-default">默认地址</span>&nbsp;{/eq}{$vo.delivery_address}</div>
+                <div class="user-info">{$vo.delivery_name}({$vo.gender})&nbsp;&nbsp;&nbsp;&nbsp;{$vo.delivery_phone}</div>
+            </div>
+            <img class="address-edit" src="__STATIC__/client/icon/icon-edit.png" data-address_id="{$vo.address_id}">
+        </div>
+    </div>
+    {/volist}
+</div>
+</body>
+{include file="common/script" /}
+<script>
+    mui.init();
+
+    var is_submit = {eq name='Request.get.is_submit' value='1'}1{else/}0{/eq};
+
+    //进入编辑页面
+    jQuery('.address-edit').click(function () {
+        var address_id = jQuery(this).data('address_id');
+        if(address_id > 0){
+            jQuery(location).attr('href',"{:url('user/address_edit')}?address_id="+address_id);
+        }
+
+        //阻止事件冒泡
+        return false;
+    });
+
+    if(is_submit == 1){
+        //如果是从提交订单页进来那么点击收货地址返回提交订单页
+        jQuery('.address-panel').click(function () {
+            var data = {};
+            data['address_id'] = jQuery(this).data('address_id');
+
+            jQuery.ajax({
+                url:"{:url('address_select')}",
+                data: data,
+                type: "POST",
+                dataType: 'json',
+                beforeSend: function () {
+                    jQuery.showLoading('选择中...',function () {});
+                },
+                success: function(res){
+                    if (res.code == 200) {
+                        jQuery.loadSuccess('选择成功',function () {
+                            history.go(-1);
+                        });
+                    }else{
+                        jQuery.loadError('选择失败',function () {
+                            mui.toast(res.message,{ duration: 3000 });
+                        });
+                    }
+                },
+                error: function (xhr) {
+                    // 只有请求不正常（状态码不为200）才会执行
+                    jQuery.loadError('选择失败',function () {
+                        mui.toast("错误码："+xhr.status,{ duration: 3000 });
+                    });
+                },
+            });
+        })
+    }
+</script>
+</html>

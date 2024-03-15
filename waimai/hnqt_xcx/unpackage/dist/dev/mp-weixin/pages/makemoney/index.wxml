@@ -1,0 +1,10 @@
+<view class="makemoney data-v-42a82e2c"><view class="content data-v-42a82e2c"><view class="box data-v-42a82e2c"><view class="tap data-v-42a82e2c"><text class="data-v-42a82e2c">0</text><text class="data-v-42a82e2c">今日收入</text></view><view class="tap data-v-42a82e2c"><text class="data-v-42a82e2c">0</text><text class="data-v-42a82e2c">本月收入</text></view><view class="tap data-v-42a82e2c"><text class="data-v-42a82e2c">0</text><text class="data-v-42a82e2c">上月收入</text></view></view><view class="money data-v-42a82e2c"><u--text vue-id="125e185a-1" margin="0 0 0 8px" color="#d0d000" size="13px" text="我的收益" align="left" class="data-v-42a82e2c" bind:__l="__l"></u--text><u--text vue-id="125e185a-2" suffixIcon="arrow-right" color="#d0d000" size="13px" text="累计收益￥0" align="right" data-event-opts="{{[['^click',[['shouyi']]]]}}" bind:click="__e" class="data-v-42a82e2c" bind:__l="__l"></u--text></view></view><view class="code data-v-42a82e2c"></view><text data-event-opts="{{[['tap',[['e0',['$event']]]]]}}" class="know data-v-42a82e2c" bindtap="__e">达人须知</text><u-popup vue-id="125e185a-3" show="{{show}}" mode="center" data-event-opts="{{[['^close',[['close']]],['^open',[['open']]]]}}" bind:close="__e" bind:open="__e" class="data-v-42a82e2c" bind:__l="__l" vue-slots="{{['default']}}"><view class="data-v-42a82e2c"><text class="data-v-42a82e2c">如何获得佣金?
+
+			自购返佣
+			达人购买分销商品，可享受自购省钱，核销后获得自购返佣;
+			分享返佣
+			达人分享分销商品，商品被购买并核销后，达人赚得分享返佣;
+
+			申请提现，多久到账?
+
+			10元起提，申请提现后，需由平台财务审核后打款至绑定账户。预计1-7个工作日到账。</text></view></u-popup></view>

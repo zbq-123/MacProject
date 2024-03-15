@@ -1,0 +1,441 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:61:"/www/wwwroot/hnqt.0898yzzx.com/tpl/admin/store/add_goods.html";i:1650446246;s:58:"/www/wwwroot/hnqt.0898yzzx.com/tpl/admin/public/popup.html";i:1649383380;s:57:"/www/wwwroot/hnqt.0898yzzx.com/tpl/admin/common/meta.html";i:1649388818;s:59:"/www/wwwroot/hnqt.0898yzzx.com/tpl/admin/common/script.html";i:1649383380;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:"圈圈食堂"); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/layui/css/layui.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>"  media="all">
+<link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+<link rel="stylesheet" href="/static/css/style.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+    
+</head>
+
+<body>
+<!--弹窗iframe基本布局-->
+<!--内容区域-->
+<div id="content"  class="main-body">
+    <div id="content-wrap">
+        <div class=" main-content">
+            
+<a class="layui-btn layui-btn-primary layui-btn-sm xu-icon-btn" href="<?php echo url('goods'); ?>"><i class="layui-icon">&#xe603;</i>返回</a>
+<fieldset class="layui-elem-field layui-field-title">
+
+    <legend>添加商品</legend>
+</fieldset>
+<form class="layui-form layui-form-edit" action="<?php echo url('add_goods'); ?>" method="post" lay-filter="newsForm">
+
+    <div class="layui-form-item">
+        <?php if(($is_root)): ?>
+        <label class="layui-form-label">所属校区</label>
+        <div class="layui-input-inline layui-form" lay-filter="campusSelect" >
+            <select name="campus_id" id="campusId" lay-filter="campusId" lay-verify="required"  lay-search>
+                <option value="">请选择校区</option>
+            </select>
+        </div>
+        <label class="layui-form-label">所属店铺</label>
+        <div class="layui-input-inline layui-form" lay-filter="storeSelect">
+            <select name="store_id" id="storeId" lay-filter="storeId" lay-verify="required"  lay-search>
+                <option value="">请选择店铺</option>
+            </select>
+        </div>
+        <?php endif; ?>
+        <label class="layui-form-label">商品编号</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="number" placeholder="请输入" lay-verify="bank_card|required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+
+        <label class="layui-form-label">商品名称</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="name" placeholder="请输入" lay-verify="bank_info|required" class="layui-input">
+        </div>
+
+    
+
+        <label class="layui-form-label">商品价格</label>
+        <div class="layui-input-inline" >
+            <input type="number" step="0.01" name="price" placeholder="请输入" lay-verify="ali_card|required" class="layui-input">
+        </div>
+
+        <label class="layui-form-label">商品单位</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="unit" placeholder="请输入" lay-verify="ali_name|required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">限购一次</label>
+        <div class="layui-input-inline" >
+            <input type="radio" name="is_only_one" placeholder="请输入" lay-verify="" class="layui-input" value="0" title="否" checked="">
+            <input type="radio" name="is_only_one" placeholder="请输入" lay-verify="" class="layui-input" value="1" title="是">
+        </div>
+        <div class="layui-form-item"></div>
+
+        <label class="layui-form-label">商品标签</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="tag" placeholder="请输入"  class="layui-input">
+        </div>
+        <label class="layui-form-label">商品状态</label>
+        <div class="layui-input-inline layui-form" lay-filter="fixedIdSelect">
+            <select name="status"  lay-verify="required" lay-filter="fixedId" lay-search>
+                <option value=""   style="width: 15%">请选择(可以输入搜索)</option>
+                <option value="1">上架</option>
+                <option value="2">下架</option>
+
+            </select>
+        </div>
+        <label class="layui-form-label">库存</label>
+        <div class="layui-input-inline" >
+            <input type="text" value="" name="stock" placeholder="请输入"  class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属分类</label>
+        <div class="layui-input-inline layui-form" lay-filter="navigationIdSelect">
+            <select name="goods_category_id" id="navigationId"  lay-filter="navigationId" lay-search>
+                <option value="">请选择(可以输入搜索)</option>
+            </select>
+        </div>
+    
+        <label class="layui-form-label">排序</label>
+        <div class="layui-input-inline" >
+            <input type="text" name="sort" placeholder="请输入"  class="layui-input">
+        </div>
+
+
+
+
+        <div class="layui-form-item"></div>
+        <div class="layui-form-item" id="titlePicture1">
+            <label class="layui-form-label">图片</label>
+            <div class="layui-input-inline">
+                <div class="layui-upload-drag xu-upload" id="picture1" style="display: none;">
+                    <i class="layui-icon">&#xe67c;</i>
+                    <p>点击上传</p>
+                </div>
+            </div>
+            <input type="hidden"  name="image">
+        </div>
+        <div class="layui-form-item guige">
+			<div class="layui-form-item">
+			    <div class="layui-input-block">
+                    <button id="show_tag" type="button" class="layui-btn">显示规格</button>
+                    <button id="hide_tag" type="button" class="layui-btn" style="display: none;">隐藏规格</button>
+			        <button id="add_tag" type="button" class="layui-btn" style="display: none;">添加规格</button>
+			    </div>
+			</div>
+			<div class="layui-form-item" style="padding-left: 110px;">
+			    <table id="sepc_table"  class="layui-table" lay-size="sm" style="margin-bottom: 20px;display: none;" >
+			        <thead>
+			            <tr>
+			                <th>规格分类1</th>
+			                <th>规格分类2</th>
+			                <th>规格分类3</th>
+			                <th>规格分类4</th>
+			                <th>销售价</th>
+			                <th>库存</th>
+			                <th>操作</th>
+			            </tr>
+			        </thead>
+			        <tr data_index="-1">
+			            <td>
+			                <select id="spec_id1" name="add_tag[spec_id1]" class="layui-btn-xs" lay-filter="spec_id1" lay-search>
+			                    <option value="">请选择规格名称</option>
+			                    <?php foreach($spec as $v2): ?>
+                                    <option value="<?php echo $v2['id']; ?>-<?php echo $v2['name']; ?>"><?php echo $v2['name']; ?></option>
+                                <?php endforeach; ?>
+			                </select>
+			            </td>
+			            <td>
+			                <select id="spec_id2"  name="add_tag[spec_id2]" class="layui-btn-xs" lay-filter="spec_id2"  lay-search>
+			                    <option value="">请选择(可以输入搜索)</option>
+			                    <?php foreach($spec as $v2): ?>
+                                    <option value="<?php echo $v2['id']; ?>-<?php echo $v2['name']; ?>"><?php echo $v2['name']; ?></option>
+                                <?php endforeach; ?>
+			                   
+			                </select>
+			            </td>
+			            <td>
+			                <select id="spec_id3"  name="add_tag[spec_id3]" class="layui-btn-xs" lay-filter="spec_id3"  lay-search>
+			                    <option value="">请选择(可以输入搜索)</option>
+			                   <?php foreach($spec as $v2): ?>
+                                    <option value="<?php echo $v2['id']; ?>-<?php echo $v2['name']; ?>"><?php echo $v2['name']; ?></option>
+                                <?php endforeach; ?>
+			                   
+			                </select>
+			            </td>
+			            <td>
+			                <select id="spec_id4"  name="add_tag[spec_id4]" class="layui-btn-xs" lay-filter="spec_id4"  lay-search>
+			                    <option value="">请选择(可以输入搜索)</option>
+			                   <?php foreach($spec as $v2): ?>
+                                    <option value="<?php echo $v2['id']; ?>-<?php echo $v2['name']; ?>"><?php echo $v2['name']; ?></option>
+                                <?php endforeach; ?>
+			                   
+			                </select>
+			            </td>
+			            <td></td>
+			            <td></td>
+						<td></td>
+			        </tr>
+			        <tr data_index="0">
+			            <td>
+			                <input type="text" name="add_tag[goods_spec][0][key1]" placeholder="请输入"  class="layui-input spec_classify1">
+			            </td>
+			            <td>
+			                <input type="text" name="add_tag[goods_spec][0][key2]" placeholder="请输入"  class="layui-input spec_classify2">
+			            </td>
+			            <td>
+			                <input type="text" name="add_tag[goods_spec][0][key3]" placeholder="请输入"  class="layui-input spec_classify3">
+			            </td>
+			            <td>
+			                <input type="text" name="add_tag[goods_spec][0][key4]" placeholder="请输入"  class="layui-input spec_classify4">
+			            </td>
+			            <td>
+			                <input type="text" name="add_tag[goods_spec][0][price]" placeholder="请输入"  class="layui-input layui-btn-xs">
+			            </td>
+			            <td>
+			                <input type="text" name="add_tag[goods_spec][0][store_count]" placeholder="请输入"  class="layui-input spec_storage" >
+			            </td>
+			            <td>
+			                <a class="layui-btn layui-btn-sm layui-btn-danger del" href="javascript:;" type="button" title="删除" >删除</a>
+			            </td>
+			        </tr>
+			    </table>
+			</div>
+		</div>
+        
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="save">保存</button>
+                <!--        <button class="layui-btn layui-btn-primary" lay-submit lay-filter="audit">提交审核</button>-->
+                <button class="layui-btn layui-btn-primary" lay-submit lay-filter="cancel">取消</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+        </div>
+    </div>
+</div>
+<script src="/static/layui/layui.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/common.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/echarts.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/js/' //layui全局设置
+        ,version: '<?php echo \think\Config::get('web_config.site_version'); ?>'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+<script type="text/javascript"
+        src="/static/ueditor/ueditor.config.js?version=<?php echo \think\Config::get('web_config.site_version'); ?>"></script>
+<script type="text/javascript"
+        src="/static/ueditor/ueditor.all.js?version=<?php echo \think\Config::get('web_config.site_version'); ?>"></script>
+<script>
+    layui.use(['element', 'form', 'upload', 'xlp'], function () {
+        var $ = layui.jquery, element = layui.element, form = layui.form, upload = layui.upload, xlp = layui.xlp;
+
+
+        //自定义验证规则
+        form.verify({
+            name: function(value){
+                if(value.length > 100 ){
+                    return '限制100个字符且不为空';
+                }
+            }
+
+        });
+
+        //输入图片上传按钮序号初始化上传组件
+
+
+        upload.render({
+            elem: '#picture1'
+            , url: "<?php echo url('upload/goods'); ?>"
+            , size: 2048
+            , done: function (res, index, upload) {
+                if (res.code == 200) {
+                    $("#titlePicture1").find("input[name='image']").eq(1 - 1).val(res.data);
+                    $("#picture1" ).html("<img src='" + res.data + "' width='138' height='95'>");
+                    $("#picture1" ).css({"padding": "0"});
+                }
+
+                //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
+                var item = this.item;
+            }
+        });
+        $("#picture1" ).css({"display": "inline-block"});
+
+        //获取筛选条件的所有校区
+        xlp.getHttp("<?php echo url('api/get_campus'); ?>", {}, function (res) {
+            $("#campusId").html('<option value="">请选择校区</option>');
+            layui.each(res, function (i) {
+                $("#campusId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                form.render("select", "campusSelect");
+            })
+        });
+
+        //获取筛选条件的所有店铺
+        xlp.getHttp("<?php echo url('api/get_store'); ?>", {}, function (res) {
+            $("#storeId").html('<option value="">请选择店铺</option>');
+            layui.each(res, function (i) {
+                $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "storeSelect");
+            })
+        });
+
+        form.on('select(storeId)', function (data) {
+            xlp.getHttp("<?php echo url('api/all_category'); ?>", {
+                store_id: data.value,
+            }, function (res) {
+
+                $("#navigationId").html('<option value="">请选择分类</option>');
+                layui.each(res, function (i) {
+                    $("#navigationId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                    form.render("select", "navigationIdSelect");
+                })
+                form.render();
+            })
+        });
+
+        form.on('select(campusId)', function (data) {
+            xlp.getHttp("<?php echo url('api/get_store'); ?>", {
+                campus_id: data.value,
+            }, function (res) {
+
+                $("#storeId").html('<option value="">请选择</option>');
+                layui.each(res, function (i) {
+                    $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                    form.render("select", "storeSelect");
+                })
+                form.render();
+            })
+        });
+
+        xlp.getHttp("<?php echo url('api/all_category'); ?>?store_id=<?php echo $store_id; ?>", {}, function (res) {
+            $("#navigationId").html('<option value="">请选择(可以输入搜索)</option>');
+            layui.each(res, function (i) {
+                $("#navigationId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "navigationIdSelect");
+            })
+        });
+
+        form.on("submit(cancel)", function (data) {
+            location.href = "<?php echo url('news_column'); ?>";
+            return false;
+        });
+        function add_tag(){
+		    var num=parseInt($("#sepc_table tr").last().attr('data_index'))+1;
+		    num=isNaN(num)?0:num;
+		
+		    var content = '';
+		    
+		    content+='<tr data_index="'+num+'">';
+		    content+='<td>';
+		    content+='<input type="text" name="add_tag[goods_spec]['+num+'][key1]" placeholder="请输入"  class="layui-input spec_classify1">';
+		    content+='</td>';
+		    content+='<td>';
+		    content+='<input type="text" name="add_tag[goods_spec]['+num+'][key2]" placeholder="请输入" class="layui-input spec_classify2">';
+		    content+='</td>';
+		    content+='<td>';
+		    content+='<input type="text" name="add_tag[goods_spec]['+num+'][key3]" placeholder="请输入" class="layui-input spec_classify3">';
+		    content+='</td>';
+		    content+='<td>';
+		    content+='<input type="text" name="add_tag[goods_spec]['+num+'][key4]" placeholder="请输入" class="layui-input spec_classify4">';
+		    content+='</td>';
+		    content+='<td>';
+		    content+='<input type="text" name="add_tag[goods_spec]['+num+'][price]" placeholder="请输入" class="layui-input layui-btn-xs">';
+		    content+='</td>';
+		    content+='<td>';
+		    content+='<input type="text" name="add_tag[goods_spec]['+num+'][store_count]" placeholder="请输入"  class="layui-input spec_storage">';
+		    content+='</td>';
+		    content+='<td>';
+		    content+='<a class="layui-btn layui-btn-sm layui-btn-danger del" href="javascript:;" type="button" title="删除" >删除</a>';
+		    content+='</td>';
+		    content+='</tr>';
+		
+		    num++;
+		    $('#sepc_table').append(content);
+		    // 删除规格
+		    $(".del").on("click",function(){
+		        delete_data(this)
+		    })
+		    // renderForm();
+            $('#content').height += 20
+		}
+		
+		$("#add_tag").on("click",function(){
+		   add_tag();
+		   // console.log(window)
+		    xlp.iframeLoaded(parent.document.getElementById("content-iframe"));
+		})
+        $("#show_tag").on("click",function(){
+           $(this).hide();
+           $('#hide_tag').show();
+           $('#add_tag').show();
+           $('#sepc_table').show();
+        })
+        $("#hide_tag").on("click",function(){
+           $(this).hide();
+           $('#show_tag').show();
+           $('#add_tag').hide();
+           $('#sepc_table').hide();
+        })
+		
+		// 删除规格
+		$(".del").on("click",function(){
+		    delete_data(this)
+		})
+		
+		function delete_data(obj){
+		    $(obj).parent().parent().remove();
+		}
+		
+    })
+
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test2' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test3' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test4' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test5' //指定元素
+            ,type: 'time'
+        });
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test6' //指定元素
+            ,type: 'time'
+        });
+    });
+</script>
+
+</body>
+</html>

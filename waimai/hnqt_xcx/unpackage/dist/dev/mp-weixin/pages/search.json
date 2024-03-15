@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "搜索结果",
+  "navigationBarBackgroundColor": "#f7dd93",
+  "onReachBottomDistance": 50,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar"
+  }
+}

@@ -1,0 +1,266 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:62:"/www/wwwroot/jpgy.0898yzzx.com/tpl/admin/order/inspection.html";i:1646644294;s:64:"/www/wwwroot/jpgy.0898yzzx.com/tpl/admin/public/public_main.html";i:1623240195;s:57:"/www/wwwroot/jpgy.0898yzzx.com/tpl/admin/common/meta.html";i:1646642551;s:59:"/www/wwwroot/jpgy.0898yzzx.com/tpl/admin/common/script.html";i:1623240197;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title><?php echo (isset($title) && ($title !== '')?$title:"圈圈海软食堂"); ?></title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/layui/css/layui.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>"  media="all">
+<link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+<link rel="stylesheet" href="/static/css/style.css?v=<?php echo \think\Config::get('web_config.site_version'); ?>">
+    
+</head>
+
+<body class="layui-layout-body">
+<!--内容主题区域-->
+<div id="content"  class="main-body">
+    <div style="padding: 15px;" id="content-wrap">
+        <p>
+                <span class="layui-breadcrumb">
+                <?php if(is_array($breadcrumb) || $breadcrumb instanceof \think\Collection || $breadcrumb instanceof \think\Paginator): $i = 0; $__LIST__ = $breadcrumb;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bread): $mod = ($i % 2 );++$i;?>
+                <a><cite><?php echo $bread; ?></cite></a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </span>
+        </p>
+
+        <div class=" main-content">
+            
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>食堂销售平台按日汇总</legend>
+</fieldset>
+<style>
+    tr,td{
+        border-color:#000000!important;color: #000000;
+    }
+</style>
+<!--headToolBar-->
+<div class="tip-btn-line">
+    <div class="layui-btn layui-btn-sm xu-icon-btn" onclick="javascript: location.reload();"><i class="layui-icon">&#xe669; </i>刷新</div>
+    <a class="layui-btn layui-btn-sm xu-icon-btn layui-bg-blue" id="produceBtn" ><i class="layui-icon">&#xe67d; </i>导出报表</a>
+    <a class="layui-btn layui-btn-sm xu-icon-btn layui-bg-blue" onclick="print_mx('table_report_print');"><i class="layui-icon">&#xe66d; </i>打印报表</a>
+
+    <form action="" class="layui-form search-form">
+        <div class="layui-input-inline layui-form">
+            <input type="text" class="layui-input" autocomplete="off" name="select_time" value="<?php echo $select_time; ?>" id="test10" placeholder="选择统计时间范围">
+        </div>
+        <div class="layui-input-inline layui-form" lay-filter="campusSelect">
+            <select name="campus_id" id="campusId" lay-filter="campusId"  lay-search>
+                <option value="0">所有校区</option>
+            </select>
+        </div>
+        <div class="layui-inline">
+            <div class="layui-input-inline layui-form" lay-filter="storeSelect">
+                <select name="store_id" id="storeId" lay-filter="storeId"  lay-search>
+                    <option value="0">所有店铺</option>
+                </select>
+            </div>
+            <button class="layui-btn layui-btn-primary" lay-submit lay-filter="search"><i class="layui-icon">&#xe615;</i>筛选</button>
+        </div>
+    </form>
+
+</div>
+
+<div id="table_report_print" class="layui-form" style="width: 200mm;margin: auto;margin-top: 60px;">
+    <div style="text-align: center;font-size: 7mm;">圈圈海软食堂平台按日汇总表</div>
+    <div style="text-align: right;font-size: 4mm;padding-right: 11mm;line-height: 11mm;margin-top: 5mm;">单位：元</div>
+    <table class="layui-table" style="margin-top: 0px;text-align: center;">
+        <colgroup>
+            <col width="15%">
+            <col width="15%">
+            <col width="11%">
+            <col width="13%">
+            <col width="11%">
+            <col width="11%">
+            <col width="11%">
+            <col width="13%">
+            <col>
+        </colgroup>
+        <tr>
+            <td>交易时间</td>
+            <td>商户名称</td>
+            <td>交易<br>笔数</td>
+            <td>交易金额</td>
+            <td>平台<br>开发费1%</td>
+            <td>系统运行安全维护费2%</td>
+            <td>在线支付手续率0.6%</td>
+            <td>实际入账<br>金额</td>
+        </tr>
+
+        <?php if(is_array($data['data']) || $data['data'] instanceof \think\Collection || $data['data'] instanceof \think\Paginator): $i = 0; $__LIST__ = $data['data'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+
+        <tr>
+            <td><?php echo $vo['date']; ?></td>
+            <td><?php echo $vo['store_name']; ?></td>
+            <td><?php echo $vo['order_count']; ?></td>
+            <td><?php echo $vo['total_price']/100; ?></td>
+            <td><?php echo $vo['develop_price']/100; ?></td>
+            <td><?php echo $vo['manage_price']/100; ?></td>
+            <td><?php echo $vo['pay_manage_price']/100; ?></td>
+            <td><?php echo $vo['store_price']/100; ?></td>
+        </tr>
+
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+        <tr>
+            <td colspan="2">合计</td>
+            <td><?php echo $data['count']['order_count']; ?></td>
+            <td><?php echo $data['count']['total_price']/100; ?></td>
+            <td><?php echo $data['count']['develop_price']/100; ?></td>
+            <td><?php echo $data['count']['manage_price']/100; ?></td>
+            <td><?php echo $data['count']['pay_manage_price']/100; ?></td>
+            <td><?php echo $data['count']['store_price']/100; ?></td>
+        </tr>
+    </table>
+    <div>
+        <span style="margin-right: 30mm;">制表：</span>
+        <!-- <span style="margin-right: 11mm;">系统复核：</span> -->
+        <span style="margin-right: 30mm;">核对人（平台维护人员）：</span>
+        <span style="margin-right: 30mm;">食堂经理：</span>
+        <span style="margin-right: 30mm;">主任：</span>
+        <span style="margin-right: 30mm;">分管领导：</span>
+        <span style="margin-right: 30mm;">审核：</span>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<script src="/static/layui/layui.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/common.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script src="/static/js/echarts.js?v=<?php echo \think\Config::get('web_config.site_version'); ?>" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '/static/js/' //layui全局设置
+        ,version: '<?php echo \think\Config::get('web_config.site_version'); ?>'
+    });
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+
+
+<script>
+    layui.use(['element', 'layer', 'table', 'form', 'xlp', 'laydate'], function () {
+        var $ = layui.jquery, element = layui.element, table = layui.table, layer = layui.layer, form = layui.form,
+            xlp = layui.xlp, laydate = layui.laydate;
+
+
+        var campus_id = eval(<?php echo $campus_id; ?>);
+
+        var store_id = eval(<?php echo $store_id; ?>);
+
+        var select_time = eval(<?php echo $select_time; ?>);
+
+        var noclick = true;
+
+        //日期时间范围
+        laydate.render({
+            elem: '#test10'
+            ,type: 'date'
+            //,range: '~'
+            ,
+        });
+
+        //年月选择器
+        laydate.render({
+            elem: '#test3'
+            , range: true //或 range: '~' 来自定义分割字符
+            , type: 'datetime'
+            , done: function (value, date, endDate) {
+                var values = value;
+                self.location.href = "<?php echo url('inspection'); ?>?start_time=" + values;
+            }
+        });
+
+        $("#produceBtn").on('click', function () {
+            xlp.startLoading();
+            var times = $("#test3").val();
+            xlp.postHttp("<?php echo url('produce_doc'); ?>", {
+                'campus_id': campus_id,
+                'store_id': store_id,
+                'select_time': select_time,
+            }, function (res) {
+                xlp.closeLoading();
+                layer.msg("导出报表生成成功，请下载");
+                location.href = res;
+            }, function (res) {
+                xlp.closeLoading();
+                layer.msg("请求失败，请重试");
+            })
+        });
+
+        //获取筛选条件的所有校区
+        xlp.getHttp("<?php echo url('api/get_campus'); ?>", {}, function (res) {
+            $("#campusId").html('<option value="0">所有校区</option>');
+            layui.each(res, function (i) {
+                $("#campusId").append("<option value=" + res[i].id + ">" + res[i].name  + "</option>");
+                form.render("select", "campusSelect");
+            })
+
+            if (campus_id) {
+                $('select[name="campus_id"]').next().find('.layui-select-title input').click();
+                $('select[name="campus_id"]').next().find('.layui-anim').children('dd[lay-value=' + campus_id + ']').click();
+            }
+        });
+
+        //获取筛选条件的所有店铺
+        xlp.getHttp("<?php echo url('api/get_store'); ?>", {}, function (res) {
+            $("#storeId").html('<option value="0">所有店铺</option>');
+            layui.each(res, function (i) {
+                $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                form.render("select", "storeSelect");
+            })
+
+            if (store_id) {
+                $('select[name="store_id"]').next().find('.layui-select-title input').click();
+                $('select[name="store_id"]').next().find('.layui-anim').children('dd[lay-value=' + store_id + ']').click();
+            }
+        });
+
+        form.on('select(campusId)', function (data) {
+            xlp.getHttp("<?php echo url('api/get_store'); ?>", {
+                campus_id: data.value,
+            }, function (res) {
+                $("#storeId").html('<option value="0">所有店铺</option>');
+                layui.each(res, function (i) {
+                    $("#storeId").append("<option value=" + res[i].id + ">" + res[i].name + "</option>");
+                    form.render("select", "storeSelect");
+                })
+
+                if (noclick && store_id) {
+                    $('select[name="store_id"]').next().find('.layui-select-title input').click();
+                    $('select[name="store_id"]').next().find('.layui-anim').children('dd[lay-value=' + store_id + ']').click();
+                    noclick = false;
+                }
+            })
+        });
+
+        var form = layui.form;
+        //监听提交
+        form.on('submit(search)', function(data){
+            xlp.startLoading();
+            return true;
+        });
+
+    });
+
+
+    //打印明细单
+    function print_mx(printpage) {
+        var headstr = "<html><head><title></title></head><style> tr,td{border-color:#000000!important;color: #000000;}</style><body>";
+        var footstr = "</body>";
+        var newstr = document.all.item(printpage).innerHTML;
+        var oldstr = document.body.innerHTML;
+        document.body.innerHTML = headstr + newstr + footstr;
+        window.print();
+        document.body.innerHTML = oldstr;
+        return false;
+    }
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+{extend name="public/public_main" /}
+{block name="content"}
+<form class="layui-form" action="" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">权限组名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" placeholder="请输入" value="{$group['title']}" autocomplete="off" lay-verify="required" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">权限</label>
+        <ul class="layui-input-block" style="display: table;">
+            {volist name="rule_data" id="rule"}
+            <li style="display: table-row;">
+            <input type="checkbox" name="rules[]" title="{$rule['title']}" lay-filter="parent" lay-skin="primary" value="{$rule['id']}" {if condition="in_array($rule['id'],$group['rules'])"}checked{/if}>
+                <ul class="" style="display: table;">
+                    {volist name="rule['_data']" id="r"}
+                    <li style="display: table-row">{notempty name="rule['_data']"}<span>&nbsp;&nbsp;&brvbar;--&nbsp;</span>{/notempty}
+                    <input type="checkbox" name="rules[]" title="{$r['title']}" lay-skin="primary" lay-filter="child" value="{$r['id']}" {if condition="in_array($r['id'],$group['rules'])"}checked{/if}>
+                        <ul class="" style="display: table;">
+                            {notempty name="r['_data']"}<span>&nbsp;&nbsp;&brvbar;----|&nbsp;</span>{/notempty}
+                            {volist name="r['_data']" id="i"}
+                            <li style="display: table-cell">
+                                <input type="checkbox" name="rules[]" title="{$i['title']}" lay-skin="primary" value="{$i['id']}" {if condition="in_array($i['id'],$group['rules'])"}checked{/if}>
+                            </li>
+                            {/volist}
+                        </ul>
+                    </li>
+                    {/volist}
+                </ul>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">状态</label>
+        <div class="layui-input-block">
+            <input type="radio" name="status" value="1" title="正常" {eq name="group['status']" value="1"}checked{/eq}>
+            <input type="radio" name="status" value="0" title="禁用" {eq name="group['status']" value="0"}checked{/eq}>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+{/block}
+{block name="script"}
+<script>
+    layui.use(['element', 'form'], function () {
+        var $ = layui.$, element = layui.element, form = layui.form;
+
+        form.on('checkbox(parent)', function(data){
+            $(data.elem).parent().eq(0).find("input[type='checkbox']").prop("checked", data.elem.checked);
+            if (data.elem.checked) {
+                $(data.elem).parent().eq(0).find('.layui-form-checkbox').addClass("layui-form-checked");
+            }else {
+                $(data.elem).parent().eq(0).find('.layui-form-checkbox').removeClass("layui-form-checked");
+            }
+        });
+        form.on('checkbox(child)', function(data){
+            $(data.elem).parent().eq(0).find("input[type='checkbox']").prop("checked", data.elem.checked);
+            if (data.elem.checked) {
+                $(data.elem).parent().eq(0).find('.layui-form-checkbox').addClass("layui-form-checked");
+            }else {
+                $(data.elem).parent().eq(0).find('.layui-form-checkbox').removeClass("layui-form-checked");
+            }
+        });
+        reSetIframeHeight();
+    })
+</script>
+{/block}
